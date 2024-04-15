@@ -13,3 +13,4 @@
 * [OSDR Public API](osdr-public-api.md)
 * [Metadata visualisation tool example made using API](metadata-visualisation-tool-example-made-using-api.md)
 * [NASA Biological Institutional Scientific Collection (NBISC)](nasa-biological-institutional-scientific-collection-nbisc.md)
+* [notebooks](notebooks.ipynb)

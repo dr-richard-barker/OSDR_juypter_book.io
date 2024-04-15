@@ -16,6 +16,6 @@ chapters:
 - file: osdr-data-visualization-portal.md
 - file: osdr-public-api.md
 - file: radlab-overview.md
-- file: notebooks
+- file: notebooks.piynb
 
 

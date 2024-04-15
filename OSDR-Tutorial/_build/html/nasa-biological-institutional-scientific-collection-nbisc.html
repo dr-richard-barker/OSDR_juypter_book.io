@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>NASA Biological Institutional Scientific Collection (NBISC) &#8212; Open Science Data Repository (OSDR) Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nasa-biological-institutional-scientific-collection-nbisc';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Open Science Abbreviations" href="open-science-abbreviations.html" />
+    <link rel="prev" title="Multi-study Page Overview" href="multi-study-page-overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environmental-data-for-space-biology-experiments.html">Environmental Data for Space Biology Rodent Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines-for-data-submission.html">Data Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access-data-in-the-osdr.html">Access data in the OSDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-visualisation-tool-example-made-using-api.html">Metadata visualisation tool example made using API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-study-example-osd-37-and-osd-38-and-osd-120-and-osd-321.html">Multi-study example OSD-37 &amp; OSD-38 &amp; OSD-120 &amp; OSD-321</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-study-page-overview.html">Multi-study Page Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">NASA Biological Institutional Scientific Collection (NBISC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open-science-abbreviations.html">Open Science Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osdr-data-visualization-portal.html">OSDR Data Visualization Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osdr-public-api.html">OSDR Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radlab-overview.html">RadLab Overview</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnasa-biological-institutional-scientific-collection-nbisc.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/nasa-biological-institutional-scientific-collection-nbisc.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NASA Biological Institutional Scientific Collection (NBISC)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-biospecimens-and-materials-are-available">What Biospecimens and Materials are available?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nbisc-announces-the-arrival-of-the-nasa-space-microbial-culture-collection">NBISC announces the arrival of the NASA Space Microbial Culture Collection!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-request-biospecimens-and-materials">Who can request Biospecimens and Materials?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-request-biospecimens-and-materials">How do I request Biospecimens and Materials?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-samples-get-awarded">How do samples get awarded?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-funding-opportunities">Are there funding opportunities?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-learn-more-about-the-knowledge-gaps-and-literature-background-regarding-the-field-of-space-biosciences">How can I learn more about the knowledge gaps and literature background regarding the field of space biosciences?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">Contact</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="nasa-biological-institutional-scientific-collection-nbisc">
+<h1>NASA Biological Institutional Scientific Collection (NBISC)<a class="headerlink" href="#nasa-biological-institutional-scientific-collection-nbisc" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+</section>
+<section id="what-biospecimens-and-materials-are-available">
+<h2>What Biospecimens and Materials are available?<a class="headerlink" href="#what-biospecimens-and-materials-are-available" title="Link to this heading">#</a></h2>
+<p>Since 1995, NBISC has fostered gravitational biology research by providing access to these rare and unique samples to maximize the scientific return. Samples not utilized by primary investigations are preserved and made available through an open-science approach. Historically, these samples have been used in a wide range of analyses, including histology, genomics, and transcriptomics.</p>
+<p>Biological tissues are predominantly from mice and rats, with some available from quail. Tissues are from musculoskeletal, neurosensory, reproductive, respiratory, circulatory, and digestive systems and stored at -80°C, -20°C, +4°C, or ambient, depending on the preservation method. SMCC materials collected from the air, surfaces, and water from spaceflight missions and related ground studies are similarly stored to maintain viability. Detailed metadata is available for all tissues and materials.</p>
+<figure><img src="https://osdr.nasa.gov/bio/images/about-nbisc-side-figure.jpg" alt="" width="375"><figcaption></figcaption></figure>
+</section>
+<section id="nbisc-announces-the-arrival-of-the-nasa-space-microbial-culture-collection">
+<h2>NBISC announces the arrival of the NASA Space Microbial Culture Collection!<a class="headerlink" href="#nbisc-announces-the-arrival-of-the-nasa-space-microbial-culture-collection" title="Link to this heading">#</a></h2>
+<p>The NASA SMCC is a repository for collections of space microbes originated by NASA scientists and research PIs and offers digital (genomic, phenotypic, and rich metadata) and physical formats (the isolates themselves) of space microbes which can be requested for non-commercial research purposes.</p>
+<p>The NASA SMCC strives to offer a trustworthy, dependable and protect service for storage of important microbial collections. Collections entrusted to the care of the SMCC will have a dedicated and knowledgeable microbiologist monitoring and maintaining all isolates. comes in. Each collection is protected with backup power systems in a lab dedicated to the task. Collections will be protected from contamination in an environment set up specifically to be a sterile micro lab with systems for sanitization and decontamination.</p>
+<p>Collections will be housed in controlled environments that are routinely audited for quality. Systems involving cataloging data and physical locations as well as regular confirmatory sequencing to verify identity and check for contamination will be implemented. Collections will be secure in responsive environments, the main “vaults” of lyophilized samples can respond to external changes and drop internal humidity.</p>
+<p>SMCC has set up ultra-low temperature storage and will keep stocks of isolates in chest freezers on backup power. Locally, lyophilized samples will be maintained in environmentally controlled vaults that are easily moved and responsive in the event of changing external conditions.</p>
+<p>To find out more about submitting a gravitational or space-associated microorganismal collection to the NASA SMCC or requesting isolates please contact <a class="reference external" href="mailto:mo&#46;kaze&#37;&#52;&#48;nasa&#46;gov">mo<span>&#46;</span>kaze<span>&#64;</span>nasa<span>&#46;</span>gov</a> for more information.</p>
+</section>
+<section id="who-can-request-biospecimens-and-materials">
+<h2>Who can request Biospecimens and Materials?<a class="headerlink" href="#who-can-request-biospecimens-and-materials" title="Link to this heading">#</a></h2>
+<p>Samples are available for request by all researchers, including those outside the United States. While they are most often requested by researchers in the space biosciences field, they may also be of interest to those involved in general, interdisciplinary research and those studying disease processes, such as muscle atrophy and bone demineralization. Educators from middle and high schools, and community colleges are encouraged to request samples for in-classroom instruction or specialized student projects.</p>
+</section>
+<section id="how-do-i-request-biospecimens-and-materials">
+<h2>How do I request Biospecimens and Materials?<a class="headerlink" href="#how-do-i-request-biospecimens-and-materials" title="Link to this heading">#</a></h2>
+<p>Samples are searchable through the <a class="reference external" href="https://nlsp.nasa.gov/explore/lsdahome">NASA Life Sciences Portal </a>To request, the researcher must first submit an online <a class="reference external" href="https://nlsp.nasa.gov/explore/lsdahome/datarequest">Request </a>Form. Once the request is received, a confirmation reply will be sent to the email address provided. When availability of the samples is confirmed, the requestor will be sent instructions for preparing a 2-3 page proposal.</p>
+</section>
+<section id="how-do-samples-get-awarded">
+<h2>How do samples get awarded?<a class="headerlink" href="#how-do-samples-get-awarded" title="Link to this heading">#</a></h2>
+<p>Proposals are assessed based on merit, taking into account the significance, experimental design, innovation of the proposed research, the requestor’s expertise and contribution to the field, and the scientific environment in which the research will take place. Requestors are expected to be fully funded to analyze the samples. If samples are awarded, a Data Submission Agreement (DSA) is required and will be prepared by NBISC. Samples are shipped to the requestor upon receipt of the signed DSA. Acceptance of the samples commits the requestor to provide results of the study (raw and analyzed data) and a final report. Any publications resulting from the study must be appropriately attributed to NASA.</p>
+</section>
+<section id="are-there-funding-opportunities">
+<h2>Are there funding opportunities?<a class="headerlink" href="#are-there-funding-opportunities" title="Link to this heading">#</a></h2>
+<p>NASA also solicits proposals for research using NBISC samples. On these occasions, the Biological and Physical Sciences division issues a call for proposals, reviews submitted proposals for scientific merit, technical feasibility, and program relevance, and makes selections. Current NASA funding opportunities can be found on <a class="reference external" href="https://nspires.nasaprs.com/external/">NASA’s Solicitation and Proposal Integrated Review and Evaluation System (NSPIRES) website </a>.</p>
+</section>
+<section id="how-can-i-learn-more-about-the-knowledge-gaps-and-literature-background-regarding-the-field-of-space-biosciences">
+<h2>How can I learn more about the knowledge gaps and literature background regarding the field of space biosciences?<a class="headerlink" href="#how-can-i-learn-more-about-the-knowledge-gaps-and-literature-background-regarding-the-field-of-space-biosciences" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.nasa.gov/sites/default/files/atoms/files/nasa-sp-2015-625.pdf">Translational Cell and Animal Research in Space, Ames Research Center, 1965-2011 </a>summarizes 46 years of cell and animal research in space funded investigations by the Space Biology Program. This publication includes one-page experiment descriptions organized by science discipline. Each experiment description page provides information on the investigator team, research subjects, ground-based controls, flight hardware, and select publications.</p>
+<p>In 2011, the National Research Council published the most recent ‘Decadal Survey’: <a class="reference external" href="https://www.nap.edu/catalog/13048/recapturing-a-future-for-space-exploration-life-and-physical-sciences">Recapturing a Future for Space Exploration Life and Physical Sciences Research for a New Era </a>. The Decadal Survey was commissioned by the U.S. Congress to survey the extramural scientific community on the kinds of life and physical sciences research NASA should be undertaking to enable space exploration, both in Low Earth Orbit and beyond to the Moon and Mars. It summarizes and offers recommendations for needed human, animal, cell, microbial, plant, and other types of research.</p>
+<p>Ongoing studies carried out by NASA’s Human Research Program (HRP) generate a constant stream of exciting new data, findings, and breakthroughs. Periodically, HRP <a class="reference external" href="https://humanresearchroadmap.nasa.gov/Evidence/">Evidence Reports </a>are published as evidence-based reviews of the current state of knowledge from research and operations for each of the identified human health and performance risks.</p>
+<p>Search for specific types of biospecimen</p>
+<p>{% embed url=”<a class="reference external" href="https://nlsp.nasa.gov/search/">https://nlsp.nasa.gov/search/</a>” %}</p>
+<p>Explore biospecimens options</p>
+<p>{% embed url=”<a class="reference external" href="https://nlsp.nasa.gov/explore/mtable/lsda_biospecimen/lsda_biospecimen">https://nlsp.nasa.gov/explore/mtable/lsda_biospecimen/lsda_biospecimen</a>” %}
+<a class="reference external" href="https://nlsp.nasa.gov/explore/mtable/lsda_biospecimen/lsda_biospecimen">https://nlsp.nasa.gov/explore/mtable/lsda_biospecimen/lsda_biospecimen</a>
+{% endembed %}</p>
+<p>Search for information on specific flight hardware</p>
+<p>{% embed url=”<a class="reference external" href="https://nlsp.nasa.gov/explore/mtable/lsda_hardware/lsda_hardware">https://nlsp.nasa.gov/explore/mtable/lsda_hardware/lsda_hardware</a>” %}</p>
+<p>Search for information on specific missions </p>
+<p>{% embed url=”<a class="reference external" href="https://nlsp.nasa.gov/explore/mtable/lsda_mission/lsda_mission">https://nlsp.nasa.gov/explore/mtable/lsda_mission/lsda_mission</a>” %}</p>
+<section id="contact">
+<h3>Contact<a class="headerlink" href="#contact" title="Link to this heading">#</a></h3>
+<p>Contact the NBISC at <a class="reference external" href="mailto:ARC-DL-NBISC&#37;&#52;&#48;mail&#46;nasa&#46;gov">ARC-DL-NBISC<span>&#64;</span>mail<span>&#46;</span>nasa<span>&#46;</span>gov</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="multi-study-page-overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Multi-study Page Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="open-science-abbreviations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Open Science Abbreviations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-biospecimens-and-materials-are-available">What Biospecimens and Materials are available?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nbisc-announces-the-arrival-of-the-nasa-space-microbial-culture-collection">NBISC announces the arrival of the NASA Space Microbial Culture Collection!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-can-request-biospecimens-and-materials">Who can request Biospecimens and Materials?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-request-biospecimens-and-materials">How do I request Biospecimens and Materials?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-samples-get-awarded">How do samples get awarded?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#are-there-funding-opportunities">Are there funding opportunities?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-learn-more-about-the-knowledge-gaps-and-literature-background-regarding-the-field-of-space-biosciences">How can I learn more about the knowledge gaps and literature background regarding the field of space biosciences?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">Contact</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

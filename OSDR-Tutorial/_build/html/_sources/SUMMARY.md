@@ -1,6 +1,4 @@
-# Welcome to your Jupyter Book
-
-```{# Table of contents
+# Table of contents
 
 * [Open Science Data Repository (OSDR) Tutorial Introduction](README.md)
 * [NASA OSDR home page](nasa-osdr-home-page.md)
@@ -14,5 +12,5 @@
 * [Multi-study example OSD-37 & OSD-38 & OSD-120 & OSD-321](multi-study-example-osd-37-and-osd-38-and-osd-120-and-osd-321.md)
 * [OSDR Public API](osdr-public-api.md)
 * [Metadata visualisation tool example made using API](metadata-visualisation-tool-example-made-using-api.md)
-* [NASA Biological Institutional Scientific Collection (NBISC)](nasa-biological-institutional-scientific-collection-nbisc.md)}
-```
+* [NASA Biological Institutional Scientific Collection (NBISC)](nasa-biological-institutional-scientific-collection-nbisc.md)
+* [notebooks](notebooks.ipynb)
