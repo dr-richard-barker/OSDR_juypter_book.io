@@ -1,0 +1,1696 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OSDR Public API &#8212; Open Science Data Repository (OSDR) Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'osdr-public-api';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RadLab Overview" href="radlab-overview.html" />
+    <link rel="prev" title="OSDR Data Visualization Portal" href="osdr-data-visualization-portal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environmental-data-for-space-biology-experiments.html">Environmental Data for Space Biology Rodent Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines-for-data-submission.html">Data Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access-data-in-the-osdr.html">Access data in the OSDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-visualisation-tool-example-made-using-api.html">Metadata visualisation tool example made using API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-study-example-osd-37-and-osd-38-and-osd-120-and-osd-321.html">Multi-study example OSD-37 &amp; OSD-38 &amp; OSD-120 &amp; OSD-321</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-study-page-overview.html">Multi-study Page Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasa-biological-institutional-scientific-collection-nbisc.html">NASA Biological Institutional Scientific Collection (NBISC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open-science-abbreviations.html">Open Science Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osdr-data-visualization-portal.html">OSDR Data Visualization Portal</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">OSDR Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radlab-overview.html">RadLab Overview</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fosdr-public-api.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/osdr-public-api.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OSDR Public API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"> <a href="#id-22paw416qpf8" id="id-22paw416qpf8"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osdr-api">OSDR API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-api-requests-with-python"><strong>Making API Requests with Python</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-library"><strong>The requests library</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-accessing-nasa-data"><strong>Example: Accessing NASA data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-study-metadata-api">Summary of Study Metadata API <a href="#oa543j8meou9" id="oa543j8meou9"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-osdr-study-metadata-api"><strong>Explanation of the OSDR Study Metadata API</strong> <a href="#xlmaonc22d9n" id="xlmaonc22d9n"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-syntax-the-rules-of-the-game">Understanding Syntax: The Rules of the Game</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-api-endpoint-your-gateway-to-study-data">The API Endpoint: Your Gateway to Study Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-meta-osd-study-id">https://osdr.nasa.gov/osdr/data/osd/meta/{OSD\_STUDY\_ID} <a href="#y1ghpc1dn4ak" id="y1ghpc1dn4ak"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-the-keys-that-unlock-information">Parameters: The Keys that Unlock Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together-a-real-world-example">Putting it all Together: A Real-World Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-meta-37">https://osdr.nasa.gov/osdr/data/osd/meta/37 <a href="#dcke2d2hpnil" id="dcke2d2hpnil"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-power-of-the-response-unveiling-study-secrets">The Power of the Response: Unveiling Study Secrets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">Remember:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-study-data-file-api">Summary of Study Data File API <a href="#tz0q8lmeplzy" id="tz0q8lmeplzy"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-requests">Example requests: <a href="#rxafhhfdshrl" id="rxafhhfdshrl"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-osdr-study-data-file-api"><strong>Explanation of the OSDR Study Data File API</strong> <a href="#ivh1s0qlv61f" id="ivh1s0qlv61f"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-api-s-language-syntax-breakdown"><strong>Understanding the API’s Language: Syntax Breakdown</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-the-keys-to-specificity"><strong>Parameters: The Keys to Specificity</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-your-request-url-examples-in-action"><strong>Constructing Your Request URL: Examples in Action</strong> <a href="#id-19gl8lt4uvzb" id="id-19gl8lt4uvzb"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-files-87">https://osdr.nasa.gov/osdr/data/osd/files/87 <a href="#w1xkxlkruyfu" id="w1xkxlkruyfu"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-files-137-87-95-13-20-50">https://osdr.nasa.gov/osdr/data/osd/files/137,87-95,13,20-50 <a href="#wr2nxymxrizr" id="wr2nxymxrizr"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"> <a href="#fkzsxq1uj01p" id="fkzsxq1uj01p"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-dataset-search-api">Study Dataset Search API <a href="#fkzsxq1uj01p" id="fkzsxq1uj01p"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crafting-your-search-query-understanding-the-syntax">Crafting Your Search Query: Understanding the Syntax <a href="#d30ufompv5ir" id="d30ufompv5ir"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-your-search-url-examples-in-action">Building Your Search URL: Examples in Action <a href="#eo0brdniye4v" id="eo0brdniye4v"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-and-get-requests-accept-the-url-encoded-name-value-pairs-for-submission">POST and GET requests accept the URL encoded name/value pairs for submission <a href="#id-9lfixb1g42vf" id="id-9lfixb1g42vf"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-post-and-get-filter-field-options">Understanding POST and GET Filter Field Options <a href="#cpl54pj0ww3a" id="cpl54pj0ww3a"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"> <a href="#id-67jejmnznql6" id="id-67jejmnznql6"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-search-interface-syntax-breakdown">Alternative Search Interface: Syntax Breakdown</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-url-https-osdr-nasa-gov-bio-repo-search"><strong>Base URL:</strong> https://osdr.nasa.gov/bio/repo/search?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters"><strong>Parameters:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-to-remember"><strong>Key Points to Remember:</strong> <a href="#l1um6r5i21tp" id="l1um6r5i21tp"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments-missions-payloads-hardware-vehicles-subjects-biospecimens">Experiments, Missions, Payloads, Hardware, Vehicles, Subjects, Biospecimens <a href="#si5ui8eh4y04" id="si5ui8eh4y04"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"> <a href="#g4dbf6ytvc9o" id="g4dbf6ytvc9o"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-using-r-code-for-bioinformatics-analysis-with-nasa-osdr"><strong>Tutorial using R Code for Bioinformatics Analysis with NASA OSDR</strong> <a href="#id-69hdujge0cpk" id="id-69hdujge0cpk"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-tutorial-guides-you-through-leveraging-r-code-to-access-analyze-and-visualize-data-from-the-nasa-open-science-data-repository-osdr-for-differential-expression-and-pathway-enrichment-analysis">This tutorial guides you through leveraging R code to access, analyze, and visualize data from the NASA Open Science Data Repository (OSDR) for differential expression and pathway enrichment analysis. <a href="#id-8nsftjty6wh" id="id-8nsftjty6wh"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-accessing-metadata-and-data"><strong>Step 1: Accessing Metadata and Data</strong> <a href="#id-2cp6z3lz7neo" id="id-2cp6z3lz7neo"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-differential-expression-analysis"><strong>Step 2: Differential Expression Analysis</strong> <a href="#cfu8sz9mb7sx" id="cfu8sz9mb7sx"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-pathway-enrichment-analysis"><strong>Step 3: Pathway Enrichment Analysis</strong> <a href="#boaekpp8sp8l" id="boaekpp8sp8l"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-osdr-data-in-aws-s3-buckets">Getting Started with OSDR Data in AWS S3 buckets <a href="#a5sz8b4klkm8" id="a5sz8b4klkm8"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-osdr-data-on-awg">Introduction to OSDR Data on AWG <a href="#id-8ye2imi3hl09" id="id-8ye2imi3hl09"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-aws-cli">Installing the AWS CLI <a href="#h80amja1dt3q" id="h80amja1dt3q"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites-equipping-yourself-aws-cli-data-access">Prerequisites: Equipping Yourself AWS CLI data access. <a href="#eiq0tb4h8v68" id="eiq0tb4h8v68"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"> <a href="#lpahhb6lzyrc" id="lpahhb6lzyrc"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-the-osdr-data-landscape">Navigating the OSDR Data Landscape <a href="#qtcs4a9vt67d" id="qtcs4a9vt67d"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automating-your-workflow-scripting-with-the-aws-cli">Automating Your Workflow: Scripting with the AWS CLI <a href="#id-72f4q5osv6ai" id="id-72f4q5osv6ai"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-osdr-data">Exploring OSDR Data <a href="#pexwa1fo84wi" id="pexwa1fo84wi"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-data-locally">Copying Data Locally <a href="#tfkokc87qin5" id="tfkokc87qin5"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources <a href="#o603fbfwinv0" id="o603fbfwinv0"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-s3-bucket-gui-setup">AWS S3 bucket GUI setup <a href="#p9mbqgvy1fww" id="p9mbqgvy1fww"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radlab-api-syntax">RadLab API Syntax <a href="#c7nh1nbl3qjq" id="c7nh1nbl3qjq"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-value-pairs-a-simpler-approach">Key-Value Pairs: A Simpler Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-fields-the-core-of-your-query">Data Fields: The Core of Your Query</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-considerations"><strong>Important Considerations:</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="osdr-public-api">
+<h1>OSDR Public API<a class="headerlink" href="#osdr-public-api" title="Link to this heading">#</a></h1>
+<p>{% embed url=”<a class="reference external" href="https://api.nasa.gov/">https://api.nasa.gov/</a>” %}</p>
+<p>The API provides a choice of standard web output formats, either JavaScript Object Notation (JSON) or Hyper Text Markup Language (HTML), of query results. The Data File API returns metadata on data files associated with dataset(s), including the location of these files for download via https. The Metadata API returns entire sets of metadata for input study dataset accession numbers. The Search API can be used to search dataset metadata by keywords and/or metadata. It can also be used to provide search of three other omics databases: the National Institutes of Health (NIH) / National Center for Biotechnology Information’s (NCBI) Gene Expression Omnibus (GEO); the European Bioinformatics Institute’s (EBI) Proteomics Identification (PRIDE); the Argonne National Laboratory’s (ANL) Metagenomics Rapid Annotations using Subsystems Technology (MG-RAST).</p>
+<p>In addition to study datasets, NASA OSDR also hosts metadata for 7 other data types: experiments, payloads, subjects, biospecimens, missions, vehicles, and hardware. The API for these data types is listed separately and uniform throughout, to make for easy metadata exploration.</p>
+<p><strong>Resources:</strong> For more information on making API requests with python, try this <a class="reference external" href="https://www.dataquest.io/blog/python-api-tutorial/">python API tutorial</a>.</p>
+<p>Alternatively for more advanced information on the OSDR Public API visit <a class="reference external" href="https://api.nasa.gov/">https://api.nasa.gov/</a>.</p>
+<section id="id1">
+<h2> <a href="#id-22paw416qpf8" id="id-22paw416qpf8"></a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+</section>
+<section id="osdr-api">
+<h2><a class="reference external" href="https://genelab.nasa.gov/genelabAPIs">OSDR API</a><a class="headerlink" href="#osdr-api" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://genelab.nasa.gov/genelabAPIs">Find out more about the OSDR Automatic programmatic interaction (API) here.</a></p>
+<p>{% embed url=”<a class="reference external" href="https://genelab.nasa.gov/genelabAPIs">https://genelab.nasa.gov/genelabAPIs</a>” %}</p>
+</section>
+<section id="making-api-requests-with-python">
+<h2><strong>Making API Requests with Python</strong><a class="headerlink" href="#making-api-requests-with-python" title="Link to this heading">#</a></h2>
+<p>Python to make basic API requests. This will be crucial for anyone working with bioinformatics data, as many resources offer data access through APIs.</p>
+</section>
+<section id="the-requests-library">
+<h2><strong>The requests library</strong><a class="headerlink" href="#the-requests-library" title="Link to this heading">#</a></h2>
+<p>The go-to library for making API requests in Python is called requests. It provides a simple and elegant way to interact with web services. The first step is to install the library using pip, the Python package manager. Open your terminal and type the following command:</p>
+<p>`<code class="docutils literal notranslate"><span class="pre">``</span> <span class="pre">bash</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">requests</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Once</span> <span class="pre">you've</span> <span class="pre">installed</span> <span class="pre">requests,</span> <span class="pre">you</span> <span class="pre">can</span> <span class="pre">import</span> <span class="pre">it</span> <span class="pre">into</span> <span class="pre">your</span> <span class="pre">Python</span> <span class="pre">code.</span> <span class="pre">Here's</span> <span class="pre">an</span> <span class="pre">example</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">basic</span> <span class="pre">API</span> <span class="pre">request:</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span> <span class="pre">python</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">requests</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Replace</span> <span class="pre">API_ENDPOINT_HERE</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">actual</span> <span class="pre">API</span> <span class="pre">endpoint</span> <span class="pre">URL</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">response</span> <span class="pre">=</span> <span class="pre">requests.get(&quot;API_ENDPOINT_HERE&quot;).json()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Process</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">response</span> <span class="pre">object</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+<p>In this code, we first import the requests library. Then, we use the requests.get() function to send a GET request to the specified API endpoint URL. The .json() method is used to parse the JSON response from the API into a Python dictionary that we can easily work with in our code.</p>
+</section>
+<section id="example-accessing-nasa-data">
+<h2><strong>Example: Accessing NASA data</strong><a class="headerlink" href="#example-accessing-nasa-data" title="Link to this heading">#</a></h2>
+<p>Let’s look at a concrete example. Suppose we want to retrieve some data from NASA’s Open Science Data Repository (OSDR). Here’s how we can use the requests library to fetch a specific file:</p>
+<p><code class="docutils literal notranslate"><span class="pre">```Python</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">requests</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">API</span> <span class="pre">endpoint</span> <span class="pre">URL</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">specific</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">OSDR</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">url</span> <span class="pre">=</span> <span class="pre">&quot;https://osdr.nasa.gov/osdr/data/osd/files/87&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">response</span> <span class="pre">=</span> <span class="pre">requests.get(url).json()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Now</span> <span class="pre">you</span> <span class="pre">have</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">response</span> <span class="pre">object</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+<p>By replacing API_ENDPOINT_HERE with the actual URL of the API endpoint you want to access, you can use this code template to retrieve data from a variety of web services.</p>
+</section>
+<section id="summary-of-study-metadata-api">
+<h2>Summary of Study Metadata API <a href="#oa543j8meou9" id="oa543j8meou9"></a><a class="headerlink" href="#summary-of-study-metadata-api" title="Link to this heading">#</a></h2>
+<p><strong>Syntax:</strong> <em>“a set of rules for or an analysis of the syntax of a language.”</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">https://osdr.nasa.gov/osdr/data/osd/meta/{OSD_STUDY_ID}</span></code></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Notes</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>{OSD_STUDY_ID}</p></td>
+<td><p>Integer</p></td>
+<td><p>Single study accession number</p></td>
+<td><p>Example: 137</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+<p>Single Study Metadata Request:</p>
+<p><strong>Example:</strong> <a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/meta/137">https://osdr.nasa.gov/osdr/data/osd/meta/137</a></p>
+<p><strong>Returns:</strong> JSON-formatted response</p>
+<p><strong>Response:</strong> This example provides all metadata for OSD sample # 137 revealing the datatypes that are linked to this study accession #.</p>
+</section>
+<section id="explanation-of-the-osdr-study-metadata-api">
+<h2><strong>Explanation of the OSDR Study Metadata API</strong> <a href="#xlmaonc22d9n" id="xlmaonc22d9n"></a><a class="headerlink" href="#explanation-of-the-osdr-study-metadata-api" title="Link to this heading">#</a></h2>
+<p>The OSDR Study Metadata API provides access to detailed information about specific studies stored in NASA’s Open Science Data Repository (OSDR), making it a valuable tool for bioinformatics researchers.</p>
+<section id="understanding-syntax-the-rules-of-the-game">
+<h3>Understanding Syntax: The Rules of the Game<a class="headerlink" href="#understanding-syntax-the-rules-of-the-game" title="Link to this heading">#</a></h3>
+<p>Before diving in, let’s clarify the term “syntax.” In computer science, syntax refers to the specific rules that define how elements of a language are arranged to create a well-formed instruction. Here, the syntax defines how we structure the API request to target a particular study.</p>
+</section>
+<section id="the-api-endpoint-your-gateway-to-study-data">
+<h3>The API Endpoint: Your Gateway to Study Data<a class="headerlink" href="#the-api-endpoint-your-gateway-to-study-data" title="Link to this heading">#</a></h3>
+<p>The OSDR Study Metadata API uses the following endpoint URL structure:</p>
+</section>
+</section>
+<section id="https-osdr-nasa-gov-osdr-data-osd-meta-osd-study-id">
+<h2><a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/meta/%7BOSD%5C_STUDY%5C_ID%7D">https://osdr.nasa.gov/osdr/data/osd/meta/{OSD\_STUDY\_ID}</a> <a href="#y1ghpc1dn4ak" id="y1ghpc1dn4ak"></a><a class="headerlink" href="#https-osdr-nasa-gov-osdr-data-osd-meta-osd-study-id" title="Link to this heading">#</a></h2>
+<p>This endpoint acts like a doorway to a specific study’s metadata. </p>
+<p>The key element here is the {OSD_STUDY_ID} placeholder.</p>
+<section id="parameters-the-keys-that-unlock-information">
+<h3>Parameters: The Keys that Unlock Information<a class="headerlink" href="#parameters-the-keys-that-unlock-information" title="Link to this heading">#</a></h3>
+<p><strong>The API uses a single parameter:</strong> {OSD_STUDY_ID} (Integer, Required): This represents the unique accession number assigned to a specific study within OSDR. Think of it as the study’s identification code.</p>
+</section>
+<section id="putting-it-all-together-a-real-world-example">
+<h3>Putting it all Together: A Real-World Example<a class="headerlink" href="#putting-it-all-together-a-real-world-example" title="Link to this heading">#</a></h3>
+<p>Let’s say you’re interested in exploring the metadata for a particular OSDR study with the accession number 37. Here’s how you would construct the API request URL:</p>
+</section>
+</section>
+<section id="https-osdr-nasa-gov-osdr-data-osd-meta-37">
+<h2><a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/meta/37">https://osdr.nasa.gov/osdr/data/osd/meta/37</a> <a href="#dcke2d2hpnil" id="dcke2d2hpnil"></a><a class="headerlink" href="#https-osdr-nasa-gov-osdr-data-osd-meta-37" title="Link to this heading">#</a></h2>
+<p>By using this URL through the API, you’ll receive a response containing all the metadata associated with study 137. This metadata serves as a treasure trove of information, revealing details about the study design, samples involved, data types collected, and much more. <a class="reference external" href="https://github.com/dr-richard-barker/Space_Biology_and_AstroBotany.io/blob/main/OSDR_API_demo_GLDS-37.ipynb">This Google CoLab Notebook </a>demonstrates what this API looks like and is available for users to edit and evolve.</p>
+<p>{% &#64;github-files/github-code-block url=”<a class="github reference external" href="https://github.com/dr-richard-barker/Space_Biology_Education.io/blob/main/OSDR_API_demo_GLDS-37.ipynb">dr-richard-barker/Space_Biology_Education.io</a>” %}</p>
+<section id="the-power-of-the-response-unveiling-study-secrets">
+<h3>The Power of the Response: Unveiling Study Secrets<a class="headerlink" href="#the-power-of-the-response-unveiling-study-secrets" title="Link to this heading">#</a></h3>
+<p>The response from the API will be delivered in JSON format, a common and easily readable format for data exchange. This JSON response will essentially be a digital document containing all the metadata associated with the requested study. Imagine it as a detailed report outlining the study’s purpose, methods, and collected data.</p>
+<p>By parsing through this response using Python or other programming languages, you can extract valuable insights into the study and its associated data. This information can be crucial for understanding the context and design of the research, ultimately enabling more informed analysis and interpretation of the data itself.</p>
+</section>
+<section id="remember">
+<h3>Remember:<a class="headerlink" href="#remember" title="Link to this heading">#</a></h3>
+<p>Replace {OSD_STUDY_ID} with the actual accession number of the study you’re interested in.</p>
+<p>This API retrieves metadata, not the actual data files themselves. Use the Data File API (covered elsewhere) to download the data associated with a study.</p>
+<p>Always refer to the official OSDR documentation for the latest information on the API and its functionalities.</p>
+</section>
+</section>
+<section id="summary-of-study-data-file-api">
+<h2>Summary of Study Data File API <a href="#tz0q8lmeplzy" id="tz0q8lmeplzy"></a><a class="headerlink" href="#summary-of-study-data-file-api" title="Link to this heading">#</a></h2>
+<p>Syntax 1:</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/files/%7B**OSD%5C_STUDY%5C_IDs**%7D/?page=%7BCURRENT%5C_PAGE%5C_NUMBER%7D%5C&amp;amp;size=%7BRESULTS%5C_PER%5C_PAGE%7D?all%5C_files=%7BALL%5C_FILES%7D">https://osdr.nasa.gov/osdr/data/osd/files/{**OSD\_STUDY\_IDs**}/?page={CURRENT\_PAGE\_NUMBER}\&amp;size={RESULTS\_PER\_PAGE}?all\_files={ALL\_FILES}</a></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Notes</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>{OSD_STUDY_IDs}</p></td>
+<td><p>Integer or Decimal</p></td>
+<td><p>Comma separated list with mixture of single OSD accession numbers and ranges. Use single decimal numbers to indicate a specific study version (Ex: 4.1 would be OSD-4, version 1).</p></td>
+<td><p>ex. 87-95,137,153.2</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>{CURRENT_PAGE_NUMBER}</p></td>
+<td><p>Integer</p></td>
+<td><p>Current page number in pagination</p></td>
+<td><p>Starts from 0</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>{RESULTS_PER_PAGE}</p></td>
+<td><p>Integer</p></td>
+<td><p>Number of results returned per page in pagination</p></td>
+<td><p>Max 25 results per page</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>{ALL_FILES}</p></td>
+<td><p>Boolean</p></td>
+<td><p>Include hidden files. true to include invisible files; false to exclude. Default value is false.</p></td>
+<td><p>true or false</p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+<section id="example-requests">
+<h3>Example requests: <a href="#rxafhhfdshrl" id="rxafhhfdshrl"></a><a class="headerlink" href="#example-requests" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Single study request using study accession number</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/files/87">https://osdr.nasa.gov/osdr/data/osd/files/87</a></p>
+<ul class="simple">
+<li><p>Multiple studies request using combination of range and comma-separated list</p></li>
+</ul>
+<p><strong>Example:</strong> <a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/files/137,87-95,13,20-50">https://osdr.nasa.gov/osdr/data/osd/files/137,87-95,13,20-50</a></p>
+<p><strong>Returns:</strong> The JSON-formatted response includes the study_files element, and the remote_url attribute will obtained from that element. Which can be used to obtain the specific download URL for the file by prefacing with the OSDR data server address, <a class="reference external" href="https://osdr.nasa.gov/">https://osdr.nasa.gov</a> .</p>
+<p>In the example query/response below, the first study file for OSD-87 (version 1) study in the response below can be downloaded from <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/studies/OSD-87/download?source=datamanager&amp;amp;file=GLDS-87_metadata_Zanello_STS135-ISA.zip">https://osdr.nasa.gov/geode-py/ws/studies/OSD-87/download?source=datamanager&amp;file=GLDS-87_metadata_Zanello_STS135-ISA.zip</a></p>
+</section>
+</section>
+<section id="explanation-of-the-osdr-study-data-file-api">
+<h2><strong>Explanation of the OSDR Study Data File API</strong> <a href="#ivh1s0qlv61f" id="ivh1s0qlv61f"></a><a class="headerlink" href="#explanation-of-the-osdr-study-data-file-api" title="Link to this heading">#</a></h2>
+<p>Alright class, buckle up! Today we’re diving into the OSDR Study Data File API, the key to unlocking the actual data associated with studies in NASA’s Open Science Data Repository. This API empowers you to download the data files used in a specific study or a collection of studies.</p>
+<section id="understanding-the-api-s-language-syntax-breakdown">
+<h3><strong>Understanding the API’s Language: Syntax Breakdown</strong><a class="headerlink" href="#understanding-the-api-s-language-syntax-breakdown" title="Link to this heading">#</a></h3>
+<p>The API uses a specific syntax to define your request. Here’s how it works:</p>
+<p><strong>Base URL:</strong> <a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/files/">https://osdr.nasa.gov/osdr/data/osd/files/</a></p>
+<p>This is the foundation of your API request URL.</p>
+</section>
+<section id="parameters-the-keys-to-specificity">
+<h3><strong>Parameters: The Keys to Specificity</strong><a class="headerlink" href="#parameters-the-keys-to-specificity" title="Link to this heading">#</a></h3>
+<p>The API offers several parameters to fine-tune your request:</p>
+<ul class="simple">
+<li><p><strong>{OSD_STUDY_IDs} (Integer or Decimal, Required):</strong> This is the star of the show! It’s a comma-separated list containing the accession numbers of the studies you want to retrieve data files from. You can even include ranges of accession numbers for efficiency.</p></li>
+<li><p>{CURRENT_PAGE_NUMBER} (Integer, <strong>Optional</strong>): If the number of data files associated with a study is extensive, the API will return them in pages. This parameter allows you to specify the specific page of results you want to retrieve. Pagination starts from page 0, so the first page would be 0.</p></li>
+<li><p>{RESULTS_PER_PAGE} (Integer, <strong>Optional</strong>): This parameter lets you control how many data files are returned per page. The maximum allowed value is 25, so keep that in mind when dealing with large datasets.</p></li>
+<li><p>{ALL_FILES} (Boolean, <strong>Optional</strong>): This parameter allows you to include hidden files in your search results. By default, only visible files are returned. Set it to true to include hidden files and false to exclude them.</p></li>
+</ul>
+</section>
+<section id="constructing-your-request-url-examples-in-action">
+<h3><strong>Constructing Your Request URL: Examples in Action</strong> <a href="#id-19gl8lt4uvzb" id="id-19gl8lt4uvzb"></a><a class="headerlink" href="#constructing-your-request-url-examples-in-action" title="Link to this heading">#</a></h3>
+<p>Let’s explore some real-world examples:</p>
+<ol class="arabic simple">
+<li><p><strong>Single Study Request:</strong></p></li>
+</ol>
+<p>Want to download data files for the study with accession number 87? Use this URL:</p>
+</section>
+<section id="https-osdr-nasa-gov-osdr-data-osd-files-87">
+<h3><a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/files/87">https://osdr.nasa.gov/osdr/data/osd/files/87</a> <a href="#w1xkxlkruyfu" id="w1xkxlkruyfu"></a><a class="headerlink" href="#https-osdr-nasa-gov-osdr-data-osd-files-87" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Multiple Studies Request:</strong></p></li>
+</ol>
+<p>Need data from multiple studies? This URL grabs data from studies 137, 87-95 (accession numbers 87 to 95), study 13, and studies 20 to 50:</p>
+</section>
+<section id="https-osdr-nasa-gov-osdr-data-osd-files-137-87-95-13-20-50">
+<h3><a class="reference external" href="https://osdr.nasa.gov/osdr/data/osd/files/137,87-95,13,20-50">https://osdr.nasa.gov/osdr/data/osd/files/137,87-95,13,20-50</a> <a href="#wr2nxymxrizr" id="wr2nxymxrizr"></a><a class="headerlink" href="#https-osdr-nasa-gov-osdr-data-osd-files-137-87-95-13-20-50" title="Link to this heading">#</a></h3>
+<p><strong>Decoding the Response: Your Downloading Roadmap</strong></p>
+<p>The response from the API will be delivered in JSON format. Within the response, look for the study_files element. This element will contain information about the data files associated with the requested studies, including a crucial attribute called remote_url.</p>
+<p>The remote_url provides the download link for the specific data file. To get the complete download URL, simply prepend the OSDR data server address (<a class="reference external" href="https://osdr.nasa.gov">https://osdr.nasa.gov</a>) to the remote_url provided in the response.</p>
+<p>For example, if the remote_url for the first data file in study OSD-87 (version 1) is geode-py/ws/studies/OSD-87/download?source=datamanager&amp;file=GLDS-87_metadata_Zanello_STS135-ISA.zip, the complete download URL would be:</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/studies/OSD-87/download?source=datamanager%5C&amp;amp;file=GLDS-87%5C_metadata%5C_Zanello%5C_STS135-ISA.zip">https://osdr.nasa.gov/geode-py/ws/studies/OSD-87/download?source=datamanager\&amp;file=GLDS-87\_metadata\_Zanello\_STS135-ISA.zip</a></p>
+<p><strong>Remember:</strong></p>
+<ul class="simple">
+<li><p>This API retrieves data file information, not the actual data files themselves. Use the provided download URL to access the data.</p></li>
+<li><p>Pagination is your friend for large datasets. Play around with the {CURRENT_PAGE_NUMBER} and {RESULTS_PER_PAGE} parameters to navigate through extensive data collections.</p></li>
+<li><p>Always refer to the official OSDR documentation for the latest information on the API and its functionalities.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3> <a href="#fkzsxq1uj01p" id="fkzsxq1uj01p"></a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+</section>
+<section id="study-dataset-search-api">
+<h3>Study Dataset Search API <a href="#fkzsxq1uj01p" id="fkzsxq1uj01p"></a><a class="headerlink" href="#study-dataset-search-api" title="Link to this heading">#</a></h3>
+<p>Syntax 1 (returns JSON response)</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/osdr/data/search?%5C">https://osdr.nasa.gov/osdr/data/search?\</a><PARAMETER-LIST></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>parameters</p></th>
+<th class="head"><p>definition</p></th>
+<th class="head"><p>values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>term</p></td>
+<td><p>search keyword</p></td>
+<td><p>string</p></td>
+</tr>
+<tr class="row-odd"><td><p>from</p></td>
+<td><p>starting page</p></td>
+<td><p>integer (single value)</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>search result display count</p></td>
+<td><p>integer (single value)</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>datasource</p></td>
+<td><p>cgene , nih_geo, ebi_pride, mg_rast (accepts multiple value separated by comma separated)</p></td>
+</tr>
+<tr class="row-even"><td><p>sort</p></td>
+<td><p>sort field</p></td>
+<td><p>string (Field Name)</p></td>
+</tr>
+<tr class="row-odd"><td><p>order</p></td>
+<td><p>sort order</p></td>
+<td><p>ASC - ascending order; DESC - descending order</p></td>
+</tr>
+<tr class="row-even"><td><p>ffield</p></td>
+<td><p>filter field</p></td>
+<td><p>string (should always be pared with fvalue); append .raw to the end of the field to use the exact match index; see table below for possible filter field values and example filter value pairings</p></td>
+</tr>
+<tr class="row-odd"><td><p>fvalue</p></td>
+<td><p>filter value</p></td>
+<td><p>string (should always be pared with ffield)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crafting-your-search-query-understanding-the-syntax">
+<h3>Crafting Your Search Query: Understanding the Syntax <a href="#d30ufompv5ir" id="d30ufompv5ir"></a><a class="headerlink" href="#crafting-your-search-query-understanding-the-syntax" title="Link to this heading">#</a></h3>
+<p>The API uses a specific syntax to understand your search criteria. Here’s how it breaks down:</p>
+<p><strong>Base URL:</strong> <a class="reference external" href="https://osdr.nasa.gov/osdr/data/search">https://osdr.nasa.gov/osdr/data/<strong>search</strong></a><strong>?</strong></p>
+<p>This is the foundation of your API request URL.</p>
+<p><strong>Parameters: The Fine-Tuning Tools</strong></p>
+<p>The API offers a variety of parameters to tailor your search:</p>
+<ul class="simple">
+<li><p><strong>term (String):</strong> This is your search keyword. Enter the term(s) you want to use to find relevant datasets.</p></li>
+<li><p><strong>from (Integer, Optional):</strong> If the search results are extensive, the API will return them in pages. This parameter allows you to specify the page number you want to start your search results from. The first page is numbered 0.</p></li>
+<li><p><strong>size (Integer, Optional):</strong> This parameter controls how many datasets are displayed per page in the search results. The maximum allowed value is typically 25, so keep that in mind for large searches.</p></li>
+<li><p><strong>type (String, Optional):</strong> This allows you to filter your search by specific data sources within OSDR. Some examples include cgene (Gene Expression Omnibus), nih_geo (Gene Expression Omnibus by NIH), ebi_pride (PRoteomics IDentification Experiment), and mg_rast (Metagenomics Research Analysis Sharing Tool). You can even search across multiple sources by separating them with commas.</p></li>
+<li><p><strong>sort (String, Optional):</strong> Want to organize your search results in a particular way? This parameter allows you to sort the results by a specific field name.</p></li>
+<li><p><strong>order (String, Optional):</strong> This parameter refines the sorting further. Use ASC for ascending order (e.g., A to Z) or DESC for descending order (Z to A).</p></li>
+<li><p><strong>ffield (String, Required if using fvalue):</strong> This defines the field you want to filter your search by. The OSDR documentation provides a detailed list of available filter fields. For exact matches, append .raw to the field name (e.g., title.raw).</p></li>
+<li><p><strong>fvalue (String, Required if using ffield):</strong> This specifies the value you want to filter by. It should always be paired with the corresponding ffield.</p></li>
+</ul>
+</section>
+<section id="building-your-search-url-examples-in-action">
+<h3>Building Your Search URL: Examples in Action <a href="#eo0brdniye4v" id="eo0brdniye4v"></a><a class="headerlink" href="#building-your-search-url-examples-in-action" title="Link to this heading">#</a></h3>
+<p>Let’s explore some real-world examples to solidify your understanding:</p>
+<ol class="arabic simple">
+<li><p><strong>Basic Search:</strong></p></li>
+</ol>
+<p>Looking for datasets containing the term “microbiome”? Use this URL:</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/osdr/data/search?term=microbiome">https://osdr.nasa.gov/osdr/data/search?term=microbiome</a></p>
+<ol class="arabic simple">
+<li><p><strong>Paginated Search with Filtering:</strong></p></li>
+</ol>
+<p>Want to see datasets related to “RNA-seq” starting from page 2, displaying 10 results per page, and filtered by data source “nih_geo”? This URL achieves that:</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/osdr/data/search?term=RNA-seq&amp;amp;from=1&amp;amp;size=10&amp;amp;type=nih_geo">https://osdr.nasa.gov/osdr/data/search?term=RNA-seq&amp;from=1&amp;size=10&amp;type=nih_geo</a></p>
+<ol class="arabic simple">
+<li><p><strong>Exact Match Filtering:</strong></p></li>
+</ol>
+<p>Need datasets with the exact title “A Study of Microbial Communities in Space”? This URL leverages the .raw extension for exact matching:</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/osdr/data/search?term=&amp;amp;ffield=title.raw&amp;amp;fvalue=A%20Study%20of%20Microbial%20Communities%20in%20Space">https://osdr.nasa.gov/osdr/data/search?term=&amp;ffield=title.raw&amp;fvalue=A%20Study%20of%20Microbial%20Communities%20in%20Space</a></p>
+<p><strong>Remember:</strong></p>
+<ul class="simple">
+<li><p>This API searches for datasets, not the actual data files themselves. Use the provided information within the search results to locate the data.</p></li>
+<li><p>Pagination and filtering are your allies for efficient searching, especially with large datasets.</p></li>
+<li><p>Always refer to the official OSDR documentation for the latest list of available filter fields and for more advanced search functionalities.</p></li>
+</ul>
+</section>
+<section id="post-and-get-requests-accept-the-url-encoded-name-value-pairs-for-submission">
+<h3>POST and GET requests accept the URL encoded name/value pairs for submission <a href="#id-9lfixb1g42vf" id="id-9lfixb1g42vf"></a><a class="headerlink" href="#post-and-get-requests-accept-the-url-encoded-name-value-pairs-for-submission" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Filter Field (Case Sensitive)</strong></p></th>
+<th class="head"><p><strong>Example Filter Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Accession</p></td>
+<td><p>OSD-4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Acknowledgments</p></td>
+<td><p>NASA JPL</p></td>
+</tr>
+<tr class="row-even"><td><p>Authoritative Source URL</p></td>
+<td><p>OSD-4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data Source Accession</p></td>
+<td><p>GSE18388</p></td>
+</tr>
+<tr class="row-even"><td><p>Data Source Type</p></td>
+<td><p>cgene</p></td>
+</tr>
+<tr class="row-odd"><td><p>Experiment Platform</p></td>
+<td><p>Animal Enclosure Module</p></td>
+</tr>
+<tr class="row-even"><td><p>Flight Program</p></td>
+<td><p>Shuttle</p></td>
+</tr>
+<tr class="row-odd"><td><p>links</p></td>
+<td><p>GPL13112</p></td>
+</tr>
+<tr class="row-even"><td><p>Managing NASA Center</p></td>
+<td><p>Ames Research Center</p></td>
+</tr>
+<tr class="row-odd"><td><p>Material Type</p></td>
+<td><p>thymus</p></td>
+</tr>
+<tr class="row-even"><td><p>organism</p></td>
+<td><p>Mus musculus</p></td>
+</tr>
+<tr class="row-odd"><td><p>Project Identifier</p></td>
+<td><p>NNA04CC97G</p></td>
+</tr>
+<tr class="row-even"><td><p>Project Link</p></td>
+<td><p><a class="reference external" href="https://taskbook.nasaprs.com/tbp/index.cfm?action=public%5C_query%5C_taskbook%5C_content%5C&amp;amp;TASKID=7191">https://taskbook.nasaprs.com/tbp/index.cfm?action=public\_query\_taskbook\_content\&amp;TASKID=7191</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Project Title</p></td>
+<td><p>Vector-Averaged Gravity</p></td>
+</tr>
+<tr class="row-even"><td><p>Project Type</p></td>
+<td><p>Spaceflight</p></td>
+</tr>
+<tr class="row-odd"><td><p>Space Program</p></td>
+<td><p>NASA</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Assay Measurement Type</p></td>
+<td><p>transcription profiling</p></td>
+</tr>
+<tr class="row-odd"><td><p>Study Assay Technology Platform</p></td>
+<td><p>Affymetrix</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Assay Technology Type</p></td>
+<td><p>DNA microarray</p></td>
+</tr>
+<tr class="row-odd"><td><p>Study Description</p></td>
+<td><p>Murine Thymus Tissue</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Factor Name</p></td>
+<td><p>Spaceflight</p></td>
+</tr>
+<tr class="row-odd"><td><p>Study Factor Type</p></td>
+<td><p>Space Flight</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Funding Agency</p></td>
+<td><p>NNA04CC97G</p></td>
+</tr>
+<tr class="row-odd"><td><p>Study Identifier</p></td>
+<td><p>OSD-4</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Protocol Description</p></td>
+<td><p>thymus tissue</p></td>
+</tr>
+<tr class="row-odd"><td><p>Study Protocol Name</p></td>
+<td><p>sample collection</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Protocol Type</p></td>
+<td><p>sample collection</p></td>
+</tr>
+<tr class="row-odd"><td><p>Study Public Release Date</p></td>
+<td><p>1268179200</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Publication Author List</p></td>
+<td><p>Gruener R</p></td>
+</tr>
+<tr class="row-odd"><td><p>Study Publication Title</p></td>
+<td><p>spaceflown murine thymus tissue</p></td>
+</tr>
+<tr class="row-even"><td><p>Study Title</p></td>
+<td><p>Space-flown Murine Thymus Tissue</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example(s):</strong> <a class="reference external" href="https://osdr.nasa.gov/osdr/data/search?term=space&amp;amp;from=0&amp;amp;type=cgene,nih_geo_gse&amp;amp;ffield=links&amp;amp;fvalue=GPL16417&amp;amp;ffield=Data%20Source%20Accession.raw&amp;amp;fvalue=GSE82255">https://osdr.nasa.gov/osdr/data/search?term=space&amp;from=0&amp;type=cgene,nih_geo_gse&amp;ffield=links&amp;fvalue=GPL16417&amp;ffield=Data%20Source%20Accession.raw&amp;fvalue=GSE82255</a></p>
+<p><a class="reference external" href="https://osdr.nasa.gov/osdr/data/search?ffield=organism&amp;amp;fvalue=Homo%20sapiens&amp;amp;ffield=Study%20Assay%20Technology%20Type&amp;amp;fvalue=RNA%20Sequencing">https://osdr.nasa.gov/osdr/data/search?ffield=organism&amp;fvalue=Homo%20sapiens&amp;ffield=Study%20Assay%20Technology%20Type&amp;fvalue=RNA%20Sequencing</a></p>
+</section>
+<section id="understanding-post-and-get-filter-field-options">
+<h3>Understanding POST and GET Filter Field Options <a href="#cpl54pj0ww3a" id="cpl54pj0ww3a"></a><a class="headerlink" href="#understanding-post-and-get-filter-field-options" title="Link to this heading">#</a></h3>
+<p>The API provides a comprehensive list of filter fields that you can leverage to pinpoint datasets that meet your specific criteria. Remember, filter fields are case-sensitive, so ensure you use the exact spelling as specified in the API documentation.</p>
+<p>Here are some noteworthy filter fields along with example filter values to illustrate their functionality:</p>
+<ul class="simple">
+<li><p><strong>Accession (OSD-4):</strong> This field allows you to search for datasets based on their unique accession number within OSDR.</p></li>
+<li><p><strong>Acknowledgments (NASA JPL):</strong> Want to find datasets that acknowledge a specific entity (e.g., funding agency, collaborator)? Use this field.</p></li>
+<li><p><strong>Authoritative Source URL (OSD-4):</strong> This filter helps you identify datasets with a specific authoritative source URL.</p></li>
+<li><p><strong>Data Source Accession (GSE18388):</strong> If you know the accession number of the dataset in the original data source (e.g., Gene Expression Omnibus), you can use this filter to locate it within OSDR.</p></li>
+<li><p><strong>Data Source Type (cgene):</strong> Refine your search by specifying the data source type (e.g., cgene for Gene Expression Omnibus, nih_geo for Gene Expression Omnibus by NIH).</p></li>
+<li><p><strong>Experiment Platform (Animal Enclosure Module):</strong> This filter helps you narrow down datasets based on the specific experimental platform used (e.g., specific instrument, growth chamber).</p></li>
+<li><p><strong>Flight Program (Shuttle):</strong> This field is useful for studies related to a particular spaceflight program (e.g., Shuttle, Apollo).</p></li>
+<li><p><strong>Links (GPL13112):</strong> Search for datasets that are linked to other relevant resources identified by their IDs (e.g., gene expression platform in GEO).</p></li>
+<li><p><strong>Additional Fields:</strong> The API offers a variety of other filter fields encompassing details like the managing NASA center, material type, organism, project information, study characteristics (assay type, technology platform, description), and more.</p></li>
+</ul>
+<p><strong>Crafting Powerful Search Queries:</strong></p>
+<p>By strategically combining search terms with filter fields, you can formulate highly specific search queries that efficiently navigate the vast amount of data within OSDR. For instance, you could search for datasets related to “spaceflight” that involve “Mus musculus” (house mouse) organisms, were collected during the “Shuttle” program, and focus on “thymus” tissue.</p>
+<p><strong>Remember:</strong></p>
+<ul class="simple">
+<li><p>Refer to the official OSDR documentation for a complete list of available filter fields and their descriptions.</p></li>
+<li><p>Filter fields are powerful tools, but use them judiciously to avoid overly restricting your search results.</p></li>
+<li><p>Combine search terms and filter fields creatively to pinpoint datasets that perfectly align with your research needs.</p></li>
+</ul>
+<p><strong>Syntax 2 (returns HTML response):</strong></p>
+<p>Example Format: <a class="reference external" href="https://osdr.nasa.gov/bio/repo/search?q=">https://osdr.nasa.gov/bio/repo/search?q=</a>&lt;<strong>SEARCH-TERMS</strong>&gt;&amp;data_source=&lt;<strong>DATA-SOURCE</strong>&gt;</p>
+<p><strong>Example(s):</strong></p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/search?q=cancer&amp;amp;data_source=cgene">https://osdr.nasa.gov/bio/repo/search?q=<strong>cancer</strong>&amp;data_source=<strong>cgene</strong></a></p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/search?q=mouse%20AND%20liver&amp;amp;data_source=cgene">https://osdr.nasa.gov/osdr/bio/repo/search?q=<strong>mouse%20AND%20liver</strong>&amp;data_source=<strong>cgene</strong></a></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SEARCH-TERMS</p></td>
+<td><p>text</p></td>
+<td><p><p>Any text to search for, can be augmented by the keywords:</p><ul><li>AND - ALL search terms must be present (default boolean search)</li><li>OR - ANY of your search terms can be present</li><li>NOT - exclude words from your search</li></ul><p>If no conjunctive or disjunctive operator specified, the default is “AND”</p></p></td>
+</tr>
+<tr class="row-odd"><td><p>DATA-SOURCE</p></td>
+<td><p>cgene, nih_geo_gse, ebi_pride, mg_rast</p></td>
+<td><p><ul><li><strong>cgene</strong> - Search authoritative data records in NASA Open Science Data Repository</li><li><strong>nih_geo_gse</strong> - Search authoritative data records in NIH Gene Expression Omnibus database</li><li><strong>ebi_pride</strong> - Search authoritative data records in the European Bioinformatics Institute Proteomics Identification database</li><li><strong>mg_rast</strong> - Search authoritative data records in the Metagenomic Rapid Annotations using Subsystems Technology database</li></ul></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id3">
+<h2> <a href="#id-67jejmnznql6" id="id-67jejmnznql6"></a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="alternative-search-interface-syntax-breakdown">
+<h3>Alternative Search Interface: Syntax Breakdown<a class="headerlink" href="#alternative-search-interface-syntax-breakdown" title="Link to this heading">#</a></h3>
+<p>This alternative search syntax offers a user-friendly interface for exploring datasets within OSDR:</p>
+</section>
+</section>
+<section id="base-url-https-osdr-nasa-gov-bio-repo-search">
+<h2><strong>Base URL:</strong> <a class="reference external" href="https://osdr.nasa.gov/bio/repo/search">https://osdr.nasa.gov/bio/repo/search</a>?<a class="headerlink" href="#base-url-https-osdr-nasa-gov-bio-repo-search" title="Link to this heading">#</a></h2>
+</section>
+<section id="parameters">
+<h2><strong>Parameters:</strong><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Values (Text): This is where you enter your search terms. You can use standard search operators (AND, OR, NOT) to refine your search. By default, the system uses “AND” which means all search terms must be present in the results.</p></li>
+<li><p>data_source (String): This parameter specifies the data source you want to search within OSDR. Your options include:</p>
+<ul>
+<li><p>cgene: Search authoritative data records in NASA Open Science Data Repository.</p></li>
+<li><p>nih_geo_gse: Search authoritative data records in NIH Gene Expression Omnibus database.</p></li>
+<li><p>ebi_pride: Search authoritative data records in the European Bioinformatics Institute Proteomics Identification database.</p></li>
+<li><p>mg_rast: Search authoritative data records in the Metagenomic Rapid Annotations using Subsystems Technology database.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Examples in Action:</strong> Let’s see some examples to understand how this syntax works:</p>
+<ol class="arabic simple">
+<li><p><strong>Basic Search</strong>: Looking for datasets related to “cancer” within the Gene Expression Omnibus database?</p></li>
+</ol>
+<p><strong>Use this URL:</strong> <a class="reference external" href="https://osdr.nasa.gov/bio/repo/search?q=cancer&amp;amp;data_source=nih_geo_gse">https://osdr.nasa.gov/bio/repo/search?q=cancer&amp;data_source=nih_geo_gse</a></p>
+<ol class="arabic simple">
+<li><p><strong>Advanced Search with Operators:</strong> Want to find datasets that contain “mouse” AND “liver” within the Gene Expression Omnibus database?</p></li>
+</ol>
+<p><strong>This URL achieves that:</strong></p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/search?q=mouse%20AND%20liver&amp;amp;data_source=nih_geo_gse">https://osdr.nasa.gov/bio/repo/search?q=mouse%20AND%20liver&amp;data_source=nih_geo_gse</a></p>
+</section>
+<section id="key-points-to-remember">
+<h2><strong>Key Points to Remember:</strong> <a href="#l1um6r5i21tp" id="l1um6r5i21tp"></a><a class="headerlink" href="#key-points-to-remember" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>This syntax returns results in an HTML format, providing a user-friendly interface for browsing datasets.</p></li>
+<li><p>You can leverage search operators (AND, OR, NOT) to refine your search criteria.</p></li>
+<li><p>This approach may be useful for more general exploration of datasets, while the previously covered JSON-based syntax with filter fields offers more precise control for experienced users.</p></li>
+</ul>
+</section>
+<section id="experiments-missions-payloads-hardware-vehicles-subjects-biospecimens">
+<h2>Experiments, Missions, Payloads, Hardware, Vehicles, Subjects, Biospecimens <a href="#si5ui8eh4y04" id="si5ui8eh4y04"></a><a class="headerlink" href="#experiments-missions-payloads-hardware-vehicles-subjects-biospecimens" title="Link to this heading">#</a></h2>
+<p>Experiments, Missions, Payloads, Hardware, Vehicles, Subjects, and Biospecimens follow the same API format. The “All” call returns a list of all objects within that data type, while the “Single” call returns an expanded version of a specific object. The endpoint for any single object can be selected from the “All” call. Some objects may include links to other objects within the API, such as a vehicle within a mission.</p>
+<p><strong>A Universal API Structure: “All” vs. “Single”</strong></p>
+<p>The OSDR API offers a standardized approach for interacting with various data types. Here’s the core concept:</p>
+<p><strong>All Call:</strong> This endpoint retrieves a list of all objects within a specific data type.</p>
+<p>For example, using the <strong>“All”</strong> call for experiments would return a list of all experiments stored in OSDR.</p>
+<p><strong>Single Call:</strong> This endpoint allows you to delve deeper and access detailed information about a particular object within a data type.</p>
+<p>To use the <strong>“Single”</strong> call, you’ll need the unique identifier of the specific object you’re interested in. These identifiers can often be found within the response from the “All” call.</p>
+<p><strong>API Endpoints: Your Gateways to Information</strong></p>
+<p>Here’s a breakdown of the API endpoints for each data type, allowing you to retrieve information using the “All” or “Single” call structure:</p>
+<p>Important Considerations:</p>
+<ul class="simple">
+<li><p>Remember to replace {identifier} in the “Single” call URLs with the actual identifier of the specific object you’re interested in. You can often find these identifiers within the response from the corresponding “All” call.</p></li>
+<li><p>The response from the API will be delivered in JSON format, making it easy to parse and integrate into your bioinformatics workflows.</p></li>
+</ul>
+<p><strong>Some objects may contain links to other objects within the API.</strong></p>
+<ul class="simple">
+<li><p>Experiments:</p>
+<ul>
+<li><p>All: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/experiments">https://osdr.nasa.gov/geode-py/ws/api/experiments</a> (lists all experiments)</p></li>
+<li><p>Single: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/experiment/">https://osdr.nasa.gov/geode-py/ws/api/experiment/</a> + {identifier} (detailed information about a specific experiment)</p></li>
+</ul>
+</li>
+<li><p>Missions:</p>
+<ul>
+<li><p>All: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/missions">https://osdr.nasa.gov/geode-py/ws/api/missions</a> (lists all missions)</p></li>
+<li><p>Single: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/mission/">https://osdr.nasa.gov/geode-py/ws/api/mission/</a> + {identifier} (detailed information about a specific mission)</p></li>
+</ul>
+</li>
+<li><p>Payloads:</p>
+<ul>
+<li><p>All: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/payloads">https://osdr.nasa.gov/geode-py/ws/api/payloads</a> (lists all payloads)</p></li>
+<li><p>Single: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/payload/">https://osdr.nasa.gov/geode-py/ws/api/payload/</a> + {identifier} (detailed information about a specific payload)</p></li>
+</ul>
+</li>
+<li><p>Hardware:</p>
+<ul>
+<li><p>All: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/hardware">https://osdr.nasa.gov/geode-py/ws/api/hardware</a> (lists all hardware)</p></li>
+<li><p>Single: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/hardware/">https://osdr.nasa.gov/geode-py/ws/api/hardware/</a> + {identifier} (detailed information about a specific hardware component)</p></li>
+</ul>
+</li>
+<li><p>Vehicles:</p>
+<ul>
+<li><p>All: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/vehicles">https://osdr.nasa.gov/geode-py/ws/api/vehicles</a> (lists all vehicles)</p></li>
+<li><p>Single: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/vehicle/">https://osdr.nasa.gov/geode-py/ws/api/vehicle/</a> + {identifier} (detailed information about a specific vehicle)</p></li>
+</ul>
+</li>
+<li><p>Subjects:</p>
+<ul>
+<li><p>All: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/subjects">https://osdr.nasa.gov/geode-py/ws/api/subjects</a> (lists all subjects)</p></li>
+<li><p>Single: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/subject/">https://osdr.nasa.gov/geode-py/ws/api/subject/</a> + {identifier} (detailed information about a specific subject)</p></li>
+</ul>
+</li>
+<li><p>Biospecimens:</p>
+<ul>
+<li><p>All: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/biospecimens">https://osdr.nasa.gov/geode-py/ws/api/biospecimens</a> (lists all biospecimens)</p></li>
+<li><p>Single: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/biospecimen/">https://osdr.nasa.gov/geode-py/ws/api/biospecimen/</a> + {identifier} (detailed information about a specific biospecimen)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Examples in Action:</strong></p>
+<p><strong>Single Mission Example:</strong> Want to know everything about the SpaceX-12 mission? Use this URL: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/mission/SpaceX-12">https://osdr.nasa.gov/geode-py/ws/api/mission/SpaceX-12</a></p>
+<p><strong>Single Vehicle Example:</strong> Curious about the details of the Dragon spacecraft? This URL provides the answer: <a class="reference external" href="https://osdr.nasa.gov/geode-py/ws/api/vehicle/Dragon">https://osdr.nasa.gov/geode-py/ws/api/vehicle/Dragon</a></p>
+</section>
+<section id="id4">
+<h2> <a href="#g4dbf6ytvc9o" id="g4dbf6ytvc9o"></a><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+</section>
+<section id="tutorial-using-r-code-for-bioinformatics-analysis-with-nasa-osdr">
+<h2><strong>Tutorial using R Code for Bioinformatics Analysis with NASA OSDR</strong> <a href="#id-69hdujge0cpk" id="id-69hdujge0cpk"></a><a class="headerlink" href="#tutorial-using-r-code-for-bioinformatics-analysis-with-nasa-osdr" title="Link to this heading">#</a></h2>
+</section>
+<section id="this-tutorial-guides-you-through-leveraging-r-code-to-access-analyze-and-visualize-data-from-the-nasa-open-science-data-repository-osdr-for-differential-expression-and-pathway-enrichment-analysis">
+<h2>This tutorial guides you through leveraging R code to access, analyze, and visualize data from the NASA Open Science Data Repository (OSDR) for differential expression and pathway enrichment analysis. <a href="#id-8nsftjty6wh" id="id-8nsftjty6wh"></a><a class="headerlink" href="#this-tutorial-guides-you-through-leveraging-r-code-to-access-analyze-and-visualize-data-from-the-nasa-open-science-data-repository-osdr-for-differential-expression-and-pathway-enrichment-analysis" title="Link to this heading">#</a></h2>
+<section id="step-1-accessing-metadata-and-data">
+<h3><strong>Step 1: Accessing Metadata and Data</strong> <a href="#id-2cp6z3lz7neo" id="id-2cp6z3lz7neo"></a><a class="headerlink" href="#step-1-accessing-metadata-and-data" title="Link to this heading">#</a></h3>
+<p><strong>1.1 (Optional) Tokenization:</strong> While user authentication isn’t required for this specific example, obtaining a token might be necessary for some functionalities. Refer to the OSDR documentation for details on token acquisition.</p>
+<p><strong>1.2 Metadata Retrieval:</strong></p>
+<p>We’ll use the httr library to retrieve metadata for a specific study (e.g., OSD-569). This includes information on samples, factors, and timestamps.</p>
+<p><strong>Code snippet</strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">```</span></code></strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">library(httr)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">get.csv</span> <span class="pre">&lt;-</span> <span class="pre">function(url,</span> <span class="pre">...)</span> <span class="pre">{</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">response</span> <span class="pre">&lt;-</span> <span class="pre">GET(url,</span> <span class="pre">add_headers(Authorization</span> <span class="pre">=</span> <span class="pre">paste(&quot;Bearer&quot;,</span> <span class="pre">TOKEN)))</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">return(read.csv(text</span> <span class="pre">=</span> <span class="pre">content(response),</span> <span class="pre">...))</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Replace</span> <span class="pre">&quot;TOKEN&quot;</span> <span class="pre">with</span> <span class="pre">your</span> <span class="pre">actual</span> <span class="pre">token</span> <span class="pre">(if</span> <span class="pre">needed)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">GLOPENAPI</span> <span class="pre">&lt;-</span> <span class="pre">&quot;https://visualization.genelab.nasa.gov/GLOpenAPI/&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">&lt;-</span> <span class="pre">URLencode(&quot;id=OSD-569&amp;study.factor</span> <span class="pre">value&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">metadata</span> <span class="pre">&lt;-</span> <span class="pre">get.csv(paste0(GLOPENAPI,</span> <span class="pre">&quot;metadata/?&quot;,</span> <span class="pre">query),</span> <span class="pre">skip</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">summary(metadata)</span> <span class="pre">#</span> <span class="pre">View</span> <span class="pre">metadata</span> <span class="pre">column</span> <span class="pre">information</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+<p><strong>1.3 Data Retrieval:</strong></p>
+<p>We’ll retrieve unnormalized RNA-Seq counts data (suitable for differential expression analysis) for OSD-569.</p>
+<p><strong>Code snippet</strong></p>
+<p>query &lt;- URLencode(“id=OSD-569&amp;file.datatype=unnormalized counts”)</p>
+<p>url &lt;- paste0(GLOPENAPI, “data/?”, query)</p>
+<p>data &lt;- get.csv(url, check.names = FALSE, skip = 2, row.names = 1)</p>
+</section>
+<section id="step-2-differential-expression-analysis">
+<h3><strong>Step 2: Differential Expression Analysis</strong> <a href="#cfu8sz9mb7sx" id="cfu8sz9mb7sx"></a><a class="headerlink" href="#step-2-differential-expression-analysis" title="Link to this heading">#</a></h3>
+<p><strong>2.1 Data Preparation:</strong></p>
+<p>Ensure gene names are set as row names and sample names as column names. You might need to perform additional preprocessing steps like normalization and filtering depending on the chosen analysis data type.</p>
+<p><strong>2.2 Performing Differential Expression Analysis:</strong></p>
+<p>This example utilizes DESeq2 for differential expression analysis with unnormalized counts. Here, we classify timestamps into preflight, postflight, and recovery based on specific criteria.</p>
+<p><strong>Code snippet</strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">```</span> <span class="pre">R</span></code></strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">rownames(metadata)</span> <span class="pre">&lt;-</span> <span class="pre">metadata$sample.name</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">metadata$status</span> <span class="pre">&lt;-</span> <span class="pre">sapply(metadata$timestamp,</span> <span class="pre">function(t)</span> <span class="pre">{</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ifelse(t</span> <span class="pre">==</span> <span class="pre">&quot;R+1&quot;,</span> <span class="pre">&quot;postflight&quot;,</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ifelse(startsWith(t,</span> <span class="pre">&quot;R+&quot;),</span> <span class="pre">&quot;recovery&quot;,</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;preflight&quot;))</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">})</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">library(DESeq2)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">dds</span> <span class="pre">&lt;-</span> <span class="pre">DESeqDataSetFromMatrix(round(na.omit(data)),</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Ensure</span> <span class="pre">integer</span> <span class="pre">values</span> <span class="pre">and</span> <span class="pre">no</span> <span class="pre">NaNs</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">metadata,</span> <span class="pre">~status</span> <span class="pre">+</span> <span class="pre">subject,</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">lrt</span> <span class="pre">&lt;-</span> <span class="pre">DESeq(dds,</span> <span class="pre">test</span> <span class="pre">=</span> <span class="pre">&quot;LRT&quot;,</span> <span class="pre">reduced</span> <span class="pre">=</span> <span class="pre">~subject)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">deg</span> <span class="pre">&lt;-</span> <span class="pre">results(lrt,</span> <span class="pre">contrast</span> <span class="pre">=</span> <span class="pre">c(&quot;status&quot;,</span> <span class="pre">&quot;postflight&quot;,</span> <span class="pre">&quot;preflight&quot;))</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Consider</span> <span class="pre">adding</span> <span class="pre">functionalities</span> <span class="pre">for</span> <span class="pre">multiple</span> <span class="pre">contrasts</span> <span class="pre">here.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+</section>
+<section id="step-3-pathway-enrichment-analysis">
+<h3><strong>Step 3: Pathway Enrichment Analysis</strong> <a href="#boaekpp8sp8l" id="boaekpp8sp8l"></a><a class="headerlink" href="#step-3-pathway-enrichment-analysis" title="Link to this heading">#</a></h3>
+<p>There are many R packages to visualize pathway enrichment based on the results of the differential expression analysis and the subsequent clustering and intersect analysis.</p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span> <span class="pre">R</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">library(msigdbr)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">C2</span> <span class="pre">=</span> <span class="pre">msigdbr(species=&quot;human&quot;,</span> <span class="pre">category=&quot;C2&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pathways</span> <span class="pre">=</span> <span class="pre">split(x=C2$ensembl_gene,</span> <span class="pre">f=C2$gs_name)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">library(fgsea)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">deg$rank</span> <span class="pre">=</span> <span class="pre">deg$padj</span> <span class="pre">*</span> <span class="pre">sign(deg$log2FoldChange)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ranks</span> <span class="pre">=</span> <span class="pre">with(na.omit(deg),</span> <span class="pre">setNames(rank,</span> <span class="pre">rownames(na.omit(deg))))</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">plotEnrichment(pathways$DIAZ_CHRONIC_MYELOGENOUS_LEUKEMIA_UP,</span> <span class="pre">ranks)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+<p><strong>Conclusions</strong></p>
+<p>By following this tutorial, researchers can effectively access, analyze, and derive insights from the rich biological datasets available through the NASA Open Science Data Repository. This tutorial serves as a foundational guide for bioinformatics professionals aiming to explore space-induced biological responses and advance research in understanding the impact of space travel on human health.</p>
+<p><strong>Citation:</strong></p>
+<p>[1] Sylvain Costes, Lauren Sanders, Kirill Grigorev et al. Inspiration4 Data Access through the NASA Open Science Data Repository, 05 January 2024, PREPRINT (Version 1) available at Research Square [<a class="reference external" href="https://doi.org/10.21203/rs.3.rs-3755391/v1">https://doi.org/10.21203/rs.3.rs-3755391/v1</a>]</p>
+</section>
+</section>
+<section id="getting-started-with-osdr-data-in-aws-s3-buckets">
+<h2>Getting Started with OSDR Data in AWS S3 buckets <a href="#a5sz8b4klkm8" id="a5sz8b4klkm8"></a><a class="headerlink" href="#getting-started-with-osdr-data-in-aws-s3-buckets" title="Link to this heading">#</a></h2>
+<p>This how-to guide is for new users who would like to access and work with the Open Science Data Repository (OSDR) data available on the Registry of Open Data on AWS. This initiative, as part of the Science Mission Directorate (SMD) Open-Source Science Initiative, aims to enhance data accessibility for open science within the NASA space biology community. Through the OSDR S3 bucket, users can access a diverse range of data including microbe, plant, fruit fly, rodent, human cell culture, ground study, and commercial astronaut studies. This guide will walk you through the steps of installing the AWS Command Line Interface (CLI) and utilizing it to access OSDR data.</p>
+</section>
+<section id="introduction-to-osdr-data-on-awg">
+<h2>Introduction to OSDR Data on AWG <a href="#id-8ye2imi3hl09" id="id-8ye2imi3hl09"></a><a class="headerlink" href="#introduction-to-osdr-data-on-awg" title="Link to this heading">#</a></h2>
+<p><strong>A Universe of Data at Your Fingertips: The OSDR S3 Bucket</strong></p>
+<p>The OSDR data resides within a special storage unit on AWS called an S3 bucket. This bucket holds a vast collection of data types, ready to fuel your research endeavors. It encompasses data related to experiments, missions, organisms, and more, all relevant to space biosciences.</p>
+<p><strong>Two Keys to Unlock the Data: Your Access Options</strong></p>
+<p>To access and explore this wealth of information, you have two primary methods:</p>
+<p><strong>AWS S3 Browser Interface:</strong> This user-friendly web interface allows you to visually navigate the OSDR data. It’s a fantastic starting point for getting acquainted with the data and exploring its organization. Simply visit the following URL to launch the browser interface:<br />
+Link:<a class="reference external" href="http://nasa-osdr.s3-website-us-west-2.amazonaws.com/"> http://nasa-osdr.s3-website-us-west-2.amazonaws.com/</a></p>
+<p><strong>AWS Command Line Interface (CLI):</strong> For those comfortable with command-line tools, the AWS CLI provides a powerful way to programmatically access and interact with the OSDR data. This approach offers greater flexibility and automation for researchers. The remaining lectures will focus on mastering the AWS CLI for programmatic access to the OSDR data.</p>
+</section>
+<section id="installing-the-aws-cli">
+<h2>Installing the AWS CLI <a href="#h80amja1dt3q" id="h80amja1dt3q"></a><a class="headerlink" href="#installing-the-aws-cli" title="Link to this heading">#</a></h2>
+<p>Before you can start working with OSDR data using the AWS CLI, you need to install it on your system. Follow these steps to install the AWS CLI:</p>
+<ul class="simple">
+<li><p>Open a terminal window</p></li>
+<li><p>Visit the following link for installation instructions: <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">Install or update the AWS CLI</a></p></li>
+<li><p>Once the AWS CLI is installed, you’re ready to start exploring OSDR data programmatically</p></li>
+</ul>
+<section id="prerequisites-equipping-yourself-aws-cli-data-access">
+<h3>Prerequisites: Equipping Yourself AWS CLI data access. <a href="#eiq0tb4h8v68" id="eiq0tb4h8v68"></a><a class="headerlink" href="#prerequisites-equipping-yourself-aws-cli-data-access" title="Link to this heading">#</a></h3>
+<p><strong>An AWS Account:</strong> If you don’t have one already, setting up a free tier AWS account grants you access to a limited amount of AWS services, which should be sufficient for most initial explorations of the OSDR data.</p>
+<p><strong>AWS CLI Installation:</strong> Download and install the AWS CLI on your machine following the official instructions provided by AWS <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a>.</p>
+<p><strong>Learning the Language of the AWS CLI:</strong> The AWS CLI is a command-line tool that allows users to interact with Amazon Web Services (AWS) services. Some basic commands to get started with the AWS CLI include “aws configure” to set up your credentials, “aws help” to get help on commands and options, “aws ec2 describe-instances” to list your EC2 instances, “aws s3 ls” to list your S3 buckets, and “aws iam list-users” to list your IAM users.</p>
+<p>aws s3 ls**:** This command allows you to list the contents of an S3 bucket. For instance, to list the datasets within the OSDR S3 bucket, you could use:</p>
+<p>aws s3 ls s3://nasa-osdr/</p>
+<p>aws s3 cp**:** This command enables you to copy data from the S3 bucket to your local machine. For example, to download a specific data file named experiment.csv from the OSDR bucket, you could use:</p>
+<p>aws s3 cp s3://nasa-osdr/experiment.csv ./experiment.csv</p>
+<p>aws s3 head**:** Use this command to get information about a specific S3 object (file or folder) within the bucket. This can be helpful to determine the size and creation date of a dataset before downloading.</p>
+<p>These are just a few foundational commands. The AWS CLI offers a comprehensive set of functionalities for managing and interacting with data stored in S3 buckets. Refer to the official AWS CLI documentation<a class="reference external" href="https://docs.aws.amazon.com/cli/"> https://docs.aws.amazon.com/cli/</a> for a complete list of commands and detailed explanations.</p>
+</section>
+<section id="id5">
+<h3> <a href="#lpahhb6lzyrc" id="lpahhb6lzyrc"></a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+</section>
+<section id="navigating-the-osdr-data-landscape">
+<h3>Navigating the OSDR Data Landscape <a href="#qtcs4a9vt67d" id="qtcs4a9vt67d"></a><a class="headerlink" href="#navigating-the-osdr-data-landscape" title="Link to this heading">#</a></h3>
+<p>The OSDR S3 bucket is meticulously organized. Data is typically stored within folders based on projects, missions, or experiment types. By using the aws s3 ls command recursively (with the -r flag), you can explore the folder hierarchy and identify the datasets relevant to your research.</p>
+<p><strong>For instance, the command:</strong></p>
+<p>```bash</p>
+<p>aws s3 ls -r s3://nasa-osdr/SpaceX-12/</p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+<p>This reveal subfolders containing data from the SpaceX-12 mission, allowing you to pinpoint specific datasets of interest.</p>
+</section>
+<section id="automating-your-workflow-scripting-with-the-aws-cli">
+<h3>Automating Your Workflow: Scripting with the AWS CLI <a href="#id-72f4q5osv6ai" id="id-72f4q5osv6ai"></a><a class="headerlink" href="#automating-your-workflow-scripting-with-the-aws-cli" title="Link to this heading">#</a></h3>
+<p>The true power of the AWS CLI lies in its ability to be integrated into scripts. By stringing together commands and incorporating conditional statements, you can automate repetitive tasks such as downloading multiple datasets or filtering data based on specific criteria. Learning basic scripting principles will unlock this advanced functionality.</p>
+</section>
+<section id="exploring-osdr-data">
+<h3>Exploring OSDR Data <a href="#pexwa1fo84wi" id="pexwa1fo84wi"></a><a class="headerlink" href="#exploring-osdr-data" title="Link to this heading">#</a></h3>
+<p>Now that you have the AWS CLI installed, you can use it to explore OSDR data in the S3 bucket.</p>
+<p>Here are some basic commands to help you get started:</p>
+<p>To list the contents of the OSDR S3 bucket (command line):</p>
+<p><code class="docutils literal notranslate"><span class="pre">```bash</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">s3</span> <span class="pre">ls</span> <span class="pre">--no-sign-request</span> <span class="pre">s3://nasa-osdr/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+<p>To list the contents of a specific OSDR dataset (e.g., OSD-96):</p>
+<p><code class="docutils literal notranslate"><span class="pre">```bash</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">s3</span> <span class="pre">ls</span> <span class="pre">--no-sign-request</span> <span class="pre">s3://nasa-osdr/OSD-96/</span> <span class="pre">--recursive</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">```</span></code></p>
+</section>
+<section id="copying-data-locally">
+<h3>Copying Data Locally <a href="#tfkokc87qin5" id="tfkokc87qin5"></a><a class="headerlink" href="#copying-data-locally" title="Link to this heading">#</a></h3>
+<p>To copy specific files from the OSDR S3 bucket to your local machine, you can use the aws s3 cp command. For example:</p>
+<ul class="simple">
+<li><p>To copy a specific file to your local directory:</p></li>
+</ul>
+<p>```bash</p>
+<p>aws s3 cp –no-sign-request s3://nasa-osdr/OSD-96/version-6/rna_seq/GLDS-96_rna_seq_Dmel_Can-S_wo_GC_5th-gen-GC-der_1.5hr_GSM2350418_R2_raw.fastq.gz_trimming_report.txt</p>
+<p>```</p>
+<ul class="simple">
+<li><p>To copy all files within a specific dataset to your local directory:</p></li>
+</ul>
+<p>```bash</p>
+<p>aws s3 cp –no-sign-request s3://nasa-osdr/OSD-96/ –recursive</p>
+<p>```</p>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources <a href="#o603fbfwinv0" id="o603fbfwinv0"></a><a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<p>If you’re looking to delve deeper into OSDR data access and AWS capabilities, consider exploring the following resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://aws.amazon.com/cli/">AWS CLI Documentation:</a> Comprehensive documentation for the AWS CLI, covering various commands and features</p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com/s3/">AWS S3 Documentation:</a> Learn more about Amazon Simple Storage Service (S3) and its capabilities</p></li>
+<li><p><a class="reference external" href="http://nasa-osdr.s3-website-us-west-2.amazonaws.com/">Registry of Open Data on AWS:</a> Explore the OSDR data repository using the AWS S3 browser interface</p></li>
+<li><p><a class="reference external" href="https://osdr.nasa.gov/">NASA Space Biology Open Science Data Repository (OSDR):</a> The official website for the OSDR project, providing information about datasets and research</p></li>
+</ul>
+<p>This tutorial serves as a starting point for beginners to access and explore OSDR data using the AWS CLI. As you become more familiar with the tools and resources, you can expand your knowledge and take advantage of advanced features for data analysis and research.</p>
+<p>Please <a class="reference external" href="https://osdr.nasa.gov/bio/help/contact.html">Contact Us</a> if you have any questions or need further assistance.</p>
+<p>Happy exploring the world of open science data on AWS!</p>
+</section>
+<section id="aws-s3-bucket-gui-setup">
+<h2>AWS S3 bucket GUI setup <a href="#p9mbqgvy1fww" id="p9mbqgvy1fww"></a><a class="headerlink" href="#aws-s3-bucket-gui-setup" title="Link to this heading">#</a></h2>
+<p>How to use Cyberduck (on mac and PC) to access S3 buckets</p>
+<p>Setting up a GUI for S3 bucket visualization</p>
+<p>The issue with cyber duck, during connection you will be prompted for</p>
+<p>“Account name”, “Access Key ID” and the “Secret Access Key”</p>
+<p>How does one get these terms in order to access the OSDR-S3 bucket through the cyberduck GUI?</p>
+<p>This will all allow other similar tools to access the data.</p>
+<section id="radlab-api-syntax">
+<h3>RadLab API Syntax <a href="#c7nh1nbl3qjq" id="c7nh1nbl3qjq"></a><a class="headerlink" href="#radlab-api-syntax" title="Link to this heading">#</a></h3>
+<p>The data can be retrieved programmatically with queries sent as a GET request to <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api">https://visualization.osdr.nasa.gov/radlab/api</a>.</p>
+<p><strong>Queries can be constructed using one of two approaches:</strong> either as <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/gui/data-access/">key-value pairs</a> (a simple approach, but with limited complexity with regard to nesting logical expressions), or as <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/gui/data-access/">boolean expressions</a> (allow combining AND, OR, NOT, and comparison operators with optional parentheticals). The API responds with data in JSON format, making it easy to integrate with bioinformatics analyses. Two approaches to using the API are mutually exclusive.</p>
+<p>The API will return an error if there is an attempt to mix the two syntaxes: <em>e.g.,</em> query=’spacecraft=ISS’&amp;instrument=REM&amp;timestamp will not be accepted; instead, either the key-value pair syntax should be used, <em>i.e.</em> spacecraft=ISS&amp;instrument=REM&amp;timestamp, or the boolean expression syntax, <em>i.e.</em> query=’(spacecraft=ISS)AND(instrument=REM)’&amp;fields+=timestamp.</p>
+<p><strong>Reaching for the Data: API Syntax Demystified</strong></p>
+<p>The RadLab API utilizes GET requests to retrieve data. Here’s how you can craft your queries:</p>
+<p><strong>Endpoint URL:</strong> <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api">https://visualization.osdr.nasa.gov/radlab/api</a></p>
+<p>This is the foundation of your API request URL.</p>
+<p><strong>Query Construction:</strong> You have two main approaches to construct your queries:</p>
+<ol class="arabic simple">
+<li><p>Key-Value Pairs (Simple but Limited):<br />
+This method involves specifying parameters and their corresponding values separated by an equal sign (=), connected with ampersands (&amp;). It’s a straightforward approach, but it may struggle with complex queries that involve nested logical expressions (e.g., combining multiple filters with AND, OR, and NOT operators).<br />
+<strong>Example:</strong> spacecraft=ISS&amp;instrument=REM&amp;timestamp</p></li>
+<li><p>This query retrieves data where the spacecraft is the International Space Station (ISS), the instrument is the Radiation Exposure Monitor (REM), and includes the timestamp field in the response.</p></li>
+<li><p>Boolean Expressions (Powerful and Flexible):<br />
+This approach offers greater control by allowing you to combine logical operators (AND, OR, NOT) and comparison operators (e.g., =, &gt;, &lt;) to construct intricate filters. You can even leverage parentheses for more complex logic.<br />
+<strong>Example:</strong> query=’(spacecraft=ISS)AND(instrument=REM)’&amp;fields+=timestamp</p></li>
+<li><p>This query retrieves data where both conditions are met: spacecraft must be ISS AND the instrument must be REM. It also includes the timestamp field using the fields parameter (more on that later).</p></li>
+</ol>
+<p><strong>Key-value pair syntax; data fields</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Unit</p></th>
+<th class="head"><p>Value format</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>source</p></td>
+<td><p>string</p></td>
+<td><p>name of source (data provider)</p></td>
+<td><p></p></td>
+<td><p><ul><li>empty: Request the field without applying filters to its values</li><li>=value: Match value</li><li>=value1</p></td>
+<td><p>value2: Match value1 or value2</li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p>spacecraft</p></td>
+<td><p>string</p></td>
+<td><p>name of spacecraft</p></td>
+<td><p></p></td>
+<td><p><p>spacecraft</p><p>spacecraft=ISS</p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>instrument</p></td>
+<td><p>string</p></td>
+<td><p>name of instrument</p></td>
+<td><p></p></td>
+<td><p><p>instrument</p><p>instrument=Liulin-5-1D</p><p>instrument=Lidal</p></td>
+<td><p>REM</p></p></td>
+</tr>
+<tr class="row-odd"><td><p>timestamp</p></td>
+<td><p><p>ISO-formatted string</p><p>(or Unix epoch)</p></p></td>
+<td><p>timestamp of recorded value(s)</p></td>
+<td><p></p></td>
+<td><p><ul><li>empty: Request the field without applying filters to its values</li><li>&lt;value: Match any less than value</li><li>&lt;=value: Match any less or equal to value</li><li>=value: Match value</li><li>&gt;=value: Match any greater or equal to value</li><li>&gt;value: Match any greater than value</li></ul><p>Note: can be used more than once in a single query.</p><p>Note: special characters (&lt;, &gt;, :) may need to be URL-encoded (see “Notes” below).</p></p></td>
+<td><p><p>timestamp</p><p>timestamp=2021-01-01T15:25</p><p>timestamp&lt;=2021-01-01T15:25</p><p>timestamp&gt;=2022-01-01T00:00&amp;timestamp&lt;2023-01-01T00:00</p><p>timestamp&gt;1683786900</p></p></td>
+</tr>
+<tr class="row-even"><td><p>dose_rate_total</p></td>
+<td><p>number</p></td>
+<td><p>total radiation dose rate</p></td>
+<td><p>μGy/hour</p></td>
+<td><p><p>dose_rate_total</p><p>dose_rate_total&gt;=2</p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>flux_total</p></td>
+<td><p>number</p></td>
+<td><p>total particle flux</p></td>
+<td><p>cm-2sr-1s-1</p></td>
+<td><p><p>flux_total</p><p>flux_total&lt;1</p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>latitude</p></td>
+<td><p>number</p></td>
+<td><p>latitude of spacecraft at given timestamp</p></td>
+<td><p>deg</p></td>
+<td><p><p>latitude</p><p>latitude&lt;-10</p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>longitude</p></td>
+<td><p>number</p></td>
+<td><p>longitude of spacecraft at given timestamp</p></td>
+<td><p>deg</p></td>
+<td><p><p>longitude</p><p>longitude&gt;30</p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>altitude</p></td>
+<td><p>number</p></td>
+<td><p>altitude of spacecraft at given timestamp</p></td>
+<td><p>km</p></td>
+<td><p><p>altitude</p><p>altitude&gt;=420</p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>number</p></td>
+<td><p>B value</p></td>
+<td><p>nT</p></td>
+<td><p><p>B</p><p>B&lt;=50000</p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>L</p></td>
+<td><p>number</p></td>
+<td><p>L value</p></td>
+<td><p></p></td>
+<td><p><p>L</p><p>L&gt;3</p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Boolean expression syntax</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Aliases</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Examples</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>query</p></td>
+<td><p></p></td>
+<td><p>string</p></td>
+<td><p>a boolean query referencing fields described in the “data fields” table above, and using AND, OR, NOT, =, !=, &lt;=, &gt;= operators and parentheses ((, ))</p></td>
+<td><p><p>query=(timestamp&gt;=2023-05-16)AND((instrument=REM)OR(spacecraft=LND))</p><p>Note: spaces inside the query string are allowed (e.g. spacecraft = LND); the query can be optionally encased in single or double quotes. However, spaces and quotes may need to be URL-encoded (see “Notes” below).</p></p></td>
+</tr>
+<tr class="row-odd"><td><p>fields+</p></td>
+<td><p><p>fields</p><p>columns</p><p>columns+</p></p></td>
+<td><p>string</p></td>
+<td><p>a comma-separated list of additional fields to retrieve (i.e. fields not already implicated in the boolean query)</p></td>
+<td><p>fields+=dose_rate_total,flux_total</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Auxiliary keys (used with both syntaxes)</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Unit</strong></p></th>
+<th class="head"><p><strong>Value format</strong></p></th>
+<th class="head"><p><strong>Examples</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>format</p></td>
+<td><p>string</p></td>
+<td><p>output format</p></td>
+<td><p></p></td>
+<td><p><ul><li>(not speficied): Use the default format (csv)</li><li>=value: Use “value” (one of csv, tsv, json, html)</li></ul></p></td>
+<td><p><p>format=tsv</p><p>format=json</p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Notes</p>
+<ul class="simple">
+<li><p>Special characters (spaces, |, &lt;, &gt;, :, ‘, “) may need to be URL-encoded <em>(although</em> e.g. <em>Python will only complain if spaces are not encoded and will accept all other characters as-is; therefore, this depends on the use case):</em></p>
+<ul>
+<li><p>→ %20 (space)</p></li>
+<li><p>| → %7C</p></li>
+<li><p>&lt; → %3C</p></li>
+<li><p>&gt; → %3E</p></li>
+<li><p>: → %3A</p></li>
+<li><p>‘ → %27</p></li>
+<li><p>“ → %22</p></li>
+</ul>
+</li>
+<li><p>Therefore, if this reference describes a query like timestamp&lt;=2021-01-01T15:25, it may need to be sent as timestamp%3C=2021-01-01T15%3A25.</p></li>
+<li><p>Field <em>names</em> are case insensitive (<em>i.e.</em> timestamp is the same as TimeStamp); string <em>values</em> are not (<em>i.e.</em> REM is valid, but reM is not).</p></li>
+<li><p>Boolean expression operators are case sensitive, <em>i.e.</em> AND is understood as an operator, while and will result in a syntax error. Only the operators listed in the tables above are accepted.</p></li>
+</ul>
+<p><strong>Examples</strong></p>
+<ul class="simple">
+<li><p>Key-value pair syntax</p>
+<ul>
+<li><p>Dose rate and flux readings from DOSTEL1 and DOSTEL2 on the ISS between 11 PM on 01 Apr 2022, inclusive, and 1:05 AM on 02 Apr 2022, non-inclusive, only where the dose rate is above 2 μGy/hour, together with the spatial and magnetic coordinates of the ISS and the data provider name, formatted as HTML:</p>
+<ul>
+<li><p>Conceptually:<br />
+<a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api/%5C">https://visualization.osdr.nasa.gov/radlab/api/\</a>
+?spacecraft=ISS<br />
+&amp;instrument=DOSTEL1|DOSTEL2<br />
+&amp;source<br />
+&amp;timestamp&gt;=2022-04-01T23:00<br />
+&amp;timestamp&lt;2022-04-02T01:05<br />
+&amp;dose_rate_total&gt;2<br />
+&amp;flux_total<br />
+&amp;latitude<br />
+&amp;longitude<br />
+&amp;altitude<br />
+&amp;b<br />
+&amp;l<br />
+&amp;format=html</p></li>
+<li><p>URL-encoded <em>(may not be necessary)</em>:<br />
+<a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api/%5C">https://visualization.osdr.nasa.gov/radlab/api/\</a>
+?spacecraft=ISS<br />
+&amp;instrument=DOSTEL1%7CDOSTEL2<br />
+&amp;source<br />
+&amp;timestamp%3E=2022-04-01T23%3A00<br />
+&amp;timestamp%3C2022-04-02T01%3A05<br />
+&amp;dose_rate_total%3E2<br />
+&amp;flux_total<br />
+&amp;latitude<br />
+&amp;longitude<br />
+&amp;altitude<br />
+&amp;b<br />
+&amp;l<br />
+&amp;format=html</p></li>
+<li><p>Full URL: <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api/?instrument=DOSTEL1%7CDOSTEL2&amp;amp;spacecraft=ISS&amp;amp;source&amp;amp;timestamp%3E=2022-04-01T23%3A00&amp;amp;timestamp%3C2022-04-02T01%3A05&amp;amp;dose_rate_total%3E2&amp;amp;flux_total&amp;amp;latitude&amp;amp;longitude&amp;amp;altitude&amp;amp;b&amp;amp;l&amp;amp;format=html">https://visualization.osdr.nasa.gov/radlab/api/?spacecraft=ISS&amp;instrument=DOSTEL1%7CDOSTEL2&amp;source&amp;timestamp%3E=2022-04-01T23%3A00&amp;timestamp%3C2022-04-02T01%3A05&amp;dose_rate_total%3E2&amp;flux_total&amp;latitude&amp;longitude&amp;altitude&amp;b&amp;l&amp;format=html</a></p></li>
+<li><p>Full URL without encoding (should work in most browsers, Python, …): <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api/?instrument=DOSTEL1%7CDOSTEL2&amp;amp;spacecraft=ISS&amp;amp;source&amp;amp;timestamp%3E=2022-04-01T23:00&amp;amp;timestamp%3C2022-04-02T01:05&amp;amp;dose_rate_total%3E2&amp;amp;flux_total&amp;amp;latitude&amp;amp;longitude&amp;amp;altitude&amp;amp;b&amp;amp;l&amp;amp;format=html">https://visualization.osdr.nasa.gov/radlab/api/?spacecraft=ISS&amp;instrument=DOSTEL1|DOSTEL2&amp;source&amp;timestamp&gt;=2022-04-01T23:00&amp;timestamp&lt;2022-04-02T01:05&amp;dose_rate_total&gt;2&amp;flux_total&amp;latitude&amp;longitude&amp;altitude&amp;b&amp;l&amp;format=html</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Boolean expression syntax</p>
+<ul>
+<li><p>Dose rate readings from all detectors <em>not</em> on the ISS between 15 Jul 2020 inclusive and 23 Jul 2020, non-inclusive; also retrieve the name of the instrument for each reading, and format the output as TSV:</p>
+<ul>
+<li><p>Conceptually:<br />
+query: timestamp &gt;= 2020-07-15 AND timestamp &lt; 2020-07-23 AND NOT spacecraft = ISS<br />
+additional fields: dose_rate_total, instrument<br />
+format: tsv</p></li>
+<li><p>URL-encoded, and strategically using parentheses to avoid having to also encode spaces in the query <em>(may not be necessary)</em>:<br />
+<a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api/%5C">https://visualization.osdr.nasa.gov/radlab/api/\</a>
+?query=(timestamp%3E=2020-07-15)AND(timestamp%3C2020-07-23)AND(NOT(spacecraft=ISS))<br />
+&amp;fields+=dose_rate_total,instrument<br />
+&amp;format=tsv</p></li>
+<li><p>Full URL: <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api/?query=(timestamp%3E=2020-07-15)AND(timestamp%3C2020-07-23)AND(NOT(spacecraft=ISS))&amp;amp;fields+=dose_rate_total,instrument&amp;amp;format=tsv">https://visualization.osdr.nasa.gov/radlab/api/?query=(timestamp%3E=2020-07-15)AND(timestamp%3C2020-07-23)AND(NOT(spacecraft=ISS))&amp;fields+=dose_rate_total,instrument&amp;format=tsv</a></p></li>
+<li><p>Full URL without encoding (should work in most browsers, Python, …): <a class="reference external" href="https://visualization.osdr.nasa.gov/radlab/api/?query=(timestamp%3E=2020-07-15)AND(timestamp%3C2020-07-23)AND(NOT(spacecraft=ISS))&amp;amp;fields+=dose_rate_total,instrument&amp;amp;format=tsv">https://visualization.osdr.nasa.gov/radlab/api/?query=(timestamp&gt;=2020-07-15)AND(timestamp&lt;2020-07-23)AND(NOT(spacecraft=ISS))&amp;fields+=dose_rate_total,instrument&amp;format=tsv</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="key-value-pairs-a-simpler-approach">
+<h3>Key-Value Pairs: A Simpler Approach<a class="headerlink" href="#key-value-pairs-a-simpler-approach" title="Link to this heading">#</a></h3>
+<p>The key-value pair syntax offers a straightforward method for crafting API requests. Here’s how it works:</p>
+<ul class="simple">
+<li><p><strong>Keys:</strong> These represent the data fields you want to filter or retrieve. Refer to the provided table for a list of available data fields (source, spacecraft, instrument, etc.).</p></li>
+<li><p><strong>Values:</strong> These specify the criteria for filtering the data. Values can be:</p>
+<ul>
+<li><p><strong>Empty:</strong> This includes all values for that data field in the response.</p></li>
+<li><p><strong>Specific Value:</strong> Retrieve data entries where that field matches the exact value you provide (e.g., spacecraft=ISS for data from the International Space Station).</p></li>
+<li><p><strong>Multiple Values (separated by</strong> |<strong>):</strong> Retrieve data entries where the field matches any of the listed values (e.g., instrument=DOSTEL1|DOSTEL2 for data from either instrument).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong> Imagine you’re interested in dose rate and flux readings from both DOSTEL1 and DOSTEL2 on the ISS between April 1st, 2022 (11 PM) and April 2nd, 2022 (1:05 AM), focusing only on entries where the dose rate surpasses 2 μGy/hour. You’d also like to include the spatial coordinates (latitude, longitude, and altitude) of the ISS during that time frame, along with the data source (who provided the information). Here’s the key-value pair construction for this scenario:</p>
+<p>?spacecraft=ISS</p>
+<p>&amp;instrument=DOSTEL1|DOSTEL2</p>
+<p>&amp;source</p>
+<p>&amp;timestamp&gt;=2022-04-01T23:00 &amp;timestamp&lt;2022-04-02T01:05 &amp;dose_rate_total&gt;2</p>
+<p>&amp;flux_total</p>
+<p>&amp;latitude</p>
+<p>&amp;longitude</p>
+<p>&amp;altitude</p>
+</section>
+<section id="data-fields-the-core-of-your-query">
+<h3>Data Fields: The Core of Your Query<a class="headerlink" href="#data-fields-the-core-of-your-query" title="Link to this heading">#</a></h3>
+<p>The data field table is your treasure map, guiding you to the specific data points you can retrieve using the API. This table details:</p>
+<ul class="simple">
+<li><p><strong>Key:</strong> The data field name (e.g., source, spacecraft, instrument).</p></li>
+<li><p><strong>Type:</strong> The data type of the field (e.g., string, number).</p></li>
+<li><p><strong>Description:</strong> A clear explanation of what the data field represents.</p></li>
+<li><p><strong>Unit:</strong> The unit of measurement for numerical data fields (e.g., μGy/hour for dose rate).</p></li>
+<li><p><strong>Value format:</strong> How you should specify values in your queries (e.g., dates in ISO format, multiple values separated by pipes).</p></li>
+<li><p><strong>Examples:</strong> Demonstrations of how to construct queries using that specific data field.</p></li>
+</ul>
+</section>
+</section>
+<section id="important-considerations">
+<h2><strong>Important Considerations:</strong><a class="headerlink" href="#important-considerations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Special characters like &lt;, &gt;, :, and spaces might require URL encoding depending on your programming language. The reference table provides details on how to handle this encoding.</p></li>
+<li><p>Field names are case-insensitive (e.g., source is the same as Source), but string values are case-sensitive (e.g., REM is valid, but rem is not).</p></li>
+<li><p>Boolean operators (AND, OR, NOT) are case-sensitive.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="osdr-data-visualization-portal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OSDR Data Visualization Portal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="radlab-overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RadLab Overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"> <a href="#id-22paw416qpf8" id="id-22paw416qpf8"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osdr-api">OSDR API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-api-requests-with-python"><strong>Making API Requests with Python</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requests-library"><strong>The requests library</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-accessing-nasa-data"><strong>Example: Accessing NASA data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-study-metadata-api">Summary of Study Metadata API <a href="#oa543j8meou9" id="oa543j8meou9"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-osdr-study-metadata-api"><strong>Explanation of the OSDR Study Metadata API</strong> <a href="#xlmaonc22d9n" id="xlmaonc22d9n"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-syntax-the-rules-of-the-game">Understanding Syntax: The Rules of the Game</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-api-endpoint-your-gateway-to-study-data">The API Endpoint: Your Gateway to Study Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-meta-osd-study-id">https://osdr.nasa.gov/osdr/data/osd/meta/{OSD\_STUDY\_ID} <a href="#y1ghpc1dn4ak" id="y1ghpc1dn4ak"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-the-keys-that-unlock-information">Parameters: The Keys that Unlock Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together-a-real-world-example">Putting it all Together: A Real-World Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-meta-37">https://osdr.nasa.gov/osdr/data/osd/meta/37 <a href="#dcke2d2hpnil" id="dcke2d2hpnil"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-power-of-the-response-unveiling-study-secrets">The Power of the Response: Unveiling Study Secrets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">Remember:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-study-data-file-api">Summary of Study Data File API <a href="#tz0q8lmeplzy" id="tz0q8lmeplzy"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-requests">Example requests: <a href="#rxafhhfdshrl" id="rxafhhfdshrl"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-osdr-study-data-file-api"><strong>Explanation of the OSDR Study Data File API</strong> <a href="#ivh1s0qlv61f" id="ivh1s0qlv61f"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-api-s-language-syntax-breakdown"><strong>Understanding the API’s Language: Syntax Breakdown</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-the-keys-to-specificity"><strong>Parameters: The Keys to Specificity</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-your-request-url-examples-in-action"><strong>Constructing Your Request URL: Examples in Action</strong> <a href="#id-19gl8lt4uvzb" id="id-19gl8lt4uvzb"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-files-87">https://osdr.nasa.gov/osdr/data/osd/files/87 <a href="#w1xkxlkruyfu" id="w1xkxlkruyfu"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#https-osdr-nasa-gov-osdr-data-osd-files-137-87-95-13-20-50">https://osdr.nasa.gov/osdr/data/osd/files/137,87-95,13,20-50 <a href="#wr2nxymxrizr" id="wr2nxymxrizr"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"> <a href="#fkzsxq1uj01p" id="fkzsxq1uj01p"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-dataset-search-api">Study Dataset Search API <a href="#fkzsxq1uj01p" id="fkzsxq1uj01p"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crafting-your-search-query-understanding-the-syntax">Crafting Your Search Query: Understanding the Syntax <a href="#d30ufompv5ir" id="d30ufompv5ir"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-your-search-url-examples-in-action">Building Your Search URL: Examples in Action <a href="#eo0brdniye4v" id="eo0brdniye4v"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-and-get-requests-accept-the-url-encoded-name-value-pairs-for-submission">POST and GET requests accept the URL encoded name/value pairs for submission <a href="#id-9lfixb1g42vf" id="id-9lfixb1g42vf"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-post-and-get-filter-field-options">Understanding POST and GET Filter Field Options <a href="#cpl54pj0ww3a" id="cpl54pj0ww3a"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"> <a href="#id-67jejmnznql6" id="id-67jejmnznql6"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-search-interface-syntax-breakdown">Alternative Search Interface: Syntax Breakdown</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-url-https-osdr-nasa-gov-bio-repo-search"><strong>Base URL:</strong> https://osdr.nasa.gov/bio/repo/search?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters"><strong>Parameters:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-to-remember"><strong>Key Points to Remember:</strong> <a href="#l1um6r5i21tp" id="l1um6r5i21tp"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments-missions-payloads-hardware-vehicles-subjects-biospecimens">Experiments, Missions, Payloads, Hardware, Vehicles, Subjects, Biospecimens <a href="#si5ui8eh4y04" id="si5ui8eh4y04"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"> <a href="#g4dbf6ytvc9o" id="g4dbf6ytvc9o"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-using-r-code-for-bioinformatics-analysis-with-nasa-osdr"><strong>Tutorial using R Code for Bioinformatics Analysis with NASA OSDR</strong> <a href="#id-69hdujge0cpk" id="id-69hdujge0cpk"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-tutorial-guides-you-through-leveraging-r-code-to-access-analyze-and-visualize-data-from-the-nasa-open-science-data-repository-osdr-for-differential-expression-and-pathway-enrichment-analysis">This tutorial guides you through leveraging R code to access, analyze, and visualize data from the NASA Open Science Data Repository (OSDR) for differential expression and pathway enrichment analysis. <a href="#id-8nsftjty6wh" id="id-8nsftjty6wh"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-accessing-metadata-and-data"><strong>Step 1: Accessing Metadata and Data</strong> <a href="#id-2cp6z3lz7neo" id="id-2cp6z3lz7neo"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-differential-expression-analysis"><strong>Step 2: Differential Expression Analysis</strong> <a href="#cfu8sz9mb7sx" id="cfu8sz9mb7sx"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-pathway-enrichment-analysis"><strong>Step 3: Pathway Enrichment Analysis</strong> <a href="#boaekpp8sp8l" id="boaekpp8sp8l"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-osdr-data-in-aws-s3-buckets">Getting Started with OSDR Data in AWS S3 buckets <a href="#a5sz8b4klkm8" id="a5sz8b4klkm8"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-osdr-data-on-awg">Introduction to OSDR Data on AWG <a href="#id-8ye2imi3hl09" id="id-8ye2imi3hl09"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-aws-cli">Installing the AWS CLI <a href="#h80amja1dt3q" id="h80amja1dt3q"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites-equipping-yourself-aws-cli-data-access">Prerequisites: Equipping Yourself AWS CLI data access. <a href="#eiq0tb4h8v68" id="eiq0tb4h8v68"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"> <a href="#lpahhb6lzyrc" id="lpahhb6lzyrc"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-the-osdr-data-landscape">Navigating the OSDR Data Landscape <a href="#qtcs4a9vt67d" id="qtcs4a9vt67d"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automating-your-workflow-scripting-with-the-aws-cli">Automating Your Workflow: Scripting with the AWS CLI <a href="#id-72f4q5osv6ai" id="id-72f4q5osv6ai"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-osdr-data">Exploring OSDR Data <a href="#pexwa1fo84wi" id="pexwa1fo84wi"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-data-locally">Copying Data Locally <a href="#tfkokc87qin5" id="tfkokc87qin5"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources <a href="#o603fbfwinv0" id="o603fbfwinv0"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-s3-bucket-gui-setup">AWS S3 bucket GUI setup <a href="#p9mbqgvy1fww" id="p9mbqgvy1fww"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radlab-api-syntax">RadLab API Syntax <a href="#c7nh1nbl3qjq" id="c7nh1nbl3qjq"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-value-pairs-a-simpler-approach">Key-Value Pairs: A Simpler Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-fields-the-core-of-your-query">Data Fields: The Core of Your Query</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-considerations"><strong>Important Considerations:</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
