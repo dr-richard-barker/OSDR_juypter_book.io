@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OSDR Data Visualization Portal &#8212; Open Science Data Repository (OSDR) Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'osdr-data-visualization-portal';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RadLab Overview" href="radlab-overview.html" />
+    <link rel="prev" title="OSDR Public API" href="osdr-public-api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="environmental-data-for-space-biology-experiments.html">Environmental Data for Space Biology Rodent Research</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines-for-data-submission.html">Data Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access-data-in-the-osdr.html">Access data in the OSDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osdr-public-api.html">OSDR Public API</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">OSDR Data Visualization Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radlab-overview.html">RadLab Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasa-biological-institutional-scientific-collection-nbisc.html">NASA Biological Institutional Scientific Collection (NBISC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open-science-abbreviations.html">Open Science Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fosdr-data-visualization-portal.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/osdr-data-visualization-portal.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OSDR Data Visualization Portal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-dashboard"><strong>Metadata Dashboard</strong> <a href="#id-18i9g98tw37j" id="id-18i9g98tw37j"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"> <a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-processed-studies-to-find-higher-order-data">Selecting “processed studies” to find higher-order data. <a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"> <a href="#e5g8py1a7trn" id="e5g8py1a7trn"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts-of-factors">Bar charts of factors <a href="#e5g8py1a7trn" id="e5g8py1a7trn"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"> <a href="#baeehoyiz78k" id="baeehoyiz78k"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-a-study-or-group-of-studies-for-visualization">Selecting a study or group of studies for visualization <a href="#baeehoyiz78k" id="baeehoyiz78k"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"> <a href="#s7aljci4w0hb" id="s7aljci4w0hb"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studies-metadata-menu-as-a-table">Studies Metadata Menu as a Table <a href="#s7aljci4w0hb" id="s7aljci4w0hb"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-studies-for-multi-study-analysis">Selecting studies for Multi-study analysis: <a href="#adcagqrqpdky" id="adcagqrqpdky"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"> <a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-study-data-normalization">Multi-study Data Normalization: <a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"> <a href="#oek6t1v60xxg" id="oek6t1v60xxg"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-study-sidebar-functions">Multi-study Sidebar Functions <a href="#oek6t1v60xxg" id="oek6t1v60xxg"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly">Plotly <a href="#id-6klo26n9so4x" id="id-6klo26n9so4x"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"> <a href="#pf6ggq2bhe0b" id="pf6ggq2bhe0b"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-plots">PCA Plots <a href="#zgf6azkbfb8w" id="zgf6azkbfb8w"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-groups-in-pca-plots"><strong>Selecting groups in PCA plots</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plots">Pair Plots <a href="#a8pdjzjwz1gr" id="a8pdjzjwz1gr"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volcano-plots">Volcano Plots <a href="#v6dx63l0d9d" id="v6dx63l0d9d"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-volcano-plots">Customizing volcano plots <a href="#xqfjx7fvgehs" id="xqfjx7fvgehs"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmaps">Heatmaps <a href="#id-90l4f2mpkzz5" id="id-90l4f2mpkzz5"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"> <a href="#gehyxb9h3uh2" id="gehyxb9h3uh2"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideogram">Ideogram <a href="#k0o83ew6adb9" id="k0o83ew6adb9"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"> <a href="#id-4ngxvslairnl" id="id-4ngxvslairnl"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dge-table">DGE Table <a href="#id-2ub25g3cd45c" id="id-2ub25g3cd45c"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"> <a href="#id-8vsniiswkqfg" id="id-8vsniiswkqfg"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-study-gsea">Multiple study GSEA <a href="#d7vfdcantbds" id="d7vfdcantbds"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"> <a href="#l8m8wfdlxlsd" id="l8m8wfdlxlsd"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"> <a href="#id-9fsa75cgexjv" id="id-9fsa75cgexjv"></a></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="osdr-data-visualization-portal">
+<h1>OSDR Data Visualization Portal<a class="headerlink" href="#osdr-data-visualization-portal" title="Link to this heading">#</a></h1>
+<figure><img src=".gitbook/assets/Slide50 (2).png" alt="The image displays the NASA logo, which is a red, white, and blue meatball design. Below the logo is the text &#x22;Open Science for Life in Space&#x22;. To the right of the text is the website&#x27;s navigation menu the &#x22;Data Visualization” is highlighted with blue text, surrounded by a red box and has an red arrow pointing at it."><figcaption><p><em>The image displays the NASA logo, which is a red, white, and blue meatball design. Below the logo is the text "Open Science for Life in Space". To the right of the text is the website's navigation menu the "Data Visualization” is highlighted with blue text, surrounded by a red box and has an red arrow pointing at it.</em></p></figcaption></figure>
+<p><a class="reference external" href="https://visualization.genelab.nasa.gov/data/">Link to Data Visualization Portal</a> (<a class="reference external" href="https://visualization.genelab.nasa.gov/data/">https://visualization.genelab.nasa.gov/data/</a>)</p>
+<p>{% embed url=”<a class="reference external" href="https://visualization.genelab.nasa.gov/data/">https://visualization.genelab.nasa.gov/data/</a>” %}
+The portal encompasses various visualization types, including Gene Expression query tables, Dendrograms, Heatmaps, Ideogram, Gene Set Enrichment Analysis (GSEA) and interactive plots including PCA, Pair, and Volcano plots. Each tool offers the flexibility to adjust parameters and explore specific aspects of the data.
+{% endembed %}</p>
+<ul class="simple">
+<li><p>The OSDR has many data visualization tools suitable for multiple applications and stakeholders. </p>
+<ul>
+<li><p><strong>Data &amp; Tools: Use the dropdown menu to access the</strong> “<a class="reference external" href="https://visualization.genelab.nasa.gov/data/">Data Visualization</a>” hyperlink to open the OSDR multi-study data visualization application.</p></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-03/Data%20Visualization%20Portal%20JT_AU.pdf">Link to detailed Multi-study visualization tutorial</a></p>
+<p>{% embed url=”<a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-03/Data%20Visualization%20Portal%20JT_AU.pdf">https://genelab.nasa.gov/sites/default/files/2024-03/Data Visualization Portal JT_AU.pdf</a>” %}</p>
+<section id="metadata-dashboard">
+<h2><strong>Metadata Dashboard</strong> <a href="#id-18i9g98tw37j" id="id-18i9g98tw37j"></a><a class="headerlink" href="#metadata-dashboard" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://visualization.genelab.nasa.gov/data/">Link to Metadata Dashboard</a></p>
+<p>{% embed url=”<a class="reference external" href="https://visualization.genelab.nasa.gov/data/">https://visualization.genelab.nasa.gov/data/</a>” %}</p>
+<p><strong>The metadata dashboard is designed to help users narrow search results for experimental data. It provides various tools for filtering and displaying results.</strong></p>
+<ul class="simple">
+<li><p>The main tools for filtering the study table’s results are the Pie charts and the filters on the left side of the dashboard. Each section of the Pie chart acts as a separate section of filters, and when a filter from the Pie chart is selected the results containing that factor will automatically populate in the studies table below. A user can make one selection on each Pi chart to narrow the results in the studies table. On the left side of the dashboard are a series of filtering options that can be used to identify similar studies. At the bottom of the page is a table summarizing the main metadata that describes how these studies were conducted.</p>
+<ul>
+<li><p>At the bottom left of the table, there is a blue “Visualize Study” button that will launch any combination of studies that can be selected into a new tab in your browser for further analysis</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/image (3).png" alt="Image showing 4 pie chart divided into multiple colored sections. The text in the center above the pie chart says 438 studies are currently selected. The pie charts summarize the OSDR metadata values for Factors, Assay technology type, Organism and tissue. Below the pie charts is a time providing more details and the capacity to select individual or multiple studies for further analysis. To the left of the screen is a series of filter options that allow the users drill down into the datasets and find related studies."><figcaption><p><em>Image showing the OSDR data visualisation home page. 4 pie chart are divided into multiple colored sections. The text in the center above the pie chart says 438 studies are currently selected. The pie charts summarize the OSDR metadata values for Factors, Assay technology type, Organism and tissue. Below the pie charts is a time providing more details and the capacity to select individual or multiple studies for further analysis. To the left of the screen is a series of filter options that allow the users drill down into the datasets and find related studies.</em></p></figcaption></figure>
+</section>
+<section id="id1">
+<h2> <a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+</section>
+<section id="selecting-processed-studies-to-find-higher-order-data">
+<h2>Selecting “processed studies” to find higher-order data. <a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a><a class="headerlink" href="#selecting-processed-studies-to-find-higher-order-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Users can select factors as filters on the Pie charts or the left side of the dashboard, both sections will be updated to show the selected filters and the studies table will be updated to show the relevant studies.</p>
+<ul>
+<li><p>At the top of the filter panel on the left of the screen, you can see the “Show only studies with processed data tab”, selecting this option and then pressing the “Apply” filter button that excludes studies without processed data.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide51.png" alt="Image showing 2 screenshots of the metadata pie charts. The top row shows 438 studies and a red dotted box highlights the Factors, Assay technology types, Organism and Tissue titles on the pie charts to highlight they can be used as filters. The second row of pie charts is annotated with a red dashed arrow connecting the “Show only studies with processed data” option has been engaged and as a result the number of studies currently being selected has been reduced to 170."><figcaption><p><em>Image showing 2 screenshots of the metadata pie charts. The top row shows 438 studies and a red dotted box highlights the Factors, Assay technology types, Organism and Tissue titles on the pie charts to highlight they can be used as filters. The second row of pie charts is annotated with a red dashed arrow connecting the “Show only studies with processed data” option has been engaged and as a result the number of studies currently being selected has been reduced to 170.</em></p></figcaption></figure>
+</section>
+<section id="id2">
+<h2> <a href="#e5g8py1a7trn" id="e5g8py1a7trn"></a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+</section>
+<section id="bar-charts-of-factors">
+<h2>Bar charts of factors <a href="#e5g8py1a7trn" id="e5g8py1a7trn"></a><a class="headerlink" href="#bar-charts-of-factors" title="Link to this heading">#</a></h2>
+<p><strong>The bar graph displays the results per factor.</strong> When a factor is selected, it is broken down into types. After selecting a filter, the user can click “apply” to activate the filter and update the results on the graph. A red “X” appears next to the crosshair of the Pi chart to clear filters.</p>
+<ul class="simple">
+<li><p>Each pie chart comes with a crosshair tool located at the bottom left. Selecting the crosshair displays a bar graph showing the factors listed in the pie chart.</p>
+<ul>
+<li><p><strong>Example factors bar plot:</strong> In this example, the tissue factor has been viewed as a bar plot, and then the “Root” is selected, this then opens a new table that includes the 2 tissue ontology terms that contributed to the original “Root” ontology term. In this example “Root” is made up of both “plant root” and “root”</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide52.png" alt="2 screenshots showing the “Tissue” metadata presented as bar charts. The red dashed line shows all the &#x22;tissue&#x22; options and highlights that in this example the “root” term is selected. In the bottom screenshot shows the 2 sub-terms that are combined in the “Root” term and an orange arrow pointing at the “Apply filter” button."><figcaption><p><em>2 screenshots showing the “Tissue” metadata presented as bar charts. The red dashed line shows all the "tissue" options and highlights that in this example the “root” term is selected. In the bottom screenshot shows the 2 sub-terms that are combined in the “Root” term and an orange arrow pointing at the “Apply filter” button.</em></p></figcaption></figure>
+</section>
+<section id="id3">
+<h2> <a href="#baeehoyiz78k" id="baeehoyiz78k"></a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+</section>
+<section id="selecting-a-study-or-group-of-studies-for-visualization">
+<h2>Selecting a study or group of studies for visualization <a href="#baeehoyiz78k" id="baeehoyiz78k"></a><a class="headerlink" href="#selecting-a-study-or-group-of-studies-for-visualization" title="Link to this heading">#</a></h2>
+<p><strong>Once a user has selected a study or multiple studies they can press the “Visualize Study” button to be directed to the data visualization tools.</strong></p>
+<ul class="simple">
+<li><p>You may also select multiple studies to visualize simultaneously in which case a user will be directed to a Multi-Study preview page before being directed to the data visualization tools.</p>
+<ul>
+<li><p><strong>Filtered down to one study example:</strong> A series of filters applied narrowed the selection to 1 study that fulfils all the user’s parameters. The red dashed lines highlight the box that allows the user to select a study, the screen image also shows how a selected study appears when it is highlighted and also identifies where the blue “Visualize Study” button can be found.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide53 (1).png" alt="Image showing Four pie charts illustrates the metadata results determined by applying a series of filters to identify studies with similar organisms and tissues. Red arrows indicate where users can select studies of interest and highlight how the blue visualization study button can be utilized to activate the data visualization graphical user interface."><figcaption><p><em>Image showing Four pie charts illustrate the metadata results determined by applying a series of filters to identify studies with similar organisms and tissues. Red arrows indicate where users can select studies of interest and highlight how the blue visualization study button can be utilized to activate the data visualization graphical user interface.</em></p></figcaption></figure>
+</section>
+<section id="id4">
+<h2> <a href="#s7aljci4w0hb" id="s7aljci4w0hb"></a><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+</section>
+<section id="studies-metadata-menu-as-a-table">
+<h2>Studies Metadata Menu as a Table <a href="#s7aljci4w0hb" id="s7aljci4w0hb"></a><a class="headerlink" href="#studies-metadata-menu-as-a-table" title="Link to this heading">#</a></h2>
+<p><strong>At the bottom of the page below the pie charts is a table that lists the studies resulting from the selected filters from above.</strong></p>
+<ul class="simple">
+<li><p>The table includes the following information for each study: OSD, Title, Assay, Organism, Tissue, and Factor. By default, the studies will be listed in order of OSD-# from smallest to largest, but the order can be reversed based on each information category by double-clicking on the study title.</p>
+<ul>
+<li><p><strong>First 10 in chronological order:</strong> If no list is applied then the table default is to show these in numerical order based on the OSD accession number.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/image (5).png" alt="Table showing the frist 8 OSD accessions providing their title, assay, organism, tissue, and factors being studied."><figcaption><p><em>Table showing the frist 8 OSD accessions providing their title, assay, organism, tissue, and factors being studied.</em></p></figcaption></figure>
+</section>
+<section id="selecting-studies-for-multi-study-analysis">
+<h2>Selecting studies for Multi-study analysis: <a href="#adcagqrqpdky" id="adcagqrqpdky"></a><a class="headerlink" href="#selecting-studies-for-multi-study-analysis" title="Link to this heading">#</a></h2>
+<p>The multi-study page is used to initialize the parameters for data visualization of the multiple studies. Researchers can uncover intricate patterns of gene expression associated with specific conditions or treatments across a variety of experiments. Below are detailed instructions on how to effectively navigate and utilize the Multi-Study Page.</p>
+<ul class="simple">
+<li><p>For your initial test, let’s use rodent studies as an example.</p></li>
+<li><p>Start by selecting “rodent” as the organism of interest. Since combining DNA microarray assays is not supported, ensure filtering by both “rodent” and “RNA sequencing” in the assay technology type.</p></li>
+<li><p>Choose two different rodent studies that encompass various tissue types. For instance, select “OSD-49” and “OSD-100.”</p></li>
+<li><p>Mark the checkboxes beside the selected studies in the studies table.</p></li>
+<li><p>Click the “Visualize Study” button to proceed.</p></li>
+<li><p>In this example OSD-49 &amp; OSD100 have been selected, normalized with DESeq2 and their first 2 principle components plotted in a 2D scatter plot. To the right the is a factor selection tab where you can add new factors that will appear as columns beside the OSD-###. Clicking on the “Expand table” button reveals a table showing all the replicates and the metadata the user loads.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/image (10).png" alt="Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-49 &#x26; OSD-100."><figcaption><p><em>Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-49 &#x26; OSD-100.</em></p></figcaption></figure>
+</section>
+<section id="id5">
+<h2> <a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+</section>
+<section id="multi-study-data-normalization">
+<h2>Multi-study Data Normalization: <a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a><a class="headerlink" href="#multi-study-data-normalization" title="Link to this heading">#</a></h2>
+<p><strong>A dialogue box will appear to prompt you for data normalization options.</strong> The default selection is often “DESeq2” for normalization, but you can also choose “No Normalization.”</p>
+<ul class="simple">
+<li><p><strong>E-mail notification:</strong> If desired, you can enter your email address to receive a notification when the studies have been combined and normalized. Alternatively, proceed without entering an email address.</p></li>
+<li><p><strong>Normalization and PCA Insights:</strong> Understand normalization details by clicking the Information button next to the normalization method. View the PCA chart, which provides insights into data distribution after normalization.</p></li>
+<li><p><strong>Factor Selection and Differential Gene Analysis:</strong> Under “Factor Selection,” choose variables to generate a factors table for differential gene analysis. Select parameters, characteristics, or factors from the dropdown list to add to the table.</p></li>
+<li><p><strong>Exploring the Multi-Study Page:</strong> A PCA chart for data visualization will be included on the multi-study page. Utilize the PCA chart options to tailor your visualization based on specific criteria.</p></li>
+<li><p><strong>Modifying Normalization Method:</strong> If you wish to change the normalization method (e.g., from “DESeq2” to “No Normalization”), click “Change Normalization Method.”</p></li>
+<li><p><strong>Sample Selection for Gene Expression Analysis:</strong> Select specific samples by clicking the “Select labelled, expand table” button. Choose samples based on factors added during factor selection.</p></li>
+<li><p><strong>Visualizing and Downloading Results:</strong> Click “Visualize Studies” to proceed to visualization plots or download the accounts table. Depending on your selection, enter your email address for a notification upon completion.</p></li>
+<li><p><strong>Exploring Visualization Plots:</strong> Upon completion, the page will direct you to a range of visualization plots and graphs for your data analysis.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2> <a href="#oek6t1v60xxg" id="oek6t1v60xxg"></a><a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+</section>
+<section id="multi-study-sidebar-functions">
+<h2>Multi-study Sidebar Functions <a href="#oek6t1v60xxg" id="oek6t1v60xxg"></a><a class="headerlink" href="#multi-study-sidebar-functions" title="Link to this heading">#</a></h2>
+<p><strong>When a user has selected the study/studies to visualize, they will be directed to the data visualization tools, where a sidebar of helpful tools is provided on the left side of the screen.</strong></p>
+<p>The “Study Details” button is located at the top of the sidebar. This button pulls up a display with the study information including a small description. The display also includes a tab labelled “samples” that a user can press to see the individual samples and additional information for the study.</p>
+<p>Below the study details button is a label for each plot provided for a user within the data visualization tool. Clicking these labels will automatically direct the user to the plot associated with the label.</p>
+<p>At the bottom of the sidebar is the default Group selection is utilized for each plot. A user can modify the groups are selected by pressing the “Modify Groups” button. This button will prompt the user to select the individual groups that a user would like to see displayed on each plot.</p>
+<p>A feature exclusive to multi-study visualization is the option to download the combined Differential Gene Expression (DGE) table.</p>
+<p>Users can then select a threshold based on quantitative factors of gene expression such as fold change, P-value and Adjusted P-value.</p>
+<p>When a user accesses the multi-study visualization the DGE table will have several options to export the information at the top of the table.</p>
+<figure><img src=".gitbook/assets/Slide33 (1).png" alt="" width="140"><figcaption><p>The sidebar allows users to go straight to specific types of data visualisation including PCA, Volcano, Scatter pairs, heatmaps, GSEA and tables of DESeq2 results. </p></figcaption></figure>
+</section>
+<section id="plotly">
+<h2>Plotly <a href="#id-6klo26n9so4x" id="id-6klo26n9so4x"></a><a class="headerlink" href="#plotly" title="Link to this heading">#</a></h2>
+<p><strong>Plotly is a third-party software that uses data provided by OSDR to create the interactive visualizations displayed.</strong></p>
+<ul class="simple">
+<li><p>At the top-right corner of each plot will be options to help a user better visualize the data. The house logo within the options will reset the axes of the plots back to default.</p>
+<ul>
+<li><p>Users also have the option to zoom in/out on each plot as well as auto-scale the graphic. There are two tools provided for data point selection, the lasso tool and the box select tool. Each of these tools provides a shape that will select any data points that fall within them. Lastly, there is a download button in the shape of a camera that will let you download the plot as a PNG file.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7).png" alt="Screenshot showing an example scatter plot made of red and blue dots. The % difference threshold is used to determine the relative proportions of red and bue. Above it is an enlarged version of the plotly panel of graph optimization options with the &#x22;Pan&#x22; button selected. The panel also has a button for copying a screenshot, minimising the screen, and maximising the screen, along with the lasso and square box selection tools."><figcaption><p><em>Screenshot showing an example scatter plot made of red and blue dots. The % difference threshold is used to determine the relative proportions of red and bue. Above it is an enlarged version of the plotly panel of graph optimization options with the "Pan" button selected. The panel also has a button for copying a screenshot, minimising the screen, and maximising the screen, along with the lasso and square box selection tools.</em></p></figcaption></figure>
+<section id="id7">
+<h3> <a href="#pf6ggq2bhe0b" id="pf6ggq2bhe0b"></a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="pca-plots">
+<h2>PCA Plots <a href="#zgf6azkbfb8w" id="zgf6azkbfb8w"></a><a class="headerlink" href="#pca-plots" title="Link to this heading">#</a></h2>
+<p><strong>PCA stands for Principal Component Analysis, and this type of plot is used to reduce the dimensionality of large experiments to simplify the process of analyzing the data points.</strong></p>
+<p><a class="reference external" href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis">Link to read about PCA plots</a></p>
+<ul class="simple">
+<li><p>Each PCA plot will include options for a 2D and 3D representation of the data. The default selection is a 3D representation on an “X”, “Y”, and “Z” axis. In the upper left corner of the plot area select the “2D” button and then press “Update” The graph will update to display the data on an “X”, and “Y” axis only.</p>
+<ul>
+<li><p>The “Color by Factor” feature allows users to select a specific factor from the study for representation on the graph to allow for an easier comparison between differences in the data. Select the “Color by Factor” drop-down menu, within the drop-down menu select one factor, then press the “Update” button.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/image (8).png" alt="Screenshot showing the PCA plot results for GLDS-120. Replicates are presented as dots and their color defines a combination of their genotype and light treatment. The PCA plot is 3 dimensional but only the axis for PC1 and PC2 are shown. Above the graph are a series of options that can be used to enhance the graph such as transitioning to 2D or changing the color grouping option."><figcaption><p><em>Screenshot showing the PCA plot results for GLDS-120. Replicates are presented as dots and their color defines a combination of their genotype and light treatment. The PCA plot is 3 dimensional but only the axis for PC1 and PC2 are shown. Above the graph are a series of options that can be used to enhance the graph such as transitioning to 2D or changing the color grouping option.</em></p></figcaption></figure>
+</section>
+<section id="selecting-groups-in-pca-plots">
+<h2><strong>Selecting groups in PCA plots</strong><a class="headerlink" href="#selecting-groups-in-pca-plots" title="Link to this heading">#</a></h2>
+<p><strong>PCR plots contain a lot of information, on some occasions selecting a fraction of the samples and plotting their PCA variations in 2D can often be a clear and simple method to highlight clustering.</strong></p>
+<ul class="simple">
+<li><p>In this example, the “Cell Line” factor was selected from the drop-down. The results will now be represented by colors matching the factor selected. In this example, (OSD-154) the colors represent the different cell lines from the experiment and clearly show how the cell lines could be a factor in the differences between the data points.</p>
+<ul>
+<li><p>Another feature within the PCA plot tool allows users to hide factors by selecting the label located on the right side of the plot. The two labels provided are the cell lines “GM15036” which is represented by blue, and “GM15510” represented by the color orange. Click on the label “GM15036” and the data points will be hidden as shown below. Click on the label “GM15036” a second time and the data will return to the graph.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide54 (1).png" alt="2 PCA plots showing that users can toggle on and off different groups. Red dashed lines highlight where the name of the sample can be found on the figure legend and that if you click on it you can add or remove different samples and the rest of the plot will adjust."><figcaption><p><em>2 PCA plots showing that users can toggle on and off different groups. Red dashed lines highlight where the name of the sample can be found on the figure legend and that if you click on it you can add or remove different samples and the rest of the plot will adjust.</em></p></figcaption></figure>
+</section>
+<section id="pair-plots">
+<h2>Pair Plots <a href="#a8pdjzjwz1gr" id="a8pdjzjwz1gr"></a><a class="headerlink" href="#pair-plots" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://medium.com/analytics-vidhya/pairplot-visualization-16325cd725e6">Link to read about Pair Plots</a></p>
+<p>Pair plots are used for Exploratory Data Analysis, where the plot visualizes the data in order to find a relationship between variables that can be continuous or categorical.</p>
+<ul class="simple">
+<li><p>A “Pair Plot” is used to understand the best set of features to explain a relationship between two variables. It also helps to form simple classification models by making linear separations in a dataset.</p>
+<ul>
+<li><p><strong>Enhancing difference visualization:</strong> The default display for the pair plot will be the comparison between two sets of data with a % difference color threshold of 20%. Two plots will be displayed on the dashboard for the ability to compare multiple sets of data simultaneously. In this example on the right, we can see an increase in the threshold reduced the number loci annotated as red. Clicking each of the drop-down menus will allow a user to change which axis the sample data is displayed on.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide55.png" alt="2 scatter plots, the graph on the right has had the % difference color threshold increase to 37. The red dashed line highlights the change in coloring caused by updating the graph after the threshold has been adjusted."><figcaption><p><em>2 scatter plots, the graph on the right has had the % difference color threshold increase to 37. The red dashed line highlights the change in coloring caused by updating the graph after the threshold has been adjusted.</em></p></figcaption></figure>
+<p><strong>Refining Pair plot correlation visualization</strong></p>
+<p>Upon selecting the green “Samples” button located on the plot, one is presented with the opportunity to adjust several correlation coefficient values. These values serve to quantify both the strength and direction of the correlation that exists between data points.</p>
+<ul class="simple">
+<li><p>Coefficients closer to +1 indicate a strong positive correlation, while those near -1 suggest a strong negative correlation. A coefficient near 0 signifies a weak or no correlation. Selecting a different coefficient dynamically alters the spread of the data, with higher coefficients leading to tighter clustering and lower ones resulting in broader scattering.</p></li>
+<li><p>Users also can view different data correlations by clicking the green “Samples” button at the top of the plot and comparing it to other study providing a correlation coefficient summary. Clicking this button will change the dropdown to show multiple correlation coefficients for a pair of samples from the OSDR.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide56.png" alt="A screenshot presents four pairs of plots. The information presented in the plots comes from GLDS-120. Changing the correlation coefficient influences the number of samples and the spread of the data in the graph."><figcaption><p><em>A screenshot presents four pairs of plots. The information presented in the plots comes from GLDS-120. Changing the correlation coefficient influences the number of samples and the spread of the data in the graph.</em></p></figcaption></figure>
+</section>
+<section id="volcano-plots">
+<h2>Volcano Plots <a href="#v6dx63l0d9d" id="v6dx63l0d9d"></a><a class="headerlink" href="#volcano-plots" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.htgmolecular.com/blog/2022-08-25/understanding-volcano-plots">Link to read about Volcano Plots</a></p>
+<p><strong>The name volcano plot comes from its resemblance to a volcanic eruption with the most significant points at the top, like spewed pieces of molten lava.</strong></p>
+<ul class="simple">
+<li><p>A volcano plot is useful for identifying events that differ significantly between two groups of experimental subjects. The default display for Volcano Plots will have the -Log10(Adj P Value) with an Adj P Value threshold of 0.05 and a Log2 FC threshold of 1.00 as shown below.</p>
+<ul>
+<li><p><strong>Each point on the graph represents a gene:</strong> The log2-fold differences between the groups are plotted on the x-axis and the -log10 p-value differences are plotted on the y-axis. The horizontal dashed line represents the significance threshold specified in the analysis, usually derived using a multiple testing correction.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/image (9).png" alt="Screenshot of a volcano plot presenting RNAseq data from OSD-120. Loci going up in abundance are red and loci going down in abundance are blue. A tab is highlighted allowing the user to change the values defined by the Y axis. The option -Log10(P-Value) is highlighted in blue and the results are presented on 2 adjacent volcano plots."><figcaption><p><em>Screenshot of a volcano plot presenting RNAseq data from OSD-120. Loci going up in abundance are red and loci going down in abundance are blue. A tab is highlighted allowing the user to change the values defined by the Y axis. The option -Log10(P-Value) is highlighted in blue and the results are presented on 2 adjacent volcano plots.</em></p></figcaption></figure>
+<section id="customizing-volcano-plots">
+<h3>Customizing volcano plots <a href="#xqfjx7fvgehs" id="xqfjx7fvgehs"></a><a class="headerlink" href="#customizing-volcano-plots" title="Link to this heading">#</a></h3>
+<p><strong>Adjusting the cutoff threshold for coloring the volcano plot and adjusting the distribution of data can increase the ease of data integration.</strong></p>
+<ul class="simple">
+<li><p>Users can change the type of data displayed on the Y axis, and the options from the dropdown menu include “P Value, Adjusted P Value, and -Log10(P Value)”.</p>
+<ul>
+<li><p>Below is an example of the “P-value”, adjusted P value and log10 (P-values) display for a volcano plot. In addition, the ability to change the P value threshold is available and the image below shows a P value and Log2 FC thresholds are also provided. In this example the threshold is increased to P values of 0.25 and a Log2 Fold Change threshold of 3 is applied.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide58 (1).png" alt="Screenshot showing 4 different volcano plots demonstrating the effect of each of the different transformation options that can be plotted on the Y axis. To maintain the &#x27;explosive&#x27; spread of data the -log10 transformation is essential and changing from adjusted P-values to just P-values increased the range of the data on the Y axis. The thresholds are highlighted with yellow boxes. The change the data distrubution caused by using P-values vs adjusted P-values is highlighted with a yellow circle and the effect of changing the Log2 Foldchange threshold is highlighted by yellow squares."><figcaption><p><em>Screenshot showing 4 different volcano plots demonstrating the effect of each of the different transformation options that can be plotted on the Y axis. To maintain the 'explosive' spread of data the -log10 transformation is essential and changing from adjusted P-values to just P-values increased the range of the data on the Y axis. The thresholds are highlighted with yellow boxes. The change the data distrubution caused by using P-values vs adjusted P-values is highlighted with a yellow circle and the effect of changing the Log2 Foldchange threshold is highlighted by yellow squares.</em></p></figcaption></figure>
+</section>
+</section>
+<section id="heatmaps">
+<h2>Heatmaps <a href="#id-90l4f2mpkzz5" id="id-90l4f2mpkzz5"></a><a class="headerlink" href="#heatmaps" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.htgmolecular.com/blog/2023-05-03/understanding-heat-maps-in-gene-expression-profiling">Link to read about Heatmaps</a></p>
+<p>Heatmaps allow researchers to quickly and easily identify patterns of gene expression that are associated with specific conditions or treatments and use color coding to indicate the magnitude of values.</p>
+<ul class="simple">
+<li><p>By measuring the number of RNA molecules produced by genes in a particular sample, researchers can determine the level of gene expression.</p>
+<ul>
+<li><p>The default settings for the heat map are shown in the image below. The heatmap links genes depending on how alike they are based on the conditions set in the experiment.</p></li>
+<li><p><strong>Log2 Transformation:</strong> The Log2 transformation is available to enhance the display of genes with more pronounced differences. Applying Log2 transformation can reveal subtler variations in gene expression between conditions.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide60 (1).png" alt="Screenshot a heatmap using data from OSD-120 using the default settings. An orange dashed box highlights the setting tab at the top of the screen. To left there is a figure legend showing the samples and the colors used to define them in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heatmap a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red to blue scale bar showing loci expression variation from 1 to 0."><figcaption><p><em>Screenshot a heatmap using data from OSD-120 using the default settings. An orange dashed box highlights the setting tab at the top of the screen. To left there is a figure legend showing the samples and the colors used to define them in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heatmap a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red to blue scale bar showing loci expression variation from 1 to 0.</em></p></figcaption></figure>
+<p><strong>Filtering Heatmaps</strong></p>
+<p>Users can filter the genes displayed on the heatmap based on their significance or fold change.</p>
+<ul class="simple">
+<li><p>Filtering by Significance (Adjusted p values) and log2 foldchange thresholds:</p>
+<ul>
+<li><p>This filtering helps highlight genes with statistically significant expression changes. Analyze the heatmap to identify gene expression patterns associated with specific conditions or treatments.</p></li>
+<li><p>Users can switch off the clustering of rows or columns of genes causing the dendrograms to be removed. This also affects how the heatmap links genes based on similarity. In some cases, toggling off these types of clustering can help focus on specific groups of genes and their expression patterns. Pay attention to color intensity and clustering.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide61.png" alt="Screenshot showing a heatmap with fewer genes due to increasing the required log2F to >4 and also requiring a Adjusted P-vValue of less than <0.0001. These stringent criteria have reduced the number of loci displayed on the graph to 15 displaying the Symbol for each on the Y-axis. To left of the is a figure legend showing the colors used to define the sample metameta in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heat map a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red-to-blue scale bar showing loci expression change from 1 to 0."><figcaption><p><em>Screenshot showing a heatmap with fewer genes due to increasing the required log2F to >4 and also requiring a Adjusted P-vValue of less than &#x3C;0.0001. These stringent criteria have reduced the number of loci displayed on the graph to 15 displaying the Symbol for each on the Y-axis. To left of the is a figure legend showing the colors used to define the sample metameta in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heat map a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red-to-blue scale bar showing loci expression change from 1 to 0.</em></p></figcaption></figure>
+<p><strong>Heat map clustering options</strong></p>
+<p>Users can select a clustering method to display results.</p>
+<ul class="simple">
+<li><p>Choosing Clustering Method: The default is often set to UPGMA (Unweighted Pair Group Method with Arithmetic Mean). Clustering helps group genes with similar expression profiles, making patterns more apparent so it can be useful to compare multiple options.</p>
+<ul>
+<li><p>In this example we compare UPGMA to the Nearest Point Algorithm, Furthest Point Algorithm and the Ward variance minimization</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide63.png" alt="Screenshot montage showing 4 different clustering methods used to process the example data from OSD-120. In the left corner, there is a pop-up window that shows the “Clustering methods” menu which has been opened and the UPGMA method is currently selected."><figcaption><p><em>Screenshot montage showing 4 different clustering methods used to process the example data from OSD-120. In the left corner, there is a pop-up window that shows the “Clustering methods” menu which has been opened and the UPGMA method is currently selected.</em></p></figcaption></figure>
+<section id="id8">
+<h3> <a href="#gehyxb9h3uh2" id="gehyxb9h3uh2"></a><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="ideogram">
+<h2>Ideogram <a href="#k0o83ew6adb9" id="k0o83ew6adb9"></a><a class="headerlink" href="#ideogram" title="Link to this heading">#</a></h2>
+<p><strong>Ideograms provide a schematic representation of chromosomes, and they are used to show the relative size of the chromosomes and their characteristic banding patterns.</strong></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Ideogram">Link to read about Ideograms</a></p>
+<ul class="simple">
+<li><p>The ideogram available through OSDR offers three options for customization.</p>
+<ul>
+<li><p>Two options are related to how the user would like to filter significant genes, the first choice being genes with an adjusted P value less than the value set in the text box, and the second choice would be filtered by a Log2 FC value greater than the value set in the text box. The third option to customize the plot allows the user to change the layout of annotations for the Ideogram from a drop-down menu.</p></li>
+</ul>
+</li>
+</ul>
+<figure><img src=".gitbook/assets/Slide123 (1).png" alt="Screenshot showing 4 different types of Ideogram created using data from OSD-120. Each of the grey bars represents a chromosome and red lines or arroves depict where genes that are significantly differentially expressed genes can be found."><figcaption><p><em>Screenshot showing 4 different types of Ideogram created using data from OSD-120. Each of the grey bars represents a chromosome and red lines or arroves depict where genes that are significantly differentially expressed genes can be found.</em></p></figcaption></figure>
+</section>
+<section id="id9">
+<h2> <a href="#id-4ngxvslairnl" id="id-4ngxvslairnl"></a><a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+</section>
+<section id="dge-table">
+<h2>DGE Table <a href="#id-2ub25g3cd45c" id="id-2ub25g3cd45c"></a><a class="headerlink" href="#dge-table" title="Link to this heading">#</a></h2>
+<p><strong>Each study will have an associated Differential Gene Expression (DGE) table available that includes information on each sample from the study.</strong></p>
+<p>To export a Differential Gene Expression (DGE) table from the study visualization page, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Locate the DGE Table:</strong> Scroll down to the bottom of the study visualization page. There, you’ll find the Differential Gene Expression table containing valuable data.</p></li>
+<li><p><strong>Copy the Table to Clipboard:</strong> Identify the “Copy” button within the DGE table. It should be prominently displayed. Click the “Copy” button. This action will copy the entire table, including all data, headers, and values, to your device’s clipboard which can then be placed into Word documents and/or spreadsheets.</p></li>
+<li><p><strong>Or save and export:</strong> As CSV, Excel, PDF, or send to Printer for a physical copy:</p></li>
+</ol>
+<ul class="simple">
+<li><p>To save the data in various file formats, look for the corresponding buttons.</p>
+<ul>
+<li><p><strong>For a CSV file:</strong> Locate and click the “CSV” button. This will prompt a download of the DGE table data in CSV format to your device.</p></li>
+<li><p><strong>For an Excel file:</strong> Look for the “Excel” button. Click it to initiate the download of the DGE table data in Excel format (XLSX) to your device.</p></li>
+<li><p><strong>For a PDF file:</strong> Find and select the “PDF” button. This action will convert the DGE table into a PDF file that you can save to your device.</p></li>
+<li><p><strong>For Printing:</strong> Spot the “Print” button. Clicking this will open a new window displaying a printer-friendly version of the DGE table. You can then use your browser’s print functionality to print the table directly.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong> Choose the method that best suits your needs to access and analyze the DGE data efficiently.</p>
+<figure><img src=".gitbook/assets/Slide64 (1).png" alt="Table showing 10 significantly differentially expressed mouse loci in the OSD-4. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value."><figcaption><p><em>Table showing 10 significantly differentially expressed mouse loci in the OSD-4. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value. There are button in the top right hand corner that allow the user to down load these data.</em></p></figcaption></figure>
+<section id="id10">
+<h3> <a href="#id-8vsniiswkqfg" id="id-8vsniiswkqfg"></a><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+</section>
+<section id="multiple-study-gsea">
+<h3>Multiple study GSEA <a href="#d7vfdcantbds" id="d7vfdcantbds"></a><a class="headerlink" href="#multiple-study-gsea" title="Link to this heading">#</a></h3>
+<p><strong>GSEA stands for gene set enrichment analysis, a method to identify gene groups that are overrepresented in a large gene set. It uses statistics to pinpoint significantly enriched or depleted gene classes.</strong></p>
+<p><a class="reference external" href="https://www.pnas.org/doi/10.1073/pnas.0506580102">Link to read about GSEA</a></p>
+<p>On the Gene Lab Visualization Portal, you’ll find a dedicated GSEA section for each study. Within this GSEA section, there are various parameters you can customize:</p>
+<ol class="arabic simple">
+<li><p><strong>Choose genesets:</strong> Select the database geneset enrichment analysis. The default is “KEGG 2019,” which is recommended.</p></li>
+<li><p><strong>Permutations:</strong> Decide the number of permutations you desire and whether they’re based on phenotypes or gene sets.</p></li>
+<li><p><strong>Gene Number Range:</strong> Adjust the minimum and maximum gene sizes. Increasing the minimum size omits genes with fewer than 15 data points, same for the maximum size.</p></li>
+<li><p><strong>Weighted Score Type:</strong> Defaults to one, representing the t-test. Alternatively, choose signal-to-noise, fold change, or log2 fold change.</p></li>
+<li><p><strong>Statistical Method:</strong> Select your preferred statistical method. The default is the t-test.</p></li>
+</ol>
+<p>To update the plot with your changes, simply click “Update.” A range of plot types is available:</p>
+<ul class="simple">
+<li><p><strong>Normalized Enrichment Score (NES) Table:</strong> View different gene sets in a table format. Export this table using the options at the top.</p></li>
+<li><p><strong>NES Plot</strong>: The default plot displays normalized enrichment scores based on gene sets.</p></li>
+<li><p><strong>Dot Plot:</strong> Similar to NES Plot, it showcases the top six gene sets based on false discovery rate (FDR). FDR indicates the likelihood that a result is valid, e.g., FDR of 0.25 means a 25% chance of validity.</p></li>
+<li><p><strong>Enrichment Plot</strong>: This reveals the fold change distribution of the top three gene sets with an FDR of under 0.25.</p></li>
+<li><p><strong>Network Plot:</strong> Visualize relationships between gene sets using a network plot.</p></li>
+<li><p><strong>GSEA Info:</strong> For in-depth details about GSEA creation, statistics, and plot documentation.</p></li>
+</ul>
+<p>With these steps, you can effectively navigate and utilize the GSEA section, gaining insights into gene set enrichment analysis for your study. A more detailed explanation can be found in the earlier section on the OSDR single study data visualization application.</p>
+</section>
+</section>
+<section id="id11">
+<h2>  <a href="#l8m8wfdlxlsd" id="l8m8wfdlxlsd"></a><a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+</section>
+<section id="id12">
+<h2> <a href="#id-9fsa75cgexjv" id="id-9fsa75cgexjv"></a><a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="osdr-public-api.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OSDR Public API</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="radlab-overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RadLab Overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-dashboard"><strong>Metadata Dashboard</strong> <a href="#id-18i9g98tw37j" id="id-18i9g98tw37j"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"> <a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-processed-studies-to-find-higher-order-data">Selecting “processed studies” to find higher-order data. <a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"> <a href="#e5g8py1a7trn" id="e5g8py1a7trn"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts-of-factors">Bar charts of factors <a href="#e5g8py1a7trn" id="e5g8py1a7trn"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"> <a href="#baeehoyiz78k" id="baeehoyiz78k"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-a-study-or-group-of-studies-for-visualization">Selecting a study or group of studies for visualization <a href="#baeehoyiz78k" id="baeehoyiz78k"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"> <a href="#s7aljci4w0hb" id="s7aljci4w0hb"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studies-metadata-menu-as-a-table">Studies Metadata Menu as a Table <a href="#s7aljci4w0hb" id="s7aljci4w0hb"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-studies-for-multi-study-analysis">Selecting studies for Multi-study analysis: <a href="#adcagqrqpdky" id="adcagqrqpdky"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"> <a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-study-data-normalization">Multi-study Data Normalization: <a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"> <a href="#oek6t1v60xxg" id="oek6t1v60xxg"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-study-sidebar-functions">Multi-study Sidebar Functions <a href="#oek6t1v60xxg" id="oek6t1v60xxg"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly">Plotly <a href="#id-6klo26n9so4x" id="id-6klo26n9so4x"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"> <a href="#pf6ggq2bhe0b" id="pf6ggq2bhe0b"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-plots">PCA Plots <a href="#zgf6azkbfb8w" id="zgf6azkbfb8w"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-groups-in-pca-plots"><strong>Selecting groups in PCA plots</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plots">Pair Plots <a href="#a8pdjzjwz1gr" id="a8pdjzjwz1gr"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volcano-plots">Volcano Plots <a href="#v6dx63l0d9d" id="v6dx63l0d9d"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-volcano-plots">Customizing volcano plots <a href="#xqfjx7fvgehs" id="xqfjx7fvgehs"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmaps">Heatmaps <a href="#id-90l4f2mpkzz5" id="id-90l4f2mpkzz5"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"> <a href="#gehyxb9h3uh2" id="gehyxb9h3uh2"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideogram">Ideogram <a href="#k0o83ew6adb9" id="k0o83ew6adb9"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"> <a href="#id-4ngxvslairnl" id="id-4ngxvslairnl"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dge-table">DGE Table <a href="#id-2ub25g3cd45c" id="id-2ub25g3cd45c"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"> <a href="#id-8vsniiswkqfg" id="id-8vsniiswkqfg"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-study-gsea">Multiple study GSEA <a href="#d7vfdcantbds" id="d7vfdcantbds"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"> <a href="#l8m8wfdlxlsd" id="l8m8wfdlxlsd"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"> <a href="#id-9fsa75cgexjv" id="id-9fsa75cgexjv"></a></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

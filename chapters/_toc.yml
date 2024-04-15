@@ -4,11 +4,12 @@
 format: jb-book
 root: intro
 chapters:
-- file: environmental-data-for-space-biology-experiments.md
-- file: guidelines-for-data-submission.md
+- file: README.md
 - file: how-to-access-data-in-the-osdr.md
+- file: guidelines-for-data-submission.md
 - file: osdr-public-api.md
 - file: osdr-data-visualization-portal.md
+- file: environmental-data-for-space-biology-experiments.md
 - file: radlab-overview.md
 - file: nasa-biological-institutional-scientific-collection-nbisc.md
 - file: open-science-abbreviations.md
