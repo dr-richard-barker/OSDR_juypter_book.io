@@ -11,9 +11,18 @@
 * [RadLab Overview](radlab-overview.md)
 * [Environmental Data for Space Biology Rodent Research](environmental-data-for-space-biology-experiments.md)
 * [Open Science Abbreviations](open-science-abbreviations.md)
-* [Multi-study example OSD-37 & OSD-38 & OSD-120 & OSD-321](multi-study-example-osd-37-and-osd-38-and-osd-120-and-osd-321.md)
 * [OSDR Public API](osdr-public-api.md)
-* [Metadata visualisation tool example made using API](metadata-visualisation-tool-example-made-using-api.md)
 * [NASA Biological Institutional Scientific Collection (NBISC)](nasa-biological-institutional-scientific-collection-nbisc.md)
 * [notebooks](notebooks.ipynb)}
 ```
+
+- file: environmental-data-for-space-biology-experiments.md
+- file: guidelines-for-data-submission.md
+- file: how-to-access-data-in-the-osdr.md
+- file: osdr-public-api.md
+- file: osdr-data-visualization-portal.md
+- file: radlab-overview.md
+- file: nasa-biological-institutional-scientific-collection-nbisc.md
+- file: open-science-abbreviations.md
+- file: notebooks.pynb
+- file: SUMMARY.md

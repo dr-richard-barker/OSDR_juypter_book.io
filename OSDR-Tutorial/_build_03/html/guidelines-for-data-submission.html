@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Submission Guide &#8212; Open Science Data Repository (OSDR) Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'guidelines-for-data-submission';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Access data in the OSDR" href="how-to-access-data-in-the-osdr.html" />
+    <link rel="prev" title="Environmental Data for Space Biology Rodent Research" href="environmental-data-for-space-biology-experiments.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="environmental-data-for-space-biology-experiments.html">Environmental Data for Space Biology Rodent Research</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Submission Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-access-data-in-the-osdr.html">Access data in the OSDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasa-biological-institutional-scientific-collection-nbisc.html">NASA Biological Institutional Scientific Collection (NBISC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open-science-abbreviations.html">Open Science Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osdr-data-visualization-portal.html">OSDR Data Visualization Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osdr-public-api.html">OSDR Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radlab-overview.html">RadLab Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fguidelines-for-data-submission.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/guidelines-for-data-submission.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Submission Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-guidelines-for-data-submission-to-osdr">Summary of guidelines for Data Submission to OSDR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-review-a-dataset">Step 1: Review a Dataset <a href="#eb1p0k3oaubf" id="eb1p0k3oaubf"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-an-account">Step 2: Create an Account <a href="#bszm20ml8vkq" id="bszm20ml8vkq"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-review-submission-tutorial">Step 3: Review Submission Tutorial <a href="#nphp99m5gjov" id="nphp99m5gjov"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-a-study">Step 4: Create a Study <a href="#faj02j4r6odm" id="faj02j4r6odm"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-enter-metadata-and-upload-data-files">Step 5: Enter Metadata and Upload Data Files <a href="#id-68s941w2i9qs" id="id-68s941w2i9qs"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-submission-portal">Data Submission Portal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-on-how-to-create-a-nasa-guest-account-to-access-the-bdme">Instruction on how to create a NASA Guest account to access the BDME <a href="#mis9z834yiru" id="mis9z834yiru"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osdr-submission-console">OSDR submission console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-of-the-data-submission-console">Features of the data submission console: <a href="#upth8phtyd15" id="upth8phtyd15"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#biological-data-management-environment-bdme-tutorial">Biological Data Management Environment (BDME) Tutorial <a href="#r4e59dp88icz" id="r4e59dp88icz"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-new-osdr-repository">How to create a new OSDR repository <a href="#ltsxld960tlt" id="ltsxld960tlt"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-factor">“Select factor”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-data-can-be-uploaded-later">“Raw data can be uploaded later.” <a href="#gjwm03s1ykg3" id="gjwm03s1ykg3"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-osd-and-doi">“Create a new OSD-# and DOI” <a href="#l8ejqtaudeyc" id="l8ejqtaudeyc"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-the-study-description-using-publication-option-1">Entering the study description using publication (Option 1) <a href="#jsbuv8iudmls" id="jsbuv8iudmls"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guided-submission-option-1">Guided Submission (Option 1) <a href="#zfgxamnggn4b" id="zfgxamnggn4b"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guided-submission-adding-assays-option-2">Guided Submission adding assays (Option 2) <a href="#lyn1gotgb7a8" id="lyn1gotgb7a8"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unguided-submission-option-3">Unguided Submission (Option 3) <a href="#id-7tbvts4rcnin" id="id-7tbvts4rcnin"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-description">Study description <a href="#eg5v4cb4728w" id="eg5v4cb4728w"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocols">Protocols <a href="#nemxckfukhpa" id="nemxckfukhpa"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samples">Samples <a href="#uh5k2fqxl096" id="uh5k2fqxl096"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assays">Assays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files-in-the-bdme">Files in the BDME <a href="#veb8eegkhy1h" id="veb8eegkhy1h"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#associate-data-with-an-osdr-archive"><strong>Associate data with an OSDR archive:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-dashboard-preview">My Dashboard &amp; Preview <a href="#h19r10ww5n74" id="h19r10ww5n74"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-status-review">Study Status Review <a href="#f7yzyrqsc1g2" id="f7yzyrqsc1g2"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-us">Contact us <a href="#id-6sf2d6eiaxo7" id="id-6sf2d6eiaxo7"></a></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-submission-guide">
+<h1>Data Submission Guide<a class="headerlink" href="#data-submission-guide" title="Link to this heading">#</a></h1>
+<section id="summary-of-guidelines-for-data-submission-to-osdr">
+<h2><a class="reference external" href="https://genelab.nasa.gov/guidelines-data-submission-osdr">Summary of guidelines for Data Submission to OSDR</a><a class="headerlink" href="#summary-of-guidelines-for-data-submission-to-osdr" title="Link to this heading">#</a></h2>
+<p>{% embed url=”<a class="reference external" href="https://genelab.nasa.gov/guidelines-data-submission-osdr">https://genelab.nasa.gov/guidelines-data-submission-osdr</a>” %}
+Welcome to the Open Science Data Repository (ODSR)! 
+{% endembed %}</p>
+<p>Below you will find guidelines for submitting space biology data.</p>
+<section id="step-1-review-a-dataset">
+<h3>Step 1: Review a Dataset <a href="#eb1p0k3oaubf" id="eb1p0k3oaubf"></a><a class="headerlink" href="#step-1-review-a-dataset" title="Link to this heading">#</a></h3>
+<p>First, review one of the existing datasets in OSDR to become familiar with the format: <a class="reference external" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-48">OSD-48</a></p>
+</section>
+<section id="step-2-create-an-account">
+<h3>Step 2: Create an Account <a href="#bszm20ml8vkq" id="bszm20ml8vkq"></a><a class="headerlink" href="#step-2-create-an-account" title="Link to this heading">#</a></h3>
+<p>Follow <a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/INSTRUCTIONS%20ON%20CREATING%20A%20NASA%20GUEST%20ACCOUNT%20TO%20ACCESS%20BDME.docx_3.pdf">these instructions</a> to create an account to submit data in the OSDR Submission Portal, the Biological Data Management Environment (BDME).</p>
+</section>
+<section id="step-3-review-submission-tutorial">
+<h3>Step 3: Review Submission Tutorial <a href="#nphp99m5gjov" id="nphp99m5gjov"></a><a class="headerlink" href="#step-3-review-submission-tutorial" title="Link to this heading">#</a></h3>
+<p>Before submitting your data, review this <a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/BDME%20Tutorial_v3_noLoginInfo.pdf">tutorial on BDME data submission.</a></p>
+</section>
+<section id="step-4-create-a-study">
+<h3>Step 4: Create a Study <a href="#faj02j4r6odm" id="faj02j4r6odm"></a><a class="headerlink" href="#step-4-create-a-study" title="Link to this heading">#</a></h3>
+<p>Following the <a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/BDME%20Tutorial_v3_noLoginInfo.pdf">tutorial on BDME data submission</a>, create a study or studies.</p>
+<p>NOTE: If you have a NASA-funded study, and you have not yet filled out a Research Data Submission Agreement (RDSA), please contact Danielle Lopez at <a class="reference external" href="mailto:danielle&#46;k&#46;lopez&#37;&#52;&#48;nasa&#46;gov">danielle<span>&#46;</span>k<span>&#46;</span>lopez<span>&#64;</span>nasa<span>&#46;</span>gov</a>. Your RDSA will be used to create your study. If you already have an RDSA, your experiment record will have a study associated. You can create more studies as needed.</p>
+</section>
+<section id="step-5-enter-metadata-and-upload-data-files">
+<h3>Step 5: Enter Metadata and Upload Data Files <a href="#id-68s941w2i9qs" id="id-68s941w2i9qs"></a><a class="headerlink" href="#step-5-enter-metadata-and-upload-data-files" title="Link to this heading">#</a></h3>
+<p>OSDR organizes metadata into sample-level information and assay-level information. Data files are uploaded into the workspace and can be associated with each study.</p>
+<ul class="simple">
+<li><p><strong>Option 1:</strong> Enter your metadata and upload files directly to <a class="reference external" href="https://osdr.nasa.gov/bio/submission/console">BDME User Interface</a>. Once completed, follow the instructions in the tutorial to submit your study to OSDR Curation for review.</p></li>
+<li><p><strong>Option 2:</strong> Use the templates below to enter your metadata and submit the completed sample-level and assay-level metadata files to OSDR Curation at <a class="reference external" href="mailto:arc-dl-osdr-data&#37;&#52;&#48;mail&#46;nasa&#46;gov">arc-dl-osdr-data<span>&#64;</span>mail<span>&#46;</span>nasa<span>&#46;</span>gov</a>. Upload all data files to your <a class="reference external" href="https://osdr.nasa.gov/bio/workspace-sso-login.html">workspace</a>.</p></li>
+</ul>
+<p>Below you will find a sample-level metadata template and assay-level metadata templates for the most common assay types. Use these to properly format your data prior to submission. If you don’t see your experimental assay in the folder, please contact us so we can add it.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://drive.google.com/drive/folders/1fbv9EI58PGRDByqZTNMsS-92850VbxKE">General Study and Sample-Level Metadata Templates</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/drive/folders/1wETFFf4MVoyGToAdmDh1nP7laNTKZvtt">Assay Specific Metadata Templates</a></p></li>
+</ul>
+<p>{% embed url=”<a class="reference external" href="https://drive.google.com/drive/folders/1wETFFf4MVoyGToAdmDh1nP7laNTKZvtt">https://drive.google.com/drive/folders/1wETFFf4MVoyGToAdmDh1nP7laNTKZvtt</a>” %}</p>
+<p>When possible, please use common acronyms as defined on the <a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/OSKB-OpenScienceAbbreviations-020124-0900-2_1.pdf">OSDR Abbreviations Page</a>. If your data has acronyms, scientific terms, or column names that need to be defined, please include a data dictionary. An example data dictionary can be found in dataset <a class="reference external" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-618">OSD-618</a> (Files &gt; Novel Object Recognition &gt; Data Dictionary Files).</p>
+<p>{% embed url=”<a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/OSKB-OpenScienceAbbreviations-020124-0900-2_1.pdf">https://genelab.nasa.gov/sites/default/files/2024-01/OSKB-OpenScienceAbbreviations-020124-0900-2_1.pdf</a>” %}</p>
+</section>
+</section>
+<section id="data-submission-portal">
+<h2><a class="reference external" href="https://osdr.nasa.gov/bio/submission-sso-login.html">Data Submission Portal</a><a class="headerlink" href="#data-submission-portal" title="Link to this heading">#</a></h2>
+<p>The Biological Data Management Environment (BDME) is a web-based system that accepts submission of omics data from space-relevant experiments including spaceflight, radiation, simulated gravity, gravitropism, isolation and confinement, hostile closed environments and/or distance from Earth. The OSDR accepts studies whose design, assays and data types match those listed in the homepage, if yours is listed then please contact our curation team to help us add it.</p>
+<section id="instruction-on-how-to-create-a-nasa-guest-account-to-access-the-bdme">
+<h3>Instruction on how to create a NASA Guest account to access the BDME <a href="#mis9z834yiru" id="mis9z834yiru"></a><a class="headerlink" href="#instruction-on-how-to-create-a-nasa-guest-account-to-access-the-bdme" title="Link to this heading">#</a></h3>
+<p><strong>Logging into BDME:</strong></p>
+<ol class="arabic simple">
+<li><p>Go to Biological Data Management Environment (<a class="reference external" href="https://osdr.nasa.gov/bio/submission-sso-login.html">BDME</a>), (or <a class="reference external" href="https://osdr.nasa.gov/bio/workspace-sso-login.html">Workspace</a>).</p></li>
+</ol>
+<p>{% embed url=”<a class="reference external" href="https://osdr.nasa.gov/bio/submission-sso-login.html">https://osdr.nasa.gov/bio/submission-sso-login.html</a>” %}</p>
+<ol class="arabic simple">
+<li><p>Create a new account./ If you already have an account login.</p>
+<ol class="arabic simple">
+<li><p>You will receive an authorization email with the subject of the email is “[NASA Guest] Complete your Guest account registration”. Follow the link in the email to set up an account password. * <em>If you have registered in GEODE before, please make sure to use the same gmail address so you can access your existing studies/files.</em></p></li>
+<li><p>Set up an account password. Your password must be 12 to 32 characters long, it must contain all three of the following four constraints, at least one upper case character, at least one lower case character, at least one number, and at least one special character (e.g. $, !, #, *, &#64;, %)</p></li>
+<li><p>The next screen will confirm that a link is sent to the email to complete registration.</p></li>
+</ol>
+</li>
+<li><p>Log in using your email address and password. <em>* If you forgot your password please select the “Reset Password “ option.</em></p></li>
+<li><p>Or if you have one use your NASA account to automatically log in.</p></li>
+<li><p>In the access LaunchPad page, select Agency User ID. Then use your registered email address as the Agency User ID and the password that you just created.</p></li>
+<li><p>The<a class="reference external" href="https://osdr.nasa.gov/bio/submission/console"> OSDR data submission console</a> will open and provide access to tools to help you submit your data.</p></li>
+</ol>
+<figure><img src=".gitbook/assets/Slide68.png" alt="Screenshot showing the login or register account options that provide access to the OSDR submission portal. A yellow arrow highlights the sign up window that will open to help you create a new account. This will then launch the Guest Account Services window that will prompt the user to provide a password before creating an account."><figcaption><p><em>Screenshot showing the login or register account options that provide access to the OSDR submission portal. A yellow arrow highlights the sign-up window that will open to help you create a new account. This will then launch the Guest Account Services window that will prompt the user to provide a password before creating an account.</em></p></figcaption></figure>
+</section>
+</section>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+</section>
+<section id="osdr-submission-console">
+<h2>OSDR submission console<a class="headerlink" href="#osdr-submission-console" title="Link to this heading">#</a></h2>
+<p>Logging into your OSDR submission console allows you to see what studies you have previously loaded  </p>
+<p>{% embed url=”<a class="reference external" href="https://osdr.nasa.gov/bio/submission/console">https://osdr.nasa.gov/bio/submission/console</a>” %}</p>
+<ol class="arabic simple">
+<li><p>When you see “My Studies” page, you have logged into BDME successfully.</p></li>
+<li><p>More detailed <a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/INSTRUCTIONS%20ON%20CREATING%20A%20NASA%20GUEST%20ACCOUNT%20TO%20ACCESS%20BDME.docx_3.pdf">instructions can be found here</a></p></li>
+</ol>
+<p>{% embed url=”<a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/INSTRUCTIONS%20ON%20CREATING%20A%20NASA%20GUEST%20ACCOUNT%20TO%20ACCESS%20BDME.docx_3.pdf">https://genelab.nasa.gov/sites/default/files/2024-01/INSTRUCTIONS ON CREATING A NASA GUEST ACCOUNT TO ACCESS BDME.docx_3.pdf</a>” %}</p>
+</section>
+<section id="features-of-the-data-submission-console">
+<h2>Features of the data submission console: <a href="#upth8phtyd15" id="upth8phtyd15"></a><a class="headerlink" href="#features-of-the-data-submission-console" title="Link to this heading">#</a></h2>
+<p>The OSDR homepage, data repository, workspace, tutorials, and support resources are all accessible through the OSDR interface. The workspace allows users to manage files, while the tutorials guide on using OSDR. The FAQs, troubleshooting tips, and contact information assist with resolving any issues or inquiries.</p>
+<ol class="arabic simple">
+<li><p>The top bar menu shows links to the “OSDR home page”, “data&amp;tools”, “Research&amp;Resurces”, “Working Groups” and “Help” menus.</p></li>
+<li><p>GEODE my dashboard button can be used to refresh the results page.</p></li>
+<li><p>“Create new study” – link that allows users to create a new study while incorporating experimental factors. You can find a tutorial on how to submit data through <a class="reference external" href="https://genelab.nasa.gov/help/tutorials/GEODE">GEODE</a>.</p></li>
+<li><p>My studies – allows users to view current studies submitted via <a class="reference external" href="https://genelab.nasa.gov/help/tutorials/GEODE">GEODE</a>, users can exit using the “logout” link or by closing the browser tab.</p></li>
+<li><p>Summary - enter some text that summarizes the study being added to or found in the OSDR database.</p></li>
+</ol>
+<p><strong>All:</strong> shows data that is in various stages of submission.<br />
+<strong>Submitted:</strong> The link allows users to see only data that has been submitted.<br />
+<strong>In Curation:</strong> The link shows only data that is in curation.<br />
+<strong>In Review:</strong> This link allows users to only see data that is in review.</p>
+<figure><img src=".gitbook/assets/GeneLab Repo Training (1).png" alt="Screenshot of the OSDR home page. It has been labelled 1 to 5. The first #1 highlights the OSDR navigation panel, #2 highlights the dashboard refresh button, #3 highlights both the create new study and help panel links. #4 highlights the studies being processed and the #5 highlights where the summary information can be found for an example study."><figcaption><p><em>Screenshot of the OSDR home page. It has been labelled 1 to 5. The first #1 highlights the OSDR navigation panel, #2 highlights the dashboard refresh button, #3 highlights both the create new study and help panel links. #4 highlights the studies being processed and the #5 highlights where the summary information can be found for an example study.</em></p></figcaption></figure>
+</section>
+<section id="biological-data-management-environment-bdme-tutorial">
+<h2>Biological Data Management Environment (BDME) Tutorial <a href="#r4e59dp88icz" id="r4e59dp88icz"></a><a class="headerlink" href="#biological-data-management-environment-bdme-tutorial" title="Link to this heading">#</a></h2>
+<p><strong>To create a study use the following instructions (</strong><a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/BDME%20Tutorial_v3_noLoginInfo.pdf">BDME data submission tutorial</a><strong>)</strong></p>
+<p>{% embed url=”<a class="reference external" href="https://genelab.nasa.gov/sites/default/files/2024-01/BDME%20Tutorial_v3_noLoginInfo.pdf">https://genelab.nasa.gov/sites/default/files/2024-01/BDME Tutorial_v3_noLoginInfo.pdf</a>” %}</p>
+</section>
+<section id="how-to-create-a-new-osdr-repository">
+<h2>How to create a new OSDR repository <a href="#ltsxld960tlt" id="ltsxld960tlt"></a><a class="headerlink" href="#how-to-create-a-new-osdr-repository" title="Link to this heading">#</a></h2>
+<p><strong>1</strong>. Click on the “Create New” button </p>
+<p><strong>2.</strong> Select “Create a Study”</p>
+<ul class="simple">
+<li><p>In this example the data is not from a NASA-funded grant, which is highlighted in blue, so the user can click “Next” to create the new OSDR-# accession.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide71 (1).png" alt=""><figcaption><p><em>Screenshot showing the welcome page to the guided submission portal.</em></p></figcaption></figure>
+<section id="select-factor">
+<h3>“Select factor”<a class="headerlink" href="#select-factor" title="Link to this heading">#</a></h3>
+<p><strong>3.</strong> <strong>Choose a factor:</strong> The drop-down list that best describes the subject matter of your study and then click “Let’s get started.” If a pertinent factor is not listed, click on “Other” to email the curation team for review.</p>
+<ul class="simple">
+<li><p>In this example, the user has selected “Gravitropism”.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide76 (1).png" alt="Screenshot showing the Factor option stage during the guided submission portal."><figcaption><p><em>Screenshot showing the Factor option stage during the guided submission portal.</em></p></figcaption></figure>
+<p><strong>4.</strong> There is nothing to do at this stage of the guided submission.</p>
+<ul class="simple">
+<li><p>At this stage click “Let’s get started”</p></li>
+</ul>
+<figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption><p><em>Screenshot showing the welcome page lets get started.</em></p></figcaption></figure>
+</section>
+<section id="raw-data-can-be-uploaded-later">
+<h3>“Raw data can be uploaded later.” <a href="#gjwm03s1ykg3" id="gjwm03s1ykg3"></a><a class="headerlink" href="#raw-data-can-be-uploaded-later" title="Link to this heading">#</a></h3>
+<p><strong>5.</strong> <strong>Raw data files are required:</strong> as they are best for downstream analysis and modeling. Uploading raw data files can be done at any time, so you can select “I will upload files later” and click “Next” for now. This system lets you upload files easily and provides the flexibility to do it later if you want. But remember, the files need to follow certain metadata rules and formats to make sure they’re compatible and can be processed quickly.</p>
+<ul class="simple">
+<li><p>In this example, we’re selecting “upload files later” so we can get familiar with the system before uploading our results and raw data.</p></li>
+</ul>
+<p><em><strong>Alt text:</strong> Screenshot showing the I will upload files later stage at the initiation of a new study.</em></p>
+</section>
+<section id="create-a-new-osd-and-doi">
+<h3>“Create a new OSD-# and DOI” <a href="#l8ejqtaudeyc" id="l8ejqtaudeyc"></a><a class="headerlink" href="#create-a-new-osd-and-doi" title="Link to this heading">#</a></h3>
+<p><strong>6.</strong> <strong>Create a new study, OSD identifier and DOI:</strong> Creating a new study will provide you with an OSDR accession number and a unique DOI are assigned to your study that can used when submitting papers for peer review. When you see this screen, a new study has been created successfully and you can start curating your research for greater integration into the OSDR metadata matrix.</p>
+<ul class="simple">
+<li><p>In this example screenshot shot you can see how a new study is given a unique OSD ID number and data set DOI which can be used to reference the dataset.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide73.png" alt="Screenshot showing that the new study has been given a unique OSD ID and data set DOI which can be used during future paper publication process."><figcaption><p><em>Screenshot shows that the new study has been given a unique OSD ID and data set DOI which can be used during future paper publication process.</em></p></figcaption></figure>
+<p><strong>7.</strong> <strong>You are now ready to enter metadata and upload data files:</strong> OSDR helps organise metadata into sample-level information and assay-level information. Data files are uploaded into the workspace and can be associated with each study based on metadata.</p>
+<p>There are 3 ways to proceed from here.</p>
+<ul class="simple">
+<li><p><strong>Option 1: Manuscript-guided auto-populate metadata.</strong></p></li>
+<li><p><strong>Option 2: Manually</strong> enter your metadata and upload files directly to <a class="reference external" href="https://osdr.nasa.gov/bio/submission/console">BDME User Interface</a>. Once completed, follow the instructions in the tutorial to submit your study to OSDR Curation for review.</p></li>
+<li><p><strong>Option 3:</strong> <strong>Use the templates</strong> below to enter your metadata and submit the completed sample-level and assay-level metadata files to OSDR Curation at <a class="reference external" href="mailto:arc-dl-osdr-data&#37;&#52;&#48;mail&#46;nasa&#46;gov">arc-dl-osdr-data<span>&#64;</span>mail<span>&#46;</span>nasa<span>&#46;</span>gov</a>. Upload all data files to your <a class="reference external" href="https://osdr.nasa.gov/bio/workspace-sso-login.html">workspace</a>.</p></li>
+</ul>
+<p>Below you will find a sample-level metadata template and assay-level metadata templates for the most common assay types. Use these to properly format your data prior to submission.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://drive.google.com/drive/folders/1fbv9EI58PGRDByqZTNMsS-92850VbxKE">General Study and Sample-Level Metadata Templates</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/drive/folders/1wETFFf4MVoyGToAdmDh1nP7laNTKZvtt">Assay Specific Metadata Templates</a></p></li>
+</ul>
+<p>If you don’t see your experimental assay in the folder, please contact us so we can add it.</p>
+</section>
+<section id="entering-the-study-description-using-publication-option-1">
+<h3>Entering the study description using publication (Option 1) <a href="#jsbuv8iudmls" id="jsbuv8iudmls"></a><a class="headerlink" href="#entering-the-study-description-using-publication-option-1" title="Link to this heading">#</a></h3>
+<p><strong>7.1. The page explains how to proceed with guided submission or skip to the study overview section when submitting a study.</strong></p>
+<p>Guided submission offers step-by-step guidance for new users or complex studies but requires a pre-published paper to guide the process. Users can also choose to skip guided submission and directly provide an overview of their study, including purpose, methods, and procedures. Regardless of the chosen path, both options lead to the final step (step 8) where users can review and make necessary changes before submission to the OSDR. Additionally, users can stop at any point and resume editing later, ensuring flexibility throughout the submission process.</p>
+<ul class="simple">
+<li><p>In this example we can see the user has got the study description stage, they now have the choice to add their Study design description manually or provide a DOI or PubMed ID to automate the metadata field completion.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide77 (1).png" alt=""><figcaption><p><em>Screenshot showing the study description creation page, at this stage the user can decide to import study description from a DOI or PubMed ID or can choose to enter the information and metadata manually.</em></p></figcaption></figure>
+</section>
+</section>
+<section id="guided-submission-option-1">
+<h2>Guided Submission (Option 1) <a href="#zfgxamnggn4b" id="zfgxamnggn4b"></a><a class="headerlink" href="#guided-submission-option-1" title="Link to this heading">#</a></h2>
+<p><strong>7.2. There is a lot of information required to populate all the fields, but if you’ve already published a peer review paper then the guided submission process can help.</strong></p>
+<p>Enter the following information, this can be done at a time that is convenient and by clicking on the “Next” button you can navigate through the process so you can familiarize yourself with each stage.</p>
+<ul class="simple">
+<li><p><strong>Study Design Description:</strong> use an ontology if available.</p></li>
+<li><p><strong>Study Title:</strong> Use the primary paper title or a related phrase.</p></li>
+<li><p><strong>Study Summary:</strong> a brief description of the study. You can also enter the abstract of the publication, there is a 60-character minimum for this field.</p></li>
+<li><p><strong>Study Contact:</strong> the principal investigator and the submitter are required to be listed in a dataset.</p></li>
+<li><p><strong>Manuscript:</strong> enter DOI or PMID to add a manuscript (s).</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide78.png" alt="Screenshot showing the study description creation page with a red line highlighting how the user can choose to enter the Study Design Description information and metadata manually. The diagram has been highlighted to show how the ontology database assists with field completion. A red dashed line points at the “+Add” button that allows users to add study descriptions."><figcaption><p><em>Screenshot shows the study description creation page with a red line highlighting how the user can choose to enter the Study Design Description information and metadata manually. The diagram has been highlighted to show how the ontology database assists with field completion. A red dashed line points at the “+Add” button that allows users to add study descriptions.</em></p></figcaption></figure>
+<section id="guided-submission-adding-assays-option-2">
+<h3>Guided Submission adding assays (Option 2) <a href="#lyn1gotgb7a8" id="lyn1gotgb7a8"></a><a class="headerlink" href="#guided-submission-adding-assays-option-2" title="Link to this heading">#</a></h3>
+<p><strong>7.3</strong> <strong>Click and add study design information related to your study.</strong></p>
+<p>You’ll be able to select the Measurement, Technology type and Platform applicable to your data.</p>
+<p>Click “Next” to go to the next step and populate assay info later.</p>
+<ul class="simple">
+<li><p>In this example the assay type measurement type was transcriptional profiling, the technology type is still to be selected in the drop-down menu.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide79.png" alt="Screenshot showing that the guided submission process allows you to add metadata related to your assay type. The red dotted line shows the first set of ontology-defined options the user is presented with, the yellow dashed boxes highlight how a highly curated “nested” ontology database can be used to assist your definition of assay type."><figcaption><p><em>Screenshot showing that the guided submission process allows you to add metadata related to your assay type. The red dotted line shows the first set of ontology-defined options the user is presented with, the yellow dashed boxes highlight how a highly curated “nested” ontology database can be used to assist your definition of assay type.</em></p></figcaption></figure>
+</section>
+<section id="unguided-submission-option-3">
+<h3>Unguided Submission (Option 3) <a href="#id-7tbvts4rcnin" id="id-7tbvts4rcnin"></a><a class="headerlink" href="#unguided-submission-option-3" title="Link to this heading">#</a></h3>
+<p><strong>8. ´Enter your study title, and description and click to list people who participated in the study if you have not done so in the previous steps.</strong></p>
+<p>The principal investigator and the submitter are required to be listed in a dataset along with other members of the primary research team. Other metadata concepts such as project type, flight program, or NASA center can all be added. “Funding source(s)”, “Experimental platforms”, “Sponsoring agency” and “Acknowledgements” are all free text fields allowing the data submitters to provide links to previous project ID’s and data management plans.</p>
+<ul class="simple">
+<li><p>In this example, 3 highlighted pop-out boxes show some of the options in the Project Types, Flight Program and NASA center are linked via red arrows to the pop-up windows that provide the user with a list of options to select from.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide87.png" alt="Screenshot showing the user interface that allows users to input metadata related to their study. 3 highlighted pop-out boxes show some of the options in the Project Types, Flight Program and NASA center. Red lines and arrows highlight the assisted completion options that are available for uses, the other key project details can be completed with text-based answers."><figcaption><p><em>Screenshot showing the user interface that allows users to input metadata related to their study. 3 highlighted pop-out boxes show some of the options in the Project Types, Flight Program and NASA center. Red lines and arrows highlight the assisted completion options that are available for uses, the other key project details can be completed with text-based answers.</em></p></figcaption></figure>
+</section>
+</section>
+<section id="study-description">
+<h2>Study description <a href="#eg5v4cb4728w" id="eg5v4cb4728w"></a><a class="headerlink" href="#study-description" title="Link to this heading">#</a></h2>
+<p><strong>8.1. The study description needs the user to input text but provides guidelines for creating a detailed study design descriptor.</strong></p>
+<p>The description is intended to provide comprehensive information about the study to facilitate understanding and reproducibility. It includes sections on study design, factors studied, project details (funding, institutions, and principal investigators), mission description (for spaceflight studies), data source, and data submission information.</p>
+<ul class="simple">
+<li><p>In this example, the user has selected to add publication as it contains the information required to populate the study description and is in the process of entering data into the publication metadata fields.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Markwhatney.png" alt=""><figcaption><p>To effectively collaborate and document your experiment, you can add co-investigators and provide thorough descriptions through the user interface. Begin by utilizing the <strong>Add person</strong> option to include co-investigators, detailing their names and roles. Subsequently, input a comprehensive experiment description covering its background, methods, and expected outcomes. Additionally, enrich the context of your work by incorporating related publications via the <strong>+Add publications</strong> button, adhering to the provided instructions for formatting and submission. This process enhances both the collaboration and the documentation aspects of your research.</p></figcaption></figure>
+</section>
+<section id="protocols">
+<h2>Protocols <a href="#nemxckfukhpa" id="nemxckfukhpa"></a><a class="headerlink" href="#protocols" title="Link to this heading">#</a></h2>
+<p><strong>8.2.</strong> <strong>You will need to describe the protocols you used to generate samples for analysis with your assay(s) of choice.</strong></p>
+<p>If you have added an assay in the previous steps, you will find a list of default protocol sections for the assay chosen to be populated. If you haven’t added an assay, you can first go to the “Assays tab” and add an assay then return to the “Protocols tab” to populate all the protocols. Adding a protocol parameter to a sample this way allows the user to use the preexisting ontology database making it easier to connect with other studies in the Open Science Archive.</p>
+<ul class="simple">
+<li><p>In this instance, the “add parameters” button has been emphasized, and a pop-up window reveals the existence of a nested ontology database intended to guide in the addition of recognized factors. Moreover, it facilitates the user’s input of a parameter value that is not present in the ontology as free text.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide92.png" alt="Screenshot showing the user interface that allows users to add information about the protocols that were used. The add parameters button has been highlighted, the image shows that there is a ontology database to help guide the addition of known factors. It also allows the user to enter a parameter value that no ontology as free text."><figcaption><p><em>Screenshot showing the user interface that allows users to add information about the protocols that were used. The add parameters button has been highlighted, the image shows that there is a ontology database to help guide the addition of known factors. It also allows the user to enter a parameter value that no ontology as free text.</em></p></figcaption></figure>
+</section>
+<section id="samples">
+<h2>Samples <a href="#uh5k2fqxl096" id="uh5k2fqxl096"></a><a class="headerlink" href="#samples" title="Link to this heading">#</a></h2>
+<p><strong>8.3.</strong> <strong>You will need to provide descriptions of your samples and the metadata that was collected during your study.</strong></p>
+<p>To provide detailed information about samples up to the point of collection, create one row per sample and select an applicable ontology term, if available. To initiate this process, select the sample’s characteristic column and add pertinent metadata such as organism, tissue type, age at harvest, preservation method or other relevant options.</p>
+<ul class="simple">
+<li><p>The screenshot below illustrates how users can add characteristics to their sample metadata sheet.</p></li>
+<li><p>Currently, there are no samples loaded.</p></li>
+<li><p>In this example the samples have been highlighted, it shows it currently doesn’t have any sample field associated.</p></li>
+<li><p>In the second panel, we can see that the “Characteristic” tab has been selected to highlight some of the category options such as organism, organism part, and variant or allows you to provide free text.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide93.png" alt="Screenshot showing the user interface that allows users to add information about the samples that were used. The add characteristics button has been highlighted, the image shows that there is an ontology database to help guide the addition of known factors. It also allows the user to enter a parameter value that no ontology as free text."><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Slide94.png" alt=""><figcaption><p><em>Screenshot showing the user interface that allows users to add information about the samples that were used. The add characteristics button has been highlighted, the image shows that there is an ontology database to help guide the addition of known factors. It also allows the user to enter a parameter value that no ontology as free text.</em></p></figcaption></figure>
+</section>
+<section id="assays">
+<h2>Assays<a class="headerlink" href="#assays" title="Link to this heading">#</a></h2>
+<p><strong>8.4 You will need to provide descriptions of the assays you used to assess your samples.</strong></p>
+<p>To populate assay level information, beginning with extraction, with one row per sample and select an ontology term if relevant. After the table, identify the sample-to-file relationship. In this illustration, clicking on the “add assay” button opens a pop-out window, allowing the user to choose a measurement type, which then provides a secondary option for selecting the technology type and even the precise platform.</p>
+<ul class="simple">
+<li><p>For example, area measurements derived from image analysis using photography enabled by the camera platform, which is as specific as possible, in this instance, “Cannon EOS rebel”.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide89.png" alt="Screenshot showing the user interface that allows users to add information about the Assay that was used to analyze the samples. The “add Assay” button has been highlighted, the image shows that there is an ontology database to help guide the addition of known technologies and platforms. Red arrows show how a nested series of ontology databases assist the user in defining their experimental setup."><figcaption><p><em>Screenshot showing the user interface that allows users to add information about the Assay that was used to analyze the samples. The “add Assay” button has been highlighted, the image shows that there is an ontology database to help guide the addition of known technologies and platforms. Red arrows show how a nested series of ontology databases assist the user in defining their experimental setup.</em></p></figcaption></figure>
+<section id="files-in-the-bdme">
+<h3>Files in the BDME <a href="#veb8eegkhy1h" id="veb8eegkhy1h"></a><a class="headerlink" href="#files-in-the-bdme" title="Link to this heading">#</a></h3>
+<p><strong>8.5 You can save your data files in your BDME account which is also connected to your Workspace account.</strong></p>
+<p>You can upload files by dragging and dropping them onto your “home folder” and then associate them with your studies in the OSDR at a later date after they have been uploaded (This time varies depending on your interest connection speed). Please provide compressed individual raw data files (e.g. .fastq.gz or .CEL.gz etc.) and do not archive multiple files as zipped archives. See this <a class="reference external" href="https://genelab.nasa.gov/faq#5,">“Frequently Asked Questions</a>” page, for accepted file types. After uploading files, click and open unfold the folder.</p>
+<ul class="simple">
+<li><p>In this example, we can see that the user’s home folder contains their username “Mark Watney” and data folders nested inside that. This workspace contains the original raw data files and their processed results and some important intermediate file formats produced during the analysis. The yellow arrow highlights how users can drag and drop their data into their workspace from their desktop computer.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide98.png" alt="Screenshot showing an OSDR user workspace environment. In this folder, the user “Mark Watney” has a home folder that contains the raw and processed data from a spaceflight-related mission. The red arrow highlights how the user can simply drag and drop their data into their workspace from their desktop computer."><figcaption><p><em>Screenshot showing an OSDR user workspace environment. In this folder, the user “Mark Watney” has a home folder that contains the raw and processed data from a spaceflight-related mission. The red arrow highlights how the user can simply drag and drop their data into their workspace from their desktop computer.</em></p></figcaption></figure>
+</section>
+</section>
+<section id="associate-data-with-an-osdr-archive">
+<h2><strong>Associate data with an OSDR archive:</strong><a class="headerlink" href="#associate-data-with-an-osdr-archive" title="Link to this heading">#</a></h2>
+<p><strong>8.6. Once you’ve created an OSDR study and provided a basic summary you’ll want to associate the raw data files in the workspace to a “resource category”.</strong></p>
+<p>Assuming you’ve already drag and drop the data files to your Workspace folder, this can be achieved by selecting the file(s) and assigning it an ontology-guided resource category, this then provides the subsequent options of resource subcategories. After defining the data resources metadata the user can then associate it with their study.</p>
+<ul class="simple">
+<li><p>In this example we can see “Mark Watney” has selected “Raw image files” and then the appropriate Resource Category/Subcategory which would be “Raw image file”, so the user can select the type of data they want to associate with their study. Click to confirm that all the files are associated.</p></li>
+</ul>
+<figure><img src=".gitbook/assets/Slide102.png" alt="Screenshot showing how users can associate their raw data with metadata resources category. Most categories have subcategory that also needs to be defined. After selecting the data subgroup the user can then associate their raw data with this ontology term. A red arrow highlights that after selecting the subcategory associated with their data they can then click on the blue associate button to link their data to their OSDR study repository."><figcaption><p><em>Screenshot showing how users can associate their raw data with metadata resources category. Most categories have subcategory that also needs to be defined. After selecting the data subgroup the user can then associate their raw data with this ontology term. A red arrow highlights that after selecting the subcategory associated with their data they can then click on the blue associate button to link their data to their OSDR study repository.</em></p></figcaption></figure>
+</section>
+<section id="my-dashboard-preview">
+<h2>My Dashboard &amp; Preview <a href="#h19r10ww5n74" id="h19r10ww5n74"></a><a class="headerlink" href="#my-dashboard-preview" title="Link to this heading">#</a></h2>
+<p><strong>9. You can preview the study by clicking next to My Dashboard in the top right corner anytime.</strong></p>
+<p>The preview button allows users to create a demo OSDR page, the preview page reflects the latest version of your OSD-# page so remember to save the metadata before viewing it. A read-only preview link will also be provided for you to share with your reviewers and/or journals. Use the arrow pointing down to access their account and potentially choose to log out.</p>
+<figure><img src=".gitbook/assets/Slide105.png" alt=""><figcaption><p>The top right corner of the screen has buttons for viewing the study dashboard, creating a demo OSDR page, and accessing account settings or logging out. The preview button makes a demo webpage that allows to view what your OSDR study page will look like after you make it public.</p></figcaption></figure>
+</section>
+<section id="study-status-review">
+<h2>Study Status Review <a href="#f7yzyrqsc1g2" id="f7yzyrqsc1g2"></a><a class="headerlink" href="#study-status-review" title="Link to this heading">#</a></h2>
+<p><strong>10. Complete metadata validation can take some time to achieve</strong></p>
+<p>The Open Science Data Repository (OSDR) provides a data curation team dedicated to assisting researchers in ensuring the quality and completeness of their metadata entries. This team is available to review and provide guidance on metadata, ensuring that it meets the required standards and best practices.</p>
+<p>To initiate the data curation process, researchers can select the “Study Validation” tab within the OSDR platform and click on the “Submit” button. This action triggers a validation test that summarizes the status of the repository, providing valuable insights into any potential issues or areas requiring attention or the addition of more information.</p>
+<p>Once the validation test is complete, the status of the study in the left panel will change to “In Curation” or another relevant status, such as “Submitted.” During the curation process, the OSDR curation team will thoroughly review the study metadata, ensuring its accuracy, completeness, and compliance with the repository’s standards.</p>
+<p>It’s important to note that once a study enters the curation status, researchers will temporarily lose the ability to make changes to the metadata. This is to ensure the integrity and consistency of the curation process. The OSDR curation team will contact researchers if any missing information is identified or if changes are needed to meet the repository’s curation standards. After the curation team has completed their review, researchers will receive the updated metadata for the final review. This provides an opportunity for researchers to verify the changes made by the curation team and ensure that the metadata accurately represents their study.</p>
+<p><em><strong>Alt text:</strong> Screenshot highlighting that on the left of the page is a “status” box, clicking on the validation button causes the OSDR to scan the repo and provide reports on how complete the meta-data fields are. By leveraging the expertise of the OSDR data curation team, space biology researchers can benefit from a streamlined and efficient curation process. The team’s guidance and support ensure that metadata is of the highest quality, facilitating data discovery, reuse, and reproducibility in the scientific community.</em></p>
+</section>
+<section id="contact-us">
+<h2>Contact us <a href="#id-6sf2d6eiaxo7" id="id-6sf2d6eiaxo7"></a><a class="headerlink" href="#contact-us" title="Link to this heading">#</a></h2>
+<p>If you have any questions or issues, please contact us at <a class="reference external" href="mailto:arc-dl-osdr-help&#37;&#52;&#48;mail&#46;nasa&#46;gov">arc-dl-osdr-help<span>&#64;</span>mail<span>&#46;</span>nasa<span>&#46;</span>gov</a>.</p>
+<p>The default quota of the Workspace account is 30GB, please reach out if you need more space.</p>
+<figure><img src=".gitbook/assets/Slide80.png" alt="Screenshot showing how to create a e-mail to contact the OSDR. An orange box highlights the help button, then red arrow show how a popup box will automatically start an email conversation with the annotation team."><figcaption><p><em>Screenshot showing how to create a e-mail to contact the OSDR. An orange box highlights the help button, then red arrow show how a popup box will automatically start an email conversation with the annotation team.</em></p></figcaption></figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="environmental-data-for-space-biology-experiments.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Environmental Data for Space Biology Rodent Research</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="how-to-access-data-in-the-osdr.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Access data in the OSDR</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-guidelines-for-data-submission-to-osdr">Summary of guidelines for Data Submission to OSDR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-review-a-dataset">Step 1: Review a Dataset <a href="#eb1p0k3oaubf" id="eb1p0k3oaubf"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-an-account">Step 2: Create an Account <a href="#bszm20ml8vkq" id="bszm20ml8vkq"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-review-submission-tutorial">Step 3: Review Submission Tutorial <a href="#nphp99m5gjov" id="nphp99m5gjov"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-a-study">Step 4: Create a Study <a href="#faj02j4r6odm" id="faj02j4r6odm"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-enter-metadata-and-upload-data-files">Step 5: Enter Metadata and Upload Data Files <a href="#id-68s941w2i9qs" id="id-68s941w2i9qs"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-submission-portal">Data Submission Portal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-on-how-to-create-a-nasa-guest-account-to-access-the-bdme">Instruction on how to create a NASA Guest account to access the BDME <a href="#mis9z834yiru" id="mis9z834yiru"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osdr-submission-console">OSDR submission console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features-of-the-data-submission-console">Features of the data submission console: <a href="#upth8phtyd15" id="upth8phtyd15"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#biological-data-management-environment-bdme-tutorial">Biological Data Management Environment (BDME) Tutorial <a href="#r4e59dp88icz" id="r4e59dp88icz"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-create-a-new-osdr-repository">How to create a new OSDR repository <a href="#ltsxld960tlt" id="ltsxld960tlt"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-factor">“Select factor”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-data-can-be-uploaded-later">“Raw data can be uploaded later.” <a href="#gjwm03s1ykg3" id="gjwm03s1ykg3"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-osd-and-doi">“Create a new OSD-# and DOI” <a href="#l8ejqtaudeyc" id="l8ejqtaudeyc"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-the-study-description-using-publication-option-1">Entering the study description using publication (Option 1) <a href="#jsbuv8iudmls" id="jsbuv8iudmls"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guided-submission-option-1">Guided Submission (Option 1) <a href="#zfgxamnggn4b" id="zfgxamnggn4b"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guided-submission-adding-assays-option-2">Guided Submission adding assays (Option 2) <a href="#lyn1gotgb7a8" id="lyn1gotgb7a8"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unguided-submission-option-3">Unguided Submission (Option 3) <a href="#id-7tbvts4rcnin" id="id-7tbvts4rcnin"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-description">Study description <a href="#eg5v4cb4728w" id="eg5v4cb4728w"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocols">Protocols <a href="#nemxckfukhpa" id="nemxckfukhpa"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samples">Samples <a href="#uh5k2fqxl096" id="uh5k2fqxl096"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assays">Assays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files-in-the-bdme">Files in the BDME <a href="#veb8eegkhy1h" id="veb8eegkhy1h"></a></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#associate-data-with-an-osdr-archive"><strong>Associate data with an OSDR archive:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-dashboard-preview">My Dashboard &amp; Preview <a href="#h19r10ww5n74" id="h19r10ww5n74"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#study-status-review">Study Status Review <a href="#f7yzyrqsc1g2" id="f7yzyrqsc1g2"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-us">Contact us <a href="#id-6sf2d6eiaxo7" id="id-6sf2d6eiaxo7"></a></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
