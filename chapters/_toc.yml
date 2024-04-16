@@ -13,7 +13,7 @@ chapters:
 - file: radlab-overview.md
 - file: nasa-biological-institutional-scientific-collection-nbisc.md
 - file: open-science-abbreviations.md
-- file: notebooks.pynb
+- file: notebooks.ipynb
 - file: SUMMARY.md
 
 
