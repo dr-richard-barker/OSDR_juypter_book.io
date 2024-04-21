@@ -1,0 +1,32 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+title: Introduction to OSDR and data access systems
+chapters:
+  - file: how-to-access-data-in-the-osdr.md
+  - file: guidelines-for-data-submission.md
+  - file: osdr-public-api.md
+  - file: osdr-data-visualization-portal.md
+  - file: environmental-data-for-space-biology-experiments.md
+  - file: radlab-overview.md
+  - file: nasa-biological-institutional-scientific-collection-nbisc.md
+  - file: open-science-abbreviations.md
+title: Demo notebooks to help access data from the OSDR
+chapters:
+  - file: Methods_Lesson_01.ipynb
+  - file: rr9-phenotypes_Lesson_01.ipynb
+  - file: Methods.ipynb
+  - file: Regression.ipynb
+  - file: Classification.ipynb
+  - file: Clustering.ipynb
+  - file: Tablular_Data.ipynb
+  - file: Image_Data.ipynb
+  - file: PubMed_scraping_notenook_for_ISSOP_figures.ipynb
+  - file: Knowledge-graph-notebook_for_ISSOP_figures.ipynb
+  - file: notebooks.ipynb
+  - file: SUMMARY.md
+
+
+

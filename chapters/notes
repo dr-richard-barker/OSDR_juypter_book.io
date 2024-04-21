@@ -1,3 +1,28 @@
 Codes used 
 
+# pip install sphinx_rtd_theme
+
+Codes used to make this website
+
+pip install -r docs/requirements.txt
+pip install -r /requirements.txt
+pip install -r Chapters/requirements.txt
+
+cd Chapters/
+
+## https://github.com/CrossNox/m2r2?tab=readme-ov-file
+## $ python3 -m pip install m2r2
+
+pip install m2r2
+
+#convert .md to .rst
+#$ m2r2 *.md
+#m2r2 nasa-osdr-home-page.md
+
+sphinx-build -M html . _build/
+
+Add .md files ? 
+pip install myst-parser
+
+
 

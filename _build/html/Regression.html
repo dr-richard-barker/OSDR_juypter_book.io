@@ -1,0 +1,2605 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mission of regression notebook &#8212; Open Science Data Repository (OSDR) NoteBook Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Regression';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mission of the classification notebook" href="Classification.html" />
+    <link rel="prev" title="AI/ML methods notebook" href="Methods.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Methods_Lesson_01.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="rr9-phenotypes_Lesson_01.html">RR9 phenotypes notebook summary</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Methods.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Mission of regression notebook</strong></a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Classification.html"><strong>Mission of the classification notebook</strong></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html"><strong>Mission of clustering notebook</strong></a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Image_Data.html">Introduction to Image Analysis with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io/issues/new?title=Issue%20on%20page%20%2FRegression.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Regression.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mission of regression notebook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mission of regression notebook</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-methods">Read in methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-data-and-metadata">read in data and metadata</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-linear-regression-to-predict-phenotype-response-to-rna-seq">Use linear regression to predict phenotype response to RNA-seq</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-linear-regression-to-predict-iop-from-gene-expression-data">use linear regression to predict IOP from gene expression data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-linear-regression-to-predict-immunostaining-microscopy-pecam-from-gene-expression">use linear regression to predict immunostaining microscopy (pecam) from gene expression</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-ridge-regression-for-l2-regularization">Use ridge regression for L2 regularization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-use-linear-regression-to-detect-heteroskedasticity">BONUS: Use linear regression to detect heteroskedasticity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-use-linear-regression-to-predict-the-expression-of-one-gene-based-on-the-expression-of-other-genes">BONUS: Use linear regression to predict the expression of one gene based on the expression of other genes.</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mission-of-regression-notebook">
+<h1><strong>Mission of regression notebook</strong><a class="headerlink" href="#mission-of-regression-notebook" title="Link to this heading">#</a></h1>
+<p>You are a member of a bioinformatics team investigating the <a class="reference external" href="https://en.wikipedia.org/wiki/Effect_of_spaceflight_on_the_human_body">effect of spaceflight on astronaut health</a>.  Your team is trying to find the <a class="reference external" href="https://en.wikipedia.org/wiki/Biological_pathway">biological pathways</a> that respond to exposure of adverse conditions in space such as <a class="reference external" href="https://www.nasa.gov/centers-and-facilities/glenn/what-is-microgravity/">microgravity</a> and <a class="reference external" href="https://www.nasa.gov/directorates/esdmd/hhp/space-radiation/">radiation</a>.  You just performed clustering on the RNA-seq data and have determined there is a noticeable separation between spaceflight and ground control samples gene expression profiles, giving you confidence that there is a signal that machine learning could exploit.  You have also received the results of several phenotype experiments including tonometry and immunostaining microscopy, so you can now perform supervised learning algorithms with your data.</p>
+<p>Your mission is to use supervised machine learning - <a class="reference external" href="https://en.wikipedia.org/wiki/Regression_analysis">regression</a> - to determine if the RNA-seq data from astronaut samples and their ground control counterparts have clearly distinguishable gene expression profiles.  For if they do, then there is a chance that a supervised learning method can predict responses to spaceflight using different combinations and weights of gene expression from the RNA-seq data.</p>
+<p>In this notebook, you will use linear regression to predict the value of a phenotype response given its associated RNA-seq gene expression profile.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="read-in-methods">
+<h1>Read in methods<a class="headerlink" href="#read-in-methods" title="Link to this heading">#</a></h1>
+<p><strong>IMPORTANT</strong>: Make sure you put a copy of the methods.ipynb in your google drive by following <a class="reference external" href="https://docs.google.com/document/d/1V9a3Z5YKT2Pbef4fgPAwB83bHX-p-rPBRRwo7w5Bi9k/edit?usp=sharing">these instructions</a>.</p>
+<p>All the methods are stored in another notebook which you’ve already copied onto your Google drive.  You’ll find it under “MyDrive/Colab Notebooks” and it’s called “Copy of methods.ipynb”.  We will now mount your Google drive and import the methods from that notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install the import_ipynb module which allows us to import notebooks into notebooks</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>import_ipynb
+<span class="kn">import</span> <span class="nn">import_ipynb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: import_ipynb in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (0.1.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: IPython in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from import_ipynb) (8.23.0)
+Requirement already satisfied: nbformat in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from import_ipynb) (5.10.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: decorator in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (5.1.1)
+Requirement already satisfied: jedi&gt;=0.16 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.19.1)
+Requirement already satisfied: matplotlib-inline in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.1.6)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.41 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (3.0.43)
+Requirement already satisfied: pygments&gt;=2.4.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (2.17.2)
+Requirement already satisfied: stack-data in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.6.3)
+Requirement already satisfied: traitlets&gt;=5.13.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (5.14.2)
+Requirement already satisfied: pexpect&gt;4.3 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (4.9.0)
+Requirement already satisfied: fastjsonschema&gt;=2.15 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (2.19.1)
+Requirement already satisfied: jsonschema&gt;=2.6 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (4.21.1)
+Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (5.7.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;import_ipynb) (0.8.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: attrs&gt;=22.2.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (23.2.0)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (2023.12.1)
+Requirement already satisfied: referencing&gt;=0.28.4 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (0.34.0)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (0.18.0)
+Requirement already satisfied: platformdirs&gt;=2.5 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbformat-&gt;import_ipynb) (4.2.0)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;import_ipynb) (0.7.0)
+Requirement already satisfied: wcwidth in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.41-&gt;IPython-&gt;import_ipynb) (0.2.13)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: executing&gt;=1.2.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (2.0.1)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (2.4.1)
+Requirement already satisfied: pure-eval in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (0.2.2)
+Requirement already satisfied: six&gt;=1.12.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from asttokens&gt;=2.1.0-&gt;stack-data-&gt;IPython-&gt;import_ipynb) (1.16.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mount your Google drive to the &quot;mnt/&quot; mount point</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">flush_and_unmount</span><span class="p">()</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;mnt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># mount your Google drive to the &quot;mnt/&quot; mount point</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">flush_and_unmount</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;mnt&quot;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the &quot;Copy of methods.ipynb&quot; notebook into this notebook</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;mnt/MyDrive/Colab Notebooks/Copy of methods&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>importing Jupyter notebook from mnt/MyDrive/Colab Notebooks/Copy of methods.ipynb
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (1.2.2)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (1.25.2)
+Requirement already satisfied: scipy&gt;=1.3.2 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (1.11.4)
+Requirement already satisfied: joblib&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (1.4.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (3.4.0)
+Collecting scanpy
+  Downloading scanpy-1.10.1-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.1/2.1 MB</span> <span class=" -Color -Color-Red">13.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting anndata&gt;=0.8 (from scanpy)
+  Downloading anndata-0.10.7-py3-none-any.whl (122 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">122.4/122.4 kB</span> <span class=" -Color -Color-Red">27.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: h5py&gt;=3.1 in /usr/local/lib/python3.10/dist-packages (from scanpy) (3.9.0)
+Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.4.0)
+Collecting legacy-api-wrap&gt;=1.4 (from scanpy)
+  Downloading legacy_api_wrap-1.4-py3-none-any.whl (15 kB)
+Requirement already satisfied: matplotlib&gt;=3.6 in /usr/local/lib/python3.10/dist-packages (from scanpy) (3.7.1)
+Requirement already satisfied: natsort in /usr/local/lib/python3.10/dist-packages (from scanpy) (8.4.0)
+Requirement already satisfied: networkx&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from scanpy) (3.3)
+Requirement already satisfied: numba&gt;=0.56 in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.58.1)
+Requirement already satisfied: numpy&gt;=1.23 in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.25.2)
+Requirement already satisfied: packaging&gt;=21.3 in /usr/local/lib/python3.10/dist-packages (from scanpy) (24.0)
+Requirement already satisfied: pandas&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from scanpy) (2.0.3)
+Requirement already satisfied: patsy in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.5.6)
+Collecting pynndescent&gt;=0.5 (from scanpy)
+  Downloading pynndescent-0.5.12-py3-none-any.whl (56 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">56.8/56.8 kB</span> <span class=" -Color -Color-Red">195.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: scikit-learn&gt;=0.24 in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.2.2)
+Requirement already satisfied: scipy&gt;=1.8 in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.11.4)
+Requirement already satisfied: seaborn&gt;=0.13 in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.13.1)
+Collecting session-info (from scanpy)
+  Downloading session_info-1.0.0.tar.gz (24 kB)
+  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: statsmodels&gt;=0.13 in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.14.1)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from scanpy) (4.66.2)
+Collecting umap-learn!=0.5.0,&gt;=0.5 (from scanpy)
+  Downloading umap_learn-0.5.6-py3-none-any.whl (85 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">85.7/85.7 kB</span> <span class=" -Color -Color-Red">210.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting array-api-compat!=1.5,&gt;1.4 (from anndata&gt;=0.8-&gt;scanpy)
+  Downloading array_api_compat-1.6-py3-none-any.whl (36 kB)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8-&gt;scanpy) (1.2.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (1.2.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (1.4.5)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (2.8.2)
+Requirement already satisfied: llvmlite&lt;0.42,&gt;=0.41.0dev0 in /usr/local/lib/python3.10/dist-packages (from numba&gt;=0.56-&gt;scanpy) (0.41.1)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.5-&gt;scanpy) (2023.4)
+Requirement already satisfied: tzdata&gt;=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.5-&gt;scanpy) (2024.1)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=0.24-&gt;scanpy) (3.4.0)
+Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from patsy-&gt;scanpy) (1.16.0)
+Collecting stdlib_list (from session-info-&gt;scanpy)
+  Downloading stdlib_list-0.10.0-py3-none-any.whl (79 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">79.8/79.8 kB</span> <span class=" -Color -Color-Red">114.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hBuilding wheels for collected packages: session-info
+  Building wheel for session-info (setup.py) ... ?25l?25hdone
+  Created wheel for session-info: filename=session_info-1.0.0-py3-none-any.whl size=8026 sha256=43f4fb977770a2dde64e1d39aa5ddc8b7daebe0dcfbac26867948667f5f3a645
+  Stored in directory: /tmp/pip-ephem-wheel-cache-p3miqtet/wheels/6a/aa/b9/eb5d4031476ec10802795b97ccf937b9bd998d68a9b268765a
+Successfully built session-info
+Installing collected packages: array-api-compat, stdlib_list, legacy-api-wrap, session-info, pynndescent, anndata, umap-learn, scanpy
+Successfully installed anndata-0.10.7 array-api-compat-1.6 legacy-api-wrap-1.4 pynndescent-0.5.12 scanpy-1.10.1 session-info-1.0.0 stdlib_list-0.10.0 umap-learn-0.5.6
+Collecting gseapy
+  Downloading gseapy-1.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">11.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: numpy&gt;=1.13.0 in /usr/local/lib/python3.10/dist-packages (from gseapy) (1.25.2)
+Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from gseapy) (1.11.4)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from gseapy) (2.0.3)
+Requirement already satisfied: matplotlib&gt;=2.2 in /usr/local/lib/python3.10/dist-packages (from gseapy) (3.7.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from gseapy) (2.31.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (1.2.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (1.4.5)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (24.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;gseapy) (2023.4)
+Requirement already satisfied: tzdata&gt;=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;gseapy) (2024.1)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (2024.2.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=2.2-&gt;gseapy) (1.16.0)
+Installing collected packages: gseapy
+Successfully installed gseapy-1.1.2
+Collecting pydeseq2
+  Downloading pydeseq2-0.4.8-py3-none-any.whl (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">44.2/44.2 kB</span> <span class=" -Color -Color-Red">3.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: anndata&gt;=0.8.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (0.10.7)
+Requirement already satisfied: numpy&gt;=1.23.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (1.25.2)
+Requirement already satisfied: pandas&gt;=1.4.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (2.0.3)
+Requirement already satisfied: scikit-learn&gt;=1.1.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (1.2.2)
+Requirement already satisfied: scipy&gt;=1.11.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (1.11.4)
+Requirement already satisfied: matplotlib&gt;=3.6.2 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (3.7.1)
+Requirement already satisfied: array-api-compat!=1.5,&gt;1.4 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (1.6)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (1.2.0)
+Requirement already satisfied: h5py&gt;=3.1 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (3.9.0)
+Requirement already satisfied: natsort in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (8.4.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (24.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (1.2.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (1.4.5)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.4.0-&gt;pydeseq2) (2023.4)
+Requirement already satisfied: tzdata&gt;=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.4.0-&gt;pydeseq2) (2024.1)
+Requirement already satisfied: joblib&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pydeseq2) (1.4.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pydeseq2) (3.4.0)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.6.2-&gt;pydeseq2) (1.16.0)
+Installing collected packages: pydeseq2
+Successfully installed pydeseq2-0.4.8
+Collecting pybiomart==0.1
+  Downloading pybiomart-0.1.tar.gz (24 kB)
+  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: future in /usr/local/lib/python3.10/dist-packages (from pybiomart==0.1) (0.18.3)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from pybiomart==0.1) (2.0.3)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from pybiomart==0.1) (2.31.0)
+Collecting requests_cache (from pybiomart==0.1)
+  Downloading requests_cache-1.2.0-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">61.4/61.4 kB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;pybiomart==0.1) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;pybiomart==0.1) (2023.4)
+Requirement already satisfied: tzdata&gt;=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;pybiomart==0.1) (2024.1)
+Requirement already satisfied: numpy&gt;=1.21.0 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;pybiomart==0.1) (1.25.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart==0.1) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart==0.1) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart==0.1) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart==0.1) (2024.2.2)
+Requirement already satisfied: attrs&gt;=21.2 in /usr/local/lib/python3.10/dist-packages (from requests_cache-&gt;pybiomart==0.1) (23.2.0)
+Collecting cattrs&gt;=22.2 (from requests_cache-&gt;pybiomart==0.1)
+  Downloading cattrs-23.2.3-py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.5/57.5 kB</span> <span class=" -Color -Color-Red">33.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests_cache-&gt;pybiomart==0.1) (4.2.0)
+Collecting url-normalize&gt;=1.4 (from requests_cache-&gt;pybiomart==0.1)
+  Downloading url_normalize-1.4.3-py2.py3-none-any.whl (6.8 kB)
+Requirement already satisfied: exceptiongroup&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from cattrs&gt;=22.2-&gt;requests_cache-&gt;pybiomart==0.1) (1.2.0)
+Requirement already satisfied: typing-extensions!=4.6.3,&gt;=4.1.0 in /usr/local/lib/python3.10/dist-packages (from cattrs&gt;=22.2-&gt;requests_cache-&gt;pybiomart==0.1) (4.11.0)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;pybiomart==0.1) (1.16.0)
+Building wheels for collected packages: pybiomart
+  Building wheel for pybiomart (setup.py) ... ?25l?25hdone
+  Created wheel for pybiomart: filename=pybiomart-0.1-py3-none-any.whl size=14600 sha256=bdbf1adfdef02851d63c82234db34733a2485934ae63afb516a351e7ac7bbfe3
+  Stored in directory: /tmp/pip-ephem-wheel-cache-946gdg6l/wheels/b3/07/8b/21153224936c782146a686de88b58e1d177b8873104b601ff7
+Successfully built pybiomart
+Installing collected packages: url-normalize, cattrs, requests_cache, pybiomart
+Successfully installed cattrs-23.2.3 pybiomart-0.1 requests_cache-1.2.0 url-normalize-1.4.3
+Collecting mygene
+  Downloading mygene-3.2.2-py2.py3-none-any.whl (5.4 kB)
+Collecting biothings-client&gt;=0.2.6 (from mygene)
+  Downloading biothings_client-0.3.1-py2.py3-none-any.whl (29 kB)
+Requirement already satisfied: requests&gt;=2.3.0 in /usr/local/lib/python3.10/dist-packages (from biothings-client&gt;=0.2.6-&gt;mygene) (2.31.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (2024.2.2)
+Installing collected packages: biothings-client, mygene
+Successfully installed biothings-client-0.3.1 mygene-3.2.2
+Collecting sklearn_som
+  Downloading sklearn_som-1.1.0-py3-none-any.whl (6.7 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from sklearn_som) (1.25.2)
+Installing collected packages: sklearn_som
+Successfully installed sklearn_som-1.1.0
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (2.0.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2023.4)
+Requirement already satisfied: tzdata&gt;=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.1)
+Requirement already satisfied: numpy&gt;=1.21.0 in /usr/local/lib/python3.10/dist-packages (from pandas) (1.25.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (1.25.2)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (3.7.1)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.2.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.4.5)
+Requirement already satisfied: numpy&gt;=1.20 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.25.2)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (24.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+Requirement already satisfied: sklearn-som in /usr/local/lib/python3.10/dist-packages (1.1.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from sklearn-som) (1.25.2)
+Requirement already satisfied: pyDeseq2 in /usr/local/lib/python3.10/dist-packages (0.4.8)
+Requirement already satisfied: anndata&gt;=0.8.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (0.10.7)
+Requirement already satisfied: numpy&gt;=1.23.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (1.25.2)
+Requirement already satisfied: pandas&gt;=1.4.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (2.0.3)
+Requirement already satisfied: scikit-learn&gt;=1.1.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (1.2.2)
+Requirement already satisfied: scipy&gt;=1.11.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (1.11.4)
+Requirement already satisfied: matplotlib&gt;=3.6.2 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (3.7.1)
+Requirement already satisfied: array-api-compat!=1.5,&gt;1.4 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (1.6)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (1.2.0)
+Requirement already satisfied: h5py&gt;=3.1 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (3.9.0)
+Requirement already satisfied: natsort in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (8.4.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (24.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (1.2.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (1.4.5)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.4.0-&gt;pyDeseq2) (2023.4)
+Requirement already satisfied: tzdata&gt;=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.4.0-&gt;pyDeseq2) (2024.1)
+Requirement already satisfied: joblib&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pyDeseq2) (1.4.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pyDeseq2) (3.4.0)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.6.2-&gt;pyDeseq2) (1.16.0)
+Collecting Ensembl_converter
+  Downloading ensembl_converter-0.0.1-py3-none-any.whl (4.3 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from Ensembl_converter) (1.25.2)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from Ensembl_converter) (2.0.3)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from Ensembl_converter) (4.66.2)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from Ensembl_converter) (2.31.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;Ensembl_converter) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;Ensembl_converter) (2023.4)
+Requirement already satisfied: tzdata&gt;=2022.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;Ensembl_converter) (2024.1)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;Ensembl_converter) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;Ensembl_converter) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;Ensembl_converter) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;Ensembl_converter) (2024.2.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;Ensembl_converter) (1.16.0)
+Installing collected packages: Ensembl_converter
+Successfully installed Ensembl_converter-0.0.1
+Requirement already satisfied: mygene in /usr/local/lib/python3.10/dist-packages (3.2.2)
+Requirement already satisfied: biothings-client&gt;=0.2.6 in /usr/local/lib/python3.10/dist-packages (from mygene) (0.3.1)
+Requirement already satisfied: requests&gt;=2.3.0 in /usr/local/lib/python3.10/dist-packages (from biothings-client&gt;=0.2.6-&gt;mygene) (2.31.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (2024.2.2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="read-in-data-and-metadata">
+<h1>read in data and metadata<a class="headerlink" href="#read-in-data-and-metadata" title="Link to this heading">#</a></h1>
+<p>In this section, we will define the data and metadata python dictionaries that will be used to store the OSDR experiment data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define data and metadata dictionaries</span>
+<span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">metadata</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the metadata for each OSDR data set</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;583&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_meta_data</span><span class="p">(</span><span class="s1">&#39;583&#39;</span><span class="p">)</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_meta_data</span><span class="p">(</span><span class="s1">&#39;255&#39;</span><span class="p">)</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;568&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_meta_data</span><span class="p">(</span><span class="s1">&#39;568&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the transformed results CSV file for intra-ocular pressure</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;583&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-16_tonometry_maoTRANSFORMED&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;iop data shape: &#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iop data shape:  (100, 13)
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-f938a155-02ec-4bd7-8501-42bc01b42f36" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source Name</th>
+      <th>Sample Name</th>
+      <th>Factor Value: Spaceflight</th>
+      <th>Left_1</th>
+      <th>Left_2</th>
+      <th>Left_3</th>
+      <th>Avg_Left</th>
+      <th>Right_1</th>
+      <th>Right_2</th>
+      <th>Right_3</th>
+      <th>Avg_Right</th>
+      <th>time_Start</th>
+      <th>Time_End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F1</td>
+      <td>F1_Mouse_Eye</td>
+      <td>Space Flight</td>
+      <td>19</td>
+      <td>16</td>
+      <td>18</td>
+      <td>17.666667</td>
+      <td>18</td>
+      <td>18</td>
+      <td>15</td>
+      <td>17.000000</td>
+      <td>2:46</td>
+      <td>2:48</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F2</td>
+      <td>F2_Mouse_Eye</td>
+      <td>Space Flight</td>
+      <td>17</td>
+      <td>16</td>
+      <td>16</td>
+      <td>16.333333</td>
+      <td>16</td>
+      <td>16</td>
+      <td>15</td>
+      <td>15.666667</td>
+      <td>2:55</td>
+      <td>2:58</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F3</td>
+      <td>F3_Mouse_Eye</td>
+      <td>Space Flight</td>
+      <td>16</td>
+      <td>18</td>
+      <td>15</td>
+      <td>16.333333</td>
+      <td>17</td>
+      <td>19</td>
+      <td>17</td>
+      <td>17.666667</td>
+      <td>2:32</td>
+      <td>2:34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F4</td>
+      <td>F4_Mouse_Eye</td>
+      <td>Space Flight</td>
+      <td>18</td>
+      <td>15</td>
+      <td>16</td>
+      <td>16.333333</td>
+      <td>18</td>
+      <td>16</td>
+      <td>15</td>
+      <td>16.333333</td>
+      <td>2:15</td>
+      <td>2:17</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F5</td>
+      <td>F5_Mouse_Eye</td>
+      <td>Space Flight</td>
+      <td>18</td>
+      <td>18</td>
+      <td>16</td>
+      <td>17.333333</td>
+      <td>14</td>
+      <td>16</td>
+      <td>14</td>
+      <td>14.666667</td>
+      <td>2:20</td>
+      <td>2:22</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f938a155-02ec-4bd7-8501-42bc01b42f36')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-f938a155-02ec-4bd7-8501-42bc01b42f36 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-f938a155-02ec-4bd7-8501-42bc01b42f36');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-fb2623ec-6abd-43be-b632-032aa8faff5b">
+  <button class="colab-df-quickchart" onclick="quickchart('df-fb2623ec-6abd-43be-b632-032aa8faff5b')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-fb2623ec-6abd-43be-b632-032aa8faff5b button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use pandas to read in the normalized counts</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_rnaseq_data</span><span class="p">(</span><span class="s1">&#39;255_rna_seq_Normalized_Counts&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rna-seq data shape: &#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rna-seq data shape:  (23419, 17)
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-18d60e94-4f9a-4819-99a0-32a0bc2a5d00" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>GSM3932693</th>
+      <th>GSM3932694</th>
+      <th>GSM3932695</th>
+      <th>GSM3932696</th>
+      <th>GSM3932697</th>
+      <th>GSM3932698</th>
+      <th>GSM3932699</th>
+      <th>GSM3932700</th>
+      <th>GSM3932701</th>
+      <th>GSM3932702</th>
+      <th>GSM3932703</th>
+      <th>GSM3932704</th>
+      <th>GSM3932705</th>
+      <th>GSM3932706</th>
+      <th>GSM3932707</th>
+      <th>GSM3932708</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENSMUSG00000000001</td>
+      <td>265.491507</td>
+      <td>272.529585</td>
+      <td>264.891134</td>
+      <td>245.804042</td>
+      <td>205.478969</td>
+      <td>244.866957</td>
+      <td>250.587443</td>
+      <td>232.249604</td>
+      <td>241.739792</td>
+      <td>240.866309</td>
+      <td>278.344274</td>
+      <td>266.781019</td>
+      <td>238.447580</td>
+      <td>239.632932</td>
+      <td>242.777557</td>
+      <td>257.121918</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENSMUSG00000000028</td>
+      <td>22.737528</td>
+      <td>36.058646</td>
+      <td>30.659868</td>
+      <td>33.307123</td>
+      <td>11.896920</td>
+      <td>27.231801</td>
+      <td>21.727401</td>
+      <td>30.940275</td>
+      <td>34.840848</td>
+      <td>36.468997</td>
+      <td>29.993641</td>
+      <td>28.377921</td>
+      <td>19.433721</td>
+      <td>18.704883</td>
+      <td>26.226110</td>
+      <td>47.521611</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ENSMUSG00000000031</td>
+      <td>5.574720</td>
+      <td>1.925595</td>
+      <td>2.899933</td>
+      <td>21.047427</td>
+      <td>0.000000</td>
+      <td>3.063051</td>
+      <td>7.105655</td>
+      <td>6.710188</td>
+      <td>3.266199</td>
+      <td>6.700680</td>
+      <td>1.852027</td>
+      <td>1.308210</td>
+      <td>2.248341</td>
+      <td>5.816845</td>
+      <td>2.041330</td>
+      <td>1.478741</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ENSMUSG00000000037</td>
+      <td>14.601777</td>
+      <td>17.493816</td>
+      <td>16.577920</td>
+      <td>32.447456</td>
+      <td>12.940934</td>
+      <td>13.678983</td>
+      <td>9.358027</td>
+      <td>15.476949</td>
+      <td>25.085866</td>
+      <td>13.506677</td>
+      <td>24.809501</td>
+      <td>13.731740</td>
+      <td>21.564524</td>
+      <td>17.626982</td>
+      <td>28.873796</td>
+      <td>13.556234</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ENSMUSG00000000049</td>
+      <td>3.107115</td>
+      <td>2.176549</td>
+      <td>0.642689</td>
+      <td>4.486992</td>
+      <td>0.895108</td>
+      <td>3.846941</td>
+      <td>2.640744</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.243833</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.676701</td>
+      <td>1.345919</td>
+      <td>0.769123</td>
+      <td>0.684388</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-18d60e94-4f9a-4819-99a0-32a0bc2a5d00')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-18d60e94-4f9a-4819-99a0-32a0bc2a5d00 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-18d60e94-4f9a-4819-99a0-32a0bc2a5d00');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-00aa39de-ca15-4ef7-a55f-e1b87344423d">
+  <button class="colab-df-quickchart" onclick="quickchart('df-00aa39de-ca15-4ef7-a55f-e1b87344423d')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-00aa39de-ca15-4ef7-a55f-e1b87344423d button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#LSDS-5_immunostaining_microscopy_PECAMtr TRANSFORMED.csv</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;568&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-5_immunostaining_microscopy_PECAMtr_TRANSFORMED&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pecam data shape: &#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pecam data shape:  (11, 2)
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-af9df3df-0b89-4b68-8ed1-56a6ccea7eeb" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample_Name</th>
+      <th>Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F15_Mouse_Eye</td>
+      <td>45.0098</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F16_Mouse_Eye</td>
+      <td>53.9888</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F17_Mouse_Eye</td>
+      <td>37.0548</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F18_Mouse_Eye</td>
+      <td>67.0988</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F19_Mouse_Eye</td>
+      <td>49.7456</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-af9df3df-0b89-4b68-8ed1-56a6ccea7eeb')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-af9df3df-0b89-4b68-8ed1-56a6ccea7eeb button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-af9df3df-0b89-4b68-8ed1-56a6ccea7eeb');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-040295ae-301b-4d66-a0d8-ced8a51fadfa">
+  <button class="colab-df-quickchart" onclick="quickchart('df-040295ae-301b-4d66-a0d8-ced8a51fadfa')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-040295ae-301b-4d66-a0d8-ced8a51fadfa button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-linear-regression-to-predict-phenotype-response-to-rna-seq">
+<h1>Use linear regression to predict phenotype response to RNA-seq<a class="headerlink" href="#use-linear-regression-to-predict-phenotype-response-to-rna-seq" title="Link to this heading">#</a></h1>
+<p>In this section, we will use linear regression to predict IOP and immunostaining microscopy (PECAM) observations.  Not all the samples with RNA-seq data also have IOP or PECAM data, so we will need to intersect those sample lists in order to rectify this discrepancy.</p>
+<section id="use-linear-regression-to-predict-iop-from-gene-expression-data">
+<h2>use linear regression to predict IOP from gene expression data<a class="headerlink" href="#use-linear-regression-to-predict-iop-from-gene-expression-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subset df with samples from 255</span>
+<span class="n">samples</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+  <span class="n">samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">sample</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">samples_short</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+  <span class="n">num</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+  <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+      <span class="n">num</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+  <span class="k">if</span> <span class="s1">&#39;G&#39;</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+    <span class="n">samples_short</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;GC&quot;</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="s1">&#39;F&#39;</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+    <span class="n">samples_short</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;F&quot;</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
+<span class="n">iop_df</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">samples_short</span><span class="p">)]</span>
+<span class="n">iop_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples_short</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array Y of iop values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iop_df</span><span class="p">)):</span>
+  <span class="n">iop_val</span><span class="o">=</span><span class="p">(</span><span class="n">iop_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Avg_Left&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">iop_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Avg_Right&#39;</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+  <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iop_val</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subset data (drop any NaNs, drop non-coding genes, and drop genes with a coefficeint of variantion less than 0.5)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">filter_data</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">],</span> <span class="n">dropnans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropgenes</span><span class="o">=</span><span class="s1">&#39;non-coding&#39;</span><span class="p">,</span> <span class="n">droplowcvs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array X of rna-seq values</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+  <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">sample</span><span class="p">]))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now run linear regression on X, y</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;score: &#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coefs: &#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intercept: &#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get y_pred and and compare against the actual values of y</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;True_value&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">})</span>
+<span class="n">pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get performance of regression</span>
+<span class="c1"># r2 score</span>
+<span class="n">r2</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">multioutput</span><span class="o">=</span><span class="s1">&#39;variance_weighted&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2 score: &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+
+<span class="c1"># mean absolute error</span>
+<span class="n">mae</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mae: &#39;</span><span class="p">,</span> <span class="n">mae</span><span class="p">)</span>
+
+<span class="c1"># mean squared error</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mse: &#39;</span><span class="p">,</span> <span class="n">mse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wow!  An r2 score of 1.0 is a perfect score!  The mean absolute error is tiny, and the mean squared error is even tinier!  It’s very likely that our model is overfit.  Later in this notebook, we will use regularization later to try to correct for this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the top 10 genes with the highest coefficients in the linear regression model.  These are the most important features that were used to predict the IOP values</span>
+<span class="n">genes_coefs_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">genes_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
+<span class="n">coefs_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">genes_list</span><span class="p">)):</span>
+  <span class="n">genes_coefs_dict</span><span class="p">[</span><span class="n">genes_list</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">coefs_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">genes_coefs_sorted_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">genes_coefs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+
+<span class="n">top10_genes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">genes_coefs_sorted_dict</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert gene ID&#39;s to gene symbols so we can look them up in a database</span>
+<span class="n">top10_gene_symbols</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_symbol_from_id</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top10_gene_symbols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can  paste the list of these genes into a tool called <a class="reference external" href="https://www.gsea-msigdb.org/gsea/msigdb/index.jsp">MSigDB</a>  - the molecular signatures database - to see which biological pathways and molecular functions are affected by this particular subset of  genes.  For this particular set of genes, here is a subset of the <a class="reference external" href="https://en.wikipedia.org/wiki/Gene_Ontology">gene ontologies</a> that MSigDB found as significantly associated</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>FDR q-value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Abnormal lens morphology</p></td>
+<td><p>4.1e-03</p></td>
+</tr>
+<tr class="row-odd"><td><p>A collagen trimer that forms networks.</p></td>
+<td><p>4.1E-03</p></td>
+</tr>
+<tr class="row-even"><td><p>Myopia</p></td>
+<td><p>4.44E-03</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lenticonus</p></td>
+<td><p>4.44E-03</p></td>
+</tr>
+<tr class="row-even"><td><p>Developmental cataract</p></td>
+<td><p>8.65E-03</p></td>
+</tr>
+<tr class="row-odd"><td><p>Abnormal anterior eye segment morphology</p></td>
+<td><p>8.65E-03</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Assuming the <code class="docutils literal notranslate"><span class="pre">top10_gene_symbols</span></code> list variable is sorted in descending order of importance, which gene symbol is the most important gene in the prediction of IOP?</p></li>
+<li><p>Which gene name (ENSMUSG…) corresponds to the most important gene from question #1?</p></li>
+<li><p>Do the descriptions of the biological processes that MSigDB identified from this list of genes seem to correlate well to the observed phenotype?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section id="use-linear-regression-to-predict-immunostaining-microscopy-pecam-from-gene-expression">
+<h2>use linear regression to predict immunostaining microscopy (pecam) from gene expression<a class="headerlink" href="#use-linear-regression-to-predict-immunostaining-microscopy-pecam-from-gene-expression" title="Link to this heading">#</a></h2>
+<p>The immunostaining microscopy data use different sample names and source names from the RNA-seq data, even though they are the same mice.  So the first thing we need to do is figure out which are the ground control sample names and which are the spaceflight sample names.  Only some of the samples have measurements for both RNA-seq and for microscopy, so we need to find the intersection of those 2 sets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get source names from 255 and sample names in immunoMICRO pecam and intersect the lists and subset the df&#39;s</span>
+<span class="c1"># TODO turn this into a method</span>
+<span class="n">samples_255_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">samples_pecam</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">])):</span>
+  <span class="n">sample</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">]</span>
+  <span class="n">sample_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+  <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+      <span class="n">sample_id</span> <span class="o">+=</span> <span class="n">c</span>
+  <span class="k">if</span> <span class="s2">&quot;G&quot;</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+    <span class="n">samples_255_dict</span><span class="p">[</span><span class="s2">&quot;GC&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span>
+
+  <span class="k">elif</span> <span class="s2">&quot;F&quot;</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+    <span class="n">samples_255_dict</span><span class="p">[</span><span class="s2">&quot;F&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">continue</span>
+
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">][</span><span class="s1">&#39;Sample_Name&#39;</span><span class="p">]:</span>
+  <span class="k">if</span> <span class="n">sample</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">):</span>
+    <span class="n">sample_id</span><span class="o">=</span><span class="n">sample</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">samples_pecam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">sample_id</span><span class="p">))</span>
+
+  <span class="k">elif</span> <span class="n">sample</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">):</span>
+    <span class="n">sample_id</span><span class="o">=</span><span class="n">sample</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">samples_pecam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">sample_id</span><span class="p">))</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">continue</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rna-seq samples: &#39;</span><span class="p">,</span> <span class="n">samples_255_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pecam samples: &#39;</span><span class="p">,</span> <span class="n">samples_pecam</span><span class="p">)</span>
+<span class="c1"># intersect 255 samples with immunoMICRO pecam samples</span>
+<span class="n">samples_both</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">samples_255_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">samples_pecam</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;both: &#39;</span><span class="p">,</span> <span class="n">samples_both</span><span class="p">)</span>
+<span class="c1"># subset 255 and pecam samples from intersection</span>
+<span class="n">gsm_samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples_both</span><span class="p">:</span>
+  <span class="n">gsm_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">samples_255_dict</span><span class="p">[</span><span class="n">sample</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;gsm: &#39;</span><span class="p">,</span> <span class="n">gsm_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now subset the RNA-seq data (255) with with the gsm sample names in gsm_samples</span>
+<span class="n">df_255_568</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">][[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">gsm_samples</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_255_568</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array X of rna-seq values.  This will represent our independent variables X.</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">df_255_568</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+  <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_255_568</span><span class="p">[</span><span class="n">sample</span><span class="p">]))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X = &#39;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array y of immuno PECAM values.  This will represent our dependent variables y.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">])):</span>
+  <span class="n">pecam_val</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Average&#39;</span><span class="p">]</span>
+  <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pecam_val</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y = &#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now that we have X and y, use linear regression to predict immuno pecam (y) from the gene expression X.</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;score: &#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coefs: &#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intercept: &#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the model &quot;reg&quot; that we just built to predict the y values from the X values.</span>
+<span class="c1"># then compare the true values y to the predict values y_pred</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;True_value&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">})</span>
+<span class="n">pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get performance of regression</span>
+
+<span class="c1"># r2 score</span>
+<span class="n">r2</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">multioutput</span><span class="o">=</span><span class="s1">&#39;variance_weighted&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2 score: &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+
+<span class="c1"># mean absolute error</span>
+<span class="n">mae</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mae: &#39;</span><span class="p">,</span> <span class="n">mae</span><span class="p">)</span>
+
+<span class="c1"># mean squared error</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mse: &#39;</span><span class="p">,</span> <span class="n">mse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wow!  An r2 score of 1.0 is a perfect score!  The mean absolute error is tiny, and the mean squared error is even tinier!  It’s very likely that our model is overfit.  We will use regularization later in this notebook to try to correct for this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find important features</span>
+<span class="n">genes_coefs_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">genes_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_255_568</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
+<span class="n">coefs_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">genes_list</span><span class="p">)):</span>
+  <span class="n">genes_coefs_dict</span><span class="p">[</span><span class="n">genes_list</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">coefs_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">genes_coefs_sorted_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">genes_coefs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+
+<span class="n">top10_genes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">genes_coefs_sorted_dict</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the gene symbol (name) associated with each gene id in the top 10 most important genes from our linear regression model</span>
+<span class="n">gene_symbols</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_symbol_from_id</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gene_symbols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can  paste the list of these genes into a tool called <a class="reference external" href="https://www.gsea-msigdb.org/gsea/msigdb/index.jsp">MSigDB</a>  - the molecular signatures database - to see which biological pathways and molecular functions are affected by this particular subset of  genes.  For this particular set of genes , here is a subset of the <a class="reference external" href="https://en.wikipedia.org/wiki/Gene_Ontology">gene ontologies</a> that MSigDB found as significantly associated.  Note that your top 10 list may be different than the one specified in this paragraph.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>FDR q-value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Abnormal full-field electroretinogram</p></td>
+<td><p>1.53E-05</p></td>
+</tr>
+<tr class="row-odd"><td><p>Abnormal posterior eye segment morphology</p></td>
+<td><p>2.22E-05</p></td>
+</tr>
+<tr class="row-even"><td><p>Abnormality of retinal pigmentation</p></td>
+<td><p>2.46E-05</p></td>
+</tr>
+<tr class="row-odd"><td><p>The sequence of reactions within a cell required to convert absorbed photons from visible light into a molecular signal</p></td>
+<td><p>2.8E-05</p></td>
+</tr>
+<tr class="row-even"><td><p>Visual impairment</p></td>
+<td><p>9.58E-05</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>How many samples were used to build this linear regression model?</p></li>
+<li><p>What data type are the inputs X and y to the regression model – numpy arrays or pandas dataframes?</p></li>
+<li><p>Based on the biological pathways that MSigDB found as enriched by the top most important genes in the regression model, do the our results suggest there is a relationship between the gene expression and the phenotypes observed?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-ridge-regression-for-l2-regularization">
+<h1>Use ridge regression for L2 regularization<a class="headerlink" href="#use-ridge-regression-for-l2-regularization" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=Xm2C_gTAl8c&amp;amp;ab_channel=StatQuestwithJoshStarmer">Ridge regression</a> is a form of regression that adds a lambda multiple of the square of the slope of the regression line to the sum of the squares of the residuals as an extra term to minimize (optimize) the objective function.  The lambda term is a configurable hyperparameter that ranges from 0 (no regularization penalty) to an arbitrarily large number (maximum regularization penalty).  The larger the value of lambda, the smaller the value of the slope the model will find to minimize the total sum.</p>
+<p>Where ridge regression uses the square of the slope or L2-norm, <a class="reference external" href="https://www.youtube.com/watch?v=NGf0voTMlcs&amp;amp;ab_channel=StatQuestwithJoshStarmer">lasso regression</a> uses the absolute value of the slope or L1-norm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array X of rna-seq values.  This will represent our independent variables X.</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">df_255_568</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+  <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_255_568</span><span class="p">[</span><span class="n">sample</span><span class="p">]))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X = &#39;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array y of immuno PECAM values.  This will represent our dependent variables y.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">])):</span>
+  <span class="n">pecam_val</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Average&#39;</span><span class="p">]</span>
+  <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pecam_val</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y = &#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use ridge regression to predict the PECAM values from the gene expressiond data and use 10000 as a (very large) regularization parameter</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">)</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get y_pred and compare against the actual values y</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;True_value&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">})</span>
+<span class="n">pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wow again, or still!  While the predicted values are not exactly the actual values, they are very close, even though we used a large regression parameter.  What is likely happening here is that because we have so many genes, it’s easy for the model to find a linear combination of those values to predict the y values.  One solution to this problem is to reduce the number of genes we use in the model which we will not do in this exercise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get performance of regression</span>
+
+<span class="c1"># r2 score</span>
+<span class="n">r2</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">multioutput</span><span class="o">=</span><span class="s1">&#39;variance_weighted&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2 score: &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+
+<span class="c1"># mean absolute error</span>
+<span class="n">mae</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mae: &#39;</span><span class="p">,</span> <span class="n">mae</span><span class="p">)</span>
+
+<span class="c1"># mean squared error</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mse: &#39;</span><span class="p">,</span> <span class="n">mse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Those performance metrics are not quite as good as we got without regularization, but they’re still nearly perfect.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find important features</span>
+<span class="n">genes_coefs_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">genes_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_255_568</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
+<span class="n">coefs_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">genes_list</span><span class="p">)):</span>
+  <span class="n">genes_coefs_dict</span><span class="p">[</span><span class="n">genes_list</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">coefs_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">genes_coefs_sorted_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">genes_coefs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+
+<span class="n">top10_genes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">genes_coefs_sorted_dict</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the gene symbol (name) associated with each gene id in the top 10 most important genes from our linear regression model</span>
+<span class="n">gene_symbols</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_symbol_from_id</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gene_symbols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we plug these 10 genes into the MSigDB database, we find a number of pathways that are responsible for muscle fiber atrophy, abnormal muscle fiber morphology, and myopathy, all of which are consistent with our phenotype that indicates a complex cellular response that may alter retina structure and BRB integrity following long-term spaceflight.</p>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Did regularization penalize the regression model very much?</p></li>
+<li><p>What data type are the inputs X and y to the ridge regression model – numpy arrays or pandas dataframes?</p></li>
+<li><p>If we wanted to find a less overfit regression model, and since regularization doesn’t seem to help, what other options do we have?</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bonus-use-linear-regression-to-detect-heteroskedasticity">
+<h1>BONUS: Use linear regression to detect heteroskedasticity<a class="headerlink" href="#bonus-use-linear-regression-to-detect-heteroskedasticity" title="Link to this heading">#</a></h1>
+<p>In this section, we will explore the shape of the distribution of gene expression based on its <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_mean">means</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Variance">variances</a>.   When all the <a class="reference external" href="https://en.wikipedia.org/wiki/Random_variable">random variables</a> of a model have the same finite variance, we say that the data are <a class="reference external" href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">homoskedastic</a>.  When the variance changes between random variables, we say that the data are <a class="reference external" href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">heteroskedastic</a>.</p>
+<p>The linear regression algorithm, under the hood, uses the method of <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinary_least_squares">ordinary least squares</a> (OLS) to fit the regression line.  OLS assumes the error terms are homoskedastic, and when that assumption is violated, the error of the linear regression model may not be accurate.  What could give rise to heteroskedastic error terms is heteroskedastic data.  So we explore the data for this property.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate log2 mean and log2 variance of each gene expression</span>
+<span class="n">means_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">vars_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">log2_means</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">log2_vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">mean</span> <span class="ow">in</span> <span class="n">means_list</span><span class="p">:</span>
+  <span class="n">log2_means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">mean</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vars_list</span><span class="p">:</span>
+  <span class="n">log2_vars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot log2 var x log2 mean</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;variance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">log2_means</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">log2_vars</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit regression line and add to plot</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">l2m</span> <span class="ow">in</span> <span class="n">log2_means</span><span class="p">:</span>
+  <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">l2m</span><span class="p">])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">log2_vars</span><span class="p">)</span>
+<span class="n">reg_line</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;score: &#39;</span><span class="p">,</span> <span class="n">reg_line</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coefs: &#39;</span><span class="p">,</span> <span class="n">reg_line</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intercept: &#39;</span><span class="p">,</span> <span class="n">reg_line</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+
+<span class="n">y_pred</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">y_pred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reg_line</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># now add regression line plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;variance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">log2_means</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">log2_vars</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">log2_means</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use GLM to plot trend line</span>
+<span class="n">tweedie</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">TweedieRegressor</span><span class="p">(</span><span class="n">power</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">tweedie</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+  <span class="n">y_pred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tweedie</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;variance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">log2_means</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">log2_vars</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">log2_means</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Does the variance change as a function of the mean?</p></li>
+<li><p>Which seems like a better fit – a line or a curve?</p></li>
+<li><p>Does linear regression only fit lines, not curves?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bonus-use-linear-regression-to-predict-the-expression-of-one-gene-based-on-the-expression-of-other-genes">
+<h1>BONUS: Use linear regression to predict the expression of one gene based on the expression of other genes.<a class="headerlink" href="#bonus-use-linear-regression-to-predict-the-expression-of-one-gene-based-on-the-expression-of-other-genes" title="Link to this heading">#</a></h1>
+<p>In this exercise, we will pick one gene to be the target or response variable, and use the remaining genes to predict the value of that gene.  Because genes are parts of genetic networks and pathways (groups of genes that operate together), this exercise could reveal a pathway that is responsible for the difference between how ground control and spaceflight mice respond to their conditions.</p>
+<p>The gene we will pick is the one with the highest variance across all samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a subset of the genes which are significantly differentially expressed between ground control and spaceflight mice</span>
+<span class="n">df_subset</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">filter_by_dgea</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">],</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">],</span>  <span class="n">pval</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">l2fc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_subset</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find gene with highest variance</span>
+<span class="nb">vars</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df_subset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">index_max_var</span> <span class="o">=</span> <span class="nb">vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">vars</span><span class="p">))</span>
+<span class="n">max_var_gene</span> <span class="o">=</span> <span class="n">df_subset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index_max_var</span><span class="p">][</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max variance in gene ID: &#39;</span><span class="p">,</span> <span class="n">max_var_gene</span><span class="p">)</span>
+
+<span class="c1"># convert gene ID to gene symbol</span>
+<span class="n">target_gene</span><span class="o">=</span><span class="p">[</span><span class="n">max_var_gene</span><span class="p">]</span>
+<span class="n">gene_symbol</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_symbol_from_id</span><span class="p">(</span><span class="n">target_gene</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max variance in gene symbol: &#39;</span><span class="p">,</span> <span class="n">gene_symbol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_subset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can determine the function of the <code class="docutils literal notranslate"><span class="pre">Rbp3</span></code> gene by searching that gene symbol at <a class="reference external" href="https://www.ncbi.nlm.nih.gov/gene/19661">NCBI</a>:  The <code class="docutils literal notranslate"><span class="pre">Rbp3</span></code> gene is predicted to be active in cone matrix sheath. It is expressed in eye; retina; retina nuclear layer; and retina outer nuclear layer. Human ortholog(s) of this gene are implicated in <a class="reference external" href="https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/retinitis-pigmentosa">retinitis pigmentosa</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s standardize the data</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaled_array</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_subset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]))</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">scaled_array</span><span class="p">[</span><span class="n">index_max_var</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">scaled_array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">index_max_var</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now let&#39;s build a regression model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the predictions y_pred based on the X_test subset</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;True_value&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">})</span>
+<span class="n">pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the performance metrics of the regression model</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Absolute Error:&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Squared Error:&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Root Mean Squared Error:&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coefficient of determination:&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the predictions y_pred_train based on the X_train subset</span>
+<span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">pred_train</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;True_value&#39;</span><span class="p">:</span> <span class="n">y_train</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">:</span> <span class="n">y_pred_train</span><span class="p">})</span>
+<span class="n">pred_train</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can also display the predicted vs true values graphically</span>
+<span class="n">pred1</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">pred1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find important features (top 10 largest coefficients of the regression model)</span>
+<span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">genes_coefs_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">genes_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_subset</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="n">index_max_var</span><span class="p">]</span>
+<span class="n">coefs_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">genes_list</span><span class="p">)):</span>
+  <span class="n">genes_coefs_dict</span><span class="p">[</span><span class="n">genes_list</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">coefs_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">genes_coefs_sorted_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">genes_coefs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+
+<span class="n">top10_genes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">genes_coefs_sorted_dict</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the gene symbol (name) associated with each gene id in the top 10 most important genes from our linear regression model</span>
+<span class="n">gene_symbols</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_symbol_from_id</span><span class="p">(</span><span class="n">top10_genes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gene_symbols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When plugging these 10 genes along with the <code class="docutils literal notranslate"><span class="pre">Rbp3</span></code> gene into MSigDB, the most significantly enriched pathway is “Abnormality of the curvature of the cornea”, which is again consistent with our observed phenotype.  The genes from our top 10 genes implicated in this pathway include <code class="docutils literal notranslate"><span class="pre">Guca1b</span></code>, <code class="docutils literal notranslate"><span class="pre">Prpf8</span></code>, <code class="docutils literal notranslate"><span class="pre">Stxbp</span></code>, and <code class="docutils literal notranslate"><span class="pre">Rbp3</span></code>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Methods.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">AI/ML methods notebook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Classification.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Mission of the classification notebook</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mission of regression notebook</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-methods">Read in methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-data-and-metadata">read in data and metadata</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-linear-regression-to-predict-phenotype-response-to-rna-seq">Use linear regression to predict phenotype response to RNA-seq</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-linear-regression-to-predict-iop-from-gene-expression-data">use linear regression to predict IOP from gene expression data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-linear-regression-to-predict-immunostaining-microscopy-pecam-from-gene-expression">use linear regression to predict immunostaining microscopy (pecam) from gene expression</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-ridge-regression-for-l2-regularization">Use ridge regression for L2 regularization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-use-linear-regression-to-detect-heteroskedasticity">BONUS: Use linear regression to detect heteroskedasticity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-use-linear-regression-to-predict-the-expression-of-one-gene-based-on-the-expression-of-other-genes">BONUS: Use linear regression to predict the expression of one gene based on the expression of other genes.</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

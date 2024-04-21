@@ -1,0 +1,1529 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>AI/ML methods notebook &#8212; Open Science Data Repository (OSDR) NoteBook Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Methods';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mission of regression notebook" href="Regression.html" />
+    <link rel="prev" title="RR9 phenotypes notebook summary" href="rr9-phenotypes_Lesson_01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Methods_Lesson_01.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="rr9-phenotypes_Lesson_01.html">RR9 phenotypes notebook summary</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Regression.html"><strong>Mission of regression notebook</strong></a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Classification.html"><strong>Mission of the classification notebook</strong></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html"><strong>Mission of clustering notebook</strong></a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Image_Data.html">Introduction to Image Analysis with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io/issues/new?title=Issue%20on%20page%20%2FMethods.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Methods.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>AI/ML methods notebook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">AI/ML methods notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-packages">install Python packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-python-modules">import Python modules</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-misc-helper-methods">define misc helper methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-data-ingestion-methods">Define data ingestion methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-data-filtering-methods">define data filtering methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformation-methods">data transformation methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-methods">plotting methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-methods">machine learning methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-gene-expression-analysis-methods">Differential gene expression analysis methods</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ai-ml-methods-notebook">
+<h1>AI/ML methods notebook<a class="headerlink" href="#ai-ml-methods-notebook" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="install-python-packages">
+<h1>install Python packages<a class="headerlink" href="#install-python-packages" title="Link to this heading">#</a></h1>
+<p>This notebook is equipped with a dedicated login shell, tailored to the environment in which it is executed. If you are utilizing your personal compute system, such as a laptop, the login corresponds to your individual compute system login. Conversely, when running this notebook on Google Colab, the login is attributed to the root user. The initiation of Linux shell commands within Jupyter notebook code cells is denoted by a preceding exclamation point (!).</p>
+<p>In the code cell below, the provided pip commands are employed to install a range of Python libraries essential for the tasks covered in this notebook. It’s worth noting that additional Python libraries are automatically installed within our virtual environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-learn<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scanpy<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>gseapy<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pydeseq2<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">pybiomart</span><span class="o">==</span><span class="m">0</span>.1<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>mygene<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sklearn_som<span class="w">  </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sklearn-som<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pyDeseq2<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Ensembl_converter<span class="w"> </span>--no-cache
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>mygene<span class="w"> </span>--no-cache
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scikit-learn
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading scikit_learn-1.4.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.19.5 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scikit-learn) (1.26.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy&gt;=1.6.0 (from scikit-learn)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading scipy-1.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/60.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">41.0/60.6 kB</span> <span class=" -Color -Color-Red">1.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">60.6/60.6 kB</span> <span class=" -Color -Color-Red">1.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting joblib&gt;=1.2.0 (from scikit-learn)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading joblib-1.4.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting threadpoolctl&gt;=2.0.0 (from scikit-learn)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading threadpoolctl-3.4.0-py3-none-any.whl.metadata (13 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading scikit_learn-1.4.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.1/12.2 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.5/12.2 MB</span> <span class=" -Color -Color-Red">7.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/12.2 MB</span> <span class=" -Color -Color-Red">14.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/12.2 MB</span> <span class=" -Color -Color-Red">22.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.6/12.2 MB</span> <span class=" -Color -Color-Red">37.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">10.4/12.2 MB</span> <span class=" -Color -Color-Red">58.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.2/12.2 MB</span> <span class=" -Color -Color-Red">100.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading joblib-1.4.0-py3-none-any.whl (301 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/301.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">301.2/301.2 kB</span> <span class=" -Color -Color-Red">243.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading scipy-1.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (38.2 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/38.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.1/38.2 MB</span> <span class=" -Color -Color-Red">123.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.8/38.2 MB</span> <span class=" -Color -Color-Red">113.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.6/38.2 MB</span> <span class=" -Color -Color-Red">103.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.2/38.2 MB</span> <span class=" -Color -Color-Red">86.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">16.8/38.2 MB</span> <span class=" -Color -Color-Red">87.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.6/38.2 MB</span> <span class=" -Color -Color-Red">89.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.7/38.2 MB</span> <span class=" -Color -Color-Red">106.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ <span class=" -Color -Color-Green">26.7/38.2 MB</span> <span class=" -Color -Color-Red">105.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━ <span class=" -Color -Color-Green">29.4/38.2 MB</span> <span class=" -Color -Color-Red">92.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">32.7/38.2 MB</span> <span class=" -Color -Color-Red">85.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ <span class=" -Color -Color-Green">36.3/38.2 MB</span> <span class=" -Color -Color-Red">83.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">38.2/38.2 MB</span> <span class=" -Color -Color-Red">96.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading threadpoolctl-3.4.0-py3-none-any.whl (17 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: threadpoolctl, scipy, joblib, scikit-learn
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed joblib-1.4.0 scikit-learn-1.4.2 scipy-1.13.0 threadpoolctl-3.4.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scanpy
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading scanpy-1.10.1-py3-none-any.whl.metadata (8.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting anndata&gt;=0.8 (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading anndata-0.10.7-py3-none-any.whl.metadata (6.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting h5py&gt;=3.1 (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading h5py-3.11.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Requirement already satisfied: joblib in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scanpy) (1.4.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting legacy-api-wrap&gt;=1.4 (from scanpy)
+  Downloading legacy_api_wrap-1.4-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: matplotlib&gt;=3.6 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scanpy) (3.8.4)
+Collecting natsort (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading natsort-8.4.0-py3-none-any.whl.metadata (21 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting networkx&gt;=2.7 (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading networkx-3.3-py3-none-any.whl.metadata (5.1 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numba&gt;=0.56 (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading numba-0.59.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.7 kB)
+Requirement already satisfied: numpy&gt;=1.23 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scanpy) (1.26.4)
+Requirement already satisfied: packaging&gt;=21.3 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from scanpy) (24.0)
+Requirement already satisfied: pandas&gt;=1.5 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scanpy) (2.2.2)
+Collecting patsy (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading patsy-0.5.6-py2.py3-none-any.whl.metadata (3.5 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pynndescent&gt;=0.5 (from scanpy)
+  Downloading pynndescent-0.5.12-py3-none-any.whl.metadata (6.8 kB)
+Requirement already satisfied: scikit-learn&gt;=0.24 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scanpy) (1.4.2)
+Requirement already satisfied: scipy&gt;=1.8 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scanpy) (1.13.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting seaborn&gt;=0.13 (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting session-info (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading session_info-1.0.0.tar.gz (24 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting statsmodels&gt;=0.13 (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading statsmodels-0.14.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.2 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tqdm (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading tqdm-4.66.2-py3-none-any.whl.metadata (57 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/57.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.6/57.6 kB</span> <span class=" -Color -Color-Red">1.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting umap-learn!=0.5.0,&gt;=0.5 (from scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading umap_learn-0.5.6-py3-none-any.whl.metadata (21 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting array-api-compat!=1.5,&gt;1.4 (from anndata&gt;=0.8-&gt;scanpy)
+  Downloading array_api_compat-1.6-py3-none-any.whl.metadata (1.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from matplotlib&gt;=3.6-&gt;scanpy) (1.2.1)
+Requirement already satisfied: cycler&gt;=0.10 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from matplotlib&gt;=3.6-&gt;scanpy) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from matplotlib&gt;=3.6-&gt;scanpy) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from matplotlib&gt;=3.6-&gt;scanpy) (1.4.5)
+Requirement already satisfied: pillow&gt;=8 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from matplotlib&gt;=3.6-&gt;scanpy) (10.3.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from matplotlib&gt;=3.6-&gt;scanpy) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from matplotlib&gt;=3.6-&gt;scanpy) (2.9.0.post0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting llvmlite&lt;0.43,&gt;=0.42.0dev0 (from numba&gt;=0.56-&gt;scanpy)
+  Downloading llvmlite-0.42.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from pandas&gt;=1.5-&gt;scanpy) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from pandas&gt;=1.5-&gt;scanpy) (2024.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (from scikit-learn&gt;=0.24-&gt;scanpy) (3.4.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from patsy-&gt;scanpy) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting stdlib_list (from session-info-&gt;scanpy)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading stdlib_list-0.10.0-py3-none-any.whl.metadata (3.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading scanpy-1.10.1-py3-none-any.whl (2.1 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.2/2.1 MB</span> <span class=" -Color -Color-Red">4.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/2.1 MB</span> <span class=" -Color -Color-Red">8.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">1.6/2.1 MB</span> <span class=" -Color -Color-Red">15.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.1/2.1 MB</span> <span class=" -Color -Color-Red">17.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading anndata-0.10.7-py3-none-any.whl (122 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/122.4 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">122.4/122.4 kB</span> <span class=" -Color -Color-Red">254.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading h5py-3.11.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.4 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.4 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.8/5.4 MB</span> <span class=" -Color -Color-Red">84.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.4/5.4 MB</span> <span class=" -Color -Color-Red">89.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading legacy_api_wrap-1.4-py3-none-any.whl (15 kB)
+Downloading networkx-3.3-py3-none-any.whl (1.7 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.7/1.7 MB</span> <span class=" -Color -Color-Red">309.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading numba-0.59.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.7 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.7/3.7 MB</span> <span class=" -Color -Color-Red">115.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pynndescent-0.5.12-py3-none-any.whl (56 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/56.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">56.8/56.8 kB</span> <span class=" -Color -Color-Red">220.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading seaborn-0.13.2-py3-none-any.whl (294 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/294.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">294.9/294.9 kB</span> <span class=" -Color -Color-Red">323.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading statsmodels-0.14.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.7 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/10.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.6/10.7 MB</span> <span class=" -Color -Color-Red">108.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.2/10.7 MB</span> <span class=" -Color -Color-Red">104.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.7/10.7 MB</span> <span class=" -Color -Color-Red">101.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading patsy-0.5.6-py2.py3-none-any.whl (233 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/233.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">233.9/233.9 kB</span> <span class=" -Color -Color-Red">214.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading umap_learn-0.5.6-py3-none-any.whl (85 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/85.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">85.7/85.7 kB</span> <span class=" -Color -Color-Red">194.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading natsort-8.4.0-py3-none-any.whl (38 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading tqdm-4.66.2-py3-none-any.whl (78 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/78.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">78.3/78.3 kB</span> <span class=" -Color -Color-Red">216.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading array_api_compat-1.6-py3-none-any.whl (36 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading llvmlite-0.42.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (43.8 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/43.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.9/43.8 MB</span> <span class=" -Color -Color-Red">117.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.4/43.8 MB</span> <span class=" -Color -Color-Red">107.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.6/43.8 MB</span> <span class=" -Color -Color-Red">97.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.7/43.8 MB</span> <span class=" -Color -Color-Red">84.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.1/43.8 MB</span> <span class=" -Color -Color-Red">82.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">17.1/43.8 MB</span> <span class=" -Color -Color-Red">71.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.9/43.8 MB</span> <span class=" -Color -Color-Red">84.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.6/43.8 MB</span> <span class=" -Color -Color-Red">83.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">25.7/43.8 MB</span> <span class=" -Color -Color-Red">82.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">28.2/43.8 MB</span> <span class=" -Color -Color-Red">84.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ <span class=" -Color -Color-Green">30.7/43.8 MB</span> <span class=" -Color -Color-Red">69.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ <span class=" -Color -Color-Green">34.4/43.8 MB</span> <span class=" -Color -Color-Red">79.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ <span class=" -Color -Color-Green">36.8/43.8 MB</span> <span class=" -Color -Color-Red">84.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ <span class=" -Color -Color-Green">39.2/43.8 MB</span> <span class=" -Color -Color-Red">83.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ <span class=" -Color -Color-Green">41.6/43.8 MB</span> <span class=" -Color -Color-Red">74.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">43.8/43.8 MB</span> <span class=" -Color -Color-Red">72.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading stdlib_list-0.10.0-py3-none-any.whl (79 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/79.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">79.8/79.8 kB</span> <span class=" -Color -Color-Red">150.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: session-info
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for session-info (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for session-info: filename=session_info-1.0.0-py3-none-any.whl size=8024 sha256=3a4f1eb5849bf586342c7a33d8f5900a41444945e182f51b81f8ddf2ad7a1a3c
+  Stored in directory: /tmp/pip-ephem-wheel-cache-zeypa5q1/wheels/23/da/7c/868424f4a5845ab58cd8686e0eb405e9e1e2d4152bf702c39d
+Successfully built session-info
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: array-api-compat, tqdm, stdlib_list, patsy, networkx, natsort, llvmlite, legacy-api-wrap, h5py, session-info, numba, statsmodels, seaborn, pynndescent, anndata, umap-learn, scanpy
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+<span class=" -Color -Color-Red">ERROR: Operation cancelled by user</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gseapy
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading gseapy-1.1.2.tar.gz (106 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/106.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">41.0/106.9 kB</span> <span class=" -Color -Color-Red">1.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">106.9/106.9 kB</span> <span class=" -Color -Color-Red">1.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-python-modules">
+<h1>import Python modules<a class="headerlink" href="#import-python-modules" title="Link to this heading">#</a></h1>
+<p>This notebook imports a number of Python modules for use in several notebooks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn_som.som</span> <span class="kn">import</span> <span class="n">SOM</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">gseapy</span> <span class="k">as</span> <span class="nn">gp</span>
+<span class="kn">from</span> <span class="nn">gseapy.plot</span> <span class="kn">import</span> <span class="n">gseaplot</span>
+<span class="kn">from</span> <span class="nn">pydeseq2.dds</span> <span class="kn">import</span> <span class="n">DeseqDataSet</span>
+<span class="kn">from</span> <span class="nn">pydeseq2.ds</span> <span class="kn">import</span> <span class="n">DeseqStats</span>
+<span class="kn">from</span> <span class="nn">gseapy</span> <span class="kn">import</span> <span class="n">Msigdb</span>
+<span class="kn">from</span> <span class="nn">pybiomart</span> <span class="kn">import</span> <span class="n">Server</span>
+<span class="kn">import</span> <span class="nn">mygene</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">FastICA</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">TweedieRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">pylab</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Ensembl_converter</span> <span class="kn">import</span> <span class="n">EnsemblConverter</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="define-misc-helper-methods">
+<h1>define misc helper methods<a class="headerlink" href="#define-misc-helper-methods" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_maxdisplay</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+  <span class="kn">from</span> <span class="nn">notebook.services.config</span> <span class="kn">import</span> <span class="n">ConfigManager</span>
+  <span class="n">cm</span> <span class="o">=</span> <span class="n">ConfigManager</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;limit_output&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="define-data-ingestion-methods">
+<h1>Define data ingestion methods<a class="headerlink" href="#define-data-ingestion-methods" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_meta_data</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
+  <span class="c1"># dataset=255</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://osdr.nasa.gov/geode-py/ws/studies/OSD-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/download?source=datamanager&amp;file=OSD-&#39;</span> <span class="o">+</span> <span class="n">dataset</span> <span class="o">+</span> <span class="s1">&#39;_metadata_OSD-&#39;</span> <span class="o">+</span> <span class="n">dataset</span> <span class="o">+</span> <span class="s1">&#39;-ISA.zip&#39;</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="n">dataset</span> <span class="o">+</span> <span class="s1">&#39;-meta.zip&#39;</span>
+  <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="o">!</span>unzip<span class="w"> </span>-o<span class="w"> </span><span class="o">{</span>filename<span class="o">}</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;s_OSD-&#39;</span> <span class="o">+</span> <span class="n">dataset</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_rnaseq_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+  <span class="c1"># data = &#39;255_rna_seq_Normalized_Counts&#39;</span>
+  <span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://osdr.nasa.gov/geode-py/ws/studies/OSD-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/download?source=datamanager&amp;file=GLDS-&#39;</span> <span class="o">+</span> <span class="n">data</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_phenotype_data</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+  <span class="c1"># dataset = &#39;557&#39;</span>
+  <span class="c1"># data = &#39;LSDS-1_immunostaining_microscopy_PNAtr_Transformed_Reusable_Results&#39;</span>
+  <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://osdr.nasa.gov//geode-py/ws/studies/OSD-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/download?source=datamanager&amp;file=&#39;</span> <span class="o">+</span> <span class="n">data</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="define-data-filtering-methods">
+<h1>define data filtering methods<a class="headerlink" href="#define-data-filtering-methods" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filter_cvs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+
+  <span class="c1"># calculate coefficient of variation</span>
+  <span class="n">cvs</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">sd</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">cvs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sd</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
+
+  <span class="c1"># plot hist of dist of coev of variation</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+  <span class="n">axs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">cvs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+  <span class="c1"># keep genes with cv &gt; thresh</span>
+  <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cvs</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">cvs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span><span class="p">:</span>
+      <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">drop_nans</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+  <span class="c1"># drop NaN rows</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">drop_lowcount</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+
+  <span class="c1"># let&#39;s drop any low-count genes</span>
+  <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+  <span class="k">if</span> <span class="s1">&#39;transcript&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;transcript&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">]</span>
+  <span class="k">elif</span> <span class="s1">&#39;Unnamed: 0&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">:</span><span class="s2">&quot;transcript&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;check file format&quot;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filter_genes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="s1">&#39;non-coding&#39;</span><span class="p">):</span>
+  <span class="c1"># let&#39;s filter protein/ non-protein-coding genes</span>
+  <span class="k">if</span> <span class="n">drop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">df</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;http://www.ensembl.org&#39;</span><span class="p">)</span>
+  <span class="n">dataset</span> <span class="o">=</span> <span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">marts</span><span class="p">[</span><span class="s1">&#39;ENSEMBL_MART_ENSEMBL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="s1">&#39;mmusculus_gene_ensembl&#39;</span><span class="p">])</span>
+  <span class="n">gene_info</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ensembl_gene_id&#39;</span><span class="p">,</span> <span class="s1">&#39;external_gene_name&#39;</span><span class="p">,</span> <span class="s1">&#39;gene_biotype&#39;</span><span class="p">])</span>
+  <span class="k">if</span> <span class="n">drop</span><span class="o">==</span><span class="s1">&#39;non-coding&#39;</span><span class="p">:</span>
+    <span class="n">filter_genes</span><span class="o">=</span><span class="n">gene_info</span><span class="p">[</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;Gene type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;protein_coding&#39;</span><span class="p">][</span><span class="s1">&#39;Gene stable ID&#39;</span><span class="p">]</span>
+  <span class="k">elif</span> <span class="n">drop</span><span class="o">==</span><span class="s1">&#39;coding&#39;</span><span class="p">:</span>
+    <span class="n">filter_genes</span><span class="o">=</span><span class="n">gene_info</span><span class="p">[</span><span class="n">gene_info</span><span class="p">[</span><span class="s1">&#39;Gene type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;protein_coding&#39;</span><span class="p">][</span><span class="s1">&#39;Gene stable ID&#39;</span><span class="p">]</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">df</span>
+  <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">filter_genes</span><span class="p">)]</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filter_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dropnans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dropgenes</span><span class="o">=</span><span class="s1">&#39;non-coding&#39;</span><span class="p">,</span> <span class="n">droplowcvs</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+  <span class="c1"># drop NANs</span>
+  <span class="k">if</span> <span class="n">dropnans</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">drop_nans</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="c1"># drop non protein-coding genes</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">dropgenes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">filter_genes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="n">dropgenes</span><span class="p">)</span>
+  <span class="c1"># drop low coef of var genes</span>
+  <span class="k">if</span> <span class="n">droplowcvs</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">filter_cvs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">droplowcvs</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">):</span>
+  <span class="n">sample_names</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">colname</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+  <span class="n">exclude_names</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">sn</span> <span class="ow">in</span> <span class="n">sample_names</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">sn</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+      <span class="n">exclude_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sn</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">exclude_names</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-transformation-methods">
+<h1>data transformation methods<a class="headerlink" href="#data-transformation-methods" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transpose_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cur_index_col</span><span class="p">,</span> <span class="n">new_index_col</span><span class="p">):</span>
+  <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">cur_index_col</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">new_index_col</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">cols</span>
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reduce_dims</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">current_key</span><span class="p">,</span> <span class="n">new_key</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+  <span class="c1">#df_t = transpose_df(df, current_key, new_key)</span>
+  <span class="c1">#sdList = df_t.var(axis=1)</span>
+  <span class="n">sdList</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len of sdlist: &#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdList</span><span class="p">)))</span>
+  <span class="n">sdDict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sdList</span><span class="p">)}</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">sdDictSorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sdDict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">sdDictSorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sdDict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">topN</span> <span class="o">=</span> <span class="n">sdDictSorted</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n: &#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+  <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">topN</span><span class="p">]</span>
+  <span class="c1">#df_t = df_t.iloc[indices]</span>
+  <span class="c1">#df_tt= transpose_df(df_t, new_key, current_key)</span>
+  <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_pd_to_np</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+  <span class="n">X</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_symbol_from_id</span><span class="p">(</span><span class="n">gene_id_list</span><span class="p">):</span>
+  <span class="c1"># Create an instance of EnsemblConverter</span>
+  <span class="n">converter</span> <span class="o">=</span> <span class="n">EnsemblConverter</span><span class="p">()</span>
+
+  <span class="c1"># Convert Ensembl IDs to gene symbols</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">converter</span><span class="o">.</span><span class="n">convert_ids</span><span class="p">(</span><span class="n">gene_id_list</span><span class="p">)</span>
+
+  <span class="c1"># Print the resulting DataFrame</span>
+  <span class="n">gene_symbol_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+    <span class="n">gene_symbol_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Symbol&#39;</span><span class="p">])</span>
+
+  <span class="k">return</span> <span class="n">gene_symbol_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotting-methods">
+<h1>plotting methods<a class="headerlink" href="#plotting-methods" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="p">,</span> <span class="n">sample_key</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">treatment</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[]):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;field: &#39;</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;excluding samples: &#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="p">)</span>
+  <span class="n">fieldValues</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data_</span><span class="p">[</span><span class="n">field</span><span class="p">])</span>
+  <span class="n">value_dict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+  <span class="n">flight</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_flight&#39;</span>
+  <span class="n">nonflight</span><span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_nonflight&#39;</span>
+  <span class="n">results</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+  <span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">data_</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">sample_key</span><span class="p">]</span> <span class="ow">in</span> <span class="n">exclude_samples</span><span class="p">:</span>
+      <span class="k">continue</span>
+    <span class="k">elif</span> <span class="n">treatment</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">data_</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">sample_key</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">):</span>
+        <span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">field</span><span class="p">])</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">field</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">data_</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">treatment</span><span class="p">]</span> <span class="o">==</span> <span class="n">space</span><span class="p">:</span>
+        <span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">field</span><span class="p">])</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">field</span><span class="p">])</span>
+
+
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;t-test p-value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.5f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">],</span> <span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">],</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">pvalue</span><span class="p">))</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;wilcoxon p-value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.5f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ranksums</span><span class="p">(</span><span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">],</span> <span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">])</span><span class="o">.</span><span class="n">pvalue</span><span class="p">))</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;ks-test p-value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.5f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">],</span> <span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">])</span><span class="o">.</span><span class="n">pvalue</span><span class="p">))</span>
+
+
+  <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n flight = &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">value_dict</span><span class="p">[</span><span class="n">flight</span><span class="p">]))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n nonflight = &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">value_dict</span><span class="p">[</span><span class="n">nonflight</span><span class="p">]))</span>
+  <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">value_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">value_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+  <span class="c1">#plt.setp(ax.get_xticklabels(), rotation=30, horizontalalignment=&#39;right&#39;)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+
+
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="machine-learning-methods">
+<h1>machine learning methods<a class="headerlink" href="#machine-learning-methods" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a method to run the k-means algorithm and then print which cluster each sample belongs to</span>
+<span class="k">def</span> <span class="nf">my_kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+  <span class="c1"># convert df to np</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">convert_pd_to_np</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s2">&quot;k-means++&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="c1"># and predict each sample</span>
+  <span class="n">samples</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+  <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sample: &#39;</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="s1">&#39;, cluster: &#39;</span><span class="p">,</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">sample</span><span class="p">])]),</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">sample</span><span class="p">][</span><span class="s1">&#39;Factor Value[Spaceflight]&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a method that graphs the within-cluster-sum-of-squares metric to determine the optimum value of k (the elbow method)</span>
+<span class="k">def</span> <span class="nf">find_k_elbow</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+  <span class="c1"># convert df to np</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">convert_pd_to_np</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">wcss</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">init</span> <span class="o">=</span> <span class="s1">&#39;k-means++&#39;</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">wcss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+
+  <span class="c1"># plot wcss</span>
+  <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+  <span class="n">y</span><span class="o">=</span><span class="n">wcss</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_gmm</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+  <span class="c1"># convert df to np</span>
+  <span class="c1">#df=data[&#39;255-normalized&#39;]</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">convert_pd_to_np</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">gm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="c1"># and predict each sample</span>
+  <span class="n">samples</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+  <span class="c1"># predict probability</span>
+  <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sample: &#39;</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="s1">&#39;, cluster: &#39;</span><span class="p">,</span> <span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">sample</span><span class="p">])]),</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">sample</span><span class="p">][</span><span class="s1">&#39;Factor Value[Spaceflight]&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">gm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_gmm_elbow</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">convert_pd_to_np</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">n_components</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+  <span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_components</span><span class="p">]</span>
+  <span class="n">aics</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">aic</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">]</span>
+  <span class="n">bics</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">bic</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">]</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">aics</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">bics</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;BIC&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;n_components&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;AIC or BIC&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="differential-gene-expression-analysis-methods">
+<h1>Differential gene expression analysis methods<a class="headerlink" href="#differential-gene-expression-analysis-methods" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">map_samples_to_conditions</span><span class="p">(</span><span class="n">dfT</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">metadata_condition_param</span><span class="p">,</span> <span class="n">condition_0</span><span class="p">,</span> <span class="n">condition_1</span><span class="p">):</span>
+  <span class="c1"># map conditions to samples for comparison in DESeq2</span>
+  <span class="n">condition_dict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">dfT</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">]):</span>
+    <span class="c1">#val=metadata[&#39;255&#39;][metadata[&#39;255&#39;][&#39;Sample Name&#39;]==sample][&#39;Factor Value[Spaceflight]&#39;].values[0]</span>
+    <span class="n">val</span><span class="o">=</span><span class="n">metadata</span><span class="p">[</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">sample</span><span class="p">][</span><span class="n">metadata_condition_param</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="n">condition_0</span><span class="p">:</span>
+      <span class="n">condition_dict</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">condition_dict</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+  <span class="n">dfT</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfT</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">condition_dict</span><span class="p">)</span>
+  <span class="n">conditions</span><span class="o">=</span><span class="n">dfT</span><span class="p">[[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]]</span>
+
+  <span class="k">return</span> <span class="n">conditions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_deseq2</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metadata</span><span class="p">):</span>
+  <span class="c1"># transpose df</span>
+  <span class="n">dfT</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
+  <span class="n">dfT</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">dfT</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+  <span class="n">dfT</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span>
+  <span class="n">dfT</span> <span class="o">=</span> <span class="n">dfT</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span><span class="s2">&quot;sample&quot;</span><span class="p">})</span>
+
+  <span class="c1"># map conditions</span>
+  <span class="n">conditions</span> <span class="o">=</span> <span class="n">map_samples_to_conditions</span><span class="p">(</span><span class="n">dfT</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="s1">&#39;Factor Value[Spaceflight]&#39;</span><span class="p">,</span> <span class="s1">&#39;Ground Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Space Flight&#39;</span><span class="p">)</span>
+
+  <span class="c1"># get count data set up for DESeq2</span>
+  <span class="n">counts</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">counts</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isreal</span><span class="p">)</span>
+  <span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+  <span class="c1"># run DESeq2</span>
+  <span class="n">dds</span><span class="o">=</span><span class="n">DeseqDataSet</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="n">design_factors</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span>
+  <span class="n">dds</span><span class="o">.</span><span class="n">deseq2</span><span class="p">()</span>
+
+  <span class="k">return</span> <span class="n">dds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_results</span><span class="p">(</span><span class="n">dds</span><span class="p">):</span>
+  <span class="c1"># do DGEA</span>
+  <span class="n">stats_results</span><span class="o">=</span><span class="n">DeseqStats</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">contrast</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;condition&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">))</span>
+
+  <span class="c1"># run summary</span>
+  <span class="n">stats_results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+  <span class="c1"># get differentially expressed genes</span>
+  <span class="n">res</span> <span class="o">=</span> <span class="n">stats_results</span><span class="o">.</span><span class="n">results_df</span>
+
+  <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_sig_genes</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">pval</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">l2fc</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+  <span class="n">sigs</span> <span class="o">=</span> <span class="n">res</span><span class="p">[(</span><span class="n">res</span><span class="o">.</span><span class="n">padj</span> <span class="o">&lt;</span> <span class="n">pval</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">log2FoldChange</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">l2fc</span><span class="p">)]</span>
+  <span class="k">return</span> <span class="n">sigs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dge_ranked_genes</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+  <span class="c1"># rank genes from most to least significantly differentially expressed</span>
+  <span class="n">ranking</span> <span class="o">=</span> <span class="n">res</span><span class="p">[[</span><span class="s1">&#39;stat&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;stat&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+  <span class="n">ranking_index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">ranking</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+  <span class="n">ranking_index_upper</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ranking_index</span><span class="p">]</span>
+  <span class="n">ranking</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="n">ranking_index_upper</span>
+
+  <span class="k">return</span> <span class="n">ranking</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filter_by_dgea</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span>  <span class="n">pval</span><span class="p">,</span> <span class="n">l2fc</span><span class="p">):</span>
+  <span class="c1"># run DESeq2</span>
+  <span class="n">dds</span> <span class="o">=</span> <span class="n">run_deseq2</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span>
+
+  <span class="c1"># get results</span>
+  <span class="n">res</span> <span class="o">=</span> <span class="n">get_results</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span>
+
+  <span class="c1"># get sig genes</span>
+  <span class="n">sig_genes_df</span> <span class="o">=</span> <span class="n">get_sig_genes</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">pval</span><span class="o">=</span><span class="n">pval</span><span class="p">,</span> <span class="n">l2fc</span><span class="o">=</span><span class="n">l2fc</span><span class="p">)</span>
+
+  <span class="c1"># get top sig genes</span>
+  <span class="n">top_genes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sig_genes_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;padj&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+  <span class="c1"># filter data by topn_genes</span>
+  <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_genes</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rr9-phenotypes_Lesson_01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RR9 phenotypes notebook summary</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Regression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Mission of regression notebook</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">AI/ML methods notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python-packages">install Python packages</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-python-modules">import Python modules</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-misc-helper-methods">define misc helper methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-data-ingestion-methods">Define data ingestion methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-data-filtering-methods">define data filtering methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformation-methods">data transformation methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-methods">plotting methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-methods">machine learning methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-gene-expression-analysis-methods">Differential gene expression analysis methods</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1027 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mission of clustering notebook &#8212; Open Science Data Repository (OSDR) NoteBook Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Clustering';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to Image Analysis with Python" href="Image_Data.html" />
+    <link rel="prev" title="Mission of the classification notebook" href="Classification.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Methods_Lesson_01.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="rr9-phenotypes_Lesson_01.html">RR9 phenotypes notebook summary</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Methods.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Regression.html"><strong>Mission of regression notebook</strong></a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Classification.html"><strong>Mission of the classification notebook</strong></a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Mission of clustering notebook</strong></a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Image_Data.html">Introduction to Image Analysis with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io/issues/new?title=Issue%20on%20page%20%2FClustering.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Clustering.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mission of clustering notebook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mission of clustering notebook</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-methods">Read in the methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-data-and-metadata">read in data and metadata</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-k-means-algorithm-to-cluster-the-rna-seq-data">Use the K-means algorithm to cluster the RNA-seq data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pca-to-cluster-and-plot-the-rna-seq-data">Use PCA to cluster and plot the RNA-seq data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-deseq2-implementation-of-pca">Use the DESeq2 implementation of PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-gaussian-mixture-model-to-cluster-the-rna-seq-data">Use Gaussian mixture model to cluster the RNA-seq data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-rna-seq-gene-expression-data-in-a-heatmap">Plot the RNA-seq gene expression data in a heatmap</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mission-of-clustering-notebook">
+<h1><strong>Mission of clustering notebook</strong><a class="headerlink" href="#mission-of-clustering-notebook" title="Link to this heading">#</a></h1>
+<p>You are a member of a bioinformatics team investigating the <a class="reference external" href="https://en.wikipedia.org/wiki/Effect_of_spaceflight_on_the_human_body">effect of spaceflight on astronaut health</a>.  Your team is trying to find the <a class="reference external" href="https://en.wikipedia.org/wiki/Biological_pathway">biological pathways</a> that respond to exposure of adverse conditions in space such as <a class="reference external" href="https://www.nasa.gov/centers-and-facilities/glenn/what-is-microgravity/">microgravity</a> and <a class="reference external" href="https://www.nasa.gov/directorates/esdmd/hhp/space-radiation/">radiation</a>.  Ultimately your team will need phenotype data as labels to train your supervised learning models, but for now, all you have is the gene expression data in the form of <a class="reference external" href="https://en.wikipedia.org/wiki/RNA-Seq">RNA-seq</a>.</p>
+<p>Your mission is to use unsupervised machine learning - <a class="reference external" href="https://en.wikipedia.org/wiki/Cluster_analysis">clustering</a> - to determine if the astronaut samples and their ground control counterparts have clearly distinguishable gene expression profiles.  For if they do, then there is a chance that a supervised learning method can predict responses to spaceflight using different combinations and weights of gene expression from the RNA-seq data.</p>
+<p>In this notebook, you will use k-means, PCA, and a heatmap to reach your conclusions.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="read-in-the-methods">
+<h1>Read in the methods<a class="headerlink" href="#read-in-the-methods" title="Link to this heading">#</a></h1>
+<p>Recall that we have put all the custom python methods in a separate notebook which you copied to your Google drive.  We need to read those methods into this notebook so that we can use them here.  You will get prompted to select the gmail address to use to permit access to your google drive for this notebook.</p>
+<p>Note that we will import the methods in the notebook as “m”, so all subsequent references to methods in that notebook will be prefixed with “m.”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install and import the python module for importing a notebook</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>import_ipynb
+<span class="kn">import</span> <span class="nn">import_ipynb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: import_ipynb in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (0.1.4)
+Requirement already satisfied: IPython in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from import_ipynb) (8.23.0)
+Requirement already satisfied: nbformat in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from import_ipynb) (5.10.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: decorator in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (5.1.1)
+Requirement already satisfied: jedi&gt;=0.16 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.19.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: matplotlib-inline in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.1.6)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.41 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (3.0.43)
+Requirement already satisfied: pygments&gt;=2.4.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (2.17.2)
+Requirement already satisfied: stack-data in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.6.3)
+Requirement already satisfied: traitlets&gt;=5.13.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (5.14.2)
+Requirement already satisfied: pexpect&gt;4.3 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (4.9.0)
+Requirement already satisfied: fastjsonschema&gt;=2.15 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (2.19.1)
+Requirement already satisfied: jsonschema&gt;=2.6 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (4.21.1)
+Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (5.7.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;import_ipynb) (0.8.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: attrs&gt;=22.2.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (23.2.0)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (2023.12.1)
+Requirement already satisfied: referencing&gt;=0.28.4 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (0.34.0)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (0.18.0)
+Requirement already satisfied: platformdirs&gt;=2.5 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbformat-&gt;import_ipynb) (4.2.0)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;import_ipynb) (0.7.0)
+Requirement already satisfied: wcwidth in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.41-&gt;IPython-&gt;import_ipynb) (0.2.13)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: executing&gt;=1.2.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (2.0.1)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (2.4.1)
+Requirement already satisfied: pure-eval in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (0.2.2)
+Requirement already satisfied: six&gt;=1.12.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from asttokens&gt;=2.1.0-&gt;stack-data-&gt;IPython-&gt;import_ipynb) (1.16.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mount your google drive to this notebook</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">flush_and_unmount</span><span class="p">()</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;mnt&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># mount your google drive to this notebook</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">flush_and_unmount</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;mnt&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the &quot;Copy of methods.ipynb&quot; from your google drive into this notebook (this will take a while -- mabye 5 minutes?)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;mnt/MyDrive/Colab Notebooks/Copy of methods&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="read-in-data-and-metadata">
+<h1>read in data and metadata<a class="headerlink" href="#read-in-data-and-metadata" title="Link to this heading">#</a></h1>
+<p>The data that we will be using is <a class="reference external" href="https://en.wikipedia.org/wiki/Normalization_(statistics)">normalized</a> RNA-seq data which was generated from retinal tissue.  The counts of genes per sample are represented in a table and have been normalized, which means they’ve been changed to account for differences in how the RNA-seq experiment played out.  For example, some transcripts may have been copied multiple times in the experiment (called <a class="reference external" href="https://www.biostars.org/p/282708/">sequencing depth</a>) while others may not have been as deeply copied.  Moreover, because some genes are much longer than others, longer genes will have more transcript fragments and appear to be more highly expressed than shorter genes.  These differences will change the results of our analysis because we are looking for differences in gene expression (i.e. counts) between genes and between samples.
+Normalization is a statistical process of correcting for these differences, and there are many methods available.  The goal of normalization is to make the gene expression profiles more comparable across samples, allowing for accurate comparisons and statistical analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the RNA-seq data from OSD-255</span>
+<span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">metadata</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_rnaseq_data</span><span class="p">(</span><span class="s1">&#39;255_rna_seq_Normalized_Counts&#39;</span><span class="p">)</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_meta_data</span><span class="p">(</span><span class="s1">&#39;255&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the dimensions of the RNA-seq data set and the associated metadata</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;data shape: &#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;metadata shape: &#39;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-the-k-means-algorithm-to-cluster-the-rna-seq-data">
+<h1>Use the K-means algorithm to cluster the RNA-seq data<a class="headerlink" href="#use-the-k-means-algorithm-to-cluster-the-rna-seq-data" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a copy of the normalized RNA-seq data from OSD-255</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter out nans and remove genes with CV &lt; 1.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before filter: &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">filter_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dropnans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropprotein</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">droplowcvs</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after filter: &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run the my_kmeans method with k=2</span>
+<span class="n">m</span><span class="o">.</span><span class="n">my_kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">find_k_elbow</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now build kmeans with k=elbow</span>
+<span class="n">m</span><span class="o">.</span><span class="n">my_kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># it seems like GSM3932697 / Retina_Flight_17 and GSM3932706 / Retina_Flight_18 are getting confused</span>
+<span class="c1"># try removing them and rerunning WCCS</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">sample</span> <span class="o">==</span> <span class="s1">&#39;GSM3932697&#39;</span> <span class="ow">or</span> <span class="n">sample</span> <span class="o">==</span> <span class="s1">&#39;GSM3932706&#39;</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">sample</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">my_kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like the gene expression of all the ground control samples clusters uniquely into group 0.   This validates our suspicion that GSM3932697 and GSM3932706 are likely outliers, but it’s difficult to tell by just looking at cluster membership. What we need is a visual way to view how the samples cluster and separate between ground control and spaceflight.  For that we turn to PCA clustering.</p>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Using the histogram of CVs, about how many genes have a CV of 0.5 or less?</p></li>
+<li><p>After removing the 2 outliers GSM3932697 and GSM3932706 and re-running k-means, there seems to be one more outlier.  Which sample is it?</p></li>
+<li><p>Given these results, would you say that spaceflight and ground control samples have distinct gene expression profiles?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-pca-to-cluster-and-plot-the-rna-seq-data">
+<h1>Use PCA to cluster and plot the RNA-seq data<a class="headerlink" href="#use-pca-to-cluster-and-plot-the-rna-seq-data" title="Link to this heading">#</a></h1>
+<p>Let’s use the PCA clustering technique so we can visualize the data in 2-dimensions to see how spaceflight and ground control samples cluster and separate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize df</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpose the dataframe in preparation for PCA</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape before transpose: &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape after transpose: &#39;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an array y that represents whether the sample is ground control or spaceflight</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="s1">&#39;Factor Value[Spaceflight]&#39;</span><span class="p">]))</span>
+<span class="n">target_names</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Ground Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Space Flight&#39;</span><span class="p">])</span>
+
+<span class="c1"># run PCA to reduce dimensions from 23,419 to 2!</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_r</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Percentage of variance explained for each components</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;explained variance ratio (first two components): </span><span class="si">%s</span><span class="s2">&quot;</span>
+    <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># plot the pca plot</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;navy&quot;</span><span class="p">,</span> <span class="s2">&quot;turquoise&quot;</span><span class="p">]</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Ground Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Space Flight&#39;</span><span class="p">],</span> <span class="n">target_names</span><span class="p">):</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_r</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_r</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">target_name</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA of OSD-255 dataset&quot;</span><span class="p">)</span>
+
+<span class="c1"># show the last 3 digits of the sample name</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:],</span> <span class="p">(</span><span class="n">X_r</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_r</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We might choose to eliminate those outliers from both spaceflight and ground control for downstream analysis.  But we are already low on data, so removing data points is expensive.  And actually, we’re not using the PCA plot for modeling the data and making predictions so there’s no real concept of accuracy or performance.  Instead, we’re using it to get a visual representation of the distribution of the data.  Now  we see how the ground control and space flight samples cluster together except for a few outliers.</p>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Which samples are the outlier space flight samples?</p></li>
+<li><p>Which samples are the outlier ground control samples?</p></li>
+<li><p>Do these PCA clusters corroborate what we found using K-means in terms of data separation and outliers?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-the-deseq2-implementation-of-pca">
+<h1>Use the DESeq2 implementation of PCA<a class="headerlink" href="#use-the-deseq2-implementation-of-pca" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html">DESeq2</a> is a software implementation that performs <a class="reference external" href="https://en.wikipedia.org/wiki/Gene_expression_profiling">differential gene expression analysis</a> to identify which genes are differentially expressed (highly up-regulated or down-regulated) relative to other genes in the expression profile.  This tool is used to identify which genes may be responsible for a particular phenotype.</p>
+<p>In addition to performing differential gene expression analysis, DESeq2 also has an implementation of PCA.  This section of the notebook explores using it to compare against the <code class="docutils literal notranslate"><span class="pre">pydeseq2</span></code> implementation results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfT</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
+<span class="n">dfT</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dfT</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">dfT</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span>
+<span class="n">dfT</span> <span class="o">=</span> <span class="n">dfT</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span><span class="s2">&quot;sample&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfT</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">condition_dict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">dfT</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">]):</span>
+    <span class="n">val</span><span class="o">=</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">sample</span><span class="p">][</span><span class="s1">&#39;Factor Value[Spaceflight]&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;Ground Control&#39;</span><span class="p">:</span>
+        <span class="n">condition_dict</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">condition_dict</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dfT</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfT</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">condition_dict</span><span class="p">)</span>
+<span class="n">conditions</span><span class="o">=</span><span class="n">dfT</span><span class="p">[[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">counts</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">isreal</span><span class="p">)</span>
+<span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">DeseqDataSet</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="n">design_factors</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span>
+<span class="n">dds</span><span class="o">.</span><span class="n">deseq2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;condition&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>What is the shape of the dataframe used as input to count the gene expression?</p></li>
+<li><p>How and why is this different than the shape of the original RNA-seq dataframe?</p></li>
+<li><p>Do the 2 PCA plots agree in their distribution in 2 dimensions?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="use-gaussian-mixture-model-to-cluster-the-rna-seq-data">
+<h1>Use Gaussian mixture model to cluster the RNA-seq data<a class="headerlink" href="#use-gaussian-mixture-model-to-cluster-the-rna-seq-data" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape before filter: &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">filter_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dropnans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dropprotein</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">droplowcvs</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape after filter: &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build gmm with 3 distributions (this may take several minutes with lots of data)</span>
+<span class="n">gmm</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">my_gmm</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>How many genes were dropped from the dataframe after dropping 1.5 or lower CVs?  What do you think the effect will be on the quality of the clustering after dropping so many genes from the data set?</p></li>
+<li><p>Does the GMM algorithm require that you specify the number of clusters up-front, or does the algorithm find the ideal number for you?</p></li>
+<li><p>Do the GMM cluster results resemble those of k-means?  Why or why not?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plot-the-rna-seq-gene-expression-data-in-a-heatmap">
+<h1>Plot the RNA-seq gene expression data in a heatmap<a class="headerlink" href="#plot-the-rna-seq-gene-expression-data-in-a-heatmap" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;255-normalized&#39;</span><span class="p">]</span>
+
+<span class="c1"># filter data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape before filter: &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">filter_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dropnans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dropprotein</span><span class="o">=</span><span class="s1">&#39;non-coding&#39;</span><span class="p">,</span> <span class="n">droplowcvs</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape after filter: &#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># transpose the dataframe</span>
+<span class="n">dfT</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
+<span class="n">dfT</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dfT</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">dfT</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span>
+<span class="n">dfT</span> <span class="o">=</span> <span class="n">dfT</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span><span class="s2">&quot;sample&quot;</span><span class="p">})</span>
+
+
+<span class="c1"># assign a &quot;condition&quot; to each sample as either 1 (space flight) or 0 (ground control)</span>
+<span class="n">condition_dict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">dfT</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">]):</span>
+    <span class="n">val</span><span class="o">=</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;255&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">sample</span><span class="p">][</span><span class="s1">&#39;Factor Value[Spaceflight]&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;Ground Control&#39;</span><span class="p">:</span>
+        <span class="n">condition_dict</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">condition_dict</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dfT</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfT</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">condition_dict</span><span class="p">)</span>
+<span class="n">conditions</span><span class="o">=</span><span class="n">dfT</span><span class="p">[[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">]]</span>
+
+
+<span class="c1"># turn counts into integer values (normalized data is type float)</span>
+<span class="n">counts</span><span class="o">=</span><span class="n">dfT</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#counts.applymap(m.np.isreal)</span>
+<span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># run a DESeq2 experiment that finds differential gene expression between the 2 conditions</span>
+<span class="c1"># note we are not doing differential gene expression analysis but need to run this to get a PCA plot</span>
+<span class="n">dds</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">DeseqDataSet</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="n">design_factors</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span>
+<span class="n">dds</span><span class="o">.</span><span class="n">deseq2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;log1p&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">dds</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;normed_counts&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grapher</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dds</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;log1p&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dds</span><span class="o">.</span><span class="n">var_names</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">conditions</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">]))</span>
+<span class="n">grapher</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">grapher</span><span class="p">,</span> <span class="n">z_score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlBu_r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>On which axis do the 16 samples appear, vertical or horizontal?  the genes?</p></li>
+<li><p>Which 2 samples are least similar to sample GSM3932702?  How did you choose them?</p></li>
+<li><p>Which gene and sample have the hottest expression?  The coldest?</p></li>
+</ol>
+<p><strong>Double click here to enter your answers to the questions above.</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Classification.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Mission of the classification notebook</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Image_Data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Image Analysis with Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mission of clustering notebook</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-the-methods">Read in the methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-data-and-metadata">read in data and metadata</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-k-means-algorithm-to-cluster-the-rna-seq-data">Use the K-means algorithm to cluster the RNA-seq data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-pca-to-cluster-and-plot-the-rna-seq-data">Use PCA to cluster and plot the RNA-seq data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-deseq2-implementation-of-pca">Use the DESeq2 implementation of PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-gaussian-mixture-model-to-cluster-the-rna-seq-data">Use Gaussian mixture model to cluster the RNA-seq data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-rna-seq-gene-expression-data-in-a-heatmap">Plot the RNA-seq gene expression data in a heatmap</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

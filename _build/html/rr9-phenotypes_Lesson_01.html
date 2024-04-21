@@ -1,0 +1,2584 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RR9 phenotypes notebook summary &#8212; Open Science Data Repository (OSDR) NoteBook Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rr9-phenotypes_Lesson_01';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AI/ML methods notebook" href="Methods.html" />
+    <link rel="prev" title="AI/ML methods notebook" href="Methods_Lesson_01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Methods_Lesson_01.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">RR9 phenotypes notebook summary</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Methods.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Regression.html"><strong>Mission of regression notebook</strong></a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Classification.html"><strong>Mission of the classification notebook</strong></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html"><strong>Mission of clustering notebook</strong></a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Image_Data.html">Introduction to Image Analysis with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io/issues/new?title=Issue%20on%20page%20%2Frr9-phenotypes_Lesson_01.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/rr9-phenotypes_Lesson_01.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>RR9 phenotypes notebook summary</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">RR9 phenotypes notebook summary</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spaceflight-associated-neuro-ocular-syndrome-sans">Spaceflight associated neuro-ocular syndrome (SANS)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-statistical-analysis">Basic statistical analysis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-methods-from-methods-ipynb-notebook">Read in methods from methods.ipynb notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#osd-557">OSD-557</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcomputed-tomography-microct-data-from-osd-557">Microcomputed tomography (microCT) data from OSD-557</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-transformed-microct-data-from-osd-557">Explore the transformed microCT data from OSD-557</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#immunostaining-microscopy-from-osd-557">Immunostaining microscopy from OSD-557</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-immunostaining-microscopy-hne-data">explore the immunostaining microscopy HNE data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-immunostaining-microscopy-pna-data">explore the immunostaining microscopy PNA data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#osd-568">OSD-568</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#osd-583">OSD-583</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="rr9-phenotypes-notebook-summary">
+<h1>RR9 phenotypes notebook summary<a class="headerlink" href="#rr9-phenotypes-notebook-summary" title="Link to this heading">#</a></h1>
+<p>The purpose of this notebook is to explore the phenotypic data that are part of the RR9 mission.  RR9 includes 3 datasets which contain phenotypic data:</p>
+<ol class="arabic simple">
+<li><p>OSD-557</p></li>
+<li><p>OSD-568</p></li>
+<li><p>OSD-583</p></li>
+</ol>
+<p>The phenotypic data include microcomputed tomography, immunostaining microscopy, and tonometry.  All measurements were collected on both ground and spaceflight rodent samples and converted to tabular format to enable immediate and consistent data mining.</p>
+<p><img alt="Rodent Research 9" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Rodent_Research-9_Mission_Patch.jpg" /></p>
+<p>The spaceflight environment is known to result in significant physiological changes on many aspects of the body during long-duration mission in low Earth orbit, posing hazards to the astronauts. This mission’s primary objective is to use mice to better understand the visual impairment and joint tissue degradation that are affecting astronauts living in space for long periods of time, and to examine possible ways to counteract those health problems. NASA is also working to maximize science return from this mission by sharing tissues from the animals with as many NASA investigators as possible.</p>
+<p>The RR-9 payload consists of three NASA Space Biology investigations that will address the effects of microgravity on a range of different tissues. One investigation will study the effects of long duration spaceflight on fluid shifts and increased fluid pressures that occur in the head. These elevated pressures inside the head are believed to be the primary cause of visual impairment in astronauts who undergo long duration spaceflight. A second investigation will study the impact of spaceflight on the vessels that supply blood to the eyes. The third investigation will study the extent of knee and hip joint degradation due to prolonged exposure to weightlessness. All the results from the RR-9 experiments will play a role in answering pertinent questions to human space exploration. Here on Earth, these studies will help us gain more insight into disorders of the eyes, and also the progression of damage in the hip and knee joints of wheel-chair bound patients.</p>
+<p><a class="reference external" href="https://www.nasa.gov/ames/space-biosciences/rodent-research-9-spacex-12/">https://www.nasa.gov/ames/space-biosciences/rodent-research-9-spacex-12/</a></p>
+<section id="spaceflight-associated-neuro-ocular-syndrome-sans">
+<h2>Spaceflight associated neuro-ocular syndrome (SANS)<a class="headerlink" href="#spaceflight-associated-neuro-ocular-syndrome-sans" title="Link to this heading">#</a></h2>
+<p>Prolonged microgravity exposure during long-duration spaceflight (LDSF) produces unusual physiologic and pathologic neuro-ophthalmic findings in astronauts. These microgravity associated findings collectively define the “Spaceflight Associated Neuro-ocular Syndrome” (SANS).</p>
+<p>Although a formal designation has not been validated, for the purposes of this review we consider the presence of any of the following findings post flight (compared to preflight) to be the working case definition of SANS: unilateral and bilateral optic disc edema (variable Frisén grades), globe flattening (as defined qualitatively on imaging), choroidal and retinal folds, hyperopic refractive error shifts (&gt;0.75 D), or focal areas of ischemic retina (i.e., cotton wool spots). These findings in SANS have been documented over the past decade in multiple reports. In addition, structural changes have been documented that correlate with the clinical findings of SANS on ocular (e.g., optical coherence tomography [OCT]), orbital (e.g., ultrasonography and magnetic resonance imaging [MRI]) and cranial MRI. Visual acuity, Amsler grid, ophthalmoscopy, tonometry, fundus photography, orbital ultrasound and OCT are available on the International Space Station (ISS) and have been essential in documenting the development of the in-flight changes of SANS.</p>
+<p><a class="reference external" href="https://www.nature.com/articles/s41526-020-0097-9">https://www.nature.com/articles/s41526-020-0097-9</a></p>
+<p><a class="reference external" href="https://www.mdpi.com/2075-1729/13/6/1263">https://www.mdpi.com/2075-1729/13/6/1263</a></p>
+<p><img alt="" src="https://www.mdpi.com/life/life-13-01263/article_deploy/html/images/life-13-01263-g006-550.jpg" /></p>
+</section>
+<section id="basic-statistical-analysis">
+<h2>Basic statistical analysis<a class="headerlink" href="#basic-statistical-analysis" title="Link to this heading">#</a></h2>
+<p>We will be using the <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-test">t-test</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test">Wilcoxon signed-rank test</a>, and <a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test">Kolmogorov-Smirnov test</a> to determine the significance of the difference of the distributions of the various data between ground and spaceflight samples.</p>
+<p>We will also be plotting a <a class="reference external" href="https://en.wikipedia.org/wiki/Box_plot">box-and-whisker plot</a> distinguishing space flight from ground samples for each of the measures taken in these studies.</p>
+<p>We will show statistical results which include all the samples and those results which exclude some of the samples.</p>
+<p>In this notebook, we will focus on all the data from RR9 that pertains to the effect of spaceflight on the eye.</p>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>What is currently thought to be the cause of visual impairment in astronauts on long space missions?</p></li>
+<li><p>Is spaceflight-associated neuro-ocular syndrome (SANS) recognized by the medical community as an official diagnosis?</p></li>
+<li><p>Does SANS induce a hyperopic shift or myopic shift in the focal point?</p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="read-in-methods-from-methods-ipynb-notebook">
+<h1>Read in methods from methods.ipynb notebook<a class="headerlink" href="#read-in-methods-from-methods-ipynb-notebook" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install and import the import_ipynb module enabling the import of methods from remote notebooks</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>import_ipynb
+<span class="kn">import</span> <span class="nn">import_ipynb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: import_ipynb in /workspace/.pyenv_mirror/user/current/lib/python3.12/site-packages (0.1.4)
+Requirement already satisfied: IPython in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from import_ipynb) (8.23.0)
+Requirement already satisfied: nbformat in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from import_ipynb) (5.10.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: decorator in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (5.1.1)
+Requirement already satisfied: jedi&gt;=0.16 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.19.1)
+Requirement already satisfied: matplotlib-inline in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.1.6)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.41 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (3.0.43)
+Requirement already satisfied: pygments&gt;=2.4.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (2.17.2)
+Requirement already satisfied: stack-data in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (0.6.3)
+Requirement already satisfied: traitlets&gt;=5.13.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (5.14.2)
+Requirement already satisfied: pexpect&gt;4.3 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from IPython-&gt;import_ipynb) (4.9.0)
+Requirement already satisfied: fastjsonschema&gt;=2.15 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (2.19.1)
+Requirement already satisfied: jsonschema&gt;=2.6 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (4.21.1)
+Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from nbformat-&gt;import_ipynb) (5.7.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;import_ipynb) (0.8.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: attrs&gt;=22.2.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (23.2.0)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (2023.12.1)
+Requirement already satisfied: referencing&gt;=0.28.4 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (0.34.0)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;import_ipynb) (0.18.0)
+Requirement already satisfied: platformdirs&gt;=2.5 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbformat-&gt;import_ipynb) (4.2.0)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;import_ipynb) (0.7.0)
+Requirement already satisfied: wcwidth in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.41-&gt;IPython-&gt;import_ipynb) (0.2.13)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: executing&gt;=1.2.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (2.0.1)
+Requirement already satisfied: asttokens&gt;=2.1.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (2.4.1)
+Requirement already satisfied: pure-eval in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from stack-data-&gt;IPython-&gt;import_ipynb) (0.2.2)
+Requirement already satisfied: six&gt;=1.12.0 in /home/gitpod/.pyenv/versions/3.12.3/lib/python3.12/site-packages (from asttokens&gt;=2.1.0-&gt;stack-data-&gt;IPython-&gt;import_ipynb) (1.16.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mount your google drive to this notebook</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;mnt&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="o">%</span><span class="k">cd</span> &quot;mnt/My Drive/Colab Notebooks/&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># mount your google drive to this notebook</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;mnt&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;mnt/My Drive/Colab Notebooks/&quot;&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the methods from the methods.ipynb notebook in NASA/TOPS/NOTEBOOKS</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;Copy of methods&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>importing Jupyter notebook from Copy of methods.ipynb
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (1.2.2)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (1.25.2)
+Requirement already satisfied: scipy&gt;=1.3.2 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (1.11.4)
+Requirement already satisfied: joblib&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (1.3.2)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn) (3.3.0)
+Collecting scanpy
+  Downloading scanpy-1.9.8-py3-none-any.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/2.0 MB</span> <span class=" -Color -Color-Red">23.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting anndata&gt;=0.7.4 (from scanpy)
+  Downloading anndata-0.10.6-py3-none-any.whl (122 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">122.1/122.1 kB</span> <span class=" -Color -Color-Red">216.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: h5py&gt;=3 in /usr/local/lib/python3.10/dist-packages (from scanpy) (3.9.0)
+Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.3.2)
+Requirement already satisfied: matplotlib&gt;=3.6 in /usr/local/lib/python3.10/dist-packages (from scanpy) (3.7.1)
+Requirement already satisfied: natsort in /usr/local/lib/python3.10/dist-packages (from scanpy) (8.4.0)
+Requirement already satisfied: networkx&gt;=2.3 in /usr/local/lib/python3.10/dist-packages (from scanpy) (3.2.1)
+Requirement already satisfied: numba&gt;=0.41.0 in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.58.1)
+Requirement already satisfied: numpy&gt;=1.17.0 in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.25.2)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from scanpy) (24.0)
+Requirement already satisfied: pandas!=2.1.2,&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.5.3)
+Requirement already satisfied: patsy in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.5.6)
+Requirement already satisfied: scikit-learn&gt;=0.24 in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.2.2)
+Requirement already satisfied: scipy&gt;=1.4 in /usr/local/lib/python3.10/dist-packages (from scanpy) (1.11.4)
+Requirement already satisfied: seaborn&gt;=0.13.0 in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.13.1)
+Collecting session-info (from scanpy)
+  Downloading session_info-1.0.0.tar.gz (24 kB)
+  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: statsmodels&gt;=0.10.0rc2 in /usr/local/lib/python3.10/dist-packages (from scanpy) (0.14.1)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from scanpy) (4.66.2)
+Collecting umap-learn&gt;=0.3.10 (from scanpy)
+  Downloading umap-learn-0.5.5.tar.gz (90 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">90.9/90.9 kB</span> <span class=" -Color -Color-Red">205.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h  Preparing metadata (setup.py) ... ?25l?25hdone
+Collecting array-api-compat!=1.5,&gt;1.4 (from anndata&gt;=0.7.4-&gt;scanpy)
+  Downloading array_api_compat-1.5.1-py3-none-any.whl (35 kB)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.7.4-&gt;scanpy) (1.2.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (1.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (4.49.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (1.4.5)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6-&gt;scanpy) (2.8.2)
+Requirement already satisfied: llvmlite&lt;0.42,&gt;=0.41.0dev0 in /usr/local/lib/python3.10/dist-packages (from numba&gt;=0.41.0-&gt;scanpy) (0.41.1)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas!=2.1.2,&gt;=1.1.1-&gt;scanpy) (2023.4)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=0.24-&gt;scanpy) (3.3.0)
+Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from patsy-&gt;scanpy) (1.16.0)
+Collecting pynndescent&gt;=0.5 (from umap-learn&gt;=0.3.10-&gt;scanpy)
+  Downloading pynndescent-0.5.11-py3-none-any.whl (55 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">55.8/55.8 kB</span> <span class=" -Color -Color-Red">141.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting stdlib_list (from session-info-&gt;scanpy)
+  Downloading stdlib_list-0.10.0-py3-none-any.whl (79 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">79.8/79.8 kB</span> <span class=" -Color -Color-Red">211.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hBuilding wheels for collected packages: umap-learn, session-info
+  Building wheel for umap-learn (setup.py) ... ?25l?25hdone
+  Created wheel for umap-learn: filename=umap_learn-0.5.5-py3-none-any.whl size=86832 sha256=80b11f4c0eca9eadbd4b4804c8a9393c2b454ea2affb442240b960116241346a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-4d5i4xge/wheels/3a/70/07/428d2b58660a1a3b431db59b806a10da736612ebbc66c1bcc5
+  Building wheel for session-info (setup.py) ... ?25l?25hdone
+  Created wheel for session-info: filename=session_info-1.0.0-py3-none-any.whl size=8026 sha256=b15f75f047934fac76f409efceed703f147f75eca6974d2c994f8192ba17f2d3
+  Stored in directory: /tmp/pip-ephem-wheel-cache-4d5i4xge/wheels/6a/aa/b9/eb5d4031476ec10802795b97ccf937b9bd998d68a9b268765a
+Successfully built umap-learn session-info
+Installing collected packages: stdlib_list, array-api-compat, session-info, pynndescent, anndata, umap-learn, scanpy
+Successfully installed anndata-0.10.6 array-api-compat-1.5.1 pynndescent-0.5.11 scanpy-1.9.8 session-info-1.0.0 stdlib_list-0.10.0 umap-learn-0.5.5
+Collecting gseapy
+  Downloading gseapy-1.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">8.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: numpy&gt;=1.13.0 in /usr/local/lib/python3.10/dist-packages (from gseapy) (1.25.2)
+Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from gseapy) (1.11.4)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from gseapy) (1.5.3)
+Requirement already satisfied: matplotlib&gt;=2.2 in /usr/local/lib/python3.10/dist-packages (from gseapy) (3.7.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from gseapy) (2.31.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (1.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (4.49.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (1.4.5)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (24.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=2.2-&gt;gseapy) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;gseapy) (2023.4)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;gseapy) (2024.2.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=2.2-&gt;gseapy) (1.16.0)
+Installing collected packages: gseapy
+Successfully installed gseapy-1.1.2
+Collecting pydeseq2
+  Downloading pydeseq2-0.4.7-py3-none-any.whl (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">44.1/44.1 kB</span> <span class=" -Color -Color-Red">1.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: anndata&gt;=0.8.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (0.10.6)
+Requirement already satisfied: numpy&gt;=1.23.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (1.25.2)
+Requirement already satisfied: pandas&gt;=1.4.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (1.5.3)
+Requirement already satisfied: scikit-learn&gt;=1.1.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (1.2.2)
+Requirement already satisfied: scipy&gt;=1.11.0 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (1.11.4)
+Requirement already satisfied: matplotlib&gt;=3.6.2 in /usr/local/lib/python3.10/dist-packages (from pydeseq2) (3.7.1)
+Requirement already satisfied: array-api-compat!=1.5,&gt;1.4 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (1.5.1)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (1.2.0)
+Requirement already satisfied: h5py&gt;=3.1 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (3.9.0)
+Requirement already satisfied: natsort in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (8.4.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pydeseq2) (24.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (1.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (4.49.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (1.4.5)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pydeseq2) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.4.0-&gt;pydeseq2) (2023.4)
+Requirement already satisfied: joblib&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pydeseq2) (1.3.2)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pydeseq2) (3.3.0)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.6.2-&gt;pydeseq2) (1.16.0)
+Installing collected packages: pydeseq2
+Successfully installed pydeseq2-0.4.7
+Collecting pybiomart
+  Downloading pybiomart-0.2.0-py3-none-any.whl (10 kB)
+Requirement already satisfied: future in /usr/local/lib/python3.10/dist-packages (from pybiomart) (0.18.3)
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from pybiomart) (1.5.3)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from pybiomart) (2.31.0)
+Collecting requests-cache (from pybiomart)
+  Downloading requests_cache-1.2.0-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">61.4/61.4 kB</span> <span class=" -Color -Color-Red">2.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;pybiomart) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;pybiomart) (2023.4)
+Requirement already satisfied: numpy&gt;=1.21.0 in /usr/local/lib/python3.10/dist-packages (from pandas-&gt;pybiomart) (1.25.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;pybiomart) (2024.2.2)
+Requirement already satisfied: attrs&gt;=21.2 in /usr/local/lib/python3.10/dist-packages (from requests-cache-&gt;pybiomart) (23.2.0)
+Collecting cattrs&gt;=22.2 (from requests-cache-&gt;pybiomart)
+  Downloading cattrs-23.2.3-py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.5/57.5 kB</span> <span class=" -Color -Color-Red">8.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-cache-&gt;pybiomart) (4.2.0)
+Collecting url-normalize&gt;=1.4 (from requests-cache-&gt;pybiomart)
+  Downloading url_normalize-1.4.3-py2.py3-none-any.whl (6.8 kB)
+Requirement already satisfied: exceptiongroup&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from cattrs&gt;=22.2-&gt;requests-cache-&gt;pybiomart) (1.2.0)
+Requirement already satisfied: typing-extensions!=4.6.3,&gt;=4.1.0 in /usr/local/lib/python3.10/dist-packages (from cattrs&gt;=22.2-&gt;requests-cache-&gt;pybiomart) (4.10.0)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.1-&gt;pandas-&gt;pybiomart) (1.16.0)
+Installing collected packages: url-normalize, cattrs, requests-cache, pybiomart
+Successfully installed cattrs-23.2.3 pybiomart-0.2.0 requests-cache-1.2.0 url-normalize-1.4.3
+Collecting mygene
+  Downloading mygene-3.2.2-py2.py3-none-any.whl (5.4 kB)
+Collecting biothings-client&gt;=0.2.6 (from mygene)
+  Downloading biothings_client-0.3.1-py2.py3-none-any.whl (29 kB)
+Requirement already satisfied: requests&gt;=2.3.0 in /usr/local/lib/python3.10/dist-packages (from biothings-client&gt;=0.2.6-&gt;mygene) (2.31.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.3.0-&gt;biothings-client&gt;=0.2.6-&gt;mygene) (2024.2.2)
+Installing collected packages: biothings-client, mygene
+Successfully installed biothings-client-0.3.1 mygene-3.2.2
+Collecting sklearn_som
+  Downloading sklearn_som-1.1.0-py3-none-any.whl (6.7 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from sklearn_som) (1.25.2)
+Installing collected packages: sklearn_som
+Successfully installed sklearn_som-1.1.0
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (1.5.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2023.4)
+Requirement already satisfied: numpy&gt;=1.21.0 in /usr/local/lib/python3.10/dist-packages (from pandas) (1.25.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.1-&gt;pandas) (1.16.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (1.25.2)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (3.7.1)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (4.49.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.4.5)
+Requirement already satisfied: numpy&gt;=1.20 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.25.2)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (24.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+Requirement already satisfied: sklearn-som in /usr/local/lib/python3.10/dist-packages (1.1.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from sklearn-som) (1.25.2)
+Requirement already satisfied: pyDeseq2 in /usr/local/lib/python3.10/dist-packages (0.4.7)
+Requirement already satisfied: anndata&gt;=0.8.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (0.10.6)
+Requirement already satisfied: numpy&gt;=1.23.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (1.25.2)
+Requirement already satisfied: pandas&gt;=1.4.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (1.5.3)
+Requirement already satisfied: scikit-learn&gt;=1.1.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (1.2.2)
+Requirement already satisfied: scipy&gt;=1.11.0 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (1.11.4)
+Requirement already satisfied: matplotlib&gt;=3.6.2 in /usr/local/lib/python3.10/dist-packages (from pyDeseq2) (3.7.1)
+Requirement already satisfied: array-api-compat!=1.5,&gt;1.4 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (1.5.1)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (1.2.0)
+Requirement already satisfied: h5py&gt;=3.1 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (3.9.0)
+Requirement already satisfied: natsort in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (8.4.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from anndata&gt;=0.8.0-&gt;pyDeseq2) (24.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (1.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (4.49.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (1.4.5)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (9.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (3.1.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib&gt;=3.6.2-&gt;pyDeseq2) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.4.0-&gt;pyDeseq2) (2023.4)
+Requirement already satisfied: joblib&gt;=1.1.1 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pyDeseq2) (1.3.2)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn&gt;=1.1.0-&gt;pyDeseq2) (3.3.0)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.6.2-&gt;pyDeseq2) (1.16.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define data and metadata dictionaries for notebook</span>
+<span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">metadata</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>As what name are the methods of the <code class="docutils literal notranslate"><span class="pre">methods.ipynb</span></code> imported?</p></li>
+<li><p>Using which keyboard character permits accessing the command line of a Colab notebook to use commands such as <code class="docutils literal notranslate"><span class="pre">pip</span></code>?</p></li>
+<li><p>Using which type of Python data structure are the data and metadata stored for this notebook?</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="osd-557">
+<h1>OSD-557<a class="headerlink" href="#osd-557" title="Link to this heading">#</a></h1>
+<p><strong>OSD-557 summary</strong></p>
+<p>Extended spaceflight has been shown to adversely affect astronaut visual acuity. The purpose of this study was to determine whether spaceflight alters gene expression profiles and induces oxidative damage in the retina. Ten week old adult C57BL/6 male mice were flown aboard the ISS for 35 days and returned to Earth alive. Ground control mice were maintained on Earth under identical environmental conditions. Within 38 (+/−4) hours after splashdown, mice ocular tissues were collected for analysis. RNA sequencing detected 600 differentially expressed genes (DEGs) in murine spaceflight retinas, which were enriched for genes related to visual perception, the phototransduction pathway, and numerous retina and photoreceptor phenotype categories. Twelve DEGs were associated with retinitis pigmentosa, characterized by dystrophy of the photoreceptor layer rods and cones. Differentially expressed transcription factors indicated changes in chromatin structure, offering clues to the observed phenotypic changes. Immunofluorescence assays showed degradation of cone photoreceptors and increased retinal oxidative stress. Total retinal, retinal pigment epithelium, and choroid layer thickness were significantly lower after spaceflight. These results indicate that retinal performance may decrease over extended periods of spaceflight and cause visual impairment. This dataset is from the micro-computed tomography, immunostaining, and histology assays.</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-*557">https://osdr.nasa.gov/bio/repo/data/studies/OSD-*557</a>*</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  read in metadata for OSD-557</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;557&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_meta_data</span><span class="p">(</span><span class="s1">&#39;557&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="microcomputed-tomography-microct-data-from-osd-557">
+<h2>Microcomputed tomography (microCT) data from OSD-557<a class="headerlink" href="#microcomputed-tomography-microct-data-from-osd-557" title="Link to this heading">#</a></h2>
+<p><strong>What is micro CT?</strong></p>
+<p>In radiography, X-ray microtomography uses X-rays to create cross-sections of a physical object that can be used to recreate a virtual model (3D model) without destroying the original object. It is similar to tomography and X-ray computed tomography. The prefix micro- (symbol: µ) is used to indicate that the pixel sizes of the cross-sections are in the micrometre range. These pixel sizes have also resulted in creation of its synonyms high-resolution X-ray tomography, micro-computed tomography (micro-CT or µCT), and similar terms.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/X-ray_microtomography">https://en.wikipedia.org/wiki/X-ray_microtomography</a></p>
+<p><strong>Experimental protocols</strong></p>
+<p>A subset of eye samples (n equals 6/group) were fixed in 4% formaldehyde in PBS. After fixation, the mice eyes were dehydrated in ethanol. To prevent an abrupt shrinkage of the fixed sample, a graded series of ethanoic solutions were used. Afterwards, the mice eyes were stained in 10% phosphomolybdic acid solution (PMA) for 6 days. Samples were washed in absolute ethanol and then placed each eye in the same rotation in individual 2 mL plastic containers filled with absolute ethanol for scanning.</p>
+<p><a class="reference external" href="https://app.jove.com/t/61227/assessment-of-global-ocular-structure-following-spaceflight-using-a-micro-computed-tomography-micro-ct-imaging-method">https://app.jove.com/t/61227/assessment-of-global-ocular-structure-following-spaceflight-using-a-micro-computed-tomography-micro-ct-imaging-method</a></p>
+<p><img alt="" src="https://cloudfront.jove.com/files/ftp_upload/61227/61227fig01v2.jpg" /></p>
+<p>(A) Soft tissue sample (mouse eye). (B) Samples were fixed in 4% formaldehyde in phosphate buffer solution (PBS). After fixation, the mice’s eyes were dehydrated in ethanol. To prevent a further and abrupt shrinkage of the fixed sample, a graded series of ethanolic solutions were used, beginning with 50% ethanol for 1 h and the following ethanol solutions in the concentrations listed, for 1 hour each: 70, 80, 90, 96 and 100%. (C) The mice’s eyes were stained in phosphomolybdic acid (PMA) for 6 days, washed in absolute ethanol and then placed in individual 2 mL plastic containers filled with absolute ethanol. (D) A desktop X-ray micro-CT system scanner was used to evaluate the retinal injury in mice eyes.</p>
+<p><img alt="" src="https://cloudfront.jove.com/files/ftp_upload/61227/61227fig02.jpg" /></p>
+<p>Layers of the eye on the right side of the image are annotated, from top-to-bottom, retina (0.077 mm), retina pigment layer (RPE, 0.038 mm), choroid (0.041 mm), sclera (0.059 mm). Note: “sup-inf” refers to superior/inferior (top/bottom) and “ant-post” refers to anterior/posterior (front/back) in anatomy.</p>
+<p>Micro-computed tomography (MicroCT) images were generated in order to characterize global ocular morphology and to measure the thickness of the retina and surrounding tissues for ground control and spaceflight mice</p>
+<p><a class="reference external" href="https://www.jove.com/t/61227/assessment-global-ocular-structure-following-spaceflight-using-micro">https://www.jove.com/t/61227/assessment-global-ocular-structure-following-spaceflight-using-micro</a></p>
+<p><strong>What is transformed micro CT data?</strong></p>
+<p>To enable maximal data reuse (for machine-readable approaches), the submitted version of this dataset was subsequently transformed and edited to be aligned with a data reuse template, which was created through feedback provided by subject matter experts in the ALSDA Analysis Working Group. This transformed reusable version is structured so all results are standardized into specific rows (source/subject) and columns (measures). This enables all results to be identically structured for efficient data mining.</p>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Which type of radiation is used in microCT?</p></li>
+<li><p>What does “Sup-Inf” and “Ant-Post” mean in anatomy?</p></li>
+<li><p>Which format of the microCT data is used for data mining such as in this notebook - raw images or transformed tabular results?</p></li>
+</ol>
+</section>
+<section id="explore-the-transformed-microct-data-from-osd-557">
+<h2>Explore the transformed microCT data from OSD-557<a class="headerlink" href="#explore-the-transformed-microct-data-from-osd-557" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the transformed micro ct data from OSD-557</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;557&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-1_microCT_MicroCT_Transformed_Reusable_Results&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num records: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;treatments: &#39;</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]))</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>num records:  12
+treatments:  {&#39;Flight&#39;, &#39;Vivarium&#39;, &#39;Ground Control&#39;}
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-cdd2bbdb-3f59-431d-89ea-c9685e16b302" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source Name</th>
+      <th>Sample Name</th>
+      <th>Treatment</th>
+      <th>Ant-Post</th>
+      <th>Sup-Inf</th>
+      <th>Retina</th>
+      <th>Pigment Layer</th>
+      <th>Choroid</th>
+      <th>Sclera</th>
+      <th>Ant-Post.1</th>
+      <th>Right-left</th>
+      <th>Retina.1</th>
+      <th>Pigment Layer.1</th>
+      <th>Choroid.1</th>
+      <th>Sclera.1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F10</td>
+      <td>F10_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>1.765000</td>
+      <td>2.044000</td>
+      <td>0.077</td>
+      <td>0.038</td>
+      <td>0.041000</td>
+      <td>0.059000</td>
+      <td>1.748000</td>
+      <td>1.997000</td>
+      <td>0.144000</td>
+      <td>0.051000</td>
+      <td>0.041000</td>
+      <td>0.073000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F12</td>
+      <td>F12_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>1.724000</td>
+      <td>2.028000</td>
+      <td>0.091</td>
+      <td>0.048</td>
+      <td>0.036000</td>
+      <td>0.054000</td>
+      <td>1.720000</td>
+      <td>1.980000</td>
+      <td>0.087000</td>
+      <td>0.041000</td>
+      <td>0.039000</td>
+      <td>0.057000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F13</td>
+      <td>F13_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>1.754333</td>
+      <td>2.043667</td>
+      <td>0.089</td>
+      <td>0.044</td>
+      <td>0.036333</td>
+      <td>0.054333</td>
+      <td>1.750333</td>
+      <td>1.969667</td>
+      <td>0.113667</td>
+      <td>0.053667</td>
+      <td>0.038333</td>
+      <td>0.065333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F14</td>
+      <td>F14_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>1.774000</td>
+      <td>2.059000</td>
+      <td>0.099</td>
+      <td>0.046</td>
+      <td>0.032000</td>
+      <td>0.050000</td>
+      <td>1.783000</td>
+      <td>1.932000</td>
+      <td>0.110000</td>
+      <td>0.069000</td>
+      <td>0.035000</td>
+      <td>0.066000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>V10</td>
+      <td>V10_Mouse_Eye</td>
+      <td>Vivarium</td>
+      <td>1.771000</td>
+      <td>2.119000</td>
+      <td>0.145</td>
+      <td>0.076</td>
+      <td>0.083000</td>
+      <td>0.109000</td>
+      <td>1.755000</td>
+      <td>2.089000</td>
+      <td>0.118000</td>
+      <td>0.055000</td>
+      <td>0.061000</td>
+      <td>0.067000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-cdd2bbdb-3f59-431d-89ea-c9685e16b302')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-cdd2bbdb-3f59-431d-89ea-c9685e16b302 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-cdd2bbdb-3f59-431d-89ea-c9685e16b302');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-28acd51b-d2c6-42b7-8a4d-66fcf2d55b82">
+  <button class="colab-df-quickchart" onclick="quickchart('df-28acd51b-d2c6-42b7-8a4d-66fcf2d55b82')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-28acd51b-d2c6-42b7-8a4d-66fcf2d55b82 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<p><em>We will examine the differences between ground and spaceflight samples for the distributions of Ant-Post, Sup-Inf, Retina, Pigment Layer, Sclera, and Choroid columns.  Note the use of the term “Treatment” here refers to the condition of the sample.  “Flight” = spaceflight, “Ground Control” = ground using standard cages, “Vivarium” = ground using vivarium cages.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot and get stats for the Ant-Post field of the micro CT data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Ant-Post&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Ant-Post.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Vivarium&#39;</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Ant-Post&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Ant-Post.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Ant-Post
+excluding samples:  []
+{&#39;Ant-Post&#39;: {&#39;t-test p-value&#39;: 0.19323, &#39;wilcoxon p-value&#39;: 0.26961, &#39;ks-test p-value&#39;: 0.83636}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/efdee71c0237ad14aaf9c12e68cfca8dd2917069ece26458f148f504dbd13703.png" src="_images/efdee71c0237ad14aaf9c12e68cfca8dd2917069ece26458f148f504dbd13703.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Ant-Post.1
+excluding samples:  []
+{&#39;Ant-Post.1&#39;: {&#39;t-test p-value&#39;: 0.59924, &#39;wilcoxon p-value&#39;: 0.61038, &#39;ks-test p-value&#39;: 0.83636}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/1745aac571c8c29f492d7801f6bca51be79896cc063c385701e328228825b752.png" src="_images/1745aac571c8c29f492d7801f6bca51be79896cc063c385701e328228825b752.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Ant-Post
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Ant-Post&#39;: {&#39;t-test p-value&#39;: 0.07735, &#39;wilcoxon p-value&#39;: 0.11235, &#39;ks-test p-value&#39;: 0.77143}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/66ffbfd7daa1fa372349bc35c66a8292a28236ba0199f7e6c40dbffda08fd2fa.png" src="_images/66ffbfd7daa1fa372349bc35c66a8292a28236ba0199f7e6c40dbffda08fd2fa.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Ant-Post.1
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Ant-Post.1&#39;: {&#39;t-test p-value&#39;: 0.12436, &#39;wilcoxon p-value&#39;: 0.14891, &#39;ks-test p-value&#39;: 0.22857}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/3971db14afcb989e66fad1319b39f293d7960aef9a23906e0b29b3d989ef0a0f.png" src="_images/3971db14afcb989e66fad1319b39f293d7960aef9a23906e0b29b3d989ef0a0f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the Sup-Inf field of the micro CT data for ground and spaceflight samples (note there is no Sup-Inf.1 measurement)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Sup-Inf&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Vivarium&#39;</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Sup-Inf&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Sup-Inf
+excluding samples:  []
+{&#39;Sup-Inf&#39;: {&#39;t-test p-value&#39;: 0.64235, &#39;wilcoxon p-value&#39;: 0.49691, &#39;ks-test p-value&#39;: 0.51313}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/ae4905663ed4b461a46e5fde9e7746210f0f747215dec0740ea727d188a4fc3d.png" src="_images/ae4905663ed4b461a46e5fde9e7746210f0f747215dec0740ea727d188a4fc3d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Sup-Inf
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Sup-Inf&#39;: {&#39;t-test p-value&#39;: 0.24506, &#39;wilcoxon p-value&#39;: 0.24821, &#39;ks-test p-value&#39;: 0.77143}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/4f6677e41e59b4b7aeb49467feff86a722e9c2b9be9c8749ba955e5629219e17.png" src="_images/4f6677e41e59b4b7aeb49467feff86a722e9c2b9be9c8749ba955e5629219e17.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the Retina field of the micro CT data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Retina&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Retina.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Vivarium&#39;</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Retina&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Retina.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Retina
+excluding samples:  []
+{&#39;Retina&#39;: {&#39;t-test p-value&#39;: 0.02934, &#39;wilcoxon p-value&#39;: 0.01742, &#39;ks-test p-value&#39;: 0.08485}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/102cb0804ecc4713dd68d5af97cf5d94446d2382450624ec418acd2dc2f34a77.png" src="_images/102cb0804ecc4713dd68d5af97cf5d94446d2382450624ec418acd2dc2f34a77.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Retina.1
+excluding samples:  []
+{&#39;Retina.1&#39;: {&#39;t-test p-value&#39;: 0.78517, &#39;wilcoxon p-value&#39;: 0.7341, &#39;ks-test p-value&#39;: 0.83636}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/404cceb3645e19c600472af341437ed2a351889eee8ceb8f191226c45f54e602.png" src="_images/404cceb3645e19c600472af341437ed2a351889eee8ceb8f191226c45f54e602.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Retina
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Retina&#39;: {&#39;t-test p-value&#39;: 0.00351, &#39;wilcoxon p-value&#39;: 0.02092, &#39;ks-test p-value&#39;: 0.02857}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/ca539d8cf873c7c1416460384a415a39d515bb024f25da954defbcb54225f74b.png" src="_images/ca539d8cf873c7c1416460384a415a39d515bb024f25da954defbcb54225f74b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Retina.1
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Retina.1&#39;: {&#39;t-test p-value&#39;: 0.97613, &#39;wilcoxon p-value&#39;: 0.5637, &#39;ks-test p-value&#39;: 0.77143}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/18936dde7c4bba3e43e27795a14e177ec7dfd45b952989a5d3b4bbc7ec93db00.png" src="_images/18936dde7c4bba3e43e27795a14e177ec7dfd45b952989a5d3b4bbc7ec93db00.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the Pigment Layer field of the micro CT data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Pigment Layer&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Pigment Layer.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Vivarium&#39;</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Pigment Layer&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Pigment Layer.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Pigment Layer
+excluding samples:  []
+{&#39;Pigment Layer&#39;: {&#39;t-test p-value&#39;: 0.04799, &#39;wilcoxon p-value&#39;: 0.00847, &#39;ks-test p-value&#39;: 0.0202}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/2912e20432b4de2ec779e6727e75d4fdc515ff14eb482c4c462af1e8e930becb.png" src="_images/2912e20432b4de2ec779e6727e75d4fdc515ff14eb482c4c462af1e8e930becb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Pigment Layer.1
+excluding samples:  []
+{&#39;Pigment Layer.1&#39;: {&#39;t-test p-value&#39;: 0.9874, &#39;wilcoxon p-value&#39;: 1.0, &#39;ks-test p-value&#39;: 0.99798}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/e7c054573fa959afbfd083b7c722c1b88882cd1ed32366aee9e6b075205630af.png" src="_images/e7c054573fa959afbfd083b7c722c1b88882cd1ed32366aee9e6b075205630af.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Pigment Layer
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Pigment Layer&#39;: {&#39;t-test p-value&#39;: 0.0646, &#39;wilcoxon p-value&#39;: 0.03038, &#39;ks-test p-value&#39;: 0.22857}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/e091779249b2d71994f189783cb560095b82da61cdefe2dbf0be3ae264dcd212.png" src="_images/e091779249b2d71994f189783cb560095b82da61cdefe2dbf0be3ae264dcd212.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Pigment Layer.1
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Pigment Layer.1&#39;: {&#39;t-test p-value&#39;: 0.96531, &#39;wilcoxon p-value&#39;: 1.0, &#39;ks-test p-value&#39;: 1.0}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/6c5ad6a14f29aea1cbeaea50c9e46cea43e6457e17351961acd4fea98abbd990.png" src="_images/6c5ad6a14f29aea1cbeaea50c9e46cea43e6457e17351961acd4fea98abbd990.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the Choroid field of the micro CT data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Choroid&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Choroid.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Vivarium&#39;</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Choroid&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Choroid.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Choroid
+excluding samples:  []
+{&#39;Choroid&#39;: {&#39;t-test p-value&#39;: 0.04591, &#39;wilcoxon p-value&#39;: 0.00658, &#39;ks-test p-value&#39;: 0.00404}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/40d9342ecb47537c37db9bf5548689261041dc648f1ce8181256bbb82370da9d.png" src="_images/40d9342ecb47537c37db9bf5548689261041dc648f1ce8181256bbb82370da9d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Choroid.1
+excluding samples:  []
+{&#39;Choroid.1&#39;: {&#39;t-test p-value&#39;: 0.03295, &#39;wilcoxon p-value&#39;: 0.01742, &#39;ks-test p-value&#39;: 0.08485}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/559af806ae27a22b3611abae101086b479a46f71fe0a9985c66db502f24df0d8.png" src="_images/559af806ae27a22b3611abae101086b479a46f71fe0a9985c66db502f24df0d8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Choroid
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Choroid&#39;: {&#39;t-test p-value&#39;: 0.01382, &#39;wilcoxon p-value&#39;: 0.02092, &#39;ks-test p-value&#39;: 0.02857}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/35eede61625393c7d139cc1be4bfaa90930b508b64d1326d0b7a1cd606a77900.png" src="_images/35eede61625393c7d139cc1be4bfaa90930b508b64d1326d0b7a1cd606a77900.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Choroid.1
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Choroid.1&#39;: {&#39;t-test p-value&#39;: 0.00492, &#39;wilcoxon p-value&#39;: 0.02092, &#39;ks-test p-value&#39;: 0.02857}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/230b4f9abd891346cff1a15a1993a45dba15203f879647b3f4a3ab1eab9499ea.png" src="_images/230b4f9abd891346cff1a15a1993a45dba15203f879647b3f4a3ab1eab9499ea.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the Sclera field of the micro CT data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Sclera&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Sclera.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">][</span><span class="s1">&#39;Treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Vivarium&#39;</span><span class="p">][</span><span class="s1">&#39;Source Name&#39;</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Sclera&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;microCT&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Sclera.1&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Treatment&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s1">&#39;Flight&#39;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Sclera
+excluding samples:  []
+{&#39;Sclera&#39;: {&#39;t-test p-value&#39;: 0.01217, &#39;wilcoxon p-value&#39;: 0.01085, &#39;ks-test p-value&#39;: 0.08485}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/1d92e92ac23ecb15e65127aeb07dafb982ae3ae0a439b626815e8e9615735ac3.png" src="_images/1d92e92ac23ecb15e65127aeb07dafb982ae3ae0a439b626815e8e9615735ac3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Sclera.1
+excluding samples:  []
+{&#39;Sclera.1&#39;: {&#39;t-test p-value&#39;: 0.2244, &#39;wilcoxon p-value&#39;: 0.12637, &#39;ks-test p-value&#39;: 0.51313}}
+n flight =  4
+n nonflight =  8
+</pre></div>
+</div>
+<img alt="_images/db7ba621eb7b0be8d190283d91ebfed36e2744ffb5f62d2e0b4a301922fd487e.png" src="_images/db7ba621eb7b0be8d190283d91ebfed36e2744ffb5f62d2e0b4a301922fd487e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Sclera
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Sclera&#39;: {&#39;t-test p-value&#39;: 0.0013, &#39;wilcoxon p-value&#39;: 0.02092, &#39;ks-test p-value&#39;: 0.02857}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/612f41ec7f921161b4061bcd03b4fb9e64197a749a94af226c441f6f53aceabb.png" src="_images/612f41ec7f921161b4061bcd03b4fb9e64197a749a94af226c441f6f53aceabb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Sclera.1
+excluding samples:  [&#39;V10&#39;, &#39;V12&#39;, &#39;V13&#39;, &#39;V14&#39;]
+{&#39;Sclera.1&#39;: {&#39;t-test p-value&#39;: 0.13214, &#39;wilcoxon p-value&#39;: 0.08326, &#39;ks-test p-value&#39;: 0.22857}}
+n flight =  4
+n nonflight =  4
+</pre></div>
+</div>
+<img alt="_images/25cc056515fd16d56b2a06ea0f8470bcee9e13c15ffa8fe18370b4425ee569f0.png" src="_images/25cc056515fd16d56b2a06ea0f8470bcee9e13c15ffa8fe18370b4425ee569f0.png" />
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Which measurements had a statistically significant difference in distribution between flight and ground samples for all 3 tests?</p></li>
+<li><p>Based on the statistical tests we did on the microCT data, which measurement seems to have the most prominent distinction between space flight and ground samples?</p></li>
+<li><p>What are reasons to include and exclude samples from the Vivarium treatment?</p></li>
+</ol>
+</section>
+<section id="immunostaining-microscopy-from-osd-557">
+<h2>Immunostaining microscopy from OSD-557<a class="headerlink" href="#immunostaining-microscopy-from-osd-557" title="Link to this heading">#</a></h2>
+<p><strong>What is immunostaining microscopy?</strong></p>
+<p>In biochemistry, immunostaining is any use of an antibody-based method to detect a specific protein in a sample. The term “immunostaining” was originally used to refer to the immunohistochemical staining of tissue sections, as first described by Albert Coons in 1941. However, immunostaining now encompasses a broad range of techniques used in histology, cell biology, and molecular biology that use antibody-based staining methods.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Immunostaining">https://en.wikipedia.org/wiki/Immunostaining</a></p>
+<section id="explore-the-immunostaining-microscopy-hne-data">
+<h3>explore the immunostaining microscopy HNE data<a class="headerlink" href="#explore-the-immunostaining-microscopy-hne-data" title="Link to this heading">#</a></h3>
+<p><strong>What is immunostaining microscopy HNE?</strong>
+Hematoxylin and eosin stain (or haematoxylin and eosin stain or hematoxylin-eosin stain; often abbreviated as H&amp;E stain or HE stain) is one of the principal tissue stains used in histology. It is the most widely used stain in medical diagnosis and is often the gold standard.For example, when a pathologist looks at a biopsy of a suspected cancer, the histological section is likely to be stained with H&amp;E. H&amp;E is the combination of two histological stains: hematoxylin and eosin. The hematoxylin stains cell nuclei a purplish blue, and eosin stains the extracellular matrix and cytoplasm pink, with other structures taking on different shades, hues, and combinations of these colors. Hence a pathologist can easily differentiate between the nuclear and cytoplasmic parts of a cell, and additionally, the overall patterns of coloration from the stain show the general layout and distribution of cells and provides a general overview of a tissue sample’s structure.
+Thus, pattern recognition, both by expert humans themselves and by software that aids those experts (in digital pathology), provides histologic information.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/H%26E_stain">https://en.wikipedia.org/wiki/H%26E_stain</a></p>
+<p><img alt="" src="https://ars.els-cdn.com/content/image/1-s2.0-S0895611119301016-gr2.jpg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the HNE data</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;557&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-1_immunostaining_microscopy_HNEtr_Transformed_Reusable_Results&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num records: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sample names: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]))</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>num records:  23
+sample names:  [&#39;F15_Mouse_Eye&#39;, &#39;F16_Mouse_Eye&#39;, &#39;F17_Mouse_Eye&#39;, &#39;F18_Mouse_Eye&#39;, &#39;F19_Mouse_Eye&#39;, &#39;F20_Mouse_Eye&#39;, &#39;GC15_Mouse_Eye&#39;, &#39;GC16_Mouse_Eye&#39;, &#39;GC17_Mouse_Eye&#39;, &#39;GC18_Mouse_Eye&#39;, &#39;GC19_Mouse_Eye&#39;, &#39;Viv15_Mouse_Eye&#39;, &#39;Viv16_Mouse_Eye&#39;, &#39;Viv17_Mouse_Eye&#39;, &#39;Viv18_Mouse_Eye&#39;, &#39;Viv19_Mouse_Eye&#39;, &#39;Viv20_Mouse_Eye&#39;, &#39;CC2_15_Mouse_Eye&#39;, &#39;CC2_16_Mouse_Eye&#39;, &#39;CC2_17_Mouse_Eye&#39;, &#39;CC2_18_Mouse_Eye&#39;, &#39;CC2_19_Mouse_Eye&#39;, &#39;CC2_20_Mouse_Eye&#39;]
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-99819399-e949-49d9-a399-0d51a379b63b" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source Name</th>
+      <th>Sample Name</th>
+      <th>sumcount</th>
+      <th>sumEC</th>
+      <th>sunarea</th>
+      <th>dentotal</th>
+      <th>denEC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F15</td>
+      <td>F15_Mouse_Eye</td>
+      <td>124</td>
+      <td>24</td>
+      <td>1.149408</td>
+      <td>107.881593</td>
+      <td>20.880308</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F16</td>
+      <td>F16_Mouse_Eye</td>
+      <td>97</td>
+      <td>28</td>
+      <td>0.946872</td>
+      <td>102.442566</td>
+      <td>29.571050</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F17</td>
+      <td>F17_Mouse_Eye</td>
+      <td>159</td>
+      <td>28</td>
+      <td>0.875718</td>
+      <td>181.565290</td>
+      <td>31.973762</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F18</td>
+      <td>F18_Mouse_Eye</td>
+      <td>90</td>
+      <td>23</td>
+      <td>0.650403</td>
+      <td>138.375660</td>
+      <td>35.362669</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F19</td>
+      <td>F19_Mouse_Eye</td>
+      <td>106</td>
+      <td>15</td>
+      <td>1.086317</td>
+      <td>97.577417</td>
+      <td>13.808125</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-99819399-e949-49d9-a399-0d51a379b63b')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-99819399-e949-49d9-a399-0d51a379b63b button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-99819399-e949-49d9-a399-0d51a379b63b');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-8df58d3c-477f-4ebe-887d-fd9da381d7aa">
+  <button class="colab-df-quickchart" onclick="quickchart('df-8df58d3c-477f-4ebe-887d-fd9da381d7aa')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-8df58d3c-477f-4ebe-887d-fd9da381d7aa button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<p><em>We will examine differences between the ground and spaceflight samples for the distribution of data in the sumcount, sumeEC, sunarea, dentotal, and denEC columns.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the sumcount field of the immuno HNE data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;sumcount&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;sumcount&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  sumcount
+excluding samples:  []
+{&#39;sumcount&#39;: {&#39;t-test p-value&#39;: 0.0, &#39;wilcoxon p-value&#39;: 0.00078, &#39;ks-test p-value&#39;: 0.00014}}
+n flight =  6
+n nonflight =  17
+</pre></div>
+</div>
+<img alt="_images/97612851831329c3cfe3976bd036b9c1506dacc5025f261487a070a617db2e8f.png" src="_images/97612851831329c3cfe3976bd036b9c1506dacc5025f261487a070a617db2e8f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  sumcount
+excluding samples:  [&#39;CC2_15&#39;, &#39;CC2_16&#39;, &#39;CC2_17&#39;, &#39;CC2_18&#39;, &#39;CC2_19&#39;, &#39;CC2_20&#39;]
+{&#39;sumcount&#39;: {&#39;t-test p-value&#39;: 1e-05, &#39;wilcoxon p-value&#39;: 0.00091, &#39;ks-test p-value&#39;: 0.00016}}
+n flight =  6
+n nonflight =  11
+</pre></div>
+</div>
+<img alt="_images/b7fd20123feb4160dd55558ed45c730be7dc0524653ecc6310e7e7d144913295.png" src="_images/b7fd20123feb4160dd55558ed45c730be7dc0524653ecc6310e7e7d144913295.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the sumEC field of the immuno HNE data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;sumEC&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;sumEC&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  sumEC
+excluding samples:  []
+{&#39;sumEC&#39;: {&#39;t-test p-value&#39;: 0.01757, &#39;wilcoxon p-value&#39;: 0.019, &#39;ks-test p-value&#39;: 0.00957}}
+n flight =  6
+n nonflight =  17
+</pre></div>
+</div>
+<img alt="_images/b6ab701f5f9fa43e712e4785d24b802390f9a7155c38590c913f83a100ee2cff.png" src="_images/b6ab701f5f9fa43e712e4785d24b802390f9a7155c38590c913f83a100ee2cff.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  sumEC
+excluding samples:  [&#39;CC2_15&#39;, &#39;CC2_16&#39;, &#39;CC2_17&#39;, &#39;CC2_18&#39;, &#39;CC2_19&#39;, &#39;CC2_20&#39;]
+{&#39;sumEC&#39;: {&#39;t-test p-value&#39;: 0.00402, &#39;wilcoxon p-value&#39;: 0.0138, &#39;ks-test p-value&#39;: 0.01325}}
+n flight =  6
+n nonflight =  11
+</pre></div>
+</div>
+<img alt="_images/bda11413a33cc850b1e0a0e437c3ad1c1aa3db9c2e66aa1a8a54320c90ad3351.png" src="_images/bda11413a33cc850b1e0a0e437c3ad1c1aa3db9c2e66aa1a8a54320c90ad3351.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the sunarea field of the immuno HNE data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;sunarea&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;sunarea&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  sunarea
+excluding samples:  []
+{&#39;sunarea&#39;: {&#39;t-test p-value&#39;: 0.1988, &#39;wilcoxon p-value&#39;: 0.20758, &#39;ks-test p-value&#39;: 0.4962}}
+n flight =  6
+n nonflight =  17
+</pre></div>
+</div>
+<img alt="_images/db8b1f598dc0f9801592006c58ca5ee4a383266e5412674324d6567099e18583.png" src="_images/db8b1f598dc0f9801592006c58ca5ee4a383266e5412674324d6567099e18583.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  sunarea
+excluding samples:  [&#39;CC2_15&#39;, &#39;CC2_16&#39;, &#39;CC2_17&#39;, &#39;CC2_18&#39;, &#39;CC2_19&#39;, &#39;CC2_20&#39;, &#39;V15&#39;, &#39;V16&#39;, &#39;V17&#39;, &#39;V18&#39;, &#39;V19&#39;, &#39;V20&#39;]
+{&#39;sunarea&#39;: {&#39;t-test p-value&#39;: 0.40591, &#39;wilcoxon p-value&#39;: 0.36131, &#39;ks-test p-value&#39;: 0.81818}}
+n flight =  6
+n nonflight =  5
+</pre></div>
+</div>
+<img alt="_images/238449824e8e5fdd44d9537831d740e232ea1bc8534665f1757f3a2bceb26321.png" src="_images/238449824e8e5fdd44d9537831d740e232ea1bc8534665f1757f3a2bceb26321.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the dentotal field of the immuno HNE data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;dentotal&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;dentotal&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  dentotal
+excluding samples:  []
+{&#39;dentotal&#39;: {&#39;t-test p-value&#39;: 0.0, &#39;wilcoxon p-value&#39;: 0.00036, &#39;ks-test p-value&#39;: 2e-05}}
+n flight =  6
+n nonflight =  17
+</pre></div>
+</div>
+<img alt="_images/b5453766f25a41213ece1024bddcaa8c0a85741db7a61ea666ae77ad44607c43.png" src="_images/b5453766f25a41213ece1024bddcaa8c0a85741db7a61ea666ae77ad44607c43.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  dentotal
+excluding samples:  [&#39;CC2_15&#39;, &#39;CC2_16&#39;, &#39;CC2_17&#39;, &#39;CC2_18&#39;, &#39;CC2_19&#39;, &#39;CC2_20&#39;]
+{&#39;dentotal&#39;: {&#39;t-test p-value&#39;: 0.0, &#39;wilcoxon p-value&#39;: 0.00091, &#39;ks-test p-value&#39;: 0.00016}}
+n flight =  6
+n nonflight =  11
+</pre></div>
+</div>
+<img alt="_images/242bf190b520de9e601a1bffccb8b5fb3613a262fca2649bb865508b9de6b145.png" src="_images/242bf190b520de9e601a1bffccb8b5fb3613a262fca2649bb865508b9de6b145.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the denEC field of the immuno HNE data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;denEC&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;CC&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoHNE&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;denEC&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  denEC
+excluding samples:  []
+{&#39;denEC&#39;: {&#39;t-test p-value&#39;: 0.00115, &#39;wilcoxon p-value&#39;: 0.00958, &#39;ks-test p-value&#39;: 0.02449}}
+n flight =  6
+n nonflight =  17
+</pre></div>
+</div>
+<img alt="_images/dfe5a82a0db280d340f9cfcb3e5350ac5ede4a6721e9ee40eea6d3066c5a469c.png" src="_images/dfe5a82a0db280d340f9cfcb3e5350ac5ede4a6721e9ee40eea6d3066c5a469c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  denEC
+excluding samples:  [&#39;CC2_15&#39;, &#39;CC2_16&#39;, &#39;CC2_17&#39;, &#39;CC2_18&#39;, &#39;CC2_19&#39;, &#39;CC2_20&#39;]
+{&#39;denEC&#39;: {&#39;t-test p-value&#39;: 0.00329, &#39;wilcoxon p-value&#39;: 0.01198, &#39;ks-test p-value&#39;: 0.04783}}
+n flight =  6
+n nonflight =  11
+</pre></div>
+</div>
+<img alt="_images/df387d6f2fc36aa38793073379a2a3d5f4dcf26f84c63f552bfc4e7a913736c9.png" src="_images/df387d6f2fc36aa38793073379a2a3d5f4dcf26f84c63f552bfc4e7a913736c9.png" />
+</div>
+</div>
+<p><em>QUESTIONS</em></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section id="explore-the-immunostaining-microscopy-pna-data">
+<h3>explore the immunostaining microscopy PNA data<a class="headerlink" href="#explore-the-immunostaining-microscopy-pna-data" title="Link to this heading">#</a></h3>
+<p><strong>What is immunostaining PNA?</strong></p>
+<p>Peanut agglutinin (PNA) is plant lectin protein derived from the fruits of Arachis hypogaea. Peanut agglutinin may also be referred to as Arachis hypogaea lectin. Lectins recognise and bind particular sugar sequences in carbohydrates; peanut agglutinin binds the carbohydrate sequence Gal-β(1-3)-GalNAc. The name “peanut agglutinin” originates from its ability to stick together (agglutinate) cells, such as neuraminidase-treated erythrocytes, which have glycoproteins or glycolipids on their surface which include the Gal-β(1-3)-GalNAc carbohydrate sequence.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Peanut_agglutinin">https://en.wikipedia.org/wiki/Peanut_agglutinin</a></p>
+<p>To evaluate oxidative damage in the retina, Immunostaining was performed on ocular sections using 4-HNE antibody specific for lipid peroxidation. Sections were incubated with the anti-4-HNE antibody (catalog no. HNE11-S, Alpha Diagnostic International Inc., San Antonio, TX) at 4 °C for 2 hours followed by a donkey anti-rabbit IgG fluorescence-conjugated secondary antibody (catalog no. A21206, Invitrogen Corp., Waltham, MA) for 2 hours at room temperature and counterstained with DAPI. For double labeling of HNE and PNA, sections were incubated with fluorescein isothiocyanate (FITC)-conjugated Peanut agglutinin (1:100 in 1% BSA) for an hour at room temperature for labeling the photoreceptor cones. Sections were then incubated overnight (18-21 hours) at 4 °C with primary antibody against rabbit anti-4-HNE (Alpha Diagnostic Intl. Inc. San Antonio, TX). After washing three times in PBS, sections were further treated with secondary antibody Alexa Fluor 568 goat anti-rabbit IgG (Life Technologies, Eugene, Oregon). PNA was obtained from (Vector Laboratories, Burlingame, CA).</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-557">https://osdr.nasa.gov/bio/repo/data/studies/OSD-557</a></p>
+<p><img alt="" src="https://www.mdpi.com/ijms/ijms-24-07362/article_deploy/html/images/ijms-24-07362-g009-550.jpg" /></p>
+<p>Quantification of apoptosis based on terminal deoxynucleotidyltransferase dUTP nick-end label (TUNEL) staining of flight (FLT) and ground control (GC) mouse retina. (a) TUNEL-positive cells were identified with green fluorescence and the endothelium was stained with lectin in red. TUNEL-positive cells that were laid within red lectin-labeled endothelium were identified as TUNEL-positive endothelial cells. The nuclei of photoreceptors were counterstained with DAPI (blue). Scale bar = 50 μm. (b) Apoptotic cell density in the retinal outer nuclear layer (ONL), inner nuclear layer (INL), and the ganglion cell layer (GCL) of the FLT and the GC mice. (c) Apoptotic cell density in the retinal endothelium of the FLT and GC groups. Values are represented as the mean density ± SEM (n = 5). The density profiles were expressed as the mean number of apoptotic-positive cells/mm2. Measurements across five retinal sections per eye were used as a single experimental value. Strong trend differences between FLT saline vs. GC saline (p = 0.058), and FLT BuOE vs. GC BuOE (p = 0.056).</p>
+<p><a class="reference external" href="https://www.mdpi.com/1422-0067/24/8/7362">https://www.mdpi.com/1422-0067/24/8/7362</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the PNA microscopy data from OSDR</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoPNA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;557&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-1_immunostaining_microscopy_PNAtr_Transformed_Reusable_Results&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num records: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoPNA&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;samples: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoPNA&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]))</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoPNA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>num records:  10
+samples:  [&#39;F15_Mouse_Eye&#39;, &#39;F17_Mouse_Eye&#39;, &#39;F18_Mouse_Eye&#39;, &#39;F19_Mouse_Eye&#39;, &#39;F20_Mouse_Eye&#39;, &#39;GC15_Mouse_Eye&#39;, &#39;GC16_Mouse_Eye&#39;, &#39;GC17_Mouse_Eye&#39;, &#39;GC18_Mouse_Eye&#39;, &#39;GC19_Mouse_Eye&#39;]
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-5e7870dd-495a-4eba-8f13-682cec4fe6b1" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source Name</th>
+      <th>Sample Name</th>
+      <th>Treatment</th>
+      <th>totct</th>
+      <th>totarea</th>
+      <th>density</th>
+      <th>Average HNE Fluorescent Intensity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F15</td>
+      <td>F15_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>201</td>
+      <td>0.222335</td>
+      <td>904.041554</td>
+      <td>37.552000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F17</td>
+      <td>F17_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>260</td>
+      <td>0.316144</td>
+      <td>822.409317</td>
+      <td>48.436333</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F18</td>
+      <td>F18_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>241</td>
+      <td>0.205566</td>
+      <td>1172.370234</td>
+      <td>34.360333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F19</td>
+      <td>F19_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>259</td>
+      <td>0.286833</td>
+      <td>902.965714</td>
+      <td>39.644667</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F20</td>
+      <td>F20_Mouse_Eye</td>
+      <td>Flight</td>
+      <td>209</td>
+      <td>0.256673</td>
+      <td>814.266522</td>
+      <td>41.274333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5e7870dd-495a-4eba-8f13-682cec4fe6b1')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-5e7870dd-495a-4eba-8f13-682cec4fe6b1 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-5e7870dd-495a-4eba-8f13-682cec4fe6b1');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-afe64140-6b63-4d18-9b61-41665d9063f7">
+  <button class="colab-df-quickchart" onclick="quickchart('df-afe64140-6b63-4d18-9b61-41665d9063f7')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-afe64140-6b63-4d18-9b61-41665d9063f7 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<p><em>We will examine all the relevant fields (totct, totarea, density, and Average HNE Fluorescent Intensity) to determine if there is a statistically significant difference in the distributions of those data between ground and spaceflight samples.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot of the distributions of totarea for flight and ground samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoPNA&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;totarea&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  totarea
+excluding samples:  []
+{&#39;totarea&#39;: {&#39;t-test p-value&#39;: 0.88406, &#39;wilcoxon p-value&#39;: 0.91681, &#39;ks-test p-value&#39;: 1.0}}
+n flight =  5
+n nonflight =  5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/scipy/stats/_stats_py.py:9081: RuntimeWarning: ks_2samp: Exact calculation unsuccessful. Switching to method=asymp.
+  return ks_2samp(xvals, yvals, alternative=alternative, method=method)
+</pre></div>
+</div>
+<img alt="_images/2777c3746c1676084866ed13b154c06f98a72b59df580a5e923db241e829e421.png" src="_images/2777c3746c1676084866ed13b154c06f98a72b59df580a5e923db241e829e421.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot of the distributions of density for flight and ground samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoPNA&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  density
+excluding samples:  []
+{&#39;density&#39;: {&#39;t-test p-value&#39;: 0.01653, &#39;wilcoxon p-value&#39;: 0.02828, &#39;ks-test p-value&#39;: 0.07937}}
+n flight =  5
+n nonflight =  5
+</pre></div>
+</div>
+<img alt="_images/db45a5e2a8d70159eba68f980e62d2f12da609579bcd48d601f4b3ddc9eea8d0.png" src="_images/db45a5e2a8d70159eba68f980e62d2f12da609579bcd48d601f4b3ddc9eea8d0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot of the distributions of Average HNE Fluorescent Intensity for flight and ground samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoPNA&#39;</span><span class="p">],</span>  <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Average HNE Fluorescent Intensity&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>field:  Average HNE Fluorescent Intensity
+excluding samples:  []
+{&#39;Average HNE Fluorescent Intensity&#39;: {&#39;t-test p-value&#39;: 0.04786, &#39;wilcoxon p-value&#39;: 0.0472, &#39;ks-test p-value&#39;: 0.35714}}
+n flight =  5
+n nonflight =  5
+</pre></div>
+</div>
+<img alt="_images/2e6190dd1671cc32680cb200e2b78dba9ec3f85765baf0429425f500e79da99a.png" src="_images/2e6190dd1671cc32680cb200e2b78dba9ec3f85765baf0429425f500e79da99a.png" />
+</div>
+</div>
+<p><em>QUESTIONS</em></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="osd-568">
+<h1>OSD-568<a class="headerlink" href="#osd-568" title="Link to this heading">#</a></h1>
+<p><strong>OSD-568 summary</strong></p>
+<p>he health risks associated with spaceflight-induced ocular structural and functional damage has become a recent concern for NASA. The goal of the present study was to characterize the effects of spaceflight and reentry to 1 g on the structure and integrity of the retina and blood-retinal barrier (BRB) in the eye. To investigate possible mechanisms, changes in protein expression profiles were examined in mouse ocular tissue after spaceflight. Ten week old male C57BL/6 mice were launched to the International Space Station (ISS) on Space-X 12 at the Kennedy Space Center (KSC) on August, 2017. After a 35-day mission, mice were returned to Earth alive. Within 38 +/− 4 hours of splashdown, mice were euthanized and ocular tissues were collected for analysis. Ground control (GC) and vivarium control mice were maintained on Earth in flight hardware or normal vivarium cages respectively. Repeated intraocular pressure (IOP) measurements were performed before the flight launch and re-measured before the mice were euthanized after splashdown. IOP was significantly lower in post-flight measurements compared to that of pre-flight (14.4–19.3 mmHg vs 16.3–20.3 mmHg) (p less than 0.05) for the left eye. Flight group had significant apoptosis in the retina and retinal vascular endothelial cells compared to control groups (p less than 0.05). Immunohistochemical analysis of the retina revealed that an increased expression of aquaporin-4 (AQP-4) in the flight mice compared to controls gave strong indication of disturbance of BRB integrity. There were also a significant increase in the expression of platelet endothelial cell adhesion molecule-1 (PECAM-1) and a decrease in the expression of the BRB-related tight junction protein, Zonula occludens-1 (ZO-1). Proteomic analysis showed that many key proteins and pathways responsible for cell death, cell cycle, immune response, mitochondrial function and metabolic stress were significantly altered in the flight mice compared to ground control animals. These data indicate a complex cellular response that may alter retina structure and BRB integrity following long-term spaceflight. This dataset derives results from Molecular Cellular Imaging (Microscopy) assay.</p>
+<p><strong>ZO, PECAM, and TUNEL microscopy</strong></p>
+<p>Zonnula occludens (ZO) are scaffolding proteins that create seals to prevent leakage of solutes and water between cells.</p>
+<p>Platelet endothelial cell adhesion molecule (PECAM) is a protein that functions as an adhesive stress-response to both maintain cell junctional integrity and speed restoration of vascular permeability.</p>
+<p>Terminal deoxynucleotidyl transferase dUTP nick end labeling (TUNEL) is an assay that that detects apoptotic cells undergoing extensive DNA degredation.</p>
+<p>Six to 10 field images were captured with a BZ-X700 inverted fluorescence microscope (Keyence Corp.) at 20X magnification spanning the entire retina sections.  For quantitative analysis, numbers of TUNEL positive cells and TUNEL positive endothelial cells were counted separately. The total number of TUNEL-positive nuclear /ganglion cells or endothelial cells in the retina were counted in 5 sections from each eye. The surface of each section was measured on digital microphotographs using ImageJ v1.4 software (available as freeware from National Institutes of Health, Bethesda, MD, USA; <a class="reference external" href="http://rsbweb.nih.gov/ij/">http://rsbweb.nih.gov/ij/</a>), and the density profiles were expressed as mean number of apoptotic cells/mm2. The mean of the density profile measurements across 5 retina sections per eye was used as a single experimental value. To determine AQP4, ZO-1 and PECAM immunoreactivity, fluorescence intensity was measured on 6 to 10 randomly selected fields on each section and calculated using ImageJ software. Fluorescence intensities for positive cells (red channel for ZO-1 and PECAM, and green channel for AQP-4) from the areas of interest were measured and data were extracted and averaged across 5 retina sections per eye within the group. Submitted files include all of the image metadata per image taken. Transformed files include just the averages which correspond to the sample names in OSD-583.</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-568">https://osdr.nasa.gov/bio/repo/data/studies/OSD-568</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in metadata for OSD-568</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;568&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_meta_data</span><span class="p">(</span><span class="s1">&#39;568&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in data for OSD-568 (LSDS-5_immunostaining_microscopy_Zo-1tr TRANSFORMED.csv)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-Zo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;568&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-5_immunostaining_microscopy_Zo-1tr_TRANSFORMED&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of samples: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-Zo&#39;</span><span class="p">][</span><span class="s1">&#39;Sample_Name&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;samples: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-Zo&#39;</span><span class="p">][</span><span class="s1">&#39;Sample_Name&#39;</span><span class="p">]))</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-Zo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot box plot of immunostaining microscopy Zo-1tr Average field for flight and non-flight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-Zo&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Sample_Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Average&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in data for OSD-568 (LSDS-5_immunostaining_microscopy_TUNELtr TRANSFORMED.csv)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-TUNEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;568&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-5_immunostaining_microscopy_TUNELtr_TRANSFORMED&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of samples: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-TUNEL&#39;</span><span class="p">][</span><span class="s1">&#39;Sample_Name&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;samples: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-TUNEL&#39;</span><span class="p">][</span><span class="s1">&#39;Sample_Name&#39;</span><span class="p">]))</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-TUNEL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot box plot of immunostaining microscopy TUNEL Density_EC field for flight and non-flight ssamples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-TUNEL&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Sample_Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Density_EC&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-TUNEL&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Sample_Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-TUNEL&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Sample_Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Density_EC&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in data for OSD-568 (LSDS-5_immunostaining_microscopy_PECAMtr TRANSFORMED.csv)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;568&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-5_immunostaining_microscopy_PECAMtr_TRANSFORMED&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of samples: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">][</span><span class="s1">&#39;Sample_Name&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;samples: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">][</span><span class="s1">&#39;Sample_Name&#39;</span><span class="p">]))</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot box plot of immunostaining microscopy PECAM Average field for flight and non-flight ssamples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;immunoMICRO-PECAM&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Sample_Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Average&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>How many samples have measurements for immunostaining microscopy Zo-1tr? For immunostaining microscopy TUNELtr? For immunostaining microscopy PECAMtr?</p></li>
+<li><p>Which datasets have the largest distinction (smallest p-values) between flight and non-flight samples?</p></li>
+<li><p>Which dataset do you think is most promising to use machine learning modeling for predicting the effect of spaceflight?</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="osd-583">
+<h1>OSD-583<a class="headerlink" href="#osd-583" title="Link to this heading">#</a></h1>
+<p><strong>OSD-583 Summary</strong></p>
+<p>The health risks associated with spaceflight-induced ocular structural and functional damage has become a recent concern for NASA. The goal of the present study was to characterize the effects of spaceflight and reentry to 1 g on the structure and integrity of the retina and blood-retinal barrier (BRB) in the eye. To investigate possible mechanisms, changes in protein expression profiles were examined in mouse ocular tissue after spaceflight. Ten week old male C57BL/6 mice were launched to the International Space Station (ISS) on Space-X 12 at the Kennedy Space Center (KSC) on August, 2017. After a 35-day mission, mice were returned to Earth alive. Within 38 +/− 4 hours of splashdown, mice were euthanized and ocular tissues were collected for analysis. Ground control (GC) and vivarium control mice were maintained on Earth in flight hardware or normal vivarium cages respectively. Repeated intraocular pressure (IOP) measurements were performed before the flight launch and remeasured before the mice were euthanized after splashdown. IOP was significantly lower in post-flight measurements compared to that of pre-flight (14.4–19.3 mmHg vs 16.3–20.3 mmHg) (p less than 0.05) for the left eye. Flight group had significant apoptosis in the retina and retinal vascular endothelial cells compared to control groups (p less than 0.05). Immunohistochemical analysis of the retina revealed that an increased expression of aquaporin-4 (AQP-4) in the flight mice compared to controls gave strong indication of disturbance of BRB integrity. There were also a significant increase in the expression of platelet endothelial cell adhesion molecule-1 (PECAM-1) and a decrease in the expression of the BRB related tight junction protein, Zonula occludens-1 (ZO-1). Proteomic analysis showed that many key proteins and pathways responsible for cell death, cell cycle, immune response, mitochondrial function and metabolic stress were significantly altered in the flight mice compared to ground control animals. These data indicate a complex cellular response that may alter retina structure and BRB integrity following long-term spaceflight. This dataset derives results from the intraocular pressure (tonometry) assay.</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-583">https://osdr.nasa.gov/bio/repo/data/studies/OSD-583</a></p>
+<p><strong>What is tonometry?</strong></p>
+<p>Tonometry is the procedure eye care professionals perform to determine the intraocular pressure (IOP), the fluid pressure inside the eye. It is an important test in the evaluation of patients at risk from glaucoma.Most tonometers are calibrated to measure pressure in millimeters of mercury (mmHg), with the normal eye pressure range between 10 and 21 mmHg (13–28 hPa).</p>
+<p>Rebound tonometers determine intraocular pressure by bouncing a small plastic tipped metal probe against the cornea. The device uses an induction coil to magnetise the probe and fire it against the cornea. As the probe bounces against the cornea and back into the device, it creates an induction current from which the intraocular pressure is calculated. The device is simple and easy to use and self-use versions are available. It is portable, does not require the use of eye drops and is particularly suitable for children and non-cooperative patients.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Ocular_tonometry">https://en.wikipedia.org/wiki/Ocular_tonometry</a></p>
+<p><img alt="" src="https://www.phenogenomics.cz/files/2021/08/picture-2.jpg" /></p>
+<p>Before launch and again before the post-flight euthanization, a handheld tonometer (TonoLab-ICARE, Raleigh, NC) was used to measure IOP in conscious animals. This allowed IOP to be measured accurately, rapidly and without a local anesthetic. Measurements of IOP using the rebound tonometer appeared to be well tolerated by the mice. The animals exhibited no signs of irritation or discomfort during the procedure. Five-6 sequential measurements were made to obtain an average of the counts as a single IOP readout for each mouse. This process was repeated three times for each eye.</p>
+<p><strong>What is transformed tonometry data?</strong></p>
+<p>To enable maximal data reuse (for machine-readable approaches), the submitted version of this dataset was subsequently transformed and edited to be aligned with a intraocular pressure data reuse template, which was created through feedback provided by subject matter experts in the ALSDA Analysis Working Group. This transformed reusable version is structured so all results are standardized into specific rows (source/subject) and columns (measures). This enables all intraocular pressure results to be identically structured for efficient data mining.</p>
+<p><a class="reference external" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-583">https://osdr.nasa.gov/bio/repo/data/studies/OSD-583</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in metadata for OSD-583</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;583&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_meta_data</span><span class="p">(</span><span class="s1">&#39;583&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in tonometry transformed data</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">read_phenotype_data</span><span class="p">(</span><span class="s1">&#39;583&#39;</span><span class="p">,</span> <span class="s1">&#39;LSDS-16_tonometry_maoTRANSFORMED&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;samples: &#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">][</span><span class="s1">&#39;Sample Name&#39;</span><span class="p">]))</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>We will be measuring the difference in distributions of the Avg_Left and Avg_Right samples measurements between flight and non-flight samples.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the Avg_Left field of the tonometry data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Avg_Left&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Factor Value: Spaceflight&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;Space Flight&quot;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;FViv&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Avg_Left&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Factor Value: Spaceflight&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;Space Flight&quot;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a box plot for the Avg_Right field of the tonometry data for ground and spaceflight samples</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Avg_Right&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Factor Value: Spaceflight&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;Space Flight&quot;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">exclude_list</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">exclude_samples_by_prefix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;FViv&quot;</span><span class="p">,</span> <span class="n">colname</span><span class="o">=</span><span class="s2">&quot;Source Name&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">plotbox_and_stats</span><span class="p">(</span><span class="n">data_</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;iop&#39;</span><span class="p">],</span> <span class="n">sample_key</span> <span class="o">=</span> <span class="s1">&#39;Source Name&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;Avg_Right&#39;</span><span class="p">,</span> <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;Factor Value: Spaceflight&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="s2">&quot;Space Flight&quot;</span><span class="p">,</span> <span class="n">exclude_samples</span><span class="o">=</span><span class="n">exclude_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTIONS</strong></p>
+<ol class="arabic simple">
+<li><p>Does excluding the FViv samples from consideration provide better separation between the distributions of IOP?</p></li>
+<li><p>Are the Avg_Left and Avg_Right distributions comparably dissimilar between flight and non-flight samples?</p></li>
+<li><p>How might you use both Avg_Left and Avg_Right values to create a single metric for machine learning modeling?</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Methods_Lesson_01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">AI/ML methods notebook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Methods.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">AI/ML methods notebook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">RR9 phenotypes notebook summary</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spaceflight-associated-neuro-ocular-syndrome-sans">Spaceflight associated neuro-ocular syndrome (SANS)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-statistical-analysis">Basic statistical analysis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-methods-from-methods-ipynb-notebook">Read in methods from methods.ipynb notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#osd-557">OSD-557</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microcomputed-tomography-microct-data-from-osd-557">Microcomputed tomography (microCT) data from OSD-557</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-transformed-microct-data-from-osd-557">Explore the transformed microCT data from OSD-557</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#immunostaining-microscopy-from-osd-557">Immunostaining microscopy from OSD-557</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-immunostaining-microscopy-hne-data">explore the immunostaining microscopy HNE data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-immunostaining-microscopy-pna-data">explore the immunostaining microscopy PNA data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#osd-568">OSD-568</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#osd-583">OSD-583</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

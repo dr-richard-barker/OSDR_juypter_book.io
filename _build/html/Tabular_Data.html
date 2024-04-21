@@ -1,0 +1,1944 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Working with Tabular Data in Python &#8212; Open Science Data Repository (OSDR) NoteBook Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tabular_Data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeneLab_logo2.png" class="logo__image only-light" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>
+    <script>document.write(`<img src="_static/GeneLab_logo2.png" class="logo__image only-dark" alt="Open Science Data Repository (OSDR) NoteBook Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Methods_Lesson_01.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="rr9-phenotypes_Lesson_01.html">RR9 phenotypes notebook summary</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Methods.html">AI/ML methods notebook</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Regression.html"><strong>Mission of regression notebook</strong></a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Classification.html"><strong>Mission of the classification notebook</strong></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Clustering.html"><strong>Mission of clustering notebook</strong></a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Image_Data.html">Introduction to Image Analysis with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SUMMARY.html">Table of contents</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/dr-richard-barker/OSDR_juypter_book.io/issues/new?title=Issue%20on%20page%20%2FTabular_Data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tabular_Data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with Tabular Data in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-with-pandas">Loading Data with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-a-dataframe">Exploring a DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-operations-in-numpy">Numerical Operations in NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-handling-nans">Missing Value Handling (NaNs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-outliers">4. Identifying Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-outliers-cautiously">5. Removing Outliers (cautiously!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-0-1-scale">Normalization (0-1 scale)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-mean-0-std-1">Standardization (mean 0, std 1)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-tabular-data-in-python">
+<h1>Working with Tabular Data in Python<a class="headerlink" href="#working-with-tabular-data-in-python" title="Link to this heading">#</a></h1>
+<p>Welcome to the “Working with Tabular Data in Python” notebook!</p>
+<p>In this notebook, you will learn how to use <a class="reference external" href="https://pandas.pydata.org/">pandas</a> and <a class="reference external" href="https://numpy.org/">NumPy</a>, two Python libraries for working with data tables full of numerical data.</p>
+<p>By the end of this notebook, you’ll be comfortable:</p>
+<ul class="simple">
+<li><p>Loading data from files with pandas</p></li>
+<li><p>Selecting and filtering specific parts of your data</p></li>
+<li><p>Performing calculations on your data using NumPy</p></li>
+<li><p>Resolving NaNs and outliers</p></li>
+<li><p>Performing normalization and standardization</p></li>
+</ul>
+<p><em><strong>Before starting this notebook, make a local copy in your Google Drive by selecting File &gt; Save a Copy in Drive.</strong></em></p>
+<hr class="docutils" />
+<section id="loading-data-with-pandas">
+<h2>Loading Data with Pandas<a class="headerlink" href="#loading-data-with-pandas" title="Link to this heading">#</a></h2>
+<p>Many scientific data tables are stored in the comma-separated-value format (CSV). These tables are easily read using the Python library <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<ul class="simple">
+<li><p>Rows and Columns: Think of the file like a big table with rows and columns. Each row represents a single entry.</p></li>
+<li><p>Comma Separated: The values in each row are separated by commas.</p></li>
+<li><p>Headers (Optional): The first row can act like a header, giving names to each column.</p></li>
+</ul>
+<p>Here’s an example of a simple CSV file for a movie collection:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Title,Genre,Year</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">Shawshank</span> <span class="pre">Redemption,Drama,1994</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">Godfather,Crime,1972</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">Dark</span> <span class="pre">Knight,Action,2008</span></code></p>
+</div></blockquote>
+<p>In this example, each row represents a movie. The first row is the header with titles for each column (“Title”, “Genre”, “Year”). The commas separate the values in each row, like “,Drama,1994” for “The Shawshank Redemption”.</p>
+<p>CSV files are great because they’re simple and almost any computer program can understand them. This makes it easy to share and work with data between different tools.  They’re like a universal language for tables!</p>
+<p><strong>Let’s load a CSV file of scientific RNA sequencing data from the <a class="reference external" href="https://osdr.nasa.gov/bio/">NASA Open Science Data Repository (OSDR)</a>.</strong> This data was collected from the retinas of mice that were flown on the <a class="reference external" href="https://www.nasa.gov/ames/space-biosciences/rodent-research-9-spacex-12/">Rodent Research 9 (RR9)</a> mission to the International Space Station. As a reminder, the RR9 mission flew several NASA experiments to the International Space Station in order to assess the effects of microgravity on different biological systems.</p>
+<p>We will use the OSDR API to access the file programmatically. More information on the OSDR API can be found <a class="reference external" href="https://genelab.nasa.gov/genelabAPIs">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Read in the RNA sequencing CSV file into a pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://osdr.nasa.gov/geode-py/ws/studies/OSD-255/download?source=datamanager&amp;file=GLDS-255_rna_seq_Normalized_Counts.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Print the first 5 rows of the DataFrame</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GSM3932693</th>
+      <th>GSM3932694</th>
+      <th>GSM3932695</th>
+      <th>GSM3932696</th>
+      <th>GSM3932697</th>
+      <th>GSM3932698</th>
+      <th>GSM3932699</th>
+      <th>GSM3932700</th>
+      <th>GSM3932701</th>
+      <th>GSM3932702</th>
+      <th>GSM3932703</th>
+      <th>GSM3932704</th>
+      <th>GSM3932705</th>
+      <th>GSM3932706</th>
+      <th>GSM3932707</th>
+      <th>GSM3932708</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ENSMUSG00000000001</th>
+      <td>265.491507</td>
+      <td>272.529585</td>
+      <td>264.891134</td>
+      <td>245.804042</td>
+      <td>205.478969</td>
+      <td>244.866957</td>
+      <td>250.587443</td>
+      <td>232.249604</td>
+      <td>241.739792</td>
+      <td>240.866309</td>
+      <td>278.344274</td>
+      <td>266.781019</td>
+      <td>238.447580</td>
+      <td>239.632932</td>
+      <td>242.777557</td>
+      <td>257.121918</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000028</th>
+      <td>22.737528</td>
+      <td>36.058646</td>
+      <td>30.659868</td>
+      <td>33.307123</td>
+      <td>11.896920</td>
+      <td>27.231801</td>
+      <td>21.727401</td>
+      <td>30.940275</td>
+      <td>34.840848</td>
+      <td>36.468997</td>
+      <td>29.993641</td>
+      <td>28.377921</td>
+      <td>19.433721</td>
+      <td>18.704883</td>
+      <td>26.226110</td>
+      <td>47.521611</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000031</th>
+      <td>5.574720</td>
+      <td>1.925595</td>
+      <td>2.899933</td>
+      <td>21.047427</td>
+      <td>0.000000</td>
+      <td>3.063051</td>
+      <td>7.105655</td>
+      <td>6.710188</td>
+      <td>3.266199</td>
+      <td>6.700680</td>
+      <td>1.852027</td>
+      <td>1.308210</td>
+      <td>2.248341</td>
+      <td>5.816845</td>
+      <td>2.041330</td>
+      <td>1.478741</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000037</th>
+      <td>14.601777</td>
+      <td>17.493816</td>
+      <td>16.577920</td>
+      <td>32.447456</td>
+      <td>12.940934</td>
+      <td>13.678983</td>
+      <td>9.358027</td>
+      <td>15.476949</td>
+      <td>25.085866</td>
+      <td>13.506677</td>
+      <td>24.809501</td>
+      <td>13.731740</td>
+      <td>21.564524</td>
+      <td>17.626982</td>
+      <td>28.873796</td>
+      <td>13.556234</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000049</th>
+      <td>3.107115</td>
+      <td>2.176549</td>
+      <td>0.642689</td>
+      <td>4.486992</td>
+      <td>0.895108</td>
+      <td>3.846941</td>
+      <td>2.640744</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.243833</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.676701</td>
+      <td>1.345919</td>
+      <td>0.769123</td>
+      <td>0.684388</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The code above imports the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library and uses the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function to read the data from the specified CSV file path. It then stores the data in a pandas DataFrame, which is a tabular data structure with labeled columns. Finally, it prints the first 5 rows of the DataFrame using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method.</p>
+<p>In this CSV file, each column represents data from a different mouse, and each row represents a gene. Each entry in the table represents the expression level of a specific gene in a certain mouse.</p>
+<p><strong>CHALLENGE QUESTION:</strong> One of the genes has zero expression in 4 samples. Which gene is it?</p>
+<p><strong>Double click here to enter your answer below.</strong></p>
+<p>Answer:</p>
+</section>
+<hr class="docutils" />
+<section id="exploring-a-dataframe">
+<h2>Exploring a DataFrame<a class="headerlink" href="#exploring-a-dataframe" title="Link to this heading">#</a></h2>
+<p>Below, we will use a few basic methods to explore the data.</p>
+<p>First, the <code class="docutils literal notranslate"><span class="pre">info()</span></code> function generates a summary of a pandas DataFrame. This summary includes various informative aspects of the data stored in the DataFrame.</p>
+<ul class="simple">
+<li><p>Non-null count: This shows the number of non-null (not missing) values in each column.</p></li>
+<li><p>Data types of each column: It lists the data type of each column in the DataFrame (e.g., integer, float, object). In our data, float64 represents the following:</p>
+<ul>
+<li><p>float: The column stores decimal numbers.</p></li>
+<li><p>64: The number of bits used to store each value in the column. In this case, 64 bits provide a high degree of precision for decimal numbers.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get information about the DataFrame</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 23419 entries, ENSMUSG00000000001 to ENSMUSG00002076983
+Data columns (total 16 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   GSM3932693  23419 non-null  float64
+ 1   GSM3932694  23419 non-null  float64
+ 2   GSM3932695  23419 non-null  float64
+ 3   GSM3932696  23419 non-null  float64
+ 4   GSM3932697  23419 non-null  float64
+ 5   GSM3932698  23419 non-null  float64
+ 6   GSM3932699  23419 non-null  float64
+ 7   GSM3932700  23419 non-null  float64
+ 8   GSM3932701  23419 non-null  float64
+ 9   GSM3932702  23419 non-null  float64
+ 10  GSM3932703  23419 non-null  float64
+ 11  GSM3932704  23419 non-null  float64
+ 12  GSM3932705  23419 non-null  float64
+ 13  GSM3932706  23419 non-null  float64
+ 14  GSM3932707  23419 non-null  float64
+ 15  GSM3932708  23419 non-null  float64
+dtypes: float64(16)
+memory usage: 3.0+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CHALLENGE QUESTION:</strong> How many genes total are measured for each sample? (Hint: look at the “Non-Null Count” column.)</p>
+<p><strong>Double click here to enter your answer below.</strong></p>
+<p>Answer:</p>
+<hr class="docutils" />
+<p>Next, the <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> provides a summary table of the central tendency (mean and median) and spread (standard deviation) of the numerical data in your DataFrame. This can be helpful for understanding the distribution of your data and identifying potential outliers.</p>
+<ul class="simple">
+<li><p>Count: This shows the number of non-null (not missing) values in each column.</p></li>
+<li><p>Mean: This represents the average value of the numerical data in the column.</p></li>
+<li><p>Std (standard deviation): This indicates how spread out the data is from the mean value in the column. A higher standard deviation suggests more variation in the data.
+*Min (minimum): This shows the smallest value present in the column.
+*25% (first quartile): This represents the value where 25% of the data falls below it and 75% falls above it in the column (essentially the median of the lower half of the data).</p></li>
+<li><p>50% (median): This is the middle value of the data when the column is sorted numerically. It represents the value that separates the lower and upper halves of the data.
+*75% (third quartile): This represents the value where 75% of the data falls below it and 25% falls above it in the column (essentially the median of the upper half of the data).
+*Max (maximum): This shows the largest value present in the column.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show some summary statistics of the numerical columns</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GSM3932693</th>
+      <th>GSM3932694</th>
+      <th>GSM3932695</th>
+      <th>GSM3932696</th>
+      <th>GSM3932697</th>
+      <th>GSM3932698</th>
+      <th>GSM3932699</th>
+      <th>GSM3932700</th>
+      <th>GSM3932701</th>
+      <th>GSM3932702</th>
+      <th>GSM3932703</th>
+      <th>GSM3932704</th>
+      <th>GSM3932705</th>
+      <th>GSM3932706</th>
+      <th>GSM3932707</th>
+      <th>GSM3932708</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+      <td>23419.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>512.726276</td>
+      <td>513.605503</td>
+      <td>512.227744</td>
+      <td>505.151464</td>
+      <td>511.341816</td>
+      <td>505.354348</td>
+      <td>515.216720</td>
+      <td>507.159108</td>
+      <td>502.935334</td>
+      <td>501.027174</td>
+      <td>504.417485</td>
+      <td>495.792299</td>
+      <td>515.620253</td>
+      <td>511.034582</td>
+      <td>495.971955</td>
+      <td>530.097184</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6645.738077</td>
+      <td>6359.846063</td>
+      <td>6565.152404</td>
+      <td>6533.558532</td>
+      <td>5833.765758</td>
+      <td>6621.133118</td>
+      <td>6845.784958</td>
+      <td>7015.375606</td>
+      <td>6036.836634</td>
+      <td>5639.879241</td>
+      <td>6000.294802</td>
+      <td>5830.642219</td>
+      <td>8202.647284</td>
+      <td>6538.832473</td>
+      <td>5708.932273</td>
+      <td>6721.335537</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>4.699563</td>
+      <td>5.048580</td>
+      <td>4.192133</td>
+      <td>5.254688</td>
+      <td>4.670302</td>
+      <td>5.017633</td>
+      <td>4.305536</td>
+      <td>5.055508</td>
+      <td>4.994721</td>
+      <td>5.645321</td>
+      <td>4.748178</td>
+      <td>5.530256</td>
+      <td>5.345533</td>
+      <td>4.388863</td>
+      <td>5.016007</td>
+      <td>4.463735</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>53.360684</td>
+      <td>60.744720</td>
+      <td>54.518688</td>
+      <td>60.475645</td>
+      <td>54.192978</td>
+      <td>55.422527</td>
+      <td>53.481923</td>
+      <td>58.573261</td>
+      <td>54.943407</td>
+      <td>61.707703</td>
+      <td>56.087749</td>
+      <td>56.810383</td>
+      <td>58.344083</td>
+      <td>55.151272</td>
+      <td>56.179740</td>
+      <td>55.408958</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>330.955645</td>
+      <td>339.404120</td>
+      <td>332.633804</td>
+      <td>336.375425</td>
+      <td>330.729391</td>
+      <td>328.699611</td>
+      <td>333.251764</td>
+      <td>333.817185</td>
+      <td>331.048019</td>
+      <td>330.250317</td>
+      <td>331.580264</td>
+      <td>332.084725</td>
+      <td>327.340564</td>
+      <td>334.698276</td>
+      <td>330.558455</td>
+      <td>334.807313</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>635249.906785</td>
+      <td>599072.886767</td>
+      <td>608190.964522</td>
+      <td>617755.182030</td>
+      <td>524055.405690</td>
+      <td>635418.576947</td>
+      <td>654920.576524</td>
+      <td>680114.742215</td>
+      <td>538243.870338</td>
+      <td>499022.116456</td>
+      <td>545447.299604</td>
+      <td>526328.573490</td>
+      <td>817690.021357</td>
+      <td>609601.293711</td>
+      <td>503250.238443</td>
+      <td>580769.929410</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Next, we can select specific columns to examine them more closely. In the code below, we use the square bracket notation: <code class="docutils literal notranslate"><span class="pre">df[[&quot;GSM3932693&quot;,</span> <span class="pre">&quot;GSM3932694&quot;]]</span></code> to select specific columns from the DataFrame df. We provide a list of column names enclosed in square brackets [].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select specific columns</span>
+<span class="n">selected_columns</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;GSM3932693&quot;</span><span class="p">,</span> <span class="s2">&quot;GSM3932694&quot;</span><span class="p">]]</span>
+<span class="n">selected_columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GSM3932693</th>
+      <th>GSM3932694</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ENSMUSG00000000001</th>
+      <td>265.491507</td>
+      <td>272.529585</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000028</th>
+      <td>22.737528</td>
+      <td>36.058646</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000031</th>
+      <td>5.574720</td>
+      <td>1.925595</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000037</th>
+      <td>14.601777</td>
+      <td>17.493816</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000049</th>
+      <td>3.107115</td>
+      <td>2.176549</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076937</th>
+      <td>1.183749</td>
+      <td>0.947785</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076945</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076971</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076982</th>
+      <td>0.000000</td>
+      <td>2.851473</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076983</th>
+      <td>0.000000</td>
+      <td>1.892959</td>
+    </tr>
+  </tbody>
+</table>
+<p>23419 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>Finally, we can filter our data based on certain conditions. The code below generates a new DataFrame, that contains only rows from the original DataFrame df that meet a specific condition (gene expression in a gene for sample “GSM3932693” has to be greater than 10).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows based on conditions</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;GSM3932693&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">filtered_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GSM3932693</th>
+      <th>GSM3932694</th>
+      <th>GSM3932695</th>
+      <th>GSM3932696</th>
+      <th>GSM3932697</th>
+      <th>GSM3932698</th>
+      <th>GSM3932699</th>
+      <th>GSM3932700</th>
+      <th>GSM3932701</th>
+      <th>GSM3932702</th>
+      <th>GSM3932703</th>
+      <th>GSM3932704</th>
+      <th>GSM3932705</th>
+      <th>GSM3932706</th>
+      <th>GSM3932707</th>
+      <th>GSM3932708</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ENSMUSG00000000001</th>
+      <td>265.491507</td>
+      <td>272.529585</td>
+      <td>264.891134</td>
+      <td>245.804042</td>
+      <td>205.478969</td>
+      <td>244.866957</td>
+      <td>250.587443</td>
+      <td>232.249604</td>
+      <td>241.739792</td>
+      <td>240.866309</td>
+      <td>278.344274</td>
+      <td>266.781019</td>
+      <td>238.447580</td>
+      <td>239.632932</td>
+      <td>242.777557</td>
+      <td>257.121918</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000028</th>
+      <td>22.737528</td>
+      <td>36.058646</td>
+      <td>30.659868</td>
+      <td>33.307123</td>
+      <td>11.896920</td>
+      <td>27.231801</td>
+      <td>21.727401</td>
+      <td>30.940275</td>
+      <td>34.840848</td>
+      <td>36.468997</td>
+      <td>29.993641</td>
+      <td>28.377921</td>
+      <td>19.433721</td>
+      <td>18.704883</td>
+      <td>26.226110</td>
+      <td>47.521611</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000037</th>
+      <td>14.601777</td>
+      <td>17.493816</td>
+      <td>16.577920</td>
+      <td>32.447456</td>
+      <td>12.940934</td>
+      <td>13.678983</td>
+      <td>9.358027</td>
+      <td>15.476949</td>
+      <td>25.085866</td>
+      <td>13.506677</td>
+      <td>24.809501</td>
+      <td>13.731740</td>
+      <td>21.564524</td>
+      <td>17.626982</td>
+      <td>28.873796</td>
+      <td>13.556234</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000056</th>
+      <td>515.459595</td>
+      <td>592.436448</td>
+      <td>615.456516</td>
+      <td>686.300687</td>
+      <td>660.315482</td>
+      <td>606.704710</td>
+      <td>546.473555</td>
+      <td>545.417477</td>
+      <td>571.442378</td>
+      <td>566.765332</td>
+      <td>604.474471</td>
+      <td>689.032279</td>
+      <td>646.185864</td>
+      <td>580.118632</td>
+      <td>579.057616</td>
+      <td>653.648743</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00000000058</th>
+      <td>272.539645</td>
+      <td>246.737055</td>
+      <td>301.406847</td>
+      <td>286.700927</td>
+      <td>250.318530</td>
+      <td>255.510322</td>
+      <td>294.820270</td>
+      <td>252.343288</td>
+      <td>280.848313</td>
+      <td>250.123066</td>
+      <td>269.050949</td>
+      <td>284.018558</td>
+      <td>346.487825</td>
+      <td>314.049490</td>
+      <td>297.723163</td>
+      <td>269.504851</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076377</th>
+      <td>16.773675</td>
+      <td>38.955269</td>
+      <td>24.366373</td>
+      <td>14.640131</td>
+      <td>17.553290</td>
+      <td>6.004350</td>
+      <td>2.571689</td>
+      <td>16.077483</td>
+      <td>17.184144</td>
+      <td>23.395687</td>
+      <td>0.000000</td>
+      <td>12.142413</td>
+      <td>5.041779</td>
+      <td>9.628330</td>
+      <td>9.995297</td>
+      <td>11.388137</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076556</th>
+      <td>11.765878</td>
+      <td>12.305713</td>
+      <td>14.253173</td>
+      <td>0.000000</td>
+      <td>3.503146</td>
+      <td>23.076542</td>
+      <td>8.608132</td>
+      <td>10.347916</td>
+      <td>11.998477</td>
+      <td>3.761913</td>
+      <td>0.000000</td>
+      <td>22.134535</td>
+      <td>7.606223</td>
+      <td>0.000000</td>
+      <td>2.005837</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076601</th>
+      <td>129.377953</td>
+      <td>131.566572</td>
+      <td>163.485172</td>
+      <td>174.605838</td>
+      <td>131.946104</td>
+      <td>108.365002</td>
+      <td>123.967427</td>
+      <td>134.508533</td>
+      <td>217.924827</td>
+      <td>109.106290</td>
+      <td>160.976576</td>
+      <td>182.619336</td>
+      <td>129.320649</td>
+      <td>138.664686</td>
+      <td>141.421076</td>
+      <td>521.661986</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076766</th>
+      <td>21.143821</td>
+      <td>23.656727</td>
+      <td>20.118139</td>
+      <td>23.409853</td>
+      <td>22.182196</td>
+      <td>21.074832</td>
+      <td>33.584441</td>
+      <td>15.984450</td>
+      <td>18.978746</td>
+      <td>23.522565</td>
+      <td>33.535375</td>
+      <td>29.888637</td>
+      <td>19.025509</td>
+      <td>34.233628</td>
+      <td>25.080663</td>
+      <td>34.821041</td>
+    </tr>
+    <tr>
+      <th>ENSMUSG00002076896</th>
+      <td>326.155928</td>
+      <td>309.583659</td>
+      <td>347.976084</td>
+      <td>367.758448</td>
+      <td>357.352723</td>
+      <td>299.963333</td>
+      <td>299.511919</td>
+      <td>276.632141</td>
+      <td>351.112194</td>
+      <td>266.101332</td>
+      <td>368.917887</td>
+      <td>419.405110</td>
+      <td>434.720064</td>
+      <td>340.464789</td>
+      <td>346.961953</td>
+      <td>357.200181</td>
+    </tr>
+  </tbody>
+</table>
+<p>15640 rows × 16 columns</p>
+</div></div></div>
+</div>
+<p><strong>CHALLENGE QUESTION:</strong> How many genes are left in the filtered DataFrame? (Hint: look at the dimensions reported below the table.)</p>
+<p><strong>Double click here to enter your answer below.</strong></p>
+<p>Answer:</p>
+</section>
+<hr class="docutils" />
+<section id="numerical-operations-in-numpy">
+<h2>Numerical Operations in NumPy<a class="headerlink" href="#numerical-operations-in-numpy" title="Link to this heading">#</a></h2>
+<p>Now, we will use the NumPy library to demonstrate a few useful numerical operations that can be performed on a DataFrame.</p>
+<p>First, we can caltulate the mean (average) expression level for each gene across all samples. In the code below, we use the NumPy function <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> to calculate the mean of each gene (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code> refers to rows).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Calculate mean expression for each gene (print the first 10 genes)</span>
+<span class="n">mean_expression</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="s2">&quot;Mean Expression:&quot;</span><span class="p">,</span> <span class="n">mean_expression</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Mean Expression:&#39;,
+ ENSMUSG00000000001    249.225664
+ ENSMUSG00000000028     28.507956
+ ENSMUSG00000000031      4.564934
+ ENSMUSG00000000037     18.208199
+ ENSMUSG00000000049      1.469756
+ ENSMUSG00000000056    603.705612
+ ENSMUSG00000000058    279.511444
+ ENSMUSG00000000078    316.335795
+ ENSMUSG00000000085    625.826657
+ ENSMUSG00000000088    895.618176
+ dtype: float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CHALLENGE QUESTION:</strong> Which gene has the highest mean expression across all samples? Which gene has the lowest?</p>
+<p><strong>Double click here to enter your answer below.</strong></p>
+<p>Answer:</p>
+<hr class="docutils" />
+<p>Similarly, we can use the NumPy function <code class="docutils literal notranslate"><span class="pre">.std()</span></code> to calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_deviation">standard deviation</a> of each gene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate standard deviation for each gene</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="s2">&quot;Standard Deviation:&quot;</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Standard Deviation:&#39;,
+ ENSMUSG00000000001    17.467282
+ ENSMUSG00000000028     8.285139
+ ENSMUSG00000000031     4.767229
+ ENSMUSG00000000037     6.289848
+ ENSMUSG00000000049     1.373370
+ ENSMUSG00000000056    49.944069
+ ENSMUSG00000000058    26.410608
+ ENSMUSG00000000078    36.351816
+ ENSMUSG00000000085    80.567502
+ ENSMUSG00000000088    63.691284
+ dtype: float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we can identify which genes have the highest average expression across all samples. This is a useful way of identifying unusual trends in a dataset.</p>
+<p>The code below finds the top 3 most highly expressed genes based on their average expression across samples.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.mean(axis=1)</span></code> calculates the average expression level for each sample *(<code class="docutils literal notranslate"><span class="pre">axis=1</span></code> refers to rows).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.sort_values(ascending=False)</span></code> sorts the genes by their average expression in descending order (highest first).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.head(3).index.tolist()</span></code> selects the top 3 entries and converts the index (gene names) to a list.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find top 3 most highly expressed genes (average expression)</span>
+<span class="n">top_genes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top 3 Expressed Genes:&quot;</span><span class="p">,</span> <span class="n">top_genes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 3 Expressed Genes: [&#39;ENSMUSG00000118866&#39;, &#39;ENSMUSG00000118841&#39;, &#39;ENSMUSG00000030324&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-value-handling-nans">
+<h2>Missing Value Handling (NaNs)<a class="headerlink" href="#missing-value-handling-nans" title="Link to this heading">#</a></h2>
+<p>Next, we will generate a sample DataFrame with some missing values (NaNs - “not a number”) in order to demonstrate a few useful data preparation techniques.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a sample DataFrame with missing values</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+        <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">70000</span><span class="p">,</span> <span class="mi">45000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">120000</span><span class="p">],</span>
+        <span class="s1">&#39;Experience&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.0</td>
+      <td>50000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30.0</td>
+      <td>70000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22.0</td>
+      <td>45000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40.0</td>
+      <td>80000</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35.0</td>
+      <td>60000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>NaN</td>
+      <td>120000</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We will now check how many missing values (NaNs) exist in each column of the DataFrame, using the <code class="docutils literal notranslate"><span class="pre">.isnull()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for missing values (NaNs)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>  <span class="c1"># Check how many missing values in each column</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age           1
+Salary        0
+Experience    1
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>If your data has missing values (NaNs), that can be a problem for downstream analysis such as machine learning. Two common approaches for dealing with missing values are to fill them with specific values such as the mean or median of the other values, or to drop rows or columns that contain missing values.</p>
+<p><strong>Option 1: Filling with specific values (e.g., mean or median):</strong></p>
+<p>In the code below, we fill the missing values in the “Age” column with the mean of the other age values. We then fill the missing values in the “Experience” column with the median of the other experience values. We print out the new DataFrame to ensure that there are no NaNs left.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fill missing values in &#39;Age&#39; with mean</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Fill missing values in &#39;Experience&#39; with median</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Experience&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Experience&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10307/531166743.py:2: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[&#39;Age&#39;].fillna(df[&#39;Age&#39;].mean(), inplace=True)
+/tmp/ipykernel_10307/531166743.py:5: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[&#39;Experience&#39;].fillna(df[&#39;Experience&#39;].median(), inplace=True)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.0</td>
+      <td>50000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30.0</td>
+      <td>70000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22.0</td>
+      <td>45000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40.0</td>
+      <td>80000</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35.0</td>
+      <td>60000</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>30.4</td>
+      <td>120000</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Option 2: Dropping rows with missing values (not recommended if many missing values):</strong></p>
+<p>In the second option, we drop rows that contain missing values using the <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> function. However, if there are many missing values in your DataFrame, this is not recommended because you will be losing a lot of data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+        <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">70000</span><span class="p">,</span> <span class="mi">45000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">120000</span><span class="p">],</span>
+        <span class="s1">&#39;Experience&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.0</td>
+      <td>50000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30.0</td>
+      <td>70000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22.0</td>
+      <td>45000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40.0</td>
+      <td>80000</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35.0</td>
+      <td>60000</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="identifying-outliers">
+<h2>4. Identifying Outliers<a class="headerlink" href="#identifying-outliers" title="Link to this heading">#</a></h2>
+<p><strong>Outliers</strong> are data points that fall significantly outside the main distribution of the data. They can be very high or very low values compared to the majority of the data points in a column.</p>
+<p>Outliers can significantly influence calculations like mean, median, and standard deviation. This can distort our understanding of the data. Machine learning algorithms often rely on assumptions about the underlying data distribution. Outliers can violate these assumptions and lead to inaccurate models.</p>
+<p>A <strong>boxplot</strong> is a way to visualize how data is spread out.</p>
+<ul class="simple">
+<li><p>It has a box in the middle with a line in the center representing the median (the middle value when the data is ordered).</p></li>
+<li><p>The box shows the interquartile range (IQR), which represents the middle half of the data.</p></li>
+<li><p>There are lines extending from the box called whiskers. These whiskers typically extend to 1.5 times the IQR above and below the box.</p></li>
+<li><p><strong>Points outside the whiskers are considered potential outliers.</strong></p></li>
+</ul>
+<p>The code below utilizes the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot()</span></code> function to create a boxplot and visualize potential outliers in the <code class="docutils literal notranslate"><span class="pre">Salary</span></code> column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+        <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">70000</span><span class="p">,</span> <span class="mi">45000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">120000</span><span class="p">],</span>
+        <span class="s1">&#39;Experience&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Create a boxplot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="c1"># Label the axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Boxplot&quot;</span><span class="p">)</span>  <span class="c1"># X-axis label</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Salary Value ($)&quot;</span><span class="p">)</span>  <span class="c1"># Y-axis label (generic for now)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4db6aa4684c9acce926031405ec08445d3d622a48720085adf5222290b4e161c.png" src="_images/4db6aa4684c9acce926031405ec08445d3d622a48720085adf5222290b4e161c.png" />
+</div>
+</div>
+<p><strong>CHALLENGE QUESTION:</strong> How many outliers are there in the “Salary” column of the dataset? Are they very high or very low outliers?</p>
+<p><strong>Double click here to enter your answer below.</strong></p>
+<p>Answer:</p>
+</section>
+<hr class="docutils" />
+<section id="removing-outliers-cautiously">
+<h2>5. Removing Outliers (cautiously!)<a class="headerlink" href="#removing-outliers-cautiously" title="Link to this heading">#</a></h2>
+<p>In some cases, it is appropriate to remove outliers from a dataset prior to downstream analysis such as machine learning. However, it is important to consider domain knowledge before removing data points in case they are important, and to transparently document the process of removing data points.</p>
+<p>In the code below, we calculate the lower and upper bounds for outliers based on 1.5 times the IQR from the quartiles. We then filter the DataFrame to keep only rows where the <code class="docutils literal notranslate"><span class="pre">Salary</span></code> falls within the calculated bounds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Option 1: Remove outliers (be cautious, consider domain knowledge)</span>
+<span class="c1"># IQR (Interquartile Range) based outlier detection</span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">Q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+<span class="n">lower_bound</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">)</span>
+<span class="n">upper_bound</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">upper_bound</span><span class="p">)]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.0</td>
+      <td>50000</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30.0</td>
+      <td>70000</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22.0</td>
+      <td>45000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40.0</td>
+      <td>80000</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35.0</td>
+      <td>60000</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="normalization-0-1-scale">
+<h2>Normalization (0-1 scale)<a class="headerlink" href="#normalization-0-1-scale" title="Link to this heading">#</a></h2>
+<p>Machine learning algorithms often work better when features are on a similar scale. <strong>Normalization</strong> and <strong>standardization</strong> can improve the performance of the model.</p>
+<p>Normalizing data between 0 and 1 for machine learning algorithms can be beneficial for several reasons:</p>
+<ul class="simple">
+<li><p>Equal Footing: Features on different scales are put on a common ground, preventing features with larger values from dominating the learning process.</p></li>
+<li><p>Improved Convergence: Normalization can help some algorithms converge faster during the training process, leading to potentially better models.</p></li>
+<li><p>Distance-based Algorithms: Normalization is particularly important for algorithms that rely on distance metrics (like k-Nearest Neighbors) to function effectively.</p></li>
+</ul>
+<p>In the code below, we normalize the features in the DataFrame to a range between 0 and 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalization (scale to range 0-1)</span>
+<span class="n">df_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">df_norm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.166667</td>
+      <td>0.142857</td>
+      <td>0.142857</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.444444</td>
+      <td>0.714286</td>
+      <td>0.571429</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.722222</td>
+      <td>0.428571</td>
+      <td>0.428571</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="standardization-mean-0-std-1">
+<h2>Standardization (mean 0, std 1)<a class="headerlink" href="#standardization-mean-0-std-1" title="Link to this heading">#</a></h2>
+<p>Standardizing data to have a mean of 0 and standard deviation of 1 is useful in machine learning because it:</p>
+<ul class="simple">
+<li><p>Levels the Playing Field: Features are centered around the same mean, preventing features with larger scales from disproportionately influencing the model.</p></li>
+<li><p>Improves Interpretation: Standardized coefficients in the model become easier to interpret since they represent the relative impact of each feature in units of standard deviation.</p></li>
+</ul>
+<p>In the code below, we standardize the DataFrame using <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.StandardScaler()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standardization (scale to mean 0 and standard deviation 1)</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">df_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.82696125 -0.85895569 -0.81649658]
+ [-0.06125639  0.70278193  0.40824829]
+ [-1.28638417 -1.2493901  -1.22474487]
+ [ 1.47015334  1.48365074  1.63299316]
+ [ 0.70444848 -0.07808688  0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-with-pandas">Loading Data with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-a-dataframe">Exploring a DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-operations-in-numpy">Numerical Operations in NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-handling-nans">Missing Value Handling (NaNs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-outliers">4. Identifying Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-outliers-cautiously">5. Removing Outliers (cautiously!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalization-0-1-scale">Normalization (0-1 scale)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardization-mean-0-std-1">Standardization (mean 0, std 1)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Richard Barker and the OSDR team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
