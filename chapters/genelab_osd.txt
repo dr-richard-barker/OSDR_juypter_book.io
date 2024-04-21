@@ -1,0 +1,546 @@
+OSD-id	hits	public_release_date	public_release_date_year	technology_platform	technology_type	measurement_type	OrganismCount	Organism	Factors
+OSD-1	1	11-Dec-2013	2013	Affymetrix	DNA microarray	transcription profiling	1	Drosophila melanogaster	Spaceflight;Infection
+OSD-2	1	01-Apr-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Absorbed Radiation Dose
+OSD-3	1	01-Sep-2011	2011	Affymetrix	DNA microarray	transcription profiling	1	Drosophila melanogaster	Developmental Stage;Spaceflight;Cosmic Radiation
+OSD-4	1	10-Mar-2010	2010	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight
+OSD-5	1	09-Feb-2006	2006	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	simulated microgravity
+OSD-6	1	29-Nov-2007	2007	Affymetrix	DNA microarray	transcription profiling	1	Rattus norvegicus	Ionizing Radiation
+OSD-7	1	04-Oct-2013	2013	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Organism Part
+OSD-8	1	1-Jan-2012	2012	Agilent	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Treatment;Altered Gravity;Magnetic Field
+OSD-9	1	01-Apr-2007	2007	Compugen	DNA microarray	transcription profiling	1	Homo sapiens	Irradiated
+OSD-11	1	13-Sep-2007	2007	Sidney Kimmel Cancer Center non-commercial	DNA microarray	transcription profiling	1	Salmonella enterica	Spaceflight
+OSD-12	1	Jul-07-2007	2007		DNA microarray	transcription profiling	1	Saccharomyces cerevisiae	environmentalstress;generation
+OSD-13	1	21-Jun-2012	2012	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Treatment;Microgravity Simulation;Spaceflight
+OSD-14	1	29-Jul-2010	2010	Affymetrix	DNA microarray	transcription profiling	1	Pseudomonas aeruginosa	Microgravity Simulation
+OSD-15	1	28-Jun-2011	2011	Affymetrix	DNA microarray	transcription profiling	1	Pseudomonas aeruginosa	Spaceflight;Cosmic Radiation
+OSD-16	1	Mar-24-2015	2015	iTRAQ	mass spectrometry	protein expression profiling	1	Arabidopsis thaliana	spaceflight;organism part;gravity
+OSD-17	1	08-Mar-2012	2012	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Organism Part;Cosmic Radiation
+OSD-18	1	07-Apr-2010	2010	Agilent	DNA microarray	transcription profiling	1	Mus musculus	treatment group
+OSD-19	1	10-Mar-2004	2004		DNA microarray	transcription profiling	1	Rattus norvegicus	Hindlimb Unloading;Treatment
+OSD-20	1	01-Nov-2013	2013	spotted DNA/cDNA	DNA microarray	transcription profiling	1	Candida albicans	Microgravity;absorbed radiation dose
+OSD-21	1	28-Dec-2008	2008	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Cosmic Radiation
+OSD-22	1	17-Sep-2017	2017	Agilent	DNA microarray	transcription profiling	1	Arabidopsis thaliana	soil environment exposure;Time;Genotype
+OSD-25	1	29-Oct-2015	2015	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Cosmic Radiation
+OSD-26	1	01-Dec-2012	2012	Roche	amplicon sequencing assay	metagenome profiling	1	cellular organisms	Sample Location;Spaceflight
+OSD-27	1	01-Jul-2010	2010	Affymetrix	DNA microarray	transcription profiling	1	Drosophila melanogaster	Time;Sex;Temperature;Altered Gravity Simulator
+OSD-28	1	Jun-01-2012	2012	Agilent	DNA microarray	transcription profiling	1	Bacillus subtilis	environment exposure;gravitation
+OSD-29	1	15-Oct-2010	2010	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Treatment;Altered Gravity
+OSD-30	1	13-Jun-2008	2008		DNA microarray	transcription profiling	1	Mus musculus	Microgravity Simulation
+OSD-31	1	Jul-02-2009	2009	SCKCEN Genomic Platform	DNA microarray	transcription profiling	1	Rhodospirillum rubrum	gravitation
+OSD-32	1	07-AUG-2008	2008		DNA microarray	transcription profiling	1	Mus musculus	hindlimb unloading
+OSD-33	1	13-SEP-2012	2012	CustomArray	DNA microarray	transcription profiling	1	Mus musculus	spaceflight;cage;gravity
+OSD-34	1	26-Jun-2013	2013	Affymetrix	DNA microarray	transcription profiling	1	Drosophila melanogaster	Age;Sex;Temperature;Altered Gravity;Ground Based Facility
+OSD-35	1	31-Mar-2012	2012		DNA microarray	transcription profiling	1	Caenorhabditis elegans	Altered Gravity;Spaceflight
+OSD-36	1	01-Jul-2010	2010	Affymetrix	DNA microarray	transcription profiling	1	Drosophila melanogaster	Altered Gravity;Treatment;Spaceflight;Altered Gravity Simulator
+OSD-37	1	01-Nov-2015	2015	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Ecotype
+OSD-38	2	01-Nov-2015	2015	LTQ-Orbitrap Velos Pro	mass spectrometry	protein expression profiling	1	Arabidopsis thaliana	Spaceflight;Sample Preservation Method
+OSD-38	2	01-Nov-2015	2015	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Sample Preservation Method
+OSD-39	1	30-Jun-2009	2009		DNA microarray	transcription profiling	1	Rhodospirillum rubrum	spaceflight;gravity
+OSD-40	1	Jun-30-2010	2010		DNA microarray	transcription profiling	1	Caenorhabditis elegans	temperature
+OSD-41	1	Jun-29-2012	2012	Agilent	DNA microarray	transcription profiling	1	Caenorhabditis elegans	gravity
+OSD-42	1	14-Oct-2011	2011		DNA microarray	transcription profiling	1	Caenorhabditis elegans	Spaceflight
+OSD-43	1	06-Sep-2012	2012	Affymetrix	DNA microarray	transcription profiling	1	Escherichia coli	Microgravity Simulation
+OSD-44	1	15-Sep-2015	2015	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Genotype;Spaceflight;Cosmic Radiation
+OSD-45	1	Jul-31-2012	2012		DNA microarray	transcription profiling	1	Arabidopsis thaliana	age;simulated microgravity;timepoint
+OSD-46	1	18-Sep-2014	2014		DNA microarray	transcription profiling	1	Arabidopsis thaliana	Ionizing Radiation;Duration;Time after treatment;Genotype;Age;Absorbed Radiation Dose
+OSD-47	4	15-Dec-2015	2015	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-47	4	15-Dec-2015	2015	LTQ Orbitrap Velos(Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-47	4	15-Dec-2015	2015	Illumina	Whole Genome Bisulfite Sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-47	4	15-Dec-2015	2015	 Pannoramic Scan (3D Histech)	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Spaceflight
+OSD-48	5	15-Dec-2015	2015	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Dissection Condition
+OSD-48	5	15-Dec-2015	2015	Orbitrap Fusion(Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight;Dissection Condition
+OSD-48	5	15-Dec-2015	2015	pannoramic scan (3d histech)	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Spaceflight;Dissection Condition
+OSD-48	5	15-Dec-2015	2015	Illumina	Whole Genome Bisulfite Sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight;Dissection Condition
+OSD-48	5	15-Dec-2015	2015	Illumina	Whole Transcriptome Bisulfite Sequencing	RNA methylation profiling	1	Mus musculus	Spaceflight;Dissection Condition
+OSD-49	3	04-Feb-2016	2016	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Sample Preservation Method;Time of Sample Collection After Treatment;Sample Storage Time
+OSD-49	3	04-Feb-2016	2016	LTQ Orbitrap Velos(Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Sample Preservation Method;Time of Sample Collection After Treatment;Sample Storage Time
+OSD-49	3	04-Feb-2016	2016	Illumina	nucleotide sequencing	DNA methylation profiling	1	Mus musculus	Sample Preservation Method;Time of Sample Collection After Treatment;Sample Storage Time
+OSD-50	1	21-Mar-2016	2016	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Cosmic Radiation
+OSD-51	1	10-Sep-2010	2010		DNA microarray	transcription profiling	1	Homo sapiens	Tissue;Bed Rest;Exercise;Nutrition
+OSD-52	1	20-Jan-2013	2013	Affymatrix	DNA microarray	transcription profiling	1	Homo sapiens	Spaceflight
+OSD-53	1	15-Oct-2013	2013	BD Biosciences Clontech	DNA microarray	transcription profiling	1	Homo sapiens	Spaceflight;Sex;Study Subject;Time
+OSD-54	1	05-Feb-2014	2014		DNA microarray	transcription profiling	1	Homo sapiens	Treatment;Treatment Duration;Microgravity;Absorbed Radiation Dose
+OSD-55	1	17-Jul-2014	2014		DNA microarray	transcription profiling	1	Homo sapiens	Simulated Microgravity;Individual
+OSD-56	1	17-Jul-2014	2014		DNA microarray	transcription profiling	1	Homo sapiens	simulated microgravity;individual
+OSD-57	1	21-Mar-2016	2016	GS FLX Titanium Series system (454 Life Sciences)	nucleotide sequencing	transcription profiling	1	Ceratopteris richardii	treatment
+OSD-58	1	08-Jun-2016	2016	Illumina	nucleotide sequencing	deletion pool profiling	1	Saccharomyces cerevisiae	culture media;space flight;zygosity;generation number
+OSD-59	1	12-May-2014	2014	Illumina Genome Analyzer IIx	RNA Sequencing (RNA-Seq)	transcription profiling	1	Brassica rapa	Spaceflight
+OSD-60	1	27-Feb-2015	2015	Agilent	DNA microarray	transcription profiling	1	Danio rerio	hypergravity
+OSD-61	1	31-Dec-2014	2014	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Genotype
+OSD-62	1	24-Dec-2014	2014	Affymetrix	DNA microarray	transcription profiling	1	Saccharomyces cerevisiae	Spaceflight;Genotype
+OSD-63	1	27-Nov-2009	2009	Affymetrix	DNA microarray	transcription profiling	1	Rattus norvegicus	Tissue Type;Spaceflight;Developmental Condition;Hypergravity;Cosmic Radiation
+OSD-64	1	08-Jul-2016	2016	Illumina, PacBio	nucleotide sequencing	genome sequencing	1	Bacillus	Spaceflight
+OSD-65	1	07-Jul-2016	2016	Illumina	nucleotide sequencing	environmental gene survey	1	cellular organisms	spaceflight
+OSD-66	1	07-JUL-2016	2016	Life Tech	nucleotide sequencing	environmental gene survey	1	cellular organisms	spaceflight
+OSD-67	1	08-Jul-2016	2016	Illumina	nucleotide sequencing	genome sequencing	6	Acinetobacter pittii;Enterobacter;Klebsiella;Pantoea conspicua;Staphylococcus;Staphylococcus aureus	Microgravity
+OSD-68	1	08-Jul-2016	2016	Illumina	nucleotide sequencing	genome sequencing	1	Aspergillus fumigatus	spaceflight
+OSD-69	1	07-Jul-2016	2016	Illumina	nucleotide sequencing	metagenome profiling	1	cellular organisms	Spaceflight;Treatment
+OSD-70	1	26-Jun-2013	2013	Affymetrix	DNA microarray	transcription profiling	1	Drosophila melanogaster	Altered Gravity;Altered Gravity Simulator;Temperature;O2 Level
+OSD-71	1	01-Jan-2016	2016	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Absorbed Radiation Dose
+OSD-72	1	30-Nov-2015	2015	Roche	amplicon sequencing assay	metagenome profiling	1	Microbiota	Ionizing Radiation;Diet;Microgravity Simulation;Spaceflight
+OSD-73	1	07-May-2014	2014	Illumina	DNA microarray	transcription profiling	1	Homo sapiens	radiation type;radiation dose;post radiation timepoint
+OSD-74	1	10-Oct-2014	2014	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	ionizing radiation;absorbed radiation dose
+OSD-75	1	16-Feb-2011	2011	Filgen	DNA microarray	transcription profiling	1	Caenorhabditis elegans	Gravity;timepoint
+OSD-76	1	15-Feb-2016	2016	Agilent	DNA microarray	transcription profiling	1	Danio rerio	stress
+OSD-78	1	08-Nov-2008	2008	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Treatment
+OSD-79	1	04-Apr-2013	2013	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	variation
+OSD-80	1	30-Nov-2013	2013	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Time;Dose
+OSD-81	1	14-Mar-2014	2014	Agilent	DNA microarray	transcription profiling	1	Bacillus subtilis	strain;pressure
+OSD-82	1	01-APR-2016	2016	Roche GS FLX	nucleotide sequencing	metagenome profiling	1	cellular organisms	collection set;location
+OSD-83	1	15-Oct-2015	2015	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Oryzias latipes	Spaceflight;Tissue
+OSD-84	3	26-Oct-2016	2016	Oxford Nanopore Technologies	nucleotide sequencing	genome sequencing	4	;Enterobacteria phage lambda;Escherichia coli;Mus musculus	Microgravity
+OSD-84	3	26-Oct-2016	2016	Illumina	nucleotide sequencing	genome sequencing	4	;Enterobacteria phage lambda;Escherichia coli;Mus musculus	Microgravity
+OSD-84	3	26-Oct-2016	2016	Pacific Biosciences	nucleotide sequencing	genome sequencing	4	;Enterobacteria phage lambda;Escherichia coli;Mus musculus	Microgravity
+OSD-85	1	19-Sep-2016	2016	Illumina HiSeq 2000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Drosophila melanogaster	Hypergravity
+OSD-86	1	02-Feb-2016	2016	Illumina	nucleotide sequencing	DNA methylation profiling	1	Homo sapiens	Microgravity Simulation
+OSD-87	1	16-Dec-2016	2016	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Cosmic Radiation
+OSD-88	1	13-Jun-2013	2013		DNA microarray	transcription profiling	1	Mus musculus	Age;Irradiation
+OSD-89	1	22-Jun-2015	2015	Illumina	DNA microarray	transcription profiling	1	Mus musculus	Age;Irradiation
+OSD-90	1	16-DEC-2016	2016	Illumina	nucleotide sequencing	transcription profiling	1	Mycobacterium marinum	Simulated Microgravity;Timepoint
+OSD-91	1	02-Feb-2016	2016	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Microgravity Simulation
+OSD-92	1	01-Jul-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Radiation;Timepoint
+OSD-93	1	26-Feb-2014	2014		DNA microarray	transcription profiling	1	Mus musculus	mouse strain;ionizing radiation
+OSD-94	1	05-Oct-2012	2012		DNA microarray	copy number variation profiling	1		ionizing radiation;Neoplasm
+OSD-95	1	15-NOV-2016	2016	Illumina	nucleotide sequencing	transcription profiling	1	Escherichia coli	Microgravity;Antibiotic concentration
+OSD-96	1	19-Oct-2016	2016	Illumina MiSeq	RNA Sequencing (RNA-Seq)	transcription profiling	1	Drosophila melanogaster	Spaceflight;Generation;Time
+OSD-97	1	01-Nov-2007	2007	Hitachisoft Hypergene Yeast Chip Ver. 2.0	DNA microarray	transcription profiling	1	Saccharomyces cerevisiae	Radiation, Ionzing
+OSD-98	3	28-Feb-2017	2017	LTQ Orbitrap Fusion (Thermo Scientific)	mass spectrometry	protein expression profiling	2	Mus musculus;Not Applicable	Spaceflight
+OSD-98	3	28-Feb-2017	2017	Illumina	nucleotide sequencing	DNA methylation profiling	2	Mus musculus;Not Applicable	Spaceflight
+OSD-98	3	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	2	Mus musculus;Not Applicable	Spaceflight
+OSD-99	2	28-Feb-2017	2017	Illumina	nucleotide sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-99	2	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-100	2	28-Feb-2017	2017	Illumina	Whole Genome Bisulfite Sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-100	2	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-101	4	28-Feb-2017	2017	LTQ Orbitrap Fusion (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-101	4	28-Feb-2017	2017	Illumina	nucleotide sequencing	RNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-101	4	28-Feb-2017	2017	Illumina	nucleotide sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-101	4	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-102	4	28-Feb-2017	2017	LTQ Orbitrap Fusion (Thermo Scientific)	mass spectrometry	protein expression profiling	2	Mus musculus;Not Applicable	Spaceflight
+OSD-102	4	28-Feb-2017	2017	Illumina	nucleotide sequencing	DNA methylation profiling	2	Mus musculus;Not Applicable	Spaceflight
+OSD-102	4	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	2	Mus musculus;Not Applicable	Spaceflight
+OSD-102	4	28-Feb-2017	2017	Illumina	nucleotide sequencing	RNA methylation profiling	2	Mus musculus;Not Applicable	Spaceflight
+OSD-103	4	28-Feb-2017	2017	LTQ Orbitrap Fusion (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-103	4	28-Feb-2017	2017	Illumina	Whole Transcriptome Bisulfite Sequencing	RNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-103	4	28-Feb-2017	2017	Illumina	Whole Genome Bisulfite Sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-103	4	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-104	2	28-Feb-2017	2017	Illumina	nucleotide sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-104	2	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-105	4	28-Feb-2017	2017	LTQ Orbitrap Fusion (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-105	4	28-Feb-2017	2017	Illumina	nucleotide sequencing	RNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-105	4	28-Feb-2017	2017	Illumina	nucleotide sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-105	4	28-Feb-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-106	1	01-Mar-2017	2017	Illumina HiSeq 2500	nucleotide sequencing	transcription profiling	1	Streptococcus mutans	Weightlessness Simulation
+OSD-107	1	09-Aug-2016	2016	Illumina MouseRef-8 v2.0 Expression BeadChip	DNA microarray	transcription profiling	1	Mus musculus	treatment;genotype
+OSD-108	1	28-Apr-2017	2017	Thermo-Finnigan Mass Spectrometer	mass spectrometry	metabolite profiling	1	Mus musculus	Spaceflight;Absorbed Radiation Dose
+OSD-109	1	1-Jan-16	2016	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Time;Ionizing Radiation
+OSD-110	2	08-Sep-2015	2015	LTQ Orbitrap	gel electrophoresis	protein expression profiling	1	Daphnia magna	Weightlessness Simulation
+OSD-110	2	08-Sep-2015	2015	LTQ Orbitrap Classic (Thermo Scientific)	mass spectrometry	protein identification	1	Daphnia magna	Weightlessness Simulation
+OSD-111	1	15-Jan-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Cosmic Radiation;Tissue
+OSD-112	1	31-Aug-2016	2016	Agilent	DNA microarray	transcription profiling	1	Caenorhabditis elegans	Microgravity
+OSD-113	1	31-Aug-2016	2016	Agilent	DNA microarray	transcription profiling	1	Caenorhabditis elegans	Spaceflight
+OSD-114	1	20-Jan-2017	2017	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Microgravity;Bleomycin Treatment
+OSD-115	1	20-Jun-2010	2010	NIA MGC, Mammalian Genome Collection	DNA microarray	transcription profiling	1	Homo sapiens	Irradiation;Timepoint
+OSD-116	2	28-Apr-2017	2017	Thermo-Finnigan Mass Spectrometer	mass spectrometry	metabolite profiling	1	Mus musculus	Spaceflight;Absorbed Radiation Dose
+OSD-116	2	28-Apr-2017	2017	RT2 ProfilerTM PCR Array	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Absorbed Radiation Dose
+OSD-117	1	1-Jan-16	2016	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Time;Ionizing Radiation
+OSD-118	2	28-Apr-2017	2017	Exiqon	DNA microarray	transcription profiling	1	Homo sapiens	Spaceflight;Time
+OSD-118	2	28-Apr-2017	2017	Illumina	DNA microarray	transcription profiling	1	Homo sapiens	Spaceflight;Time
+OSD-119	1	28-Apr-2017	2017	Illumina	nucleotide sequencing	transcription profiling	1	Euprymna scolopes	Simulated Microgravity
+OSD-120	2	08-Jun-2017	2017	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Ecotype;Spaceflight;Treatment
+OSD-120	2	08-Jun-2017	2017	CARA	Photography	Image Analysis	1	Arabidopsis thaliana	Ecotype;Spaceflight;Treatment
+OSD-121	1	08-Jun-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Cosmic Radiation
+OSD-122	1	30-Jun-2017	2017	SYNAPT G2 HDMS (Waters)	mass spectrometry	protein expression profiling	1	Rattus norvegicus	Simulated Microgravity;Timepoint
+OSD-123	1	27-Feb-2015	2015	Agilent	DNA microarray	transcription profiling	1	Danio rerio	Hypergravity
+OSD-124	1	31-Dec-2015	2015	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Electromagnetic Fields
+OSD-125	1	07-Feb-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Microgravity Simulation;Cell Line
+OSD-126	1	08-Dec-2016	2016	Illumina	nucleotide sequencing	metagenome profiling	1	cellular organisms	Spaceflight;Sample Location;Treatment
+OSD-127	1	08-Aug-2016	2016	Illumina HiSeq1000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Microgravity Simulation
+OSD-128	1	29-Apr-2012	2012	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Simulated Microgravity;Ionizing Radiation;Timepoint
+OSD-129	1	10-Apr-2012	2012	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Simulated Microgravity
+OSD-130	1	18-Feb-2017	2017	Illumina HumanHT-12 V4.0 expression beadchip	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Time of Sample Collection After Treatment;Genotype
+OSD-131	1	01-Jan-2014	2014	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Ionzing Radiation;Age
+OSD-132	1	13-Apr-2017	2017	Illumina	nucleotide sequencing	genome sequencing	8	Aspergillus niger;Aspergillus terreus;Aureobasidium pullulans;Beauveria bassiana;Cladosporium cladosporioides;Cladosporium sphaerospermum;Fusarium solani;Trichoderma virens	radiation
+OSD-133	1	01-Mar-2017	2017	Illumina	nucleotide sequencing	transcription profiling	1	Oryzias latipes	Microgravity;Timepoint
+OSD-134	1	11-May-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Atmospheric Pressure;Organism Part
+OSD-135	1	23-May-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Cosmic Radiation;Tissue
+OSD-136	1	11-May-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Atmospheric Pressure
+OSD-137	4	28-Aug-2017	2017	LTQ Orbitrap Velos (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-137	4	28-Aug-2017	2017	Illumina	Whole Genome Bisulfite Sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-137	4	28-Aug-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-137	4	28-Aug-2017	2017	pannoramic scan (3d histech)	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Spaceflight
+OSD-138	4	28-Aug-2017	2017	LTQ Orbitrap Fusion (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Bacillus subtilis	Spaceflight;Freezing
+OSD-138	4	28-Aug-2017	2017	6530 Q-TOF LC/MS (Agilent)	mass spectrometry	metabolite profiling	1	Bacillus subtilis	Spaceflight;Freezing
+OSD-138	4	28-Aug-2017	2017	Leco Pegasus TOF	mass spectrometry	metabolite profiling	1	Bacillus subtilis	Spaceflight;Freezing
+OSD-138	4	28-Aug-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Bacillus subtilis	Spaceflight;Freezing
+OSD-139	1	14-Jun-2017	2017	Q-Exactive plus	mass spectrometry	protein expression profiling	1	Mus musculus	Weightlessness;Muscle, Skeletal;Absorbed Radiation Dose
+OSD-140	1	14-Jan-2015	2015		DNA microarray	DNA methylation profiling	1	Homo sapiens	time
+OSD-141	1	31-Aug-2017	2017	Illumina MiSeq	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Sample Collection Protocol;Library Construction Protocol
+OSD-144	1	23-Aug-2014	2014	Nimblegen	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Cell cycle phase;Microgravity Simulation
+OSD-145	4	14-Nov-2017	2017	LTQ Orbitrap Fusion (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Staphylococcus aureus	Spaceflight;Freezing
+OSD-145	4	14-Nov-2017	2017	6530 Q-TOF LC/MS (Agilent)	mass spectrometry	metabolite profiling	1	Staphylococcus aureus	Spaceflight;Freezing
+OSD-145	4	14-Nov-2017	2017	Leco Pegasus TOF	mass spectrometry	metabolite profiling	1	Staphylococcus aureus	Spaceflight;Freezing
+OSD-145	4	14-Nov-2017	2017	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Staphylococcus aureus	Spaceflight;Freezing
+OSD-146	1	15-Oct-2017	2017	Illumina	nucleotide sequencing	metagenome profiling	1	Microbiota	Ionizing Radiation;Dose;Time of Sample Collection After Treatment
+OSD-147	1	01-Sep-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Genotype
+OSD-148	1	22-Sep-2014	2014	Illumina	DNA microarray	transcription profiling	1	Mus musculus	Sex;Ionizing Radiation;Fractionated Dose
+OSD-149	1	26-Jul-2011	2011	Illumina	DNA microarray	transcription profiling	1	Homo sapiens	Culture Condition;Ionizing Radiation
+OSD-151	1	30-Aug-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Radiation Dose;Radiation Distance
+OSD-152	1	18-Oct-2008	2008	Agilent	DNA microarray	transcription profiling	1	Homo Sapiens	Time of Sample Collection After Treatment;Ionizing Radiation;Absorbed Radiation Dose
+OSD-153	1	27-Aug-2020	2020	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Genotype;Ionizing Radiation;Time
+OSD-154	1	30-Jul-2010	2010	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Absorbed Radiation Dose;Cell Line;Ionizing Radiation
+OSD-155	1	19-Mar-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Donor;Radiation Dose;Smoking Status;Age;Gender;Ionizing Radiation
+OSD-156	1	31-May-2012	2012	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Dose
+OSD-157	1	11-Sep-2013	2013	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Timepoint;Age;Sex;Dose
+OSD-158	1	01-May-2014	2014	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Dose
+OSD-159	1	31-Aug-2014	2014	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Dose
+OSD-160	1	12-Apr-2015	2015	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Treatment
+OSD-161	3	16-Mar-18	2018	LTQ Orbitrap Velos (Thermo Scientific)	mass spectrometry	protein expression profiling	2	;Mus musculus	Spaceflight
+OSD-161	3	16-Mar-18	2018	Illumina	nucleotide sequencing	DNA methylation profiling	2	;Mus musculus	Spaceflight
+OSD-161	3	16-Mar-18	2018	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	2	;Mus musculus	Spaceflight
+OSD-162	2	16-Mar-2018	2018	LTQ Orbitrap Velos (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-162	2	16-Mar-2018	2018	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-163	3	16-Mar-2018	2018	LTQ Orbitrap Velos (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-163	3	16-Mar-2018	2018	Illumina	nucleotide sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-163	3	16-Mar-2018	2018	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-164	1	19-Jan-2018	2018	MiSeq	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Tissue
+OSD-165	1	01-Mar-2017	2017	Exiqon	DNA microarray	transcription profiling	1	Caenorhabditis elegans	weightlessness;absorbed radiation dose
+OSD-166	1	01-Mar-2017	2017	Exiqon	DNA microarray	transcription profiling	1	Caenorhabditis elegans	weightlessness;absorbed radiation dose
+OSD-167	1	01-Mar-2017	2017	Nimblegen	DNA microarray	transcription profiling	1	Caenorhabditis elegans	Spaceflight;Altered Gravity;Genotype
+OSD-168	1	16-Mar-2020	2020	Illumina HiSeq 4000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Spike-in Quality Control;Space Mission;Ionizing Radiation
+OSD-170	1	14-Oct-2018	2018	Illumina MiSeq v2	nucleotide sequencing	metagenome profiling	1	cellular organisms	Altitude;Sample Location;Time
+OSD-172	1	11-Aug-2017	2017	Affymetrix	microarray	transcription profiling	1	Homo sapiens	Microgravity;Hypergravity
+OSD-173	1	04-May-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-174	1	31-Mar-2016	2016	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	sex;exposure duration;spaceflight
+OSD-175	1	28-Dec-2008	2008	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Bystander Effect;Dose
+OSD-176	1	21-Jul-2010	2010	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Bystander;dose
+OSD-177	1	30-Mar-2018	2018	Illumina	nucleotide sequencing	genome sequencing	1	Fusarium oxysporum	Spaceflight
+OSD-178	1	14-Jan-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Time;Absorbed Radiation Dose
+OSD-182	1	04-Apr-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Mitochondrial Status;dose
+OSD-183	1	7-Oct-2014	2014	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Rad9 Status;Ionizing Radiation;Bystander;Dose
+OSD-185	1	15-Feb-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Bacillus subtilis	Spaceflight
+OSD-188	1	11-Aug-2017	2017	Affymetrix	microarray	transcription profiling	1	Homo sapiens	Altered Gravity
+OSD-189	1	08-Mar-2018	2018	Affymetrix	microarray	transcription profiling	1	Homo sapiens	Microgravity;Hypergravity
+OSD-190	1	2013-06-22	2013	non-commercial	DNA microarray	transcription profiling	1	Caenorhabditis elegans	Gravity, Altered
+OSD-191	1	24-Mar-2017	2017	Illumina	nucleotide sequencing	metagenome profiling	1	Microbiota	Time
+OSD-192	1	01-Nov-2017	2017	Ion Proton	RNA Sequencing (RNA-Seq)	transcription profiling	1	Helix lucorum	spaceflight;light cycle;food deprivation;water deprivation;animal housing
+OSD-193	1	01-Mar-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Time;Genotype;Spaceflight
+OSD-194	1	6-Jun-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-195	1	17-Oct-2018	2018	Affymetrix	microarray	transcription profiling	1	Homo sapiens	Sampling Time;Bed Rest
+OSD-198	1	04-May-2016	2016	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Sampling Time;Experimental Campaign;Bed Rest
+OSD-199	1	25-Jul-2017	2017	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Lactobacillus acidophilus	Simulated microgravity
+OSD-200	1	08-Aug-2019	2019	Illumina	nucleotide sequencing	metagenome profiling	3	Bacillus atrophaeus;cellular organisms;Escherichia coli	Spaceflight;Sample Location;Treatment;Sieve Size
+OSD-201	1	21-Sep-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Hindlimb unloading;tetanus toxoid;vaccine adjuvant
+OSD-202	3	30-Nov-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation;Hindlimb Unloading;Time of Sample Collection After Treatment
+OSD-202	3	30-Nov-2018	2018	Illumina	microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Hindlimb Unloading;Time of Sample Collection After Treatment
+OSD-202	3	30-Nov-2018	2018	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Mus musculus	Ionizing Radiation;Hindlimb Unloading;Time of Sample Collection After Treatment
+OSD-203	2	19-Sep-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation;Hindlimb Unloading;Time of Sample Collection After Treatment
+OSD-203	2	19-Sep-2018	2018	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Mus musculus	Ionizing Radiation;Hindlimb Unloading;Time of Sample Collection After Treatment
+OSD-205	1	01-Dec-2018	2018	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Genotype
+OSD-207	1	30-Nov-2018	2018		RNA Sequencing (RNA-Seq)	transcription profiling	1	Drosophila melanogaster	Spaceflight;Genotype
+OSD-208	2	29-Oct-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Tissue
+OSD-208	2	29-Oct-2018	2018	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Tissue
+OSD-209	1	22-Aug-2017	2017	Exactive (Thermo Scientific)	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight;Dissection Timeline;Absorbed Radiation Dose
+OSD-210	1	20-Dec-2018	2018	Pacific Biosciences	nucleotide sequencing	genome sequencing	1	Arabidopsis thaliana	Cosmic Radiation;Genotype
+OSD-211	1	25-Jun-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation;Hindlimb Unloading
+OSD-212	1	29-Mar-2019	2019	Illumina	nucleotide sequencing	genome sequencing	1	Mus musculus	Spaceflight
+OSD-213	1	29-Jun-2015	2015	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Altered Gravity
+OSD-214	1	15-Feb-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Hindlimb unloading;tetanus toxoid;vaccine adjuvant
+OSD-215	1	04-Dec-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Bacillus subtilis	Microgravity Simulation
+OSD-216	1	04-Dec-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Bacillus subtilis	Microgravity Simulation
+OSD-217	2	20-Mar-2019	2019	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Arabidopsis thaliana	Spaceflight;Organism Part
+OSD-217	2	20-Mar-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Organism Part
+OSD-218	1	24-Feb-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Cultivar;Age;Spaceflight
+OSD-219	1	24-Feb-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Cultivar;Age;Spaceflight
+OSD-220	1	13-Jul-2018	2018	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Arabidopsis thaliana	Spaceflight
+OSD-222	1	29-Mar-2019	2019	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Cosmic Radiation
+OSD-223	1	27-Jun-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Genotype;Organism Part;Cosmic Radiation;Altered Gravity
+OSD-224	1	17-Jan-2017	2017	Illumina	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Spaceflight;Treatment;Sample Location
+OSD-225	1	20-Jan-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Rattus norvegicus	Hindlimb Unloading;Clinical Treatment
+OSD-227	1	01-Dec-2008	2008	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Hindlimb Unloading;Tissue
+OSD-228	1	30-Sep-2004	2004		DNA microarray	transcription profiling	1	Mus musculus	Hindlimb Unloading
+OSD-232	1	03-May-2019	2019	Affymetrix	microarray	transcription profiling	1	Mus musculus	Spaceflight;Tissue
+OSD-233	1	17-Sep-2018	2018	Illumina	nucleotide sequencing	genome sequencing	1	Aspergillus nidulans	Spaceflight;Strain;Growth Time
+OSD-235	1	10-Jun-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Euthanasia Method;Tissue Preservation Method;Carcass Preservation Method;Dissection Condition;Tissue Homogenate Preservation Time at -80C in RLT Buffer
+OSD-236	1	19-Jun-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Euthanasia Method;Tissue Preservation Method;Carcass Preservation Method;Dissection Condition
+OSD-237	1	25-Jun-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation;Hindlimb Unloading
+OSD-238	1	29-Jul-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Diet;Altered Gravity
+OSD-239	1	29-Jul-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Diet;Altered Gravity
+OSD-240	1	12-Aug-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-241	1	12-Aug-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-242	1	29-Jul-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-243	1	26-Aug-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Duration;Dissection Condition;Euthanasia Location
+OSD-244	1	26-Aug-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Duration;Dissection Condition;Euthanasia Location
+OSD-245	1	06-Sep-2019	2019	 Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Duration;Dissection Condition;Euthanasia Location
+OSD-246	1	06-Sep-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Duration;Dissection Condition;Euthanasia Location;Ionizing Radiation
+OSD-247	1	30-Aug-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Duration;Dissection Condition;Euthanasia Location
+OSD-248	1	30-Aug-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Duration;Dissection Condition;Euthanasia Location
+OSD-249	5	27-Sep-2019	2019	Illumina NovaSeq 6000	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Spaceflight;Duration;Dissection Condition;Euthanasia Location;Ionizing Radiation
+OSD-249	5	27-Sep-2019	2019	Illumina NovaSeq 6000	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Spaceflight;Duration;Dissection Condition;Euthanasia Location;Ionizing Radiation
+OSD-249	5	27-Sep-2019	2019	Illumina Hiseq4000	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Spaceflight;Duration;Dissection Condition;Euthanasia Location;Ionizing Radiation
+OSD-249	5	27-Sep-2019	2019	Illumina iSeq	16S and ITS	Amplicon Sequencing	1	Microbiota	Spaceflight;Duration;Dissection Condition;Euthanasia Location;Ionizing Radiation
+OSD-249	5	27-Sep-2019	2019	Illumina MiniSeq	16S	Amplicon Sequencing	1	Microbiota	Spaceflight;Duration;Dissection Condition;Euthanasia Location;Ionizing Radiation
+OSD-250	1	27-Sep-2019	2019	Illumina NovaSeq 6000	Whole Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Spaceflight
+OSD-251	1	24-Oct-2019	2019	Illumina HiSeq2500	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Altered Gravity
+OSD-252	1	10-Sep-2021	2021	Illumina	nucleotide sequencing	metagenome profiling	1	cellular organisms	Spaceflight;Sample Location;Time;Treatment
+OSD-253	1	08-Nov-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Strain;Duration
+OSD-254	1	08-Nov-2019	2019	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Strain;Duration
+OSD-255	1	31-May-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-256	1	27-Jul-2020	2020	Illumina	nucleotide sequencing	metagenome profiling	1	cellular organisms	Altitude
+OSD-258	1	07-Nov-2019	2019	Illumina HiSeq 2000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Time
+OSD-259	1	21-May-2019	2019	Orbitrap Fusion Tribrid	mass spectrometry	protein expression profiling	1	Bacillus pumilus	Spaceflight;Treatment
+OSD-260	1	21-Aug-2018	2018	Orbitrap Fusion Tribrid	mass spectrometry	protein expression profiling	1	Aspergillus niger	Spaceflight;Strain
+OSD-261	1	01-Sep-2019	2019	Orbitrap Fusion	mass spectrometry	protein expression profiling	1	Aspergillus fumigatus	Spaceflight;Strain
+OSD-262	1	06-Jun-2017	2017	Illumina	nucleotide sequencing	genome sequencing	1	Solibacillus kalamii	Spaceflight
+OSD-263	1	20-Dec-2017	2017	Illumina	nucleotide sequencing	genome sequencing	4	Acinetobacter radioresistens;Aranicola proteolyticus;Bacillus horneckiae;Bacillus nealsonii	Sample Location
+OSD-264	1	22-Feb-2019	2019	Illumina	nucleotide sequencing	genome sequencing	1	Fusarium oxysporum	Spaceflight
+OSD-265	1	21-Jan-2020	2020	Illumina	nucleotide sequencing	genome sequencing	1	Chlamydomonas reinhardtii	Growth Cycle;Strain;Sample Storage;UV Mutagenesis;Organism Part
+OSD-266	1	01-Dec-2019	2019	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Dose
+OSD-267	2	21-Feb-2020	2020	Illumina	ITS	Amplicon Sequencing	1	Microbiota	Spaceflight;Organism Part
+OSD-267	2	21-Feb-2020	2020	Illumina	16S	Amplicon Sequencing	1	Microbiota	Spaceflight;Organism Part
+OSD-268	2	21-Feb-2020	2020	Illumina MiSeq	nucleotide sequencing	metagenome profiling	1	Microbiota	Spaceflight;Organism Part
+OSD-268	2	21-Feb-2020	2020	Illumina MiSeq	nucleotide sequencing	metagenome profiling	1	Microbiota	Spaceflight;Organism Part
+OSD-269	1	21-Feb-2020	2020	Illumina	16S	Amplicon Sequencing	1	Microbiota	Spaceflight;Organism Part
+OSD-270	2	18-Mar-2020	2020	Illumina	spatial transcriptomics	transcription profiling	1	Mus musculus	Spaceflight
+OSD-270	2	18-Mar-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-271	1	14-Feb-2018	2018	Agilent	DNA microarray	transcription profiling	1	Rattus norvegicus	Ionizing Radiation
+OSD-272	1	31-Mar-2020	2020	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Dissection Condition;Preservation Method;Order of Preservation
+OSD-273	1	26-Jun-2020	2020	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Dissection Condition;Preservation Method;Order of Preservation
+OSD-274	1	26-Jun-2020	2020	Illumina NovaSeq 6000	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Dissection Condition;Preservation Method;Order of Preservation
+OSD-275	1	14-Feb-2018	2018	Agilent	DNA microarray	DNA methylation profiling	1	Rattus norvegicus	Ionizing Radiation
+OSD-276	1	19-Apr-2017	2017	Illumina	nucleotide sequencing	metagenome profiling	1	cellular organisms	Spaceflight;Sample Location
+OSD-277	1	17-May-2022	2022	Illumina NexSeq	RNA Sequencing (RNA-Seq)	transcription profiling	2	Not Applicable;Salmonella enterica subsp. enterica serovar Typhimurium	Genotype;Microgravity Simulation;Infection;Time
+OSD-278	1	28-Sep-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Drosophila melanogaster	Spaceflight;Infection
+OSD-279	1	05-Sep-2019	2019	Illumina	nucleotide sequencing	metagenome profiling	1	cellular organisms	Spaceflight;Sample Location
+OSD-280	1	09-Mar-2020	2020	Illumina	nucleotide sequencing	metagenome profiling	1	cellular organisms	Spaceflight;Time
+OSD-281	1	01-Mar-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Age;Genotype
+OSD-282	1	20-Jan-2010	2010	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Treatment
+OSD-283	1	16-Oct-2018	2018	Nimblegen	DNA microarray	transcription profiling	1	Homo sapiens	Altered Gravity
+OSD-284	1	03-Mar-2016	2016	Affymetrix	DNA microarray	transcription profiling	1	Oryza sativa	Spaceflight;Altered Gravity
+OSD-285	1	20-Dec-2013	2013	Illumina	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Time;Absorbed Radiation Dose
+OSD-286	1	02-Apr-2018	2018	Illumina Hiseq 2500	nucleotide sequencing	metagenome profiling	1	cellular organisms	Spaceflight;Treatment;Sample Location
+OSD-287	1	09-May-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Treatment;Sex
+OSD-288	1	18-Jun-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Altered Gravity
+OSD-289	1	04-Jan-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Altered Gravity;Space Mission
+OSD-290	1	06-Apr-2020	2020	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	4	Naganishia adeliensis;Naganishia albida;Naganishia sp.;Papiliotrema laurentii	Spaceflight;Strain
+OSD-291	1	01-Apr-2020	2020	Illumina HiSeq 2500	nucleotide sequencing	genome sequencing	1	Rubinsicoccus jepli	Strain
+OSD-293	1	15-May-2020	2020	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	1	Rhodotorula mucilaginosa	Spaceflight;Strain
+OSD-294	1	03-Mar-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation;Time
+OSD-295	1	15-May-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Hindlimb Unloading;Age
+OSD-296	1	30-Nov-2009	2009	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Genotype;Treatment;Light;Time
+OSD-297	1	16-Oct-2018	2018	Nimblegen	DNA microarray	transcription profiling	1	Homo sapiens	Altered Gravity;Treatment
+OSD-298	1	09-May-2020	2020	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	2	Sphingobacterium paucimobilis;Sphingomonas sanguinis	Strain;Spaceflight
+OSD-299	1	20-Jul-2020	2020	Illumina	nucleotide sequencing	metagenome profiling	1	Sphingomonas sanguinis	Spaceflight
+OSD-300	1	01-Jan-2021	2021	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	2	Methylobacterium sp.;Methylorubrum rhodesianum	Spaceflight;Strain
+OSD-301	1	30-Apr-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Eruca vesicaria	Spaceflight;Treatment
+OSD-302	1	31-May-2020	2020	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	3	Enterobacter bugandensis;Klebsiella quasipneumoniae;Pantoea brenneri	Spaceflight;Strain
+OSD-303	1	15-Jun-2020	2020	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	5	Bacillus amyloliquefaciens;Bacillus cereus thuringiensis;Bacillus firmus;Paenibacillus polymyxa;Thermus amyloliquefaciens	Spaceflight;Strain
+OSD-304	1	28-Aug-2020	2020	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Absorbed Radiation Dose;Genotype
+OSD-305	1	27-Aug-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Serratia liquefaciens	Temperature;Atmospheric Pressure;Atmospheric Composition
+OSD-306	1	15-Sep-2022	2022	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	1	Agrobacterium genomosp. 3	Spaceflight;Strain
+OSD-307	1	11-Aug-2021	2021	MinION	RNA Sequencing (RNA-Seq)	transcription profiling	1	Microbiota	Relative Humidity;CO2 Concentration;Temperature
+OSD-308	1	07-Aug-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Microgravity Simulation
+OSD-309	1	12-Aug-2020	2020	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	3	Klebsiella aerogenes;Klebsiella pneumoniae;Klebsiella quasipneumoniae	Spaceflight;Strain
+OSD-310	1	27-Mar-2023	2023	OsteoMeasure System (OsteoMetrics)	Histomorphometry	Histological Assay	1	Rattus norvegicus	Spaceflight
+OSD-311	1	31-Jul-2020	2020	Illumina NovaSeq 6000	nucleotide sequencing	genome sequencing	4	Enterobacter bugandensis;Kalamiella piersonii;Pantoea agglomerans;Pantoea brenneri	Spaceflight;Strain
+OSD-313	1	22-Oct-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Genotype;Light
+OSD-314	1	20-Jan-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Altered Gravity;Light
+OSD-315	1	26-Jul-2017	2017	LTQ Orbitrap Elite	mass spectrometry	protein expression profiling	1	Homo sapiens	Microgravity Simulation;Tiime
+OSD-316	1	26-May-2020	2020	Illumina MiSeq	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Study Subject;Time
+OSD-317	1	19-Dec-2017	2017	Illumina Infinium 450K Human Methylation Beadchip	microarray	DNA methylation profiling	1	Homo sapiens	Ionizing Radiation;Dose;Time
+OSD-318	1	01-Dec-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation;Diet
+OSD-319	1	18-Jul-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Urocitellus parryii	Time
+OSD-320	1	18-Sep-2014	2014	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Genotype;Time of sample collection after treatment;Ionizing Radiation
+OSD-321	1	09-Jan-2021	2021		RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Genotype
+OSD-322	1	27-Aug-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation;Time
+OSD-323	1	23-Feb-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Infection
+OSD-324	1	23-Apr-2021	2021	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Time
+OSD-326	1	23-Feb-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-329	1	30-Oct-2006	2006		DNA microarray	transcription profiling	1	Arabidopsis thaliana	Genotype;Organism Part;Ionizing Radiation;Time of Sample Collection After Treatment
+OSD-331	1	22-Sep-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Microgravity Simulation
+OSD-334	1	10-Dec-2020	2020	Illumina	miRNA Sequencing	transcription profiling	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Particle Charge
+OSD-335	1	10-Dec-2020	2020	Illumina	miRNA Sequencing	transcription profiling	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Particle Charge
+OSD-336	1	10-Dec-2020	2020	Illumina	miRNA Sequencing	transcription profiling	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Particle Charge
+OSD-337	1	10-Dec-2020	2020	Illumina	miRNA Sequencing	transcription profiling	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Particle Charge
+OSD-340	1	01-Sep-2018	2018	Illumina	nucleotide sequencing	genome sequencing	1	Mus musculus	Genotype;Ionizing Radiation
+OSD-342	1	16-Sep-2020	2020	SomaScan	protein microarray	protein expression profiling	1	Mus musculus	Spaceflight;Treatment;Dissection Timeline
+OSD-343	1	02-Dec-2020	2020	Xevo QTof MS(Waters)	mass spectrometry	metabolite profiling	1	Mus musculus	Spaceflight
+OSD-344	2	26-Jul-2018	2018	BioRad	real time PCR	transcription profiling	1	Homo sapiens	Spaceflight;Developmental Stage
+OSD-344	2	26-Jul-2018	2018	BioRad	real time PCR	transcription profiling	1	Homo sapiens	Spaceflight;Developmental Stage
+OSD-345	1	12-Nov-2018	2018	Q Exactive Plus	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight;Time
+OSD-346	1	24-Nov-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Genotype;Spaceflight;Altered Gravity;Treatment
+OSD-347	1	02-Dec-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Drosophila melanogaster	Spaceflight;Genotype
+OSD-350	1	23-Mar-2021	2021	Illumina	nucleotide sequencing	genome sequencing	7	Aspergillus niger;Aspergillus unguis;Penicillium camemberti;Penicillium chrysogenum;Penicillium dipodomyicola;Penicillium griseoroseum;Penicillium polonicum	Spaceflight;Strain
+OSD-351	1	20-Jan-2023	2023	Scanco mCT40 scanner	Micro-Computed Tomography	Bone Microstructure	1	Rattus norvegicus	Spaceflight;Tissue
+OSD-352	2	14-Jan-2021	2021	Illumina	spatial transcriptomics	transcription profiling	1	Mus musculus	Spaceflight
+OSD-352	2	14-Jan-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-353	1	07-Apr-2019	2019	MaXis 4G	mass spectrometry	protein expression profiling	1	Homo sapiens	Spaceflight;Bed Rest;Time;Dry Immersion
+OSD-354	1	13-Aug-2020	2020	Affymetrix	microarray	transcription profiling	1	Homo sapiens	Hindlimb Unloading;Age
+OSD-355	1	16-Nov-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Study Subject;Time;Altered Gravity
+OSD-356	1	01-Jan-2019	2019	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Vibrio fischeri	Genotype;Microgravity Simulation;Time
+OSD-359	1	27-Sep-2019	2019	timsTOF Pro	mass spectrometry	protein expression profiling	1	Homo sapiens	Spaceflight;Time
+OSD-360	1	07-Apr-2022	2022	Xevo G2 QTOF(Waters)	mass spectrometry	metabolite profiling	1	Mus musculus	Ionizing Radiation;Absorbed Radiation Dose;Particle Charge;HZE;Time of Sample Collection After Treatment
+OSD-361	1	14-Apr-2021	2021	Illumina	nucleotide sequencing	genome sequencing	14	Acinetobacter pittii;Bacillus horneckiae;Kocuria indica;Kocuria palustris;Methylobacterium organophilum;Micrococcus luteus;Pseudoclavibacter alba;Pseudomonas fulva;Pseudomonas granadensis;Staphylococcus capitis;Staphylococcus caprae;Staphylococcus epidermidis;Staphylococcus saprophyticus;Staphylococcus warneri	Spaceflight;Strain
+OSD-362	1	06-Oct-2017	2017	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Aspergillus fumigatus	Strain;Treatment
+OSD-363	2	12-Mar-2021	2021	QuantStudio 12K Flex	real time PCR	transcription profiling	1	Homo sapiens	Intracranial Pressure
+OSD-363	2	12-Mar-2021	2021	QuantStudio 12K Flex	real time PCR	transcription profiling	1	Homo sapiens	Intracranial Pressure
+OSD-364	2	12-Mar-2021	2021	QuantStudio 12K Flex	real time PCR	transcription profiling	1	Homo sapiens	Intracranial Pressure
+OSD-364	2	12-Mar-2021	2021	QuantStudio 12K Flex	real time PCR	transcription profiling	1	Homo sapiens	Intracranial Pressure
+OSD-366	1	19-Aug-2021	2021	MegaMUGA	SNP analysis	Genome-wide Association Study	1	Mus musculus	Strain;Ionizing Radiation;Particle Charge;HZE;Absorbed Radiation Dose;Time of Sample Collection After Treatment
+OSD-367	1	30-Aug-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	ionizing radiation;Radiation Distance
+OSD-368	1	30-Aug-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Time of Sample Collection After Treatment
+OSD-369	1	30-Aug-2011	2011	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation
+OSD-370	1	21-Sep-2010	2010	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Bed Rest;Time;Treatment
+OSD-372	1	15-Nov-2021	2021	Illumina	nucleotide sequencing	genome sequencing	9	Burkholderia cepacia;Burkholderia contaminans;Ralstonia insidiosa;Ralstonia pickettii;Staphylococcus aureus;Staphylococcus auricularis;Staphylococcus epidermidis;Staphylococcus lugdunensis;Staphylococcus saprophyticus	Spaceflight;Collection Date;Sample Location
+OSD-373	1	22-Dec-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Danio rerio	Microgravity Simulation;Treatment
+OSD-374	2	28-Apr-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Ionizing Radiation
+OSD-374	2	28-Apr-2022	2022	Illumina	DIP-seq	DNA methylation profiling	1	Mus musculus	Ionizing Radiation
+OSD-375	1	20-May-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Brachypodium distachyon	Spaceflight;Accession;Organism Part
+OSD-379	1	26-May-2021	2021	Illumina NovaSeq	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Age;Duration;Euthanasia Location;Dissection Condition
+OSD-383	1	01-Apr-2022	2022	Oxford Nanopore Technologies	nucleotide sequencing	genome sequencing	1	Bacillus pumilus SAFR-032	Spaceflight
+OSD-385	1	28-Apr-2023	2023	Illumina	16S	Amplicon Sequencing	1	Microbiota	Treatment;Seed Sanitization;Tissue
+OSD-386	1	27-Jun-2023	2023	Illumina	16S	Amplicon Sequencing	1	Microbiota	Treatment;Seed Sanitization;Organism Part
+OSD-391	1	15-Dec-2021	2021	Illumina	nucleotide sequencing	genome sequencing	18	Alkalihalobacillus clausii;Alkalihalobacillus gibsonii;Bacillus altitudinis;Bacillus glycinifermentans;Bacillus haynesii;Bacillus licheniformis;Bacillus paralicheniformis;Bacillus pumilus;Bacillus safensis;Bacillus subtilis;Brevibacillus parabrevis;Brevibacterium luteolum;Cytobacillus oceanisediminis;Micrococcus luteus;Oceanobacillus caeni;Priestia megaterium;Staphylococcus saprophyticus;Virgibacillus pantothenticus	Sample Location
+OSD-396	1	08-Jul-2021	2021	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight;Treatment
+OSD-397	2	30-Jun-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-397	2	30-Jun-2021	2021	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Mus musculus	Spaceflight
+OSD-400	1	27-Jul-2021	2021	Illumina	nucleotide sequencing	genome sequencing	11	Aspergillus unguis;Aureobasidium pullulans;Cladosporium cladosporioides;Cladosporium sphaerospermum;Fusarium annulatum;Fusarium veterinarium;Penicillium citrinum;Penicillium corylophilum;Penicillium palitans;Penicillium rubens;Rhodotorula mucilaginosa	Spaceflight;Strain
+OSD-401	1	25-Jun-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Tissue
+OSD-402	1	12-Aug-2021	2021	Illumina NovaSeq 6000	single-cell RNA Sequencing	transcription profiling	1	Mus musculus	Spaceflight;Age
+OSD-403	1	12-Aug-2021	2021	Illumina NovaSeq 6000	single-cell RNA Sequencing	transcription profiling	1	Mus musculus	Spaceflight;Age
+OSD-404	1	12-Aug-2021	2021	Illumina NovaSeq 6000	single-cell RNA Sequencing	transcription profiling	1	Mus musculus	Spaceflight;Age
+OSD-405	1	12-Aug-2021	2021	Illumina NovaSeq 6000	single-cell RNA Sequencing	transcription profiling	1	Mus musculus	Spaceflight;Age
+OSD-406	1	01-Apr-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spacecraft;Altered Gravity;Ecotype;Genotype
+OSD-410	1	01-Dec-2017	2017	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Time of Sample Collection after Treatment;Ionizing Radiation;Absorbed Radiation Dose
+OSD-411	1	20-Apr-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Genotype;Organism Part;Treatment
+OSD-415	1	13-Oct-2020	2020	Agilent	DNA microarray	transcription profiling	1	Rattus norvegicus	Hindlimb Unloading
+OSD-416	1	13-Aug-2021	2021	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Arabidopsis thaliana	Spaceflight;Genotype;Organism Part
+OSD-417	4	19-Apr-2023	2023	Illumina HiSeq2500	16S	Amplicon Sequencing	2	Microbiota;Mus musculus	Spaceflight;Time;Euthanasia Location
+OSD-417	4	19-Apr-2023	2023	Illumina MiSeq	16S	Amplicon Sequencing	2	Microbiota;Mus musculus	Spaceflight;Time;Euthanasia Location
+OSD-417	4	19-Apr-2023	2023	Illumina NovaSeq 6000	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	2	Microbiota;Mus musculus	Spaceflight;Time;Euthanasia Location
+OSD-417	4	19-Apr-2023	2023	SCIEX QTRAP 6500 Triple Quadrupole LC-MS/MS	mass spectrometry	metabolite profiling	2	Microbiota;Mus musculus	Spaceflight;Time;Euthanasia Location
+OSD-418	1	16-Dec-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Rattus norvegicus	Partial Weight Bearing
+OSD-419	1	16-Dec-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-420	1	10-Dec-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-421	1	10-Dec-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-422	1	03-Feb-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Rattus norvegicus	Spaceflight
+OSD-423	1	10-Feb-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Rattus norvegicus	Spaceflight
+OSD-425	1	31-Aug-2021	2021	Agilent	DNA microarray	transcription profiling	1	Caenorhabditis elegans	Spaceflight;Genotype;Generation;Altered Gravity
+OSD-426	2	08-Sep-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Altered Gravity;Treatment
+OSD-426	2	08-Sep-2021	2021	Illumina	miRNA Sequencing	transcription profiling	1	Mus musculus	Spaceflight;Altered Gravity;Treatment
+OSD-427	1	13-Aug-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Genotype;Organism part
+OSD-428	1	01-Apr-2021	2021	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Altered Gravity;Time
+OSD-430	1	18-Oct-2018	2018	Affymetrix	DNA microarray	transcription profiling	1	Rattus norvegicus	Spaceflight;Treatment
+OSD-431	1	22-Dec-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Altered Gravity
+OSD-432	1	15-Oct-2015	2015	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Ionizing Radiation;Genotype;Treatment
+OSD-434	1	01-Apr-2021	2021	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Altered Gravity;Time
+OSD-435	2	24-May-2023	2023	Vevo 2100	Ultrasonography	Echocardiogram	1	Mus musculus	Ionizing Radiation;absorbed radiation dose;Time
+OSD-435	2	24-May-2023	2023	Vevo 2100	Ultrasonography	Echocardiogram	1	Mus musculus	Ionizing Radiation;absorbed radiation dose;Time
+OSD-436	1	01-Apr-2021	2021	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Altered Gravity;Time
+OSD-437	1	06-Oct-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Age;Altered Gravity;Spaceflight
+OSD-450	1	03-Apr-2021	2021	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Altered Gravity;Time
+OSD-452	1	09-Jul-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Escherichia coli	Treatment
+OSD-455	1	19-Nov-2019	2019	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Time of Sample Collection after Treatment;Absorbed Radiation Dose;Ionizing Radiation
+OSD-457	1	02-Oct-2020	2020	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Tissue;Genotype
+OSD-462	5	08-Mar-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-462	5	08-Mar-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-462	5	08-Mar-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-462	5	08-Mar-2022	2022	Orbitrap Fusion Lumos	mass spectrometry	protein expression profiling	1	Mus musculus	Spaceflight
+OSD-462	5	08-Mar-2022	2022	Orbitrap Eclipse	mass spectrometry	phosphoprotein profiling	1	Mus musculus	Spaceflight
+OSD-463	1	15-Mar-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Ionizing Radiation
+OSD-464	1	18-Mar-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Ionizing Radiation
+OSD-465	1	01-Apr-2022	2022	Illumina	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Spaceflight
+OSD-466	1	01-Apr-2022	2022	Illumina	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Spaceflight;Genotype
+OSD-467	1	21-Oct-2021	2021	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Hindlimb Unloading
+OSD-469	1	05-Jan-2022	2022	Affymetrix	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Spaceflight;Genotype;Light Cycle
+OSD-470	1	17-Mar-2022	2022	Oxford Nanopore Technologies	nucleotide sequencing	genome sequencing	1	Klebsiella quasipneumoniae subsp. similipneumoniae	Spaceflight
+OSD-471	1	03-Mar-2023	2023	mCT 50, Scanco Medical	Micro-Computed Tomography	Bone Microstructure	1	Mus musculus	Spaceflight
+OSD-476	2	16-May-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Treatment
+OSD-476	2	16-May-2022	2022	ImageJ	Image analysis	Morphometric analysis	1	Arabidopsis thaliana	Treatment
+OSD-477	3	22-May-2023	2023	Instron 8511 MTS (Instron)	Bone biomechanical measurement	Bone biomechanical measurement	1	Rattus norvegicus	Partial Weight Bearing;Time
+OSD-477	3	22-May-2023	2023	μCT40 (Scanco Medical AG)	Micro-Computed Tomography	Bone Microstructure	1	Rattus norvegicus	Partial Weight Bearing;Time
+OSD-477	3	22-May-2023	2023	OsteoMeasure software (Osteometrics)	Histomorphometry	Histological Assay	1	Rattus norvegicus	Partial Weight Bearing;Time
+OSD-478	1	10-Apr-2023	2023	DigiGait System (Mouse Specifics)	Gait	Behavior	1	Mus musculus	Spaceflight;Time
+OSD-480	1	21-Apr-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Organism Part;Altered Gravity;Genotype;Spaceflight;Treatment
+OSD-481	1	18-Jan-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Time
+OSD-483	1	12-Jan-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Time
+OSD-484	1	12-Mar-2022	2022	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Treatment
+OSD-485	1	09-Jul-2019	2019	Agilent	DNA microarray	transcription profiling	1	Euglena gracilis	Altered Gravity;Parabola;Time
+OSD-486	1	22-May-2023	2023	Skyscan 1076 micro-computed tomography scanner (Kontich, Belgium)	Micro-Computed Tomography	Bone Microstructure	1	Mus musculus	Spaceflight
+OSD-487	1	05-Dec-2022	2022	Illumina	16S	Amplicon Sequencing	1	Microbiota	Spaceflight;Sample Condition
+OSD-488	2	20-Jan-2023	2023	Molecular Devices M2 plate reader	Spectrofluorimetric Assay	Calcium Uptake	1	Mus musculus	Spaceflight;Tissue;Space Mission
+OSD-488	2	20-Jan-2023	2023	Immobilon ECL Ultra Western HRP Substrate	Western Blot	protein quantification	1	Mus musculus	Spaceflight;Tissue;Space Mission
+OSD-489	1	13-Feb-2023	2023	Bruker SkyScan	Micro-Computed Tomography	Bone Microstructure	1	Mus musculus	Spaceflight
+OSD-490	1	13-Apr-2023	2023	Kinder Scientific	Elevated Plus Maze	Behavior	1	Rattus rattus	Age;Ionizing Radiation;absorbed radiation dose
+OSD-496	1	15-Nov-2018	2018	Illumina	ChIP-seq	protein-DNA binding site identification	1	Arabidopsis thaliana	Genotype;antibody;Ionizing Radiation;Time of Sample Collection After Treatment
+OSD-497	1	26-May-2022	2022	Illumina	nucleotide sequencing	genome sequencing	36	Acremonium citrinum;Alternaria angustiovoidea;Aspergillus calidoustus;Aspergillus costaricaensis;Aspergillus pseudoglaucus;Aspergillus quadricinctus;Aureobasidium lini;Aureobasidium melanogenum;Barbatosphaeria neglecta;Botryosphaeria agaves;Cladosporium austrohemisphaericum;Cladosporium colombiae;Cladosporium endophytica;Cystobasidium benthicum;Exophiala oligosperma;fungal sp.;Fusarium nygamai;Gamszarea kalimantanensis;Ganoderma meredithae;Neocatenulostroma microsporum;Neophaeococcomyces aloes;Penicillium brevicompactum;Penicillium caseifulvum;Penicillium decumbens;Penicillium fuscoglaucum;Penicillium sumatraense;Phaeophleospora eucalypticola;Phialocephala fluminis;Pseudopyrenochaeta terrestris;Roussoella neopustulans;Septoriella neoarundinis;Talaromyces liani;Talaromyces ruber;Trichoderma citrinoviride;Xylona heveae;Zalaria obscura	Strain
+OSD-498	1	05-Nov-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Time of Sample Collection after Treatment;Ionizing Radiation
+OSD-502	1	15-Nov-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Genotype;Ionizing Radiation
+OSD-505	1	21-Jul-2022	2022	Orbitrap Fusion	mass spectrometry	protein expression profiling	1	Rattus norvegicus	Ionizing Radiation
+OSD-506	1	03-Aug-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Ionizing Radiation
+OSD-508	1	15-Nov-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Ionizing Radiation;Time of Sample Collection After Treatment;Genotype
+OSD-510	1	15-Nov-2018	2018	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Ionizing Radiation;Time of Sample Collection After Treatment;Genotype
+OSD-511	1	03-Aug-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Age
+OSD-512	1	03-Aug-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Ionizing Radiation
+OSD-513	1	18-Oct-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-514	2	08-Sep-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Drosophila melanogaster	Sex;Spaceflight;Altered Gravity
+OSD-514	2	08-Sep-2022	2022	Orbitrap Fusion	mass spectrometry	protein expression profiling	1	Drosophila melanogaster	Sex;Spaceflight;Altered Gravity
+OSD-515	1	18-Oct-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-519	1	25-Mar-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Genotype;Organism Part;Treatment;Time
+OSD-520	1	31-Jan-2021	2021	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Arabidopsis thaliana	Generation;Ionizing Radiation
+OSD-524	1	28-Sep-2022	2022	Illumina	Bisulfite sequencing	DNA methylation profiling	1	Danio rerio	Ionizing Radiation;Generation
+OSD-525	1	18-Oct-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-528	1	17-Jan-2023	2023	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mycobacterium marinum	Microgravity Simulation
+OSD-530	2	01-Dec-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Time
+OSD-530	2	01-Dec-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Spaceflight;Time
+OSD-531	1	12-Jun-2014	2014	Agilent	DNA microarray	transcription profiling	1	Arabidopsis thaliana	Treatment;Time;Tissue segment
+OSD-532	1	30-Nov-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Altered Gravity
+OSD-536	1	10-Aug-2022	2022	nCounter MAX	DNA microarray	transcription profiling	1	Mus musculus	Spaceflight
+OSD-539	1	30-Sep-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Sex;Treatment
+OSD-540	1	27-Sep-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Hindlimb Unloading
+OSD-542	1	08-Oct-2022	2022	Agilent	DNA microarray	transcription profiling	1	Homo sapiens	Time
+OSD-545	1	06-Sep-2019	2019	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Ionizing Radiation;Microgravity Simulation
+OSD-546	1	31-Jan-2019	2019	Affymetrix	DNA microarray	transcription profiling	1	Homo sapiens	Spaceflight;Treatment
+OSD-547	1	02-Feb-2015	2015	Affymetrix	DNA microarray	transcription profiling	1	Mus musculus	Altered Gravity
+OSD-548	1	18-Jan-2019	2019	Agilent	DNA microarray	transcription profiling	1	Mus musculus	Hindlimb Unloading
+OSD-554	1	24-Aug-2023	2023	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Pseudomonas aeruginosa	Growth Environment;Time;Spaceflight
+OSD-557	3	30-May-2023	2023	SkyScan 1272 desktop micro-CT system	Micro-Computed Tomography	Bone Microstructure	1	Mus musculus	Spaceflight
+OSD-557	3	30-May-2023	2023	BZ-X710	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Spaceflight
+OSD-557	3	30-May-2023	2023	BZ-X710 All-in-One inverted fluorescence microscope	imaging	histology	1	Mus musculus	Spaceflight
+OSD-561	1	15-Dec-2022	2022	Illumina	spatial transcriptomics	transcription profiling	1	Mus musculus	Spaceflight;Euthanasia Location;Age
+OSD-562	1	15-Dec-2022	2022	Illumina	spatial transcriptomics	transcription profiling	1	Mus musculus	Spaceflight;Euthanasia Location;Age
+OSD-563	1	15-Dec-2022	2022	Illumina	spatial transcriptomics	transcription profiling	1	Mus musculus	Spaceflight
+OSD-564	1	15-Dec-2022	2022	Illumina	spatial transcriptomics	transcription profiling	1	Mus musculus	Spaceflight
+OSD-565	1	04-Oct-2022	2022	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Arabidopsis thaliana	Treatment;Organism Part;Microgravity Simulation
+OSD-568	3	30-May-2023	2023	BZ-X710 Keyance	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Spaceflight
+OSD-568	3	30-May-2023	2023	BZ-X700 Keyence Corp (1)	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Spaceflight
+OSD-568	3	30-May-2023	2023	bz-x700 keyence corp (2)	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Spaceflight
+OSD-576	1	20-Jan-2023	2023	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight
+OSD-577	1	19-Jan-2023	2023	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Homo sapiens	Ionizing Radiation;Treatment;Tissue Model
+OSD-580	1	27-Feb-2023	2023	Illumina	RNA Sequencing (RNA-Seq)	transcription profiling	1	Mus musculus	Spaceflight;Age;Euthanasia Location
+OSD-581	1	07-Nov-2022	2022	TripleTOF 6600	mass spectrometry	protein expression profiling	1	Lolium multiflorum	soil environment exposure;Organism Part
+OSD-582	1	27-Feb-2023	2023	Oxford Nanopore Technologies	nucleotide sequencing	genome sequencing	2	Pseudomonas fulva;Staphylococcus saprophyticus	Spaceflight
+OSD-583	1	27-Jan-2023	2023	TonoLab-ICARE	Tonometry	Intraocular Pressure	1	Mus musculus	Spaceflight
+OSD-591	3	30-May-2023	2023	AlphaImager Gel Imaging System, Protein Simple	Western Blot	protein quantification	1	Mus musculus	Ionizing Radiation;absorbed radiation dose;Time
+OSD-591	3	30-May-2023	2023	Axioskop Microscope (Carl Zeiss)	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Ionizing Radiation;absorbed radiation dose;Time
+OSD-591	3	30-May-2023	2023	ImageScope 12 (Leica Biosystems)	Microscopy	Molecular Cellular Imaging	1	Mus musculus	Ionizing Radiation;absorbed radiation dose;Time
+OSD-592	1	12-Jun-2023	2023	Zeiss LSM 880	Immunohistochemistry	Molecular Cellular Imaging	1	Drosophila melanogaster	Altered Gravity;Sex;Spaceflight
+OSD-594	1	14-Aug-2023	2023	Oxford Nanopore Technologies	Whole-Genome Shotgun Sequencing	Metagenomic sequencing	1	Microbiota	Organism Part;Treatment
+OSD-595	1	25-May-2023	2023	Multi-use Variable Gravity Drosophila hardware (UI-1491LE camera)	Video Recording	Behavior	1	Drosophila melanogaster	Altered Gravity;Spaceflight
+OSD-596	1	25-May-2023	2023	Manual Counting	Locomotory Behavior	Behavior	1	Drosophila melanogaster	Altered Gravity;Spaceflight;Sex
+OSD-608	1	17-May-2023	2023	XCT Research SA+(Stratec)	Peripheral Quantitative Computed Tomography	Bone Microstructure	1	Rattus norvegicus	Partial Weight Bearing;Time
+OSD-612	2	01-Aug-2023	2023	Illumina	single-cell RNA sequencing	transcription profiling	1	Mus musculus	Spaceflight
+OSD-612	2	01-Aug-2023	2023	Illumina	single-cell ATAC-seq	Chromatin Accessibility	1	Mus musculus	Spaceflight
+OSD-613	2	01-Aug-2023	2023	Illumina	single-cell RNA sequencing	transcription profiling	1	Mus musculus	Spaceflight;Age
+OSD-613	2	01-Aug-2023	2023	Illumina	single-cell ATAC-seq	Chromatin Accessibility	1	Mus musculus	Spaceflight;Age
+OSD-618	6	29-August-2023	2023	Elevated Plus Maze	Elevated Plus Maze	Behavior	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Sex;Housing Condition
+OSD-618	6	29-August-2023	2023	Open Field	Open Field	Behavior	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Sex;Housing Condition
+OSD-618	6	29-August-2023	2023	Three Chamber Social Approach	Three Chamber Social Isolation	Behavior	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Sex;Housing Condition
+OSD-618	6	29-August-2023	2023	Novel Object Recognition	Novel Object Recognition	Behavior	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Sex;Housing Condition
+OSD-618	6	29-August-2023	2023	Radial Arm Water Maze	RAWM	Behavior	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Sex;Housing Condition
+OSD-618	6	29-August-2023	2023	Conduct Science (ME-BB-M01)	Balance	Behavior	1	Mus musculus	Hindlimb Unloading;Ionizing Radiation;Sex;Housing Condition
+OSD-627	1	24-Aug-2023	2023	Nikon SIM A1 Laser scanning Confocal Microscope-inverted	Confocal	Molecular Cellular Imaging	1	Pseudomonas aeruginosa	Spaceflight;Growth Environment;Time
+OSD-628	1	12-Sep-2023	2023	Nikon SIM A1 Laser scanning Confocal Microscope	Confocal	Molecular Cellular Imaging	1	Penicillium rubens	Spaceflight;Growth Environment;Time
+OSD-640	1	24-Aug-2023	2023	FACS Canto2(Becton Dickinson)	Flow Cytometry	Flow Cytometry	1	Mus musculus	Hindlimb Unloading;Sex;Housing Condition;Ionizing Radiation
+OSD-654	2	04-Oct-2023	2023	SkyScan 1176 V1 build 12	Micro-Computed Tomography	Bone Microstructure	1	Mus musculus	Spaceflight;Space Mission;Genotype
+OSD-654	2	04-Oct-2023	2023	OsteoSys InSIGHT	Dual-Energy X-Ray Absorptiometry	Bone Microstructure	1	Mus musculus	Spaceflight;Space Mission;Genotype
+OSD-660	1	26-Sep-2023	2023	BioRad ChemiDoc	Western Blot	protein quantification	1	Mus musculus	Spaceflight
