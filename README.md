@@ -1,13 +1,15 @@
+These documentaries plan to evolve.
+
+
 # Table of contents
 
 * [how-to-access-data-in-the-osdr](chapters/how-to-access-data-in-the-osdr.md)
-* [guidelines-for-data-submission](chapters/guidelines-for-data-submission.md)
 * [osdr-public-api](chapters/osdr-public-api.md)
 * [osdr-data-visualization-portal](chapters/osdr-data-visualization-portal.md)
 * [environmental-data-for-space-biology-experiments](chapters/environmental-data-for-space-biology-experiments.md)
 * [radlab-overview](chapters/radlab-overview.md)
-* [nasa-biological-institutional-scientific-collection-nbisc](chapters/nasa-biological-institutional-scientific-collection-nbisc.md)
 * [open-science-abbreviations](chapters/open-science-abbreviations.md)
+
 * [Methods\_Lesson\_01](chapters/Methods\_Lesson\_01.ipynb)
 * [rr9-phenotypes\_Lesson\_01](chapters/rr9-phenotypes\_Lesson\_01.ipynb)
 * [Methods](chapters/Methods.ipynb)
