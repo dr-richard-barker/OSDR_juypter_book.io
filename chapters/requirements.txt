@@ -1,4 +1,10 @@
-jupyter-book
+# Pin the classic (Sphinx-based) Jupyter Book — v2 is a different, MyST/Node tool
+# and is NOT compatible with this book's jb-book _toc.yml format.
+jupyter-book<2
+
+# Core libraries used by the notebooks
 matplotlib
 numpy
 pandas
+requests
+plotly

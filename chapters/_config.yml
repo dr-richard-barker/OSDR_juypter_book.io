@@ -1,0 +1,38 @@
+# Book settings — https://jupyterbook.org/customize/config.html
+title: Open Science Data Repository (OSDR) — Interactive FAIR Notebook
+author: Richard Barker and the OSDR team
+logo: GeneLab_logo2.png
+copyright: "2026"
+
+# Don't re-run notebooks during the build: use the outputs already saved in
+# each .ipynb. This keeps CI fast and green (many notebooks hit the live OSDR
+# API / large data files). Re-run notebooks locally to refresh their outputs.
+execute:
+  execute_notebooks: "off"
+
+# A bibtex file so we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Where the book lives on the web (powers the edit / issue / repo buttons)
+repository:
+  url: https://github.com/dr-richard-barker/OSDR_juypter_book.io
+  path_to_book: chapters
+  branch: main
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+
+# Allow MyST features used in the notebooks / markdown
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+    - linkify
+
+# Don't fail the whole build on a single notebook/cell error while we iterate
+sphinx:
+  config:
+    nb_execution_allow_errors: true
