@@ -1,2 +1,9 @@
 /docs/conf.py
 /docs/_build
+
+# Jupyter Book build output
+_build/
+chapters/_build/
+
+# Notebook checkpoints
+.ipynb_checkpoints/

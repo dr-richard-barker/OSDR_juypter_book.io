@@ -1,25 +1,41 @@
-# Welcome to your Jupyter Book
+# Open Science Data Repository — Interactive FAIR Notebook
 
-```{# Table of contents
+Welcome! This interactive Jupyter Book is a tool for **exploring, assessing, and
+telling stories with** data from NASA's [Open Science Data Repository
+(OSDR)](https://osdr.nasa.gov/), built on top of the public
+[biodata API](https://visualization.osdr.nasa.gov/biodata/api/).
 
-* [how-to-access-data-in-the-osdr](how-to-access-data-in-the-osdr.md)
-* [guidelines-for-data-submission](guidelines-for-data-submission.md)
-* [osdr-public-api](osdr-public-api.md)
-* [osdr-data-visualization-portal](osdr-data-visualization-portal.md)
-* [environmental-data-for-space-biology-experiments](environmental-data-for-space-biology-experiments.md)
-* [radlab-overview](radlab-overview.md)
-* [nasa-biological-institutional-scientific-collection-nbisc](nasa-biological-institutional-scientific-collection-nbisc.md)
-* [open-science-abbreviations](open-science-abbreviations.md)
-* [Methods_Lesson_01](Methods_Lesson_01.ipynb)
-* [rr9-phenotypes_Lesson_01](rr9-phenotypes_Lesson_01.ipynb)
-* [Methods](Methods.ipynb)
-* [Regression](Regression.ipynb)
-* [Classification](lassification.ipynb)
-* [Clustering](lustering.ipynb)
-* [Tablular_Data](Tablular_Data.ipynb)
-* [Image_Data](Image_Data.ipynb)
-* [PubMed_scraping_notenook_for_ISSOP_figures](PubMed_scraping_notenook_for_ISSOP_figures.ipynb)
-* [Knowledge-graph-notebook_for_ISSOP_figures](Knowledge-graph-notebook_for_ISSOP_figures.ipynb)
-* [notebooks](notebooks.ipynb)
-* [SUMMARY](SUMMARY.md)
+The goal is a publication-ready tool that helps you:
+
+- **Find** what data is available across OSDR (GeneLab + ALSDA) studies.
+- **Assess** each dataset against **FAIR** principles — Findable, Accessible,
+  Interoperable, Reusable.
+- **Visualise** metadata and results interactively for data storytelling.
+
+## How this book is organised
+
+```{tableofcontents}
 ```
+
+## Getting started
+
+Every notebook can be launched live (Binder / Colab / your own Jupyter) and the
+markdown chapters explain the OSDR data systems and APIs. To build this book
+locally:
+
+```bash
+pip install -r requirements.txt
+jupyter-book build .
+```
+
+The OSDR biodata API is the backbone of the interactive layer:
+
+| Purpose | Endpoint |
+| --- | --- |
+| List all datasets | `/v2/datasets/` |
+| Dataset metadata | `/v2/dataset/{ACCESSION}/` |
+| Assays in a dataset | `/v2/dataset/{ACCESSION}/assays/` |
+| Query metadata across studies | `/v2/query/metadata/` |
+| Query data columns | `/v2/query/data/` |
+
+Base URL: `https://visualization.osdr.nasa.gov/biodata/api/v2/`
