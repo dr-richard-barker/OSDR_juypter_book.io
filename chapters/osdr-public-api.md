@@ -591,7 +591,7 @@ By following this tutorial, researchers can effectively access, analyze, and der
 
 ### Getting Started with OSDR Data in AWS S3 buckets <a href="#a5sz8b4klkm8" id="a5sz8b4klkm8"></a>
 
-This how-to guide is for new users who would like to access and work with the Open Science Data Repository (OSDR) data available on the Registry of Open Data on AWS. This initiative, as part of the Science Mission Directorate (SMD) Open-Source Science Initiative, aims to enhance data accessibility for open science within the NASA space biology community. Through the OSDR S3 bucket, users can access a diverse range of data including microbe, plant, fruit fly, rodent, human cell culture, ground study, and commercial astronaut studies. This guide will walk you through the steps of installing the AWS Command Line Interface (CLI) and utilizing it to access OSDR data.
+This how-to guide is for new users who would like to access and work with the Open Science Data Repository (OSDR) data available on the Registry of Open Data on AWS. This initiative, as part of the Science Mission Directorate (SMD) Open-Source Science Initiative, aims to enhance data accessibility for open science within the NASA space biology community. Through the OSDR S3 bucket, users can access a diverse range of data spanning many organisms and study types — including plants, microbes, invertebrates, mammalian models, cell cultures, ground studies, and commercial spaceflight studies. This guide will walk you through the steps of installing the AWS Command Line Interface (CLI) and utilizing it to access OSDR data.
 
 ### Introduction to OSDR Data on AWG <a href="#id-8ye2imi3hl09" id="id-8ye2imi3hl09"></a>
 

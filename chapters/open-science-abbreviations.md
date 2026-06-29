@@ -176,8 +176,6 @@ OVY Ovary or Ovaries
 
 Quad Quadricep
 
-RTN Retina
-
 SKN Skin
 
 SLS Soleus
@@ -196,10 +194,6 @@ TNG Tongue
 
 WAT White Adipose Tissue
 
-RR Rodent Research
-
-MHU Mouse Habitat Unit (JAXA mouse habitat unit)
-
 FS Freezing Study
 
 JAXA Japan Aerospace Exploration Agency
@@ -211,8 +205,6 @@ C# Cohort Number
 LAR Live Animal Return
 
 ISS-T ISS Terminal Animal
-
-NuRFB Nutrient Upgraded Rodent Food Bar
 
 IR Irradiation
 
@@ -276,11 +268,7 @@ URR Universal Reference RNA
 
 UHRR Universal Human Reference RNA
 
-UMRR Universal Mouse Reference RNA
-
 Gspe Genus species
-
-C57-6J C57BL/6 mouse from Jackson Labs
 
 OR Oregon R (Fruit Fly strain)
 
@@ -288,15 +276,9 @@ act2-3 Arabidopisis thaliana vegetative actin mutant
 
 Col-0 Arabidopsis thaliana Columbia-0 ecotype
 
-C57-10J C57BL/10J mouse from Jackson Labs
-
 Ler-0 Landsberg ecotype
 
 sShoots seedling shoots - will probably change. describes development AND anatomy. will review in JIRA process Amanda M. Saravia-butler
-
-C57-6IBCh C57BL/6 mouse from Shemyakin & Ovchinnikov Institute of Bioorganic Chemistry, Russia
-
-C57-6T C57BL/6 mouse from Taconic Biosciences
 
 I dissected immediately after euthanasia
 
@@ -305,8 +287,6 @@ C dissected from frozen carcass
 ARG1-KO A. thaliana Col-0 knock-out line deficient in the gene named Altered response to gravity-1
 
 JkTcells Jurkat T cells
-
-C57-6CR C57BL/6 mouse from Charles River
 
 os-ind osteo-induced
 
@@ -353,8 +333,6 @@ sl-pool pool of 2 or more whole seedlings
 lvCMC left ventricular cardiomyocytes
 
 MCL medial collateral ligament
-
-Rnor Rattus norvegicus
 
 Sx surgery
 
@@ -412,14 +390,6 @@ preFLT pre spaceflight (describes condition in which sample was collected)
 
 postFLT post spaceflight (describes condition in which sample was collected)
 
-BAL-SL BALB/c mouse from Simonsen Labs
-
-BAL-JL BALB/c mouse from Jackson Laboratory
-
-BAL-TAL BALB/c mouse from Taconic Animal Laboratory
-
-4T1-Tumor Flank tumor derived from the 4T1 murine mammary carcinoma cell line that was generated from a BALB/cfC3H mouse
-
 1D11 Antibody that binds to TGFB and thus inhibits function
 
 IsoCTRL Isotype control - primary antibodies that lack specificity to the target, but match the class and type of the primary antibody used in the
@@ -450,21 +420,7 @@ TK6cells TK6 Lymphoblast Cell Line
 
 cax1-1 describes cax1-1 transgenic line of Arabidopsis thaliana
 
-SDR Sprague Dawley Rats (for general use when source is not available Amanda M. Saravia-butler )
-
-SDR-TF Sprague Dawley Rats from Taconic Farms
-
 56Fe Iron isotope
-
-C3H-He-Slc C3H/He mice from Japan Slc, Inc.
-
-C57-6J-Jms-
-
-Slc
-
-C57BL/6J Jms mice from Japan Slc, Inc.
-
-AJ-Jms-Slc A/J Jms mice from Japan Slc, Inc
 
 h hour (Time)
 
@@ -494,8 +450,6 @@ Hi-LET High Linear Energy Transfer
 
 Si Silicon isotope
 
-C3H-HeJ C3H Heston mouse from Jackson Labs (aka C3H/HeJ)
-
 d day (time)
 
 K-12MG1655 strain (of E. coli) K-12 MG1655
@@ -507,8 +461,6 @@ VL vastus lateralis
 Rep replicate
 
 Hsap Homo sapiens
-
-Mmus Mus musculus
 
 shamIR mock irradiation (i.e. subject to irradiation equipment but not exposed to irradiation)
 
@@ -551,14 +503,6 @@ CO2 Carbon Dioxide
 RLT RNeasy Lysis Buffer
 
 IRC Irradiation Control - No mock IR was performed, i.e. subjects were not exposed to IR nor an IR set-up
-
-F# mouse number from a spaceflight group
-
-G# mouse number from a ground control group
-
-B# mouse number from a basal group
-
-V# mouse number from a vivarium group
 
 R1 Forward Read
 
@@ -630,8 +574,6 @@ LPS lipopolysaccharide
 
 S-UHRR Stratagene Universal Human Reference RNA
 
-PTN-OSF1 transgenic mice overexpressing the osteogneic factor PTN/OSF1
-
 cells material type - cell line
 
 DLD-1 DLD-1 cells epithelial, adherent cell line derived from a colorectal adenocarcinoma (Dukes type C)
@@ -702,20 +644,6 @@ LLCtumor Tumor derived from Lewis lung carcinoma cells
 
 LLCcells Lewis lung carcinoma cells
 
-Trp53N-MG Trp53 null mammary gland
-
-B6.
-
-129S2KrasLA1
-
-B6.129S2-Krastm2Tyj/Nci Mouse strain - This strain carries a targeted latent 'hit-and-run' K-ras allele that can be activated by an in
-
-vivo spontaneous recombination event ('run'). One half of the in vivo recombination events result in a normal K-ras allele and one half
-
-in an activated allele (K-rasG12D).
-
-Trp53N-MGT Trp53 null mammary gland tumor
-
 Drer Danio rerio
 
 PBLs peripheral blood lymphocytes
@@ -727,8 +655,6 @@ ble bleomycin
 FBC fibroblasts cells
 
 Low-LET Low Linear Energy Transfer
-
-C57-6 C57BL/6 mouse from an unknown origin
 
 cls plant callus
 
@@ -838,8 +764,6 @@ arch archaea
 
 uni universal
 
-M# mouse number
-
 S# subject number
 
 scWim sample collected while inside module
@@ -861,8 +785,6 @@ Anox Anoxia (oxygen deprived)
 noAnox not Anoxia (not oxygen deprived)
 
 mid-age middle-age
-
-C57-6NIA C57BL/6 mouse from National Institute of Aging
 
 CUMS chronic unpredictable mild stressors
 
