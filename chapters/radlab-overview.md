@@ -1,7 +1,8 @@
 ---
 description: >-
   The OSDR RadLab application is a valuable tool for researchers and scientists
-  who need access to radiation measurements from space.
+  who need access to radiation measurements from space, including astrobotanists
+  interpreting how plants respond to the spaceflight radiation environment.
 ---
 
 # RadLab Overview
@@ -12,11 +13,11 @@ description: >-
 
 The application provides a central repository for radiation data from a wide variety of sensors that have flown on various spacecraft. This makes it easy for users to find and access the data they need, regardless of the specific sensor or spacecraft that collected it.
 
-The OSDR RadLab application is also a powerful tool for data analysis. It provides a variety of features that allow users to visualize, analyze, and compare radiation data. This can be helpful for identifying trends and patterns in the data, as well as for understanding the effects of radiation on different materials and systems.
+The OSDR RadLab application is also a powerful tool for data analysis. It provides a variety of features that allow users to visualize, analyze, and compare radiation data. This can be helpful for identifying trends and patterns in the data, as well as for understanding the effects of radiation on different materials and systems. Ionizing radiation is one of the defining environmental factors of spaceflight, and it affects all living organisms — including plants. For astrobotany researchers, the dose and timing of radiation a payload experienced is valuable context for interpreting how plants such as *Arabidopsis thaliana* responded during a mission.
 
 One of the most important features of the OSDR RadLab application is its ability to connect primary radiation data with metadata such as vehicle and time. This information is essential for understanding the context in which the radiation data was collected. It can also be used to filter and sort the data, making it easier to find the specific information that users are looking for.
 
-The OSDR RadLab application is a valuable resource for researchers and scientists who need access to radiation measurements from space. It is a powerful tool for data analysis and visualization, and it can help users to understand the effects of radiation on different materials and systems.
+The OSDR RadLab application is a valuable resource for researchers and scientists who need access to radiation measurements from space. It is a powerful tool for data analysis and visualization, and it can help users to understand the effects of radiation on different materials and systems. Plant space-biology investigations benefit from this too: spaceflight experiments such as the Characterizing Arabidopsis Root Attractions (CARA) study (OSD-120) examine how *Arabidopsis* grows in orbit, and pairing those biological results with RadLab's radiation records helps researchers account for the radiation environment the plants were exposed to.
 
 #### **Data overview page** <a href="#txgh0vy0ejzk" id="txgh0vy0ejzk"></a>
 
