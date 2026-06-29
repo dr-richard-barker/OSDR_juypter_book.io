@@ -7,3 +7,7 @@ chapters/_build/
 
 # Notebook checkpoints
 .ipynb_checkpoints/
+
+# pybiomart query cache (regenerated when notebooks run)
+.pybiomart.sqlite
+**/.pybiomart.sqlite
