@@ -50,6 +50,7 @@ public [OSDR biodata API](https://visualization.osdr.nasa.gov/biodata/api/).
 | --- | --- | --- |
 | **Live FAIR assessment** notebook (scorecard + interactive Plotly charts) | [`chapters/OSDR_FAIR_assessment.ipynb`](chapters/OSDR_FAIR_assessment.ipynb) | ✅ |
 | FAIR notebook generator (reproducible source of truth) | [`chapters/_make_fair_notebook.py`](chapters/_make_fair_notebook.py) | ✅ |
+| **Demo notebooks re-authored around one *Arabidopsis* story** (see below) | [`chapters/`](chapters/) | ✅ |
 | Dataset / assay **drill-down explorer** (browse assays, samples, data columns) | _tbd_ | 📋 |
 | **Data storytelling** views (FAIR × organism × factor type) | _tbd_ | 📋 |
 | Per-dataset, actionable "improve your FAIRness" reports for submitters | _tbd_ | 📋 |
@@ -65,6 +66,31 @@ public [OSDR biodata API](https://visualization.osdr.nasa.gov/biodata/api/).
 | Contributor guide | 📋 |
 
 ---
+
+## 🌱 The unified Arabidopsis storyline (demo notebooks)
+
+The demo/analysis notebooks share one narrative so readers explore interactive
+data at every stage of an analysis. They follow the **CARA experiment**
+([OSD-120 / GLDS-120](https://osdr.nasa.gov/bio/repo/data/studies/OSD-120),
+*Characterizing Arabidopsis Root Attractions*; Paul & Ferl): *Arabidopsis
+thaliana* roots grown in **spaceflight (FLT)** vs **ground control (GC)** on the
+ISS. (These lessons were previously based on rodent spaceflight data and have
+been fully converted to plant biology.)
+
+| Notebook | What the reader does with the CARA data |
+| --- | --- |
+| `Tabular_Data.ipynb` | Load & wrangle OSD-120 root RNA-seq (pandas/NumPy) |
+| `Clustering.ipynb` | Unsupervised clustering separates FLT vs GC roots |
+| `Regression.ipynb` | Predict root **length** (CARA phenotypes) from gene expression |
+| `Classification.ipynb` | Classify FLT-vs-GC and light-vs-dark from expression |
+| `rr9-phenotypes_Lesson_01.ipynb` | Compare root traits (length/surface/volume/diameter) FLT vs ground |
+| `Methods.ipynb`, `Methods_Lesson_01.ipynb` | Shared AI/ML method library, on OSD-120 |
+
+> **Re-running the notebooks:** the book builds without executing them
+> (`execute_notebooks: off`), so the *book* needs only `chapters/requirements.txt`.
+> To **run** the analysis notebooks live you'll also need their heavier libraries
+> (e.g. `scanpy`, `pydeseq2`, `seaborn`, `scipy`, `statsmodels`, `pybiomart`);
+> several notebooks `pip install` what they need at the top.
 
 ## 🔑 Key findings so far
 
