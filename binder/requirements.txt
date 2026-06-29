@@ -15,3 +15,7 @@ statsmodels
 scikit-learn
 scikit-image
 pybiomart
+
+# Heavier libs for the Clustering notebook (single-cell / differential expression)
+scanpy
+pydeseq2

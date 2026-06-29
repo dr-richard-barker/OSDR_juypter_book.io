@@ -29,6 +29,7 @@ parts:
       - file: PubMed_scraping_notenook_for_ISSOP_figures.ipynb
       - file: Knowledge-graph-notebook_for_ISSOP_figures.ipynb
 
-  - caption: Interactive OSDR API explorer
+  - caption: Interactive OSDR explorers
     chapters:
       - file: osdr-public-api.ipynb
+      - file: OSDR_dataset_explorer.ipynb
