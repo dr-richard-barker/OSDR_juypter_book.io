@@ -87,14 +87,14 @@ The portal encompasses various visualization types, including Gene Expression qu
 
 The multi-study page is used to initialize the parameters for data visualization of the multiple studies. Researchers can uncover intricate patterns of gene expression associated with specific conditions or treatments across a variety of experiments. Below are detailed instructions on how to effectively navigate and utilize the Multi-Study Page.
 
-* For your initial test, let's use rodent studies as an example.
-* Start by selecting "rodent" as the organism of interest. Since combining DNA microarray assays is not supported, ensure filtering by both "rodent" and "RNA sequencing" in the assay technology type.
-* Choose two different rodent studies that encompass various tissue types. For instance, select "OSD-49" and "OSD-100."
+* For your initial test, let's use Arabidopsis thaliana (plant) studies as an example.
+* Start by selecting "Arabidopsis thaliana" as the organism of interest. Since combining DNA microarray assays is not supported, ensure filtering by both "Arabidopsis thaliana" and "RNA sequencing" in the assay technology type.
+* Choose two different Arabidopsis studies that encompass various organ/tissue types. For instance, select "OSD-120" and "OSD-217."
 * Mark the checkboxes beside the selected studies in the studies table.
 * Click the "Visualize Study" button to proceed.
-* In this example OSD-49 & OSD100 have been selected, normalized with DESeq2 and their first 2 principle components plotted in a 2D scatter plot. To the right the is a factor selection tab where you can add new factors that will appear as columns beside the OSD-###. Clicking on the “Expand table” button reveals a table showing all the replicates and the metadata the user loads.
+* In this example OSD-120 & OSD-217 have been selected, normalized with DESeq2 and their first 2 principle components plotted in a 2D scatter plot. To the right the is a factor selection tab where you can add new factors that will appear as columns beside the OSD-###. Clicking on the “Expand table” button reveals a table showing all the replicates and the metadata the user loads.
 
-<figure><img src=".gitbook/assets/image (10).png" alt="Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-49 &#x26; OSD-100."><figcaption><p><em>Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-49 &#x26; OSD-100.</em></p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (10).png" alt="Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-120 &#x26; OSD-217."><figcaption><p><em>Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-120 &#x26; OSD-217.</em></p></figcaption></figure>
 
 ### &#x20;<a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a>
 
@@ -272,7 +272,7 @@ To export a Differential Gene Expression (DGE) table from the study visualizatio
 
 **Note:** Choose the method that best suits your needs to access and analyze the DGE data efficiently.
 
-<figure><img src=".gitbook/assets/Slide64 (1).png" alt="Table showing 10 significantly differentially expressed mouse loci in the OSD-4. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value."><figcaption><p><em>Table showing 10 significantly differentially expressed mouse loci in the OSD-4. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value. There are button in the top right hand corner that allow the user to down load these data.</em></p></figcaption></figure>
+<figure><img src=".gitbook/assets/Slide64 (1).png" alt="Table showing 10 significantly differentially expressed Arabidopsis loci in OSD-120. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value."><figcaption><p><em>Table showing 10 significantly differentially expressed Arabidopsis loci in OSD-120. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value. There are button in the top right hand corner that allow the user to down load these data.</em></p></figcaption></figure>
 
 #### &#x20;<a href="#id-8vsniiswkqfg" id="id-8vsniiswkqfg"></a>
 

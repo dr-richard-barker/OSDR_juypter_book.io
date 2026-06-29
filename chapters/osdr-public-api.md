@@ -296,37 +296,37 @@ Need datasets with the exact title "A Study of Microbial Communities in Space"? 
 
 | **Filter Field (Case Sensitive)** | **Example Filter Value**                                                                        |
 | --------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Accession                         | OSD-4                                                                                           |
-| Acknowledgments                   | NASA JPL                                                                                        |
-| Authoritative Source URL          | OSD-4                                                                                           |
-| Data Source Accession             | GSE18388                                                                                        |
+| Accession | OSD-120 |
+| Acknowledgments | CASIS |
+| Authoritative Source URL | OSD-120 |
+| Data Source Accession | GLDS-120 |
 | Data Source Type                  | cgene                                                                                           |
-| Experiment Platform               | Animal Enclosure Module                                                                         |
-| Flight Program                    | Shuttle                                                                                         |
-| links                             | GPL13112                                                                                        |
+| Experiment Platform | Petri plate |
+| Flight Program | International Space Station (ISS) |
+| links | GLDS-120 |
 | Managing NASA Center              | Ames Research Center                                                                            |
-| Material Type                     | thymus                                                                                          |
-| organism                          | Mus musculus                                                                                    |
-| Project Identifier                | NNA04CC97G                                                                                      |
-| Project Link                      | https://taskbook.nasaprs.com/tbp/index.cfm?action=public\_query\_taskbook\_content\&TASKID=7191 |
-| Project Title                     | Vector-Averaged Gravity                                                                         |
+| Material Type | root |
+| organism | Arabidopsis thaliana |
+| Project Identifier | CARA |
+| Project Link | https://osdr.nasa.gov/bio/repo/data/studies/OSD-120 |
+| Project Title | Characterizing Arabidopsis Root Attractions (CARA) |
 | Project Type                      | Spaceflight                                                                                     |
 | Space Program                     | NASA                                                                                            |
 | Study Assay Measurement Type      | transcription profiling                                                                         |
-| Study Assay Technology Platform   | Affymetrix                                                                                      |
-| Study Assay Technology Type       | DNA microarray                                                                                  |
-| Study Description                 | Murine Thymus Tissue                                                                            |
+| Study Assay Technology Platform | Illumina |
+| Study Assay Technology Type | RNA Sequencing (RNA-Seq) |
+| Study Description | Arabidopsis spaceflight transcriptome (roots grown on the ISS) |
 | Study Factor Name                 | Spaceflight                                                                                     |
 | Study Factor Type                 | Space Flight                                                                                    |
-| Study Funding Agency              | NNA04CC97G                                                                                      |
-| Study Identifier                  | OSD-4                                                                                           |
-| Study Protocol Description        | thymus tissue                                                                                   |
+| Study Funding Agency | CASIS grant GA-2013-104 |
+| Study Identifier | OSD-120 |
+| Study Protocol Description | RNA extraction and sequencing of Arabidopsis roots |
 | Study Protocol Name               | sample collection                                                                               |
 | Study Protocol Type               | sample collection                                                                               |
 | Study Public Release Date         | 1268179200                                                                                      |
-| Study Publication Author List     | Gruener R                                                                                       |
-| Study Publication Title           | spaceflown murine thymus tissue                                                                 |
-| Study Title                       | Space-flown Murine Thymus Tissue                                                                |
+| Study Publication Author List | Paul AL |
+| Study Publication Title | Genetic dissection of the Arabidopsis spaceflight transcriptome |
+| Study Title | Genetic dissection of the Arabidopsis spaceflight transcriptome |
 
 **Example(s):** [https://osdr.nasa.gov/osdr/data/search?term=space\&from=0\&type=cgene,nih\_geo\_gse\&ffield=links\&fvalue=GPL16417\&ffield=Data%20Source%20Accession.raw\&fvalue=GSE82255](https://osdr.nasa.gov/osdr/data/search?term=space\&from=0\&type=cgene,nih\_geo\_gse\&ffield=links\&fvalue=GPL16417\&ffield=Data%20Source%20Accession.raw\&fvalue=GSE82255)
 
@@ -338,19 +338,19 @@ The API provides a comprehensive list of filter fields that you can leverage to 
 
 Here are some noteworthy filter fields along with example filter values to illustrate their functionality:
 
-* **Accession (OSD-4):** This field allows you to search for datasets based on their unique accession number within OSDR.
-* **Acknowledgments (NASA JPL):** Want to find datasets that acknowledge a specific entity (e.g., funding agency, collaborator)? Use this field.
-* **Authoritative Source URL (OSD-4):** This filter helps you identify datasets with a specific authoritative source URL.
-* **Data Source Accession (GSE18388):** If you know the accession number of the dataset in the original data source (e.g., Gene Expression Omnibus), you can use this filter to locate it within OSDR.
+* **Accession (OSD-120):** This field allows you to search for datasets based on their unique accession number within OSDR.
+* **Acknowledgments (CASIS):** Want to find datasets that acknowledge a specific entity (e.g., funding agency, collaborator)? Use this field.
+* **Authoritative Source URL (OSD-120):** This filter helps you identify datasets with a specific authoritative source URL.
+* **Data Source Accession (GLDS-120):** If you know the accession number of the dataset in the original data source (e.g., Gene Expression Omnibus), you can use this filter to locate it within OSDR.
 * **Data Source Type (cgene):** Refine your search by specifying the data source type (e.g., cgene for Gene Expression Omnibus, nih\_geo for Gene Expression Omnibus by NIH).
-* **Experiment Platform (Animal Enclosure Module):** This filter helps you narrow down datasets based on the specific experimental platform used (e.g., specific instrument, growth chamber).
-* **Flight Program (Shuttle):** This field is useful for studies related to a particular spaceflight program (e.g., Shuttle, Apollo).
-* **Links (GPL13112):** Search for datasets that are linked to other relevant resources identified by their IDs (e.g., gene expression platform in GEO).
+* **Experiment Platform (Petri plate):** This filter helps you narrow down datasets based on the specific experimental platform used (e.g., specific instrument, growth chamber).
+* **Flight Program (International Space Station (ISS)):** This field is useful for studies related to a particular spaceflight program (e.g., Shuttle, Apollo).
+* **Links (GLDS-120):** Search for datasets that are linked to other relevant resources identified by their IDs (e.g., gene expression platform in GEO).
 * **Additional Fields:** The API offers a variety of other filter fields encompassing details like the managing NASA center, material type, organism, project information, study characteristics (assay type, technology platform, description), and more.
 
 **Crafting Powerful Search Queries:**
 
-By strategically combining search terms with filter fields, you can formulate highly specific search queries that efficiently navigate the vast amount of data within OSDR. For instance, you could search for datasets related to "spaceflight" that involve "Mus musculus" (house mouse) organisms, were collected during the "Shuttle" program, and focus on "thymus" tissue.
+By strategically combining search terms with filter fields, you can formulate highly specific search queries that efficiently navigate the vast amount of data within OSDR. For instance, you could search for datasets related to "spaceflight" that involve "Arabidopsis thaliana" (thale cress) organisms, were grown on the "International Space Station (ISS)", and focus on "root" tissue.
 
 **Remember:**
 
@@ -366,7 +366,7 @@ Example Format: [https://osdr.nasa.gov/bio/repo/search?q=](https://osdr.nasa.gov
 
 [https://osdr.nasa.gov/bio/repo/search?q=**cancer**\&data\_source=**cgene**](https://osdr.nasa.gov/bio/repo/search?q=cancer\&data\_source=cgene)
 
-[https://osdr.nasa.gov/osdr/bio/repo/search?q=**mouse%20AND%20liver**\&data\_source=**cgene**](https://osdr.nasa.gov/bio/repo/search?q=mouse%20AND%20liver\&data\_source=cgene)
+[https://osdr.nasa.gov/osdr/bio/repo/search?q=**Arabidopsis%20AND%20root**\&data\_source=**cgene**](https://osdr.nasa.gov/bio/repo/search?q=Arabidopsis%20AND%20root\&data\_source=cgene)
 
 | Parameters   | Values                                     | Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -396,11 +396,11 @@ This alternative search syntax offers a user-friendly interface for exploring da
 
 **Use this URL:** [https://osdr.nasa.gov/bio/repo/search?q=cancer\&data\_source=nih\_geo\_gse](https://osdr.nasa.gov/bio/repo/search?q=cancer\&data\_source=nih\_geo\_gse)
 
-1. **Advanced Search with Operators:** Want to find datasets that contain "mouse" AND "liver" within the Gene Expression Omnibus database?
+1. **Advanced Search with Operators:** Want to find datasets that contain "Arabidopsis" AND "root" within the Gene Expression Omnibus database?
 
 **This URL achieves that:**
 
-[https://osdr.nasa.gov/bio/repo/search?q=mouse%20AND%20liver\&data\_source=nih\_geo\_gse](https://osdr.nasa.gov/bio/repo/search?q=mouse%20AND%20liver\&data\_source=nih\_geo\_gse)
+[https://osdr.nasa.gov/bio/repo/search?q=Arabidopsis%20AND%20root\&data\_source=nih\_geo\_gse](https://osdr.nasa.gov/bio/repo/search?q=Arabidopsis%20AND%20root\&data\_source=nih\_geo\_gse)
 
 ### **Key Points to Remember:** <a href="#l1um6r5i21tp" id="l1um6r5i21tp"></a>
 
