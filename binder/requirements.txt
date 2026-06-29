@@ -1,0 +1,17 @@
+# Environment for launching the notebooks live on Binder (mybinder.org).
+# Binder uses this file (in the binder/ directory) to build the interactive
+# session. It is the *runtime* stack for executing the notebooks — distinct from
+# chapters/requirements.txt, which only needs to *build* the static book.
+jupyterlab
+numpy
+pandas
+matplotlib
+requests
+plotly
+pillow
+scipy
+seaborn
+statsmodels
+scikit-learn
+scikit-image
+pybiomart
