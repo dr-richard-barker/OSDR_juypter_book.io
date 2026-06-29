@@ -11,7 +11,6 @@ parts:
   - caption: Introduction to OSDR and data access systems
     chapters:
       - file: how-to-access-data-in-the-osdr.md
-      - file: osdr-public-api.md
       - file: osdr-data-visualization-portal.md
       - file: environmental-data-for-space-biology-experiments.md
       - file: radlab-overview.md
@@ -29,3 +28,9 @@ parts:
       - file: Image_Data.ipynb
       - file: PubMed_scraping_notenook_for_ISSOP_figures.ipynb
       - file: Knowledge-graph-notebook_for_ISSOP_figures.ipynb
+
+  - caption: Interactive OSDR explorers & data stories
+    chapters:
+      - file: osdr-public-api.ipynb
+      - file: OSDR_dataset_explorer.ipynb
+      - file: OSDR_data_story.ipynb

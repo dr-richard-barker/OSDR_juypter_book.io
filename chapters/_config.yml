@@ -25,6 +25,14 @@ html:
   use_repository_button: true
   use_edit_page_button: true
 
+# Put a 🚀 "launch" menu on every notebook page so readers can run it live in
+# the cloud (no install) via Binder or Google Colab, or execute cells in-page.
+launch_buttons:
+  notebook_interface: "jupyterlab"
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+
 # Allow MyST features used in the notebooks / markdown
 parse:
   myst_enable_extensions:
