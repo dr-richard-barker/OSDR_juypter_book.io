@@ -7,8 +7,6 @@ description: >-
 
 # OSDR Data Visualization Portal
 
-<figure><img src=".gitbook/assets/Slide50 (2).png" alt="The image displays the NASA logo, which is a red, white, and blue meatball design. Below the logo is the text &#x22;Open Science for Life in Space&#x22;. To the right of the text is the website&#x27;s navigation menu the &#x22;Data Visualization” is highlighted with blue text, surrounded by a red box and has an red arrow pointing at it."><figcaption><p><em>The image displays the NASA logo, which is a red, white, and blue meatball design. Below the logo is the text "Open Science for Life in Space". To the right of the text is the website's navigation menu the "Data Visualization” is highlighted with blue text, surrounded by a red box and has an red arrow pointing at it.</em></p></figcaption></figure>
-
 [Link to Data Visualization Portal](https://visualization.genelab.nasa.gov/data/) ([https://visualization.genelab.nasa.gov/data/](https://visualization.genelab.nasa.gov/data/))
 
 {% embed url="https://visualization.genelab.nasa.gov/data/" %}
@@ -34,18 +32,12 @@ The portal encompasses various visualization types, including Gene Expression qu
 
     * At the bottom left of the table, there is a blue “Visualize Study” button that will launch any combination of studies that can be selected into a new tab in your browser for further analysis
 
-
-
-<figure><img src=".gitbook/assets/image (3).png" alt="Image showing 4 pie chart divided into multiple colored sections. The text in the center above the pie chart says 438 studies are currently selected. The pie charts summarize the OSDR metadata values for Factors, Assay technology type, Organism and tissue. Below the pie charts is a time providing more details and the capacity to select individual or multiple studies for further analysis. To the left of the screen is a series of filter options that allow the users drill down into the datasets and find related studies."><figcaption><p><em>Image showing the OSDR data visualisation home page. 4 pie chart are divided into multiple colored sections. The text in the center above the pie chart says 438 studies are currently selected. The pie charts summarize the OSDR metadata values for Factors, Assay technology type, Organism and tissue. Below the pie charts is a time providing more details and the capacity to select individual or multiple studies for further analysis. To the left of the screen is a series of filter options that allow the users drill down into the datasets and find related studies.</em></p></figcaption></figure>
-
 ### &#x20;<a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a>
 
 ### Selecting “processed studies” to find higher-order data. <a href="#uk50q5k2hiyu" id="uk50q5k2hiyu"></a>
 
 * Users can select factors as filters on the Pie charts or the left side of the dashboard, both sections will be updated to show the selected filters and the studies table will be updated to show the relevant studies.
   * At the top of the filter panel on the left of the screen, you can see the “Show only studies with processed data tab”, selecting this option and then pressing the “Apply” filter button that excludes studies without processed data.
-
-<figure><img src=".gitbook/assets/Slide51.png" alt="Image showing 2 screenshots of the metadata pie charts. The top row shows 438 studies and a red dotted box highlights the Factors, Assay technology types, Organism and Tissue titles on the pie charts to highlight they can be used as filters. The second row of pie charts is annotated with a red dashed arrow connecting the “Show only studies with processed data” option has been engaged and as a result the number of studies currently being selected has been reduced to 170."><figcaption><p><em>Image showing 2 screenshots of the metadata pie charts. The top row shows 438 studies and a red dotted box highlights the Factors, Assay technology types, Organism and Tissue titles on the pie charts to highlight they can be used as filters. The second row of pie charts is annotated with a red dashed arrow connecting the “Show only studies with processed data” option has been engaged and as a result the number of studies currently being selected has been reduced to 170.</em></p></figcaption></figure>
 
 ### &#x20;<a href="#e5g8py1a7trn" id="e5g8py1a7trn"></a>
 
@@ -56,8 +48,6 @@ The portal encompasses various visualization types, including Gene Expression qu
 * Each pie chart comes with a crosshair tool located at the bottom left. Selecting the crosshair displays a bar graph showing the factors listed in the pie chart.
   * **Example factors bar plot:** In this example, the tissue factor has been viewed as a bar plot, and then the “Root” is selected, this then opens a new table that includes the 2 tissue ontology terms that contributed to the original “Root” ontology term. In this example “Root” is made up of both “plant root” and “root”
 
-<figure><img src=".gitbook/assets/Slide52.png" alt="2 screenshots showing the “Tissue” metadata presented as bar charts. The red dashed line shows all the &#x22;tissue&#x22; options and highlights that in this example the “root” term is selected. In the bottom screenshot shows the 2 sub-terms that are combined in the “Root” term and an orange arrow pointing at the “Apply filter” button."><figcaption><p><em>2 screenshots showing the “Tissue” metadata presented as bar charts. The red dashed line shows all the "tissue" options and highlights that in this example the “root” term is selected. In the bottom screenshot shows the 2 sub-terms that are combined in the “Root” term and an orange arrow pointing at the “Apply filter” button.</em></p></figcaption></figure>
-
 ### &#x20;<a href="#baeehoyiz78k" id="baeehoyiz78k"></a>
 
 ### Selecting a study or group of studies for visualization <a href="#baeehoyiz78k" id="baeehoyiz78k"></a>
@@ -66,8 +56,6 @@ The portal encompasses various visualization types, including Gene Expression qu
 
 * You may also select multiple studies to visualize simultaneously in which case a user will be directed to a Multi-Study preview page before being directed to the data visualization tools.
   * **Filtered down to one study example:** A series of filters applied narrowed the selection to 1 study that fulfils all the user's parameters. The red dashed lines highlight the box that allows the user to select a study, the screen image also shows how a selected study appears when it is highlighted and also identifies where the blue “Visualize Study” button can be found.
-
-<figure><img src=".gitbook/assets/Slide53 (1).png" alt="Image showing Four pie charts illustrates the metadata results determined by applying a series of filters to identify studies with similar organisms and tissues. Red arrows indicate where users can select studies of interest and highlight how the blue visualization study button can be utilized to activate the data visualization graphical user interface."><figcaption><p><em>Image showing Four pie charts illustrate the metadata results determined by applying a series of filters to identify studies with similar organisms and tissues. Red arrows indicate where users can select studies of interest and highlight how the blue visualization study button can be utilized to activate the data visualization graphical user interface.</em></p></figcaption></figure>
 
 ### &#x20;<a href="#s7aljci4w0hb" id="s7aljci4w0hb"></a>
 
@@ -79,10 +67,6 @@ The portal encompasses various visualization types, including Gene Expression qu
 
     * **First 10 in chronological order:** If no list is applied then the table default is to show these in numerical order based on the OSD accession number.
 
-
-
-<figure><img src=".gitbook/assets/image (5).png" alt="Table showing the frist 8 OSD accessions providing their title, assay, organism, tissue, and factors being studied."><figcaption><p><em>Table showing the frist 8 OSD accessions providing their title, assay, organism, tissue, and factors being studied.</em></p></figcaption></figure>
-
 ### Selecting studies for Multi-study analysis: <a href="#adcagqrqpdky" id="adcagqrqpdky"></a>
 
 The multi-study page is used to initialize the parameters for data visualization of the multiple studies. Researchers can uncover intricate patterns of gene expression associated with specific conditions or treatments across a variety of experiments. Below are detailed instructions on how to effectively navigate and utilize the Multi-Study Page.
@@ -93,8 +77,6 @@ The multi-study page is used to initialize the parameters for data visualization
 * Mark the checkboxes beside the selected studies in the studies table.
 * Click the "Visualize Study" button to proceed.
 * In this example OSD-120 & OSD-217 have been selected, normalized with DESeq2 and their first 2 principle components plotted in a 2D scatter plot. To the right the is a factor selection tab where you can add new factors that will appear as columns beside the OSD-###. Clicking on the “Expand table” button reveals a table showing all the replicates and the metadata the user loads.
-
-<figure><img src=".gitbook/assets/image (10).png" alt="Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-120 &#x26; OSD-217."><figcaption><p><em>Screenshot showing the graphical user interface of the Multi-study visualization application showing data for OSD-120 &#x26; OSD-217.</em></p></figcaption></figure>
 
 ### &#x20;<a href="#n1ennvxv3ysp" id="n1ennvxv3ysp"></a>
 
@@ -129,18 +111,12 @@ Users can then select a threshold based on quantitative factors of gene expressi
 
 When a user accesses the multi-study visualization the DGE table will have several options to export the information at the top of the table.
 
-<figure><img src=".gitbook/assets/Slide33 (1).png" alt="" width="140"><figcaption><p>The sidebar allows users to go straight to specific types of data visualisation including PCA, Volcano, Scatter pairs, heatmaps, GSEA and tables of DESeq2 results. </p></figcaption></figure>
-
 ### Plotly <a href="#id-6klo26n9so4x" id="id-6klo26n9so4x"></a>
 
 **Plotly is a third-party software that uses data provided by OSDR to create the interactive visualizations displayed.**
 
 * At the top-right corner of each plot will be options to help a user better visualize the data. The house logo within the options will reset the axes of the plots back to default.
   * Users also have the option to zoom in/out on each plot as well as auto-scale the graphic. There are two tools provided for data point selection, the lasso tool and the box select tool. Each of these tools provides a shape that will select any data points that fall within them. Lastly, there is a download button in the shape of a camera that will let you download the plot as a PNG file.
-
-<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (7).png" alt="Screenshot showing an example scatter plot made of red and blue dots. The % difference threshold is used to determine the relative proportions of red and bue. Above it is an enlarged version of the plotly panel of graph optimization options with the &#x22;Pan&#x22; button selected. The panel also has a button for copying a screenshot, minimising the screen, and maximising the screen, along with the lasso and square box selection tools."><figcaption><p><em>Screenshot showing an example scatter plot made of red and blue dots. The % difference threshold is used to determine the relative proportions of red and bue. Above it is an enlarged version of the plotly panel of graph optimization options with the "Pan" button selected. The panel also has a button for copying a screenshot, minimising the screen, and maximising the screen, along with the lasso and square box selection tools.</em></p></figcaption></figure>
 
 #### &#x20;<a href="#pf6ggq2bhe0b" id="pf6ggq2bhe0b"></a>
 
@@ -153,16 +129,12 @@ When a user accesses the multi-study visualization the DGE table will have sever
 * Each PCA plot will include options for a 2D and 3D representation of the data. The default selection is a 3D representation on an "X", "Y", and "Z" axis. In the upper left corner of the plot area select the "2D" button and then press "Update" The graph will update to display the data on an "X", and "Y" axis only.
   * The "Color by Factor" feature allows users to select a specific factor from the study for representation on the graph to allow for an easier comparison between differences in the data. Select the "Color by Factor" drop-down menu, within the drop-down menu select one factor, then press the "Update" button.
 
-<figure><img src=".gitbook/assets/image (8).png" alt="Screenshot showing the PCA plot results for GLDS-120. Replicates are presented as dots and their color defines a combination of their genotype and light treatment. The PCA plot is 3 dimensional but only the axis for PC1 and PC2 are shown. Above the graph are a series of options that can be used to enhance the graph such as transitioning to 2D or changing the color grouping option."><figcaption><p><em>Screenshot showing the PCA plot results for GLDS-120. Replicates are presented as dots and their color defines a combination of their genotype and light treatment. The PCA plot is 3 dimensional but only the axis for PC1 and PC2 are shown. Above the graph are a series of options that can be used to enhance the graph such as transitioning to 2D or changing the color grouping option.</em></p></figcaption></figure>
-
 ### **Selecting groups in PCA plots**
 
 **PCR plots contain a lot of information, on some occasions selecting a fraction of the samples and plotting their PCA variations in 2D can often be a clear and simple method to highlight clustering.**
 
 * In this example, the "Cell Line" factor was selected from the drop-down. The results will now be represented by colors matching the factor selected. In this example, (OSD-154) the colors represent the different cell lines from the experiment and clearly show how the cell lines could be a factor in the differences between the data points.
   * Another feature within the PCA plot tool allows users to hide factors by selecting the label located on the right side of the plot. The two labels provided are the cell lines "GM15036" which is represented by blue, and "GM15510" represented by the color orange. Click on the label "GM15036" and the data points will be hidden as shown below. Click on the label "GM15036" a second time and the data will return to the graph.
-
-<figure><img src=".gitbook/assets/Slide54 (1).png" alt="2 PCA plots showing that users can toggle on and off different groups. Red dashed lines highlight where the name of the sample can be found on the figure legend and that if you click on it you can add or remove different samples and the rest of the plot will adjust."><figcaption><p><em>2 PCA plots showing that users can toggle on and off different groups. Red dashed lines highlight where the name of the sample can be found on the figure legend and that if you click on it you can add or remove different samples and the rest of the plot will adjust.</em></p></figcaption></figure>
 
 ### Pair Plots <a href="#a8pdjzjwz1gr" id="a8pdjzjwz1gr"></a>
 
@@ -173,16 +145,12 @@ Pair plots are used for Exploratory Data Analysis, where the plot visualizes the
 * A “Pair Plot” is used to understand the best set of features to explain a relationship between two variables. It also helps to form simple classification models by making linear separations in a dataset.
   * **Enhancing difference visualization:** The default display for the pair plot will be the comparison between two sets of data with a % difference color threshold of 20%. Two plots will be displayed on the dashboard for the ability to compare multiple sets of data simultaneously. In this example on the right, we can see an increase in the threshold reduced the number loci annotated as red. Clicking each of the drop-down menus will allow a user to change which axis the sample data is displayed on.
 
-<figure><img src=".gitbook/assets/Slide55.png" alt="2 scatter plots, the graph on the right has had the % difference color threshold increase to 37. The red dashed line highlights the change in coloring caused by updating the graph after the threshold has been adjusted."><figcaption><p><em>2 scatter plots, the graph on the right has had the % difference color threshold increase to 37. The red dashed line highlights the change in coloring caused by updating the graph after the threshold has been adjusted.</em></p></figcaption></figure>
-
 **Refining Pair plot correlation visualization**
 
 Upon selecting the green "Samples" button located on the plot, one is presented with the opportunity to adjust several correlation coefficient values. These values serve to quantify both the strength and direction of the correlation that exists between data points.
 
 * Coefficients closer to +1 indicate a strong positive correlation, while those near -1 suggest a strong negative correlation. A coefficient near 0 signifies a weak or no correlation. Selecting a different coefficient dynamically alters the spread of the data, with higher coefficients leading to tighter clustering and lower ones resulting in broader scattering.
 * Users also can view different data correlations by clicking the green "Samples" button at the top of the plot and comparing it to other study providing a correlation coefficient summary. Clicking this button will change the dropdown to show multiple correlation coefficients for a pair of samples from the OSDR.
-
-<figure><img src=".gitbook/assets/Slide56.png" alt="A screenshot presents four pairs of plots. The information presented in the plots comes from GLDS-120. Changing the correlation coefficient influences the number of samples and the spread of the data in the graph."><figcaption><p><em>A screenshot presents four pairs of plots. The information presented in the plots comes from GLDS-120. Changing the correlation coefficient influences the number of samples and the spread of the data in the graph.</em></p></figcaption></figure>
 
 ### Volcano Plots <a href="#v6dx63l0d9d" id="v6dx63l0d9d"></a>
 
@@ -193,16 +161,12 @@ Upon selecting the green "Samples" button located on the plot, one is presented 
 * A volcano plot is useful for identifying events that differ significantly between two groups of experimental subjects. The default display for Volcano Plots will have the -Log10(Adj P Value) with an Adj P Value threshold of 0.05 and a Log2 FC threshold of 1.00 as shown below.
   * **Each point on the graph represents a gene:** The log2-fold differences between the groups are plotted on the x-axis and the -log10 p-value differences are plotted on the y-axis. The horizontal dashed line represents the significance threshold specified in the analysis, usually derived using a multiple testing correction.
 
-<figure><img src=".gitbook/assets/image (9).png" alt="Screenshot of a volcano plot presenting RNAseq data from OSD-120. Loci going up in abundance are red and loci going down in abundance are blue. A tab is highlighted allowing the user to change the values defined by the Y axis. The option -Log10(P-Value) is highlighted in blue and the results are presented on 2 adjacent volcano plots."><figcaption><p><em>Screenshot of a volcano plot presenting RNAseq data from OSD-120. Loci going up in abundance are red and loci going down in abundance are blue. A tab is highlighted allowing the user to change the values defined by the Y axis. The option -Log10(P-Value) is highlighted in blue and the results are presented on 2 adjacent volcano plots.</em></p></figcaption></figure>
-
 #### Customizing volcano plots <a href="#xqfjx7fvgehs" id="xqfjx7fvgehs"></a>
 
 **Adjusting the cutoff threshold for coloring the volcano plot and adjusting the distribution of data can increase the ease of data integration.**
 
 * Users can change the type of data displayed on the Y axis, and the options from the dropdown menu include "P Value, Adjusted P Value, and -Log10(P Value)".
   * Below is an example of the "P-value", adjusted P value and log10 (P-values) display for a volcano plot. In addition, the ability to change the P value threshold is available and the image below shows a P value and Log2 FC thresholds are also provided. In this example the threshold is increased to P values of 0.25 and a Log2 Fold Change threshold of 3 is applied.
-
-<figure><img src=".gitbook/assets/Slide58 (1).png" alt="Screenshot showing 4 different volcano plots demonstrating the effect of each of the different transformation options that can be plotted on the Y axis. To maintain the &#x27;explosive&#x27; spread of data the -log10 transformation is essential and changing from adjusted P-values to just P-values increased the range of the data on the Y axis. The thresholds are highlighted with yellow boxes. The change the data distrubution caused by using P-values vs adjusted P-values is highlighted with a yellow circle and the effect of changing the Log2 Foldchange threshold is highlighted by yellow squares."><figcaption><p><em>Screenshot showing 4 different volcano plots demonstrating the effect of each of the different transformation options that can be plotted on the Y axis. To maintain the 'explosive' spread of data the -log10 transformation is essential and changing from adjusted P-values to just P-values increased the range of the data on the Y axis. The thresholds are highlighted with yellow boxes. The change the data distrubution caused by using P-values vs adjusted P-values is highlighted with a yellow circle and the effect of changing the Log2 Foldchange threshold is highlighted by yellow squares.</em></p></figcaption></figure>
 
 ### Heatmaps <a href="#id-90l4f2mpkzz5" id="id-90l4f2mpkzz5"></a>
 
@@ -214,10 +178,6 @@ Heatmaps allow researchers to quickly and easily identify patterns of gene expre
   * The default settings for the heat map are shown in the image below. The heatmap links genes depending on how alike they are based on the conditions set in the experiment.
   * **Log2 Transformation:** The Log2 transformation is available to enhance the display of genes with more pronounced differences. Applying Log2 transformation can reveal subtler variations in gene expression between conditions.
 
-
-
-<figure><img src=".gitbook/assets/Slide60 (1).png" alt="Screenshot a heatmap using data from OSD-120 using the default settings. An orange dashed box highlights the setting tab at the top of the screen. To left there is a figure legend showing the samples and the colors used to define them in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heatmap a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red to blue scale bar showing loci expression variation from 1 to 0."><figcaption><p><em>Screenshot a heatmap using data from OSD-120 using the default settings. An orange dashed box highlights the setting tab at the top of the screen. To left there is a figure legend showing the samples and the colors used to define them in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heatmap a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red to blue scale bar showing loci expression variation from 1 to 0.</em></p></figcaption></figure>
-
 **Filtering Heatmaps**
 
 Users can filter the genes displayed on the heatmap based on their significance or fold change.
@@ -226,18 +186,12 @@ Users can filter the genes displayed on the heatmap based on their significance 
   * This filtering helps highlight genes with statistically significant expression changes. Analyze the heatmap to identify gene expression patterns associated with specific conditions or treatments.
   * Users can switch off the clustering of rows or columns of genes causing the dendrograms to be removed. This also affects how the heatmap links genes based on similarity. In some cases, toggling off these types of clustering can help focus on specific groups of genes and their expression patterns. Pay attention to color intensity and clustering.
 
-
-
-<figure><img src=".gitbook/assets/Slide61.png" alt="Screenshot showing a heatmap with fewer genes due to increasing the required log2F to >4 and also requiring a Adjusted P-vValue of less than <0.0001. These stringent criteria have reduced the number of loci displayed on the graph to 15 displaying the Symbol for each on the Y-axis. To left of the is a figure legend showing the colors used to define the sample metameta in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heat map a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red-to-blue scale bar showing loci expression change from 1 to 0."><figcaption><p><em>Screenshot showing a heatmap with fewer genes due to increasing the required log2F to >4 and also requiring a Adjusted P-vValue of less than &#x3C;0.0001. These stringent criteria have reduced the number of loci displayed on the graph to 15 displaying the Symbol for each on the Y-axis. To left of the is a figure legend showing the colors used to define the sample metameta in the bar at the top heatmap X-axis. The text on the X axis is the names of the samples. To the right of the heat map a dendrogram shows the connectivity of the sample’s gene expression. To the right of the dendrogram is a red-to-blue scale bar showing loci expression change from 1 to 0.</em></p></figcaption></figure>
-
 **Heat map clustering options**
 
 Users can select a clustering method to display results.
 
 * Choosing Clustering Method: The default is often set to UPGMA (Unweighted Pair Group Method with Arithmetic Mean). Clustering helps group genes with similar expression profiles, making patterns more apparent so it can be useful to compare multiple options.
   * In this example we compare UPGMA to the Nearest Point Algorithm, Furthest Point Algorithm and the Ward variance minimization
-
-<figure><img src=".gitbook/assets/Slide63.png" alt="Screenshot montage showing 4 different clustering methods used to process the example data from OSD-120. In the left corner, there is a pop-up window that shows the “Clustering methods” menu which has been opened and the UPGMA method is currently selected."><figcaption><p><em>Screenshot montage showing 4 different clustering methods used to process the example data from OSD-120. In the left corner, there is a pop-up window that shows the “Clustering methods” menu which has been opened and the UPGMA method is currently selected.</em></p></figcaption></figure>
 
 #### &#x20;<a href="#gehyxb9h3uh2" id="gehyxb9h3uh2"></a>
 
@@ -249,8 +203,6 @@ Users can select a clustering method to display results.
 
 * The ideogram available through OSDR offers three options for customization.
   * Two options are related to how the user would like to filter significant genes, the first choice being genes with an adjusted P value less than the value set in the text box, and the second choice would be filtered by a Log2 FC value greater than the value set in the text box. The third option to customize the plot allows the user to change the layout of annotations for the Ideogram from a drop-down menu.
-
-<figure><img src=".gitbook/assets/Slide123 (1).png" alt="Screenshot showing 4 different types of Ideogram created using data from OSD-120. Each of the grey bars represents a chromosome and red lines or arroves depict where genes that are significantly differentially expressed genes can be found."><figcaption><p><em>Screenshot showing 4 different types of Ideogram created using data from OSD-120. Each of the grey bars represents a chromosome and red lines or arroves depict where genes that are significantly differentially expressed genes can be found.</em></p></figcaption></figure>
 
 ### &#x20;<a href="#id-4ngxvslairnl" id="id-4ngxvslairnl"></a>
 
@@ -271,8 +223,6 @@ To export a Differential Gene Expression (DGE) table from the study visualizatio
   * **For Printing:** Spot the "Print" button. Clicking this will open a new window displaying a printer-friendly version of the DGE table. You can then use your browser's print functionality to print the table directly.
 
 **Note:** Choose the method that best suits your needs to access and analyze the DGE data efficiently.
-
-<figure><img src=".gitbook/assets/Slide64 (1).png" alt="Table showing 10 significantly differentially expressed Arabidopsis loci in OSD-120. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value."><figcaption><p><em>Table showing 10 significantly differentially expressed Arabidopsis loci in OSD-120. The table shows the Ensemble ID, Symbol, Log2FC, P-value and adjusted P-value. There are button in the top right hand corner that allow the user to down load these data.</em></p></figcaption></figure>
 
 #### &#x20;<a href="#id-8vsniiswkqfg" id="id-8vsniiswkqfg"></a>
 

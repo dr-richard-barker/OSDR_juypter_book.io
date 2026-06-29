@@ -2,7 +2,7 @@
 
 * [how-to-access-data-in-the-osdr](how-to-access-data-in-the-osdr.md)
 * [guidelines-for-data-submission](guidelines-for-data-submission.md)
-* [osdr-public-api](osdr-public-api.md)
+* [osdr-public-api (interactive)](osdr-public-api.ipynb)
 * [osdr-data-visualization-portal](osdr-data-visualization-portal.md)
 * [environmental-data-for-space-biology-experiments](environmental-data-for-space-biology-experiments.md)
 * [radlab-overview](radlab-overview.md)
