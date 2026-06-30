@@ -24,7 +24,7 @@ all built live on the public
 | 1 | **Make OSDR data discoverable** — see what data exists across the ~640 studies | ✅ achieved |
 | 2 | **Assess FAIRness transparently** — score every dataset on reproducible F/A/I/R criteria, surface gaps | ✅ achieved |
 | 3 | **Visualise & tell data stories** — interactive charts, drill-downs, cross-dataset narratives | ✅ achieved |
-| 4 | **Be a living, reproducible publication tool** — auto-deploying, re-runnable, citable | ⚠️ build/deploy ✅; **citation/DOI + repo cleanup outstanding** |
+| 4 | **Be a living, reproducible publication tool** — auto-deploying, re-runnable, citable | ⚠️ build/deploy ✅, cleanup ✅, `CITATION.cff` ✅; **only Zenodo DOI pending** |
 | 5 | **Astrobotany theme** — plant-focused, *zero residual rodent* analysis | ✅ achieved |
 
 ---
@@ -70,13 +70,14 @@ experiment** ([OSD-120](https://osdr.nasa.gov/bio/repo/data/studies/OSD-120),
 
 | Item | Status | Notes |
 | --- | --- | --- |
-| **Remove stale root files** | 📋 **not done** | `_config.yml`, `_toc.yml`, `.readthedocs.yaml`, `SUMMARY.md`, and **21 root `*.html`** are unused (book builds from `chapters/`) — they should be deleted to avoid confusion. |
-| **`CITATION.cff` + Zenodo DOI** | 📋 **missing** | Needed for the book to be citable. |
-| **Verify GitHub Pages is enabled** | ⚠️ unconfirmed | Settings → Pages → Source: **GitHub Actions**. CI deploys on every push to `main`; confirm the live URL works. |
-| **Quantitative tomato microbiome** | ⚠️ recipe only | OSDR serves OSD-766 as **raw 16S/ITS only**; the pipeline notebook produces real genus abundances *when run in a DADA2/QIIME2 env* — not embedded. |
-| **Submitter "improve your FAIRness" reports** | 📋 planned | Per-dataset actionable gap reports. |
-| **Scheduled full-repo FAIR scoring over time** | 📋 planned | FAIR notebook samples (`MAX_DATASETS`); plant view scores the full plant subset. |
-| **Contributor guide** | 📋 missing | How to add a chapter / regenerate notebooks. |
+| Remove stale root files | ✅ **done** | Deleted old `_config.yml`/`_toc.yml`, `.readthedocs.yaml`, `SUMMARY.*`, all root `*.html`, and stale root build dirs. Root is now just docs + `chapters/`, `binder/`, `.github/`. |
+| `CITATION.cff` | ✅ **done** | [`CITATION.cff`](CITATION.cff) (CC0-1.0). |
+| Contributor guide | ✅ **done** | [`CONTRIBUTING.md`](CONTRIBUTING.md). |
+| GitHub Pages enabled | ✅ **confirmed** | Source: GitHub Actions; CI deploys on push to `main`. |
+| Zenodo DOI | 📋 pending | Archive the repo on Zenodo, then add the DOI to `CITATION.cff` + README. |
+| Quantitative tomato microbiome | ⚠️ recipe + FAIR write-up | OSD-766 is **raw 16S/ITS only**; the [pipeline notebook](chapters/OSDR_tomato_microbiome_pipeline.ipynb) produces real genus abundances in a DADA2/QIIME2 env, and the [tomato chapter](chapters/OSDR_tomato_microbiome.ipynb) §5 FAIR check quantifies the reuse gap. |
+| Submitter "improve your FAIRness" reports | 📋 planned | Per-dataset actionable gap reports. |
+| Scheduled full-repo FAIR scoring over time | 📋 planned | FAIR notebook samples (`MAX_DATASETS`); plant view scores the full plant subset. |
 
 ---
 
