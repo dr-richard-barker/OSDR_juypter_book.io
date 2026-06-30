@@ -173,6 +173,49 @@ def link_microbe_to_host(microbe_abundance, host_summary):
 print("\\nlink_microbe_to_host() is ready — feed it a taxon-abundance table keyed by",
       "(organ, light, condition) to get a taxa x genes correlation matrix.")''')
 
+md(r"""### What is the host root *doing* in spaceflight? (functional enrichment)
+
+We can make a concrete, data-driven connection from the host side **right now**:
+send the strongest spaceflight-responsive **root** genes to
+[g:Profiler](https://biit.cs.ut.ee/gprofiler/) (tomato genome) and see which
+processes shift — then ask whether they're the kind of functions a plant uses to
+interact with its rhizosphere microbiome.""")
+
+code('''def enrich(genes, organism, sources=("GO:BP", "KEGG")):
+    """GO / pathway enrichment via the g:Profiler API (no key required)."""
+    r = requests.post("https://biit.cs.ut.ee/gprofiler/api/gost/profile/",
+                      json={"organism": organism, "query": list(genes), "sources": list(sources),
+                            "user_threshold": 0.05, "significance_threshold_method": "g_SCS",
+                            "no_evidences": True}, timeout=120)
+    res = r.json().get("result", [])
+    if not res:
+        return pd.DataFrame()
+    return (pd.DataFrame(res)[["source", "native", "name", "p_value",
+                               "term_size", "intersection_size"]]
+            .sort_values("p_value").reset_index(drop=True))
+
+# restrict to reliably-expressed root genes, then take the strongest responders
+root_cols = [c for c in cpm.columns if parse(c)[1] == "Root"]
+expressed = root_lfc[cpm[root_cols].mean(axis=1) > 5]
+root_top = expressed.reindex(expressed.abs().sort_values(ascending=False).index).head(200)
+# tomato g:Profiler expects ITAG ids WITH the version suffix (drop only the 'gene-' prefix)
+solyc = [re.sub(r"^gene-", "", g) for g in root_top.index]
+host_enr = enrich(solyc, "slycopersicum")
+print(f"{len(solyc)} top expressed root genes -> {len(host_enr)} enriched GO/KEGG terms")
+host_enr.head(10)''')
+
+code('''if len(host_enr):
+    t = host_enr.head(12).copy()
+    t["minus_log10_p"] = -np.log10(t["p_value"])
+    fig = px.bar(t.sort_values("minus_log10_p"), x="minus_log10_p", y="name", color="source",
+                 orientation="h",
+                 title="Functional enrichment of spaceflight-responsive tomato root genes",
+                 labels={"minus_log10_p": "-log10(adjusted p)", "name": ""})
+    fig.update_layout(height=460)
+    fig.show()
+else:
+    print("No significant enrichment returned for this gene set.")''')
+
 md(r"""## 5. The story so far
 
 - The tomato **host transcriptome responds strongly to spaceflight**, and the
@@ -181,10 +224,13 @@ md(r"""## 5. The story so far
 - The paired microbiome study shows spaceflight plants carry **more microbes**,
   enriched in **nitrogen-fixing / growth-promoting** genera (section 3) — a
   community well-placed to interact with host root metabolism.
-- Putting them together is the frontier: the **integration scaffold** (section 4)
-  will quantify host↔microbe coupling as soon as processed abundances are
-  available. Until then, this chapter pairs a *quantitative* host analysis with a
-  *documented* microbiome shift and a concrete plan to join them.
+- **Functional enrichment of the host root response** (section 4) shows *which*
+  processes shift in spaceflight — the biological bridge to a PGPR-rich rhizosphere,
+  making the host↔microbe link plausible from the host side before the abundances arrive.
+- Putting them together quantitatively is the frontier: the **integration scaffold**
+  (section 4) will compute host↔microbe coupling as soon as processed abundances are
+  available. Until then, this chapter pairs a *quantitative* host analysis (expression
+  **and** function) with a *documented* microbiome shift and a concrete plan to join them.
 
 This is what OSDR's paired multi-omic studies make possible — and exactly the kind
 of cross-dataset story this book is built to tell.
