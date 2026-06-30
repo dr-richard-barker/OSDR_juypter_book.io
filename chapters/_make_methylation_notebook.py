@@ -148,7 +148,45 @@ hits["combined"] = hits["abs_expr"] * hits["abs_CG"]
 top = hits.sort_values("combined", ascending=False).head(20)
 top[["expr_log2FC", "CG", "CHG", "CHH"]].round(3)''')
 
-md(r"""## 5. Reading the story
+md(r"""## 5. What do the multi-omic hits *do*? (GO & pathway enrichment)
+
+Knowing *which* genes change in both layers is more useful if we know their
+biological **functions**. We send the multi-omic hit genes to
+[g:Profiler](https://biit.cs.ut.ee/gprofiler/) for GO (Biological Process) + KEGG
+enrichment against the *Arabidopsis* genome.""")
+
+code('''def enrich(genes, organism, sources=("GO:BP", "KEGG")):
+    """GO / pathway enrichment via the g:Profiler API (no key required)."""
+    r = requests.post("https://biit.cs.ut.ee/gprofiler/api/gost/profile/",
+                      json={"organism": organism, "query": list(genes), "sources": list(sources),
+                            "user_threshold": 0.05, "significance_threshold_method": "g_SCS",
+                            "no_evidences": True}, timeout=120)
+    res = r.json().get("result", [])
+    if not res:
+        return pd.DataFrame()
+    return (pd.DataFrame(res)[["source", "native", "name", "p_value",
+                               "term_size", "intersection_size"]]
+            .sort_values("p_value").reset_index(drop=True))
+
+# the genes changed in BOTH layers (expression x CG methylation)
+hit_genes = hits.sort_values("combined", ascending=False).head(200).index.tolist()
+enr = enrich(hit_genes, "athaliana")
+print(f"{len(hit_genes)} multi-omic hit genes -> {len(enr)} enriched terms")
+enr.head(10)''')
+
+code('''if len(enr):
+    t = enr.head(12).copy()
+    t["minus_log10_p"] = -np.log10(t["p_value"])
+    fig = px.bar(t.sort_values("minus_log10_p"), x="minus_log10_p", y="name", color="source",
+                 orientation="h",
+                 title="GO / pathway enrichment of the methylation × expression hits",
+                 labels={"minus_log10_p": "-log10(adjusted p)", "name": ""})
+    fig.update_layout(height=460)
+    fig.show()
+else:
+    print("No significant enrichment for this hit set.")''')
+
+md(r"""## 6. Reading the story
 
 - Spaceflight **redistributes DNA methylation** in *Arabidopsis* roots across all
   three contexts (section 1) — an epigenetic response, not just a transcriptional one.
@@ -158,6 +196,8 @@ md(r"""## 5. Reading the story
   not the global trend.
 - The **multi-omic hits** (section 4) are the candidates worth following: genes the
   plant both re-expresses *and* re-marks in space.
+- **Functionally** (section 5), those hits aren't random — GO/KEGG enrichment shows
+  which processes the plant coordinates across the epigenome and transcriptome in space.
 
 ```{admonition} What just happened
 :class: tip
