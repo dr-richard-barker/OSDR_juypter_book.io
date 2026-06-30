@@ -1,149 +1,153 @@
-# OSDR Interactive FAIR Notebook
+# OSDR Astrobotany — Interactive FAIR & Multi-omics Notebook
 
 An interactive [Jupyter Book](https://jupyterbook.org/) that turns NASA's
 **Open Science Data Repository (OSDR)** into an explorable, publication-ready
-tool — combining a **standardised FAIR assessment** of every dataset with
-**interactive data visualisation and data storytelling**, built directly on the
-public [OSDR biodata API](https://visualization.osdr.nasa.gov/biodata/api/).
+**astrobotany** tool — a standardised **FAIR assessment** of the repository plus
+**interactive visualisation, data storytelling, and multi-omic integration**,
+all built live on the public
+[OSDR biodata API](https://visualization.osdr.nasa.gov/biodata/api/).
 
 - **Repository:** https://github.com/dr-richard-barker/OSDR_juypter_book.io
-- **Book source:** [`chapters/`](chapters/) (built with classic Jupyter Book v1)
+- **Book source:** [`chapters/`](chapters/) (classic Jupyter Book v1)
 - **API backbone:** `https://visualization.osdr.nasa.gov/biodata/api/v2/`
 - **Author:** Richard Barker and the OSDR team
 
----
-
-## 🎯 Project goals
-
-1. **Make OSDR data discoverable.** Let anyone see *what* data is available
-   across the ~640 OSDR (GeneLab + ALSDA) studies, at a glance.
-2. **Assess FAIRness, transparently.** Score every dataset against concrete,
-   reproducible **F**indable / **A**ccessible / **I**nteroperable / **R**eusable
-   sub-criteria derived from the metadata the API actually exposes — and surface
-   the gaps.
-3. **Visualise and tell stories.** Provide interactive charts and drill-downs so
-   researchers, submitters, and the public can explore and narrate OSDR science.
-4. **Be a living publication tool.** A reproducible, auto-deploying book that
-   integrates *all* aspects of OSDR data and can be cited and re-run over time.
+> **This README is the project's source of truth for status** — every goal, what's
+> achieved (✅), partial (⚠️), and outstanding (📋). Keep it current.
 
 ---
 
-## 📦 Deliverables
+## 🎯 Goals & where we stand
 
-### Status legend
-✅ done · 🚧 in progress · 📋 planned
-
-### Phase 1 — Reproducible, auto-deploying book *(✅ done locally; awaiting push)*
-
-| Deliverable | File | Status |
+| # | Goal | Status |
 | --- | --- | --- |
-| Valid book configuration | [`chapters/_config.yml`](chapters/_config.yml) | ✅ |
-| Valid table of contents (`parts:` format, real files only) | [`chapters/_toc.yml`](chapters/_toc.yml) | ✅ |
-| Real landing page | [`chapters/intro.md`](chapters/intro.md) | ✅ |
-| Pinned, complete dependencies (`jupyter-book<2` + viz libs) | [`chapters/requirements.txt`](chapters/requirements.txt) | ✅ |
-| CI that actually **builds** the book and deploys to GitHub Pages | [`.github/workflows/static.yml`](.github/workflows/static.yml) | ✅ |
-| Existing intro chapters + demo notebooks wired into the book | [`chapters/`](chapters/) | ✅ |
+| 1 | **Make OSDR data discoverable** — see what data exists across the ~640 studies | ✅ achieved |
+| 2 | **Assess FAIRness transparently** — score every dataset on reproducible F/A/I/R criteria, surface gaps | ✅ achieved |
+| 3 | **Visualise & tell data stories** — interactive charts, drill-downs, cross-dataset narratives | ✅ achieved |
+| 4 | **Be a living, reproducible publication tool** — auto-deploying, re-runnable, citable | ⚠️ build/deploy ✅, cleanup ✅, `CITATION.cff` ✅; **only Zenodo DOI pending** |
+| 5 | **Astrobotany theme** — plant-focused, *zero residual rodent* analysis | ✅ achieved |
 
-### Phase 2 — The publication tool *(🚧 started)*
+---
 
-| Deliverable | File | Status |
-| --- | --- | --- |
-| **Live FAIR assessment** notebook (scorecard + interactive Plotly charts) | [`chapters/OSDR_FAIR_assessment.ipynb`](chapters/OSDR_FAIR_assessment.ipynb) | ✅ |
-| FAIR notebook generator (reproducible source of truth) | [`chapters/_make_fair_notebook.py`](chapters/_make_fair_notebook.py) | ✅ |
-| **Demo notebooks re-authored around one *Arabidopsis* story** (see below) | [`chapters/`](chapters/) | ✅ |
-| Dataset / assay **drill-down explorer** (browse assays, samples, data columns) | _tbd_ | 📋 |
-| **Data storytelling** views (FAIR × organism × factor type) | _tbd_ | 📋 |
-| Per-dataset, actionable "improve your FAIRness" reports for submitters | _tbd_ | 📋 |
-| Scheduled full-repository FAIR scoring (track maturity over time) | _tbd_ | 📋 |
+## ✅ What we've built (achievements)
 
-### Phase 3 — Cleanup & publication *(📋 planned)*
-
+### Foundation — the book builds & deploys
 | Deliverable | Status |
 | --- | --- |
-| Remove conflicting leftovers (stale root `*.html`, old root `_config.yml`/`_toc.yml`, broken `.readthedocs.yaml`) | 📋 |
-| Enable GitHub Pages (Settings → Pages → Source: **GitHub Actions**) | 📋 |
-| `CITATION.cff` + Zenodo DOI for the book | 📋 |
-| Contributor guide | 📋 |
+| Clean `chapters/_config.yml`, valid `parts:` `_toc.yml`, real landing page | ✅ |
+| Pinned deps (`jupyter-book<2`) + CI that **builds** the book and deploys to Pages | ✅ |
+| `binder/requirements.txt` runtime env (incl. `scanpy`, `pydeseq2`, `openpyxl`) | ✅ |
+| 🚀 **Launch buttons** (Binder/Colab/Thebe) on every notebook page | ✅ |
+| Reader-focused home page: "how to use this book" tabs + launch badges | ✅ |
+| Broken GitBook screenshots stripped from intro chapters | ✅ |
+
+### Discoverability & FAIR — [`OSDR_FAIR_assessment.ipynb`](chapters/OSDR_FAIR_assessment.ipynb)
+| Deliverable | Status |
+| --- | --- |
+| Live FAIR scorecard over the repository (whole-repo + most-common-gap chart) | ✅ |
+| **Plant share of OSDR** (live: 70 / 640 = **10.9%**) + plant-subset drill-down (species, assay, factors, year) | ✅ |
+| Astrobotany FAIR view (FAIR scores for the plant subset) | ✅ |
+
+### Interactive explorers & data stories
+| Deliverable | Status |
+| --- | --- |
+| [`osdr-public-api.ipynb`](chapters/osdr-public-api.ipynb) — live, runnable API tour (replaced the static page, moved to the end) | ✅ |
+| [`OSDR_dataset_explorer.ipynb`](chapters/OSDR_dataset_explorer.ipynb) — drill-down: dataset → assays → samples → data → story | ✅ |
+| [`OSDR_data_story.ipynb`](chapters/OSDR_data_story.ipynb) — **cross-study** reproducibility across 7 *Arabidopsis* spaceflight studies | ✅ |
+| [`OSDR_methylation_layer.ipynb`](chapters/OSDR_methylation_layer.ipynb) — **epigenome × transcriptome** (OSD-217) + GO/KEGG enrichment | ✅ |
+| [`OSDR_tomato_microbiome.ipynb`](chapters/OSDR_tomato_microbiome.ipynb) — **host × microbiome** (VEG-05) + host functional enrichment | ✅ |
+| [`OSDR_tomato_microbiome_pipeline.ipynb`](chapters/OSDR_tomato_microbiome_pipeline.ipynb) — raw 16S/ITS → genus table → host-link **recipe** | ✅ |
+
+### Astrobotany conversion (the CARA *Arabidopsis* arc)
+All demo notebooks were re-authored from rodent spaceflight data to the **CARA
+experiment** ([OSD-120](https://osdr.nasa.gov/bio/repo/data/studies/OSD-120),
+*Arabidopsis* roots, spaceflight vs ground), and the whole repo was de-rodented
+(reference docs re-themed, glossary trimmed) — see the chapter table below.
 
 ---
 
-## 🌱 The unified Arabidopsis storyline (demo notebooks)
+## 📋 Loose ends / outstanding (no surprises)
 
-The demo/analysis notebooks share one narrative so readers explore interactive
-data at every stage of an analysis. They follow the **CARA experiment**
-([OSD-120 / GLDS-120](https://osdr.nasa.gov/bio/repo/data/studies/OSD-120),
-*Characterizing Arabidopsis Root Attractions*; Paul & Ferl): *Arabidopsis
-thaliana* roots grown in **spaceflight (FLT)** vs **ground control (GC)** on the
-ISS. (These lessons were previously based on rodent spaceflight data and have
-been fully converted to plant biology.)
+| Item | Status | Notes |
+| --- | --- | --- |
+| Remove stale root files | ✅ **done** | Deleted old `_config.yml`/`_toc.yml`, `.readthedocs.yaml`, `SUMMARY.*`, all root `*.html`, and stale root build dirs. Root is now just docs + `chapters/`, `binder/`, `.github/`. |
+| `CITATION.cff` | ✅ **done** | [`CITATION.cff`](CITATION.cff) (CC0-1.0). |
+| Contributor guide | ✅ **done** | [`CONTRIBUTING.md`](CONTRIBUTING.md). |
+| GitHub Pages enabled | ✅ **confirmed** | Source: GitHub Actions; CI deploys on push to `main`. |
+| Zenodo DOI | 📋 pending | Archive the repo on Zenodo, then add the DOI to `CITATION.cff` + README. |
+| Quantitative tomato microbiome | ⚠️ recipe + FAIR write-up | OSD-766 is **raw 16S/ITS only**; the [pipeline notebook](chapters/OSDR_tomato_microbiome_pipeline.ipynb) produces real genus abundances in a DADA2/QIIME2 env, and the [tomato chapter](chapters/OSDR_tomato_microbiome.ipynb) §5 FAIR check quantifies the reuse gap. |
+| Submitter "improve your FAIRness" reports | 📋 planned | Per-dataset actionable gap reports. |
+| Scheduled full-repo FAIR scoring over time | 📋 planned | FAIR notebook samples (`MAX_DATASETS`); plant view scores the full plant subset. |
 
-| Notebook | What the reader does with the CARA data |
+---
+
+## 🔑 Key scientific findings so far
+
+- **OSDR exposes 640 datasets**; **plants are ~10.9%** (live), overwhelmingly *Arabidopsis*.
+- The API metadata has **no licence field** → FAIR criterion **R1.1 fails repository-wide** (a real, actionable reuse gap).
+- The *Arabidopsis* **spaceflight transcriptome is reproducible** across 7 independent studies (positive cross-study correlation; a consistent "core" responds in the same direction).
+- **Epigenome × transcriptome (OSD-217):** genome-wide methylation–expression coupling is *weak* (as expected in plants); the multi-omic hit genes enrich for **photosynthesis / light-harvesting** and **desiccation / high-light stress** — a coordinated light/energy response in roots.
+- **Tomato (VEG-05):** the host root spaceflight response enriches for **phenylpropanoid & flavonoid biosynthesis, ROS metabolism, stress** — the plant→microbe signalling/defence pathways that bridge to the **PGPR-rich flight microbiome** (*Rhizobium, Azospirillum, Burkholderia*) documented in OSD-766.
+
+---
+
+## 📚 The book's contents
+
+**Part 1 — Interactive FAIR assessment** · `OSDR_FAIR_assessment.ipynb`
+
+**Part 2 — Introduction to OSDR & data access** · `how-to-access-data-in-the-osdr` · `osdr-data-visualization-portal` · `environmental-data-for-space-biology-experiments` · `radlab-overview` · `open-science-abbreviations`
+
+**Part 3 — Demo notebooks (the CARA *Arabidopsis* arc)**
+
+| Notebook | What the reader does |
 | --- | --- |
-| `Tabular_Data.ipynb` | Load & wrangle OSD-120 root RNA-seq (pandas/NumPy) |
-| `Clustering.ipynb` | Unsupervised clustering separates FLT vs GC roots |
-| `Regression.ipynb` | Predict root **length** (CARA phenotypes) from gene expression |
-| `Classification.ipynb` | Classify FLT-vs-GC and light-vs-dark from expression |
-| `rr9-phenotypes_Lesson_01.ipynb` | Compare root traits (length/surface/volume/diameter) FLT vs ground |
-| `Methods.ipynb`, `Methods_Lesson_01.ipynb` | Shared AI/ML method library, on OSD-120 |
+| `Tabular_Data` | Load/wrangle OSD-120 root RNA-seq; NaN/outlier/scaling on a CARA seedling table |
+| `Clustering` | Unsupervised clustering separates spaceflight vs ground roots |
+| `Regression` | Predict root **length** (CARA phenotypes) from gene expression |
+| `Classification` | Classify flight-vs-ground and light-vs-dark from expression |
+| `rr9-phenotypes_Lesson_01` | Compare root traits (length/surface/volume/diameter) flight vs ground |
+| `Image_Data` | Image analysis on CARA *Arabidopsis* root photographs |
+| `Methods`, `Methods_Lesson_01` | Shared AI/ML method library, on OSD-120 |
+| `PubMed_scraping…`, `Knowledge-graph…` | Literature + knowledge-graph figures |
 
-> **Re-running the notebooks:** the book builds without executing them
-> (`execute_notebooks: off`), so the *book* needs only `chapters/requirements.txt`.
-> To **run** the analysis notebooks live you'll also need their heavier libraries
-> (e.g. `scanpy`, `pydeseq2`, `seaborn`, `scipy`, `statsmodels`, `pybiomart`);
-> several notebooks `pip install` what they need at the top.
-
-## 🔑 Key findings so far
-
-- OSDR currently exposes **640 datasets** through the biodata API.
-- The API metadata has **no explicit licence field**, so FAIR criterion
-  **R1.1 (licence)** fails repository-wide — a real, actionable reusability gap.
+**Part 4 — Interactive explorers & data stories** · `osdr-public-api` · `OSDR_dataset_explorer` · `OSDR_data_story` · `OSDR_methylation_layer` · `OSDR_tomato_microbiome` · `OSDR_tomato_microbiome_pipeline`
 
 ---
 
 ## 🏗️ Architecture & conventions
 
-- **Book root is [`chapters/`](chapters/)** — all content *and* sample data live
-  there, so notebook relative paths work. Build with `jupyter-book build chapters/`.
-- **Classic Jupyter Book v1** (Sphinx / `jb-book` TOC format). ⚠️ Jupyter Book
-  **v2 is a different, MyST/Node-based tool and is NOT compatible** — keep
-  `jupyter-book<2` pinned.
-- **Notebooks are NOT executed in CI** (`execute_notebooks: off`). They ship
-  with saved outputs; refresh them locally (see below). This keeps builds fast
-  and green even though some notebooks hit the live API / large data files.
-- **Interactive charts use Plotly** with the `notebook_connected` renderer so
-  they survive in the static book HTML.
+- **Book root is [`chapters/`](chapters/)** — content *and* sample data live there; build with `jupyter-book build chapters/`.
+- **Classic Jupyter Book v1** (Sphinx / `jb-book`). ⚠️ v2 is a different MyST/Node tool and is incompatible — keep `jupyter-book<2`.
+- **Notebooks are NOT executed in CI** (`execute_notebooks: off`) — they ship with saved outputs; refresh locally.
+- **Notebooks are generated from `_make_*.py` scripts** (the reproducible source of truth). To change a generated notebook, edit its `_make_*.py`, re-run it, then `jupyter nbconvert --execute`.
+- **Interactive charts use Plotly** (`notebook_connected` renderer) so they survive in static HTML; large scatters are sampled + WebGL.
+- **Functional enrichment uses the free [g:Profiler](https://biit.cs.ut.ee/gprofiler/) API** (`athaliana`, `slycopersicum`) — `requests` only, no key.
 
 ---
 
-## 🚀 Build & develop locally
+## 🚀 Build, develop & refresh
 
 ```bash
-# 1. Install dependencies (classic Jupyter Book + viz libs)
 pip install -r chapters/requirements.txt
+jupyter-book build chapters/              # output: chapters/_build/html/index.html
 
-# 2. Build the book
-jupyter-book build chapters/
-
-# 3. Open the result
-#    chapters/_build/html/index.html
-```
-
-### Refresh the FAIR assessment with live data
-
-```bash
+# Refresh a generated notebook with live data, e.g. the FAIR assessment:
 cd chapters
-python _make_fair_notebook.py            # regenerate the notebook source
+python _make_fair_notebook.py
 jupyter nbconvert --to notebook --execute --inplace OSDR_FAIR_assessment.ipynb
-# edit MAX_DATASETS in the generator (set to None) to score all ~640 datasets
 ```
-
-Then rebuild the book to embed the new outputs.
 
 ---
 
-## 🌐 The OSDR biodata API
+## ⚠️ Honest data limitations
 
-Base URL: `https://visualization.osdr.nasa.gov/biodata/api/v2/`
+- **OSD-766 microbiome:** raw 16S/ITS only — no processed taxonomy via the API; the tomato host↔microbe link is **group-level / hypothesis-generating** (host & microbiome are different sample sets). Community composition is cited from the published study; the pipeline notebook generates real abundances when run in a bioinformatics env.
+- **OSD-767 tomato RNA-seq:** only *unnormalized* counts are served — the chapter normalises to CPM itself.
+- **Methylation:** only OSD-217 exposes processed WGBS; OSD-220/OSD-416 are raw-only.
+
+---
+
+## 🌐 OSDR biodata API (base `…/biodata/api/v2/`)
 
 | Purpose | Endpoint |
 | --- | --- |
@@ -151,38 +155,12 @@ Base URL: `https://visualization.osdr.nasa.gov/biodata/api/v2/`
 | Dataset metadata | `/v2/dataset/{ACCESSION}/` |
 | Assays in a dataset | `/v2/dataset/{ACCESSION}/assays/` |
 | Files in a dataset | `/v2/dataset/{ACCESSION}/files/` |
-| Query metadata across studies | `/v2/query/metadata/` |
+| Query metadata across studies | `/v2/query/metadata/?<field>` |
 | Query data columns | `/v2/query/data/` |
 
----
-
-## 📂 Repository layout
-
-```
-chapters/                     # the Jupyter Book (build target)
-  _config.yml                 # book settings
-  _toc.yml                    # table of contents
-  intro.md                    # landing page
-  requirements.txt            # build + runtime dependencies
-  OSDR_FAIR_assessment.ipynb  # Phase 2: live FAIR assessment
-  _make_fair_notebook.py      # generator for the FAIR notebook
-  *.md                        # intro chapters (API, viz portal, RadLab, …)
-  *.ipynb                     # demo / analysis notebooks
-  *.csv, *.bam, …             # sample data used by the notebooks
-.github/workflows/static.yml  # CI: build + deploy to GitHub Pages
-```
-
----
-
-## 🗺️ Roadmap (next up)
-
-1. Push Phase 1 + 2 and enable GitHub Pages.
-2. Build the dataset/assay **drill-down explorer**.
-3. Add **data storytelling** views joining FAIR scores with organism / factor type.
-4. Phase 3 cleanup + DOI.
+(Full file listings, incl. processed-data categories, are richer via `https://osdr.nasa.gov/osdr/data/osd/files/{N}`.)
 
 ---
 
 ## 📄 Licence
-
 See [`LICENSE`](LICENSE). Built on NASA OSDR open data.

@@ -216,7 +216,69 @@ code('''if len(host_enr):
 else:
     print("No significant enrichment returned for this gene set.")''')
 
-md(r"""## 5. The story so far
+md(r"""## 5. FAIR check — how *reusable* is the VEG-05 pair?
+
+This book is also a FAIR assessment, so let's turn the lens on the two datasets we
+just compared. We score **OSD-767** (host) and **OSD-766** (microbiome) with the
+same kind of rubric used in the FAIR chapter, and ask the practical question:
+*what is blocking a fully quantitative host↔microbe comparison?*""")
+
+code('''def present(meta, key):
+    return meta.get(key) not in (None, "", [], {}, "n/a", "N/A")
+
+def fair_scores(meta, processed_data_available):
+    p = lambda k: 1 if present(meta, k) else 0
+    F = (max(p("accession"), p("identifiers")),
+         1 if present(meta, "study title") and present(meta, "study description") else 0,
+         p("study public release date"))
+    A = (1, p("authoritative source url"), 1)                 # REST record + file listing always available
+    I = (p("study assay technology type"),
+         max(p("characteristics"), p("study factor type")), p("organism"))
+    R = (p("study protocol description"),
+         max(p("study funding agency"), p("study grant number")),
+         1 if processed_data_available else 0)                # analysis-ready processed data?
+    sc = lambda t: round(100 * sum(t) / len(t), 1)
+    return {"Findable": sc(F), "Accessible": sc(A), "Interoperable": sc(I), "Reusable": sc(R)}
+
+# host ships processed counts (yes); microbiome is raw reads only (no) -> the real reuse gap
+pairs = {"OSD-767 (host RNA-seq)": True, "OSD-766 (microbiome 16S/ITS)": False}
+rows = []
+for label, has_proc in pairs.items():
+    acc = label.split()[0]
+    meta = requests.get(f"{API}/dataset/{acc}/", timeout=60).json()[acc]["metadata"]
+    s = fair_scores(meta, has_proc); s["dataset"] = label
+    rows.append(s)
+fair = pd.DataFrame(rows).set_index("dataset")[["Findable", "Accessible", "Interoperable", "Reusable"]]
+fair''')
+
+code('''fair_long = fair.reset_index().melt("dataset", var_name="FAIR principle", value_name="score")
+fig = px.bar(fair_long, x="FAIR principle", y="score", color="dataset", barmode="group",
+             range_y=[0, 100],
+             title="FAIR scores: VEG-05 host transcriptome vs its microbiome")
+fig.update_layout(height=400)
+fig.show()''')
+
+md(r"""**What the FAIR check says about the comparison**
+
+Both datasets are strongly **Findable** and **Accessible** (accessioned, released,
+served by the OSDR API) and **Interoperable** (ISA metadata, controlled assay
+terms). The difference is in **Reusability**:
+
+- **OSD-767 (host)** ships analysis-ready *count tables*, so the transcriptome side
+  is fully quantitative in this book.
+- **OSD-766 (microbiome)** is served as **raw 16S/ITS reads only** — no processed
+  taxonomy table — so it scores lower on reuse, and *that one gap* is exactly what
+  forces the host↔microbe comparison to remain **group-level / documented** rather
+  than a direct per-taxon correlation.
+
+So the FAIR assessment doesn't just grade the data — it **pinpoints the precise
+bottleneck** in this multi-omic integration. The
+[processing recipe](OSDR_tomato_microbiome_pipeline.ipynb) closes the gap by
+generating the missing genus table from the raw reads; once it exists, the same
+quantitative comparison we ran on the host transcriptome applies to the microbiome,
+and `link_microbe_to_host()` (section 4) turns it into per-taxon × per-gene results.""")
+
+md(r"""## 6. The story so far
 
 - The tomato **host transcriptome responds strongly to spaceflight**, and the
   response is **organ-specific** — roots ≠ leaves (section 2). Roots, the
@@ -231,6 +293,10 @@ md(r"""## 5. The story so far
   (section 4) will compute host↔microbe coupling as soon as processed abundances are
   available. Until then, this chapter pairs a *quantitative* host analysis (expression
   **and** function) with a *documented* microbiome shift and a concrete plan to join them.
+
+- A **FAIR check** (section 5) locates the bottleneck precisely: the microbiome's
+  **Reusability** — raw reads, no processed taxonomy — is the one thing standing
+  between us and a direct per-taxon correlation. The processing recipe resolves it.
 
 This is what OSDR's paired multi-omic studies make possible — and exactly the kind
 of cross-dataset story this book is built to tell.
