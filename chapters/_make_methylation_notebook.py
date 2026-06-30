@@ -1,0 +1,174 @@
+"""Generate `OSDR_methylation_layer.ipynb` — the quantitative epigenetic layer:
+integrate OSD-217's spaceflight DNA-methylation (WGBS) with its RNA-seq, on the
+same Arabidopsis root experiment. Run: python _make_methylation_notebook.py
+"""
+import nbformat as nbf
+
+nb = nbf.v4.new_notebook()
+cells = []
+md = lambda s: cells.append(nbf.v4.new_markdown_cell(s))
+code = lambda s: cells.append(nbf.v4.new_code_cell(s))
+
+md(r"""# 🧬 The epigenetic layer: methylation × expression in space
+
+The [data story](OSDR_data_story.ipynb) ended at a frontier: spaceflight changes
+which genes are *expressed*, but does it also change how the genome is
+*chemically marked*? **OSD-217 is the dataset that lets us answer this** — it
+measured **whole-genome DNA methylation (WGBS) *and* RNA-seq on the same
+*Arabidopsis* root spaceflight experiment**.
+
+Plants methylate DNA in three sequence contexts — **CG, CHG, CHH** — each with
+different biology. Here we:
+
+1. load OSD-217's per-gene **flight-vs-ground methylation change** in all three contexts,
+2. load the matched **spaceflight expression change** (log₂FC),
+3. ask whether the **epigenome and transcriptome move together**, and
+4. find the genes that change in **both** layers.
+
+> 🚀 Run live via the rocket icon to extend the analysis.""")
+
+code('''import io, re, tarfile
+import numpy as np
+import pandas as pd
+import requests
+import plotly.express as px
+import plotly.io as pio
+pio.renderers.default = "notebook_connected"
+
+API = "https://visualization.osdr.nasa.gov/biodata/api/v2"
+GEODE = "https://osdr.nasa.gov/geode-py/ws/studies"
+ACC = "OSD-217"''')
+
+md("""## 1. Spaceflight DNA-methylation change (WGBS)
+
+OSDR serves processed WGBS results as per-context tables of **AvgDiffMeth** — the
+average methylation difference (flight − ground) over each gene. We average across
+the replicate archives to get one value per gene per context.""")
+
+code('''# The five WGBS result archives, each holding CG / CHG / CHH tables
+arch = [f"GLDS-217_wgbs_GSE95594_ROOTFT-vs-ROOTGC_genes{n:02d}_full_tar.gz" for n in range(1, 6)]
+
+frames = []
+for fn in arch:
+    blob = requests.get(f"{GEODE}/{ACC}/download?source=datamanager&file={fn}", timeout=180).content
+    tf = tarfile.open(fileobj=io.BytesIO(blob))
+    for m in tf.getmembers():
+        ctx = next((c for c in ("CG", "CHG", "CHH") if m.name.endswith(f"{c}.xlsx")), None)
+        if not ctx:
+            continue
+        d = pd.read_excel(io.BytesIO(tf.extractfile(m).read()))[["# Gene", "AvgDiffMeth"]]
+        d = d.rename(columns={"# Gene": "gene"})
+        d["context"] = ctx
+        frames.append(d)
+
+meth = (pd.concat(frames)
+        .groupby(["gene", "context"])["AvgDiffMeth"].mean()
+        .unstack("context"))
+print(f"Methylation change for {len(meth)} genes in contexts {list(meth.columns)}")
+meth.head()''')
+
+code('''# How is methylation redistributed by spaceflight, per context?
+long = meth.reset_index().melt("gene", var_name="context", value_name="AvgDiffMeth").dropna()
+fig = px.violin(long, x="context", y="AvgDiffMeth", color="context", box=True, points=False,
+                title="Spaceflight methylation change by context (flight − ground)")
+fig.update_layout(height=420, showlegend=False)
+fig.add_hline(y=0, line_dash="dot", opacity=0.5)
+fig.show()''')
+
+md("""## 2. Matched spaceflight expression change (RNA-seq)
+
+The same study's RNA-seq, summarised as a per-gene spaceflight log₂ fold-change —
+exactly as in the cross-study data story, but for OSD-217 alone.""")
+
+code('''def normalized_counts(acc):
+    d = requests.get(f"{API}/dataset/{acc}/files/", timeout=60).json()
+    names = list(d[list(d)[0]].get("files", d[list(d)[0]]))
+    f = next(n for n in names if "Normalized_Counts" in n and n.endswith(".csv") and "rRNArm" not in n)
+    return pd.read_csv(f"{GEODE}/{acc}/download?source=datamanager&file={f}", index_col=0)
+
+def flight_ground(acc, cols):
+    url = f"{API}/query/metadata/?id.accession={acc}&id.sample name&study.factor value&format=csv"
+    df = pd.read_csv(io.StringIO(requests.get(url, timeout=60).text)).drop_duplicates("id.sample name")
+    sf = next((c for c in df.columns if re.search(r"(?i)spaceflight", c)), None)
+    m = df.set_index("id.sample name")[sf].astype(str) if sf else {}
+    out = {}
+    for c in cols:
+        v = str(m.get(c, "")).lower()
+        out[c] = "Spaceflight" if ("flight" in v or "space" in v or "_FLT_" in c) else (
+                 "Ground" if ("ground" in v or "_GC_" in c) else None)
+    return out
+
+counts = normalized_counts(ACC)
+lab = flight_ground(ACC, counts.columns)
+flt = [c for c in counts.columns if lab[c] == "Spaceflight"]
+grd = [c for c in counts.columns if lab[c] == "Ground"]
+expr_lfc = np.log2((counts[flt].mean(axis=1) + 1) / (counts[grd].mean(axis=1) + 1)).rename("expr_log2FC")
+print(f"Expression log2FC from {len(flt)} flight vs {len(grd)} ground samples, {len(expr_lfc)} genes")''')
+
+md("""## 3. Do the epigenome and transcriptome move together?
+
+We join the two layers per gene and look for a relationship between the
+spaceflight **expression** change and the spaceflight **methylation** change.""")
+
+code('''joined = meth.join(expr_lfc, how="inner").dropna(subset=["expr_log2FC"])
+print(f"{len(joined)} genes with both methylation and expression data")
+
+rows = []
+for ctx in [c for c in ("CG", "CHG", "CHH") if c in joined]:
+    sub = joined.dropna(subset=[ctx])
+    rows.append({"context": ctx, "genes": len(sub),
+                 "corr(expr log2FC, methyl diff)": round(sub["expr_log2FC"].corr(sub[ctx]), 3)})
+pd.DataFrame(rows)''')
+
+code('''# Expression vs gene-body CG methylation change (the classic plant relationship)
+ctx = "CG"
+sub = joined.dropna(subset=[ctx])
+r = sub["expr_log2FC"].corr(sub[ctx])            # correlation on ALL genes
+plot_df = sub.sample(min(6000, len(sub)), random_state=0).reset_index()   # sample for a light, fast chart
+fig = px.scatter(plot_df, x=ctx, y="expr_log2FC", opacity=0.25, render_mode="webgl",
+                 title=f"Spaceflight: {ctx} methylation change vs expression change "
+                       f"(r = {r:.2f}, n = {len(sub)}; {len(plot_df)} shown)",
+                 labels={ctx: f"{ctx} methylation Δ (flight − ground)",
+                         "expr_log2FC": "expression log₂FC (flight / ground)"})
+fig.add_hline(y=0, line_dash="dot", opacity=0.4); fig.add_vline(x=0, line_dash="dot", opacity=0.4)
+fig.update_layout(height=480)
+fig.show()''')
+
+md("""## 4. The multi-omic hits — genes that change in *both* layers
+
+Genes that are strongly **differentially expressed *and* differentially
+methylated** in spaceflight are the most interesting candidates: places where the
+plant may be using an epigenetic mark alongside a transcriptional response.""")
+
+code('''hits = joined.dropna(subset=["CG"]).copy()
+hits["abs_expr"] = hits["expr_log2FC"].abs()
+hits["abs_CG"] = hits["CG"].abs()
+# rank by the product of (expression effect) x (CG methylation effect)
+hits["combined"] = hits["abs_expr"] * hits["abs_CG"]
+top = hits.sort_values("combined", ascending=False).head(20)
+top[["expr_log2FC", "CG", "CHG", "CHH"]].round(3)''')
+
+md(r"""## 5. Reading the story
+
+- Spaceflight **redistributes DNA methylation** in *Arabidopsis* roots across all
+  three contexts (section 1) — an epigenetic response, not just a transcriptional one.
+- Genome-wide, the expression and methylation changes are only **weakly correlated**
+  (section 3) — consistent with plant biology, where gene-body methylation and
+  expression are not simply proportional. The interesting signal is in **specific genes**,
+  not the global trend.
+- The **multi-omic hits** (section 4) are the candidates worth following: genes the
+  plant both re-expresses *and* re-marks in space.
+
+```{admonition} What just happened
+:class: tip
+This is a genuine **multi-omic integration** — DNA methylation (WGBS) and gene
+expression (RNA-seq) from the *same* spaceflight experiment (OSD-217), pulled live
+from OSDR and joined per gene. Swap `ACC`, change the context, or add the CHG/CHH
+scatter to take the analysis further.
+```""")
+
+nb["cells"] = cells
+nb["metadata"]["kernelspec"] = {"name": "python3", "display_name": "Python 3", "language": "python"}
+with open("OSDR_methylation_layer.ipynb", "w", encoding="utf-8") as f:
+    nbf.write(nb, f)
+print("Wrote OSDR_methylation_layer.ipynb")
