@@ -1,0 +1,32 @@
+# Monthly full-repository FAIR snapshot — appends a timestamped row to
+# chapters/fair_history.csv and refreshes chapters/fair_latest.csv.
+name: Monthly FAIR snapshot
+
+on:
+  schedule:
+    - cron: "0 3 1 * *"      # 03:00 UTC on the 1st of each month
+  workflow_dispatch:          # also runnable on demand
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests pandas
+      - name: Score the whole repository
+        run: |
+          cd chapters
+          python _fair_snapshot.py
+      - name: Commit the new snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add chapters/fair_history.csv chapters/fair_latest.csv
+          git commit -m "FAIR snapshot $(date -u +%Y-%m-%d)" || echo "no changes to commit"
+          git push

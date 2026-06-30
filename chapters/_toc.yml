@@ -8,6 +8,7 @@ parts:
     chapters:
       - file: OSDR_FAIR_assessment.ipynb
       - file: OSDR_fairness_report.ipynb
+      - file: OSDR_fair_over_time.ipynb
 
   - caption: Introduction to OSDR and data access systems
     chapters:
