@@ -170,7 +170,112 @@ else:
     print("Run section 2 to create tomato_genus_by_sample.csv, then re-run this cell")
     print("for the real PGPR-genus x host-gene correlation across groups.")''')
 
-md(r"""## 5. Reading the result
+md(r"""## 5. Which microbes respond to spaceflight — and which engage the host?
+
+A community table lets you ask two questions that go beyond differential abundance:
+**(1)** which microbes most cleanly *separate flight from ground?* and **(2)** which
+microbes *track the host's* spaceflight response? Both are natural **machine-learning**
+problems. Below we (a) show the real answer the paper already gives, (b) build the ML
+framework that runs on the genus table from section 2, (c) demonstrate it on simulated
+data, and (d) discuss honestly what it can — and can't — say about **causation**.""")
+
+md(r"""### 5a. The reported responders (real, from the paper)
+
+The VEG-05 paper's DESeq2 analysis already names the strongest spaceflight responders.
+We encode its reported direction/magnitude (only the two clades were quantified, at
+>8-fold; the rest are reported as up/down) and rank them.""")
+
+code('''import numpy as np
+import plotly.express as px
+import plotly.io as pio
+pio.renderers.default = "notebook_connected"   # keep charts interactive in the static book
+
+responders = pd.DataFrame([
+    ("Allorhizobium-Rhizobium clade", 3.0), ("Burkholderia clade", 3.0),
+    ("Azospirillum", 1.0), ("Sphingomonas", 1.0), ("Dyadobacter", 1.0),
+    ("Methylobacterium", 1.0), ("Massilia", 1.0), ("Curtobacterium", 1.0),
+    ("Herbaspirillum", -1.0),
+], columns=["genus", "reported flight response"])
+fig = px.bar(responders.sort_values("reported flight response"),
+             x="reported flight response", y="genus", orientation="h",
+             color="reported flight response", color_continuous_scale="RdBu",
+             color_continuous_midpoint=0,
+             title="Which microbes respond most to spaceflight (VEG-05 DESeq2, reported)")
+fig.update_layout(height=400, coloraxis_showscale=False)
+fig.update_xaxes(title="ordinal: +3 = >8-fold up, +1 = up, -1 = down")
+fig.show()''')
+
+md(r"""### 5b. A machine-learning framework (runs on the genus table)
+
+With the per-sample `tomato_genus_by_sample.csv` from section 2 you can go further: a
+**random forest** trained to classify flight vs ground reads off, via **feature
+importance**, *which genera carry the spaceflight signal* — accounting for the whole
+community at once, not one taxon at a time. The same trick (microbe → host gene-module
+regressor) ranks microbes that track the host response.""")
+
+code('''def rf_responders(genus_by_sample, labels, n_estimators=400, seed=0):
+    """Random-forest importance: which genera best separate the two conditions.
+    genus_by_sample: samples x genera; labels: array of 'Flight'/'Ground'."""
+    from sklearn.ensemble import RandomForestClassifier
+    rf = RandomForestClassifier(n_estimators=n_estimators, random_state=seed, oob_score=True)
+    rf.fit(genus_by_sample.values, np.asarray(labels))
+    imp = pd.Series(rf.feature_importances_, index=genus_by_sample.columns)
+    return rf, imp.sort_values(ascending=False)
+
+print("rf_responders() ready — feed it the section-2 genus table + flight/ground labels.")''')
+
+md(r"""### 5c. Demonstration on simulated data
+
+```{admonition} Simulated — method check, not a result
+:class: warning
+The processed genus table isn't public yet, so here we **simulate** a community in
+which a handful of genera carry a planted spaceflight signal, and confirm the random
+forest recovers them. **These bars are illustrative** — the real importances come from
+running `rf_responders()` on the DADA2 output of section 2.
+```""")
+
+code('''rng = np.random.default_rng(0)
+n_samples, n_genera = 48, 30
+labels = np.array(["Flight", "Ground"] * (n_samples // 2))
+X = rng.lognormal(mean=2.0, sigma=1.0, size=(n_samples, n_genera))
+planted = [3, 7, 12, 20, 25]                       # these genera are enriched in flight
+for j in planted:
+    X[labels == "Flight", j] *= 4.0
+sim = pd.DataFrame(X, columns=[f"Genus_{i:02d}" for i in range(n_genera)])
+
+rf, imp = rf_responders(sim, labels)
+print(f"SIMULATED RF out-of-bag accuracy: {rf.oob_score_:.2f}")
+top = imp.head(12).rename_axis("genus").reset_index(name="importance")
+top["planted signal"] = top["genus"].isin([f"Genus_{j:02d}" for j in planted])
+fig = px.bar(top.sort_values("importance"), x="importance", y="genus", orientation="h",
+             color="planted signal", color_discrete_map={True: "#2e7d32", False: "#90a4ae"},
+             title="SIMULATED: RF importance recovers the planted spaceflight responders")
+fig.update_layout(height=420)
+fig.show()''')
+
+md(r"""### 5d. Can this be *causal*?
+
+Short answer: **random-forest importance is associational, not causal.** It ranks which
+microbes *co-vary* with spaceflight (or with a host gene), which is a strong way to
+generate hypotheses — but it cannot, on its own, say a microbe *induced* the plant's
+response, or vice versa. Three honest obstacles here:
+
+- **Different sample sets.** OSD-766 (microbes) and OSD-767 (host) aren't the same
+  plants, so even a perfect model links them only at the **group level**.
+- **Feedback / direction.** Plants secrete flavonoids that *recruit* PGPR **and**
+  microbes signal back to the plant — cause and effect run both ways, which plain ML
+  can't disentangle.
+- **Confounding.** Spaceflight changes water films, temperature and the host at once;
+  a microbe's "importance" may reflect a shared driver, not a microbe→host effect.
+
+**What would move toward causation:** matched **per-sample** host+microbe profiling,
+then **mediation analysis** (does microbe *M* mediate the spaceflight → host-gene
+effect?), ideally with **time-course** sampling or **inoculation experiments** (add/omit
+a genus and watch the host). The framework above produces the ranked candidates;
+those designs would test them. The honest role of this chapter is to get you to the
+**right shortlist**, fast.""")
+
+md(r"""## 6. Reading the result
 
 When the genus table is in place, this produces a **genera × host-genes
 correlation** across the experimental groups — directly testing whether the
