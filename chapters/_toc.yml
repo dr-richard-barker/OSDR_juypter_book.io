@@ -35,3 +35,4 @@ parts:
       - file: OSDR_dataset_explorer.ipynb
       - file: OSDR_data_story.ipynb
       - file: OSDR_methylation_layer.ipynb
+      - file: OSDR_tomato_microbiome.ipynb
