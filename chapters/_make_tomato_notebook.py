@@ -137,6 +137,48 @@ host↔microbe join so it runs the moment those abundance tables are released
 (or once the raw amplicon data is processed through a QIIME2/DADA2 pipeline).
 ```""")
 
+md(r"""### The flight-vs-ground shift, pulled from the paper
+
+The per-sample abundance matrices aren't deposited, but the paper's **DESeq2
+differential-abundance analysis** *is* reported (Fig. 6 + text). We transcribe
+those genus-level results here so the microbiome side is **quantitative and
+citable** — the real flight-vs-ground signal, straight from the study.""")
+
+code('''# Differentially-abundant genera (flight vs ground), transcribed from the VEG-05
+# microbiome paper (NASA NTRS 20240016407), DESeq2 analysis, Fig. 6 + Results text.
+da = pd.DataFrame([
+    ("Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", "Up in flight", ">8x (red-rich)", "N-fixing rhizobia (PGPR)"),
+    ("Burkholderia-Caballeronia-Paraburkholderia",          "Up in flight", ">8x (red-rich)", "N-fixing / PGPR"),
+    ("Azospirillum",     "Up in flight", "core flight", "N-fixing PGPR (red-light responsive)"),
+    ("Sphingomonas",     "Up in flight", "core flight", "PGPR / stress-tolerant"),
+    ("Dyadobacter",      "Up in flight", "core flight", "root-associated"),
+    ("Methylobacterium", "Up in flight", "",            "phyllosphere PGPR"),
+    ("Massilia",         "Up in flight", "",            "rhizosphere"),
+    ("Curtobacterium",   "Up in flight", "",            "phyllosphere"),
+    ("Herbaspirillum",   "Down in flight", "only genus decreased", "endophytic N-fixer"),
+], columns=["genus", "direction", "note", "functional role"])
+print("Paper reports 21 differentially-abundant genera flight vs ground: "
+      "20 increased in flight, 1 (Herbaspirillum) decreased.")
+da''')
+
+code('''# The headline number, as a simple honest summary (from the paper's 21 DA genera)
+summary = pd.Series({"Up in flight": 20, "Down in flight": 1})
+fig = px.bar(summary, text=summary.values, color=summary.index,
+             color_discrete_map={"Up in flight": "#2e7d32", "Down in flight": "#90a4ae"},
+             labels={"value": "genera", "index": ""},
+             title="VEG-05: differentially-abundant bacterial genera, flight vs ground (DESeq2)")
+fig.update_layout(height=320, showlegend=False)
+fig.show()''')
+
+md(r"""**The bridge to the host.** Spaceflight didn't just raise microbial load — it
+specifically enriched **nitrogen-fixing / plant-growth-promoting** genera, with the
+*Rhizobium*- and *Burkholderia*-clades **>8-fold higher in flight**. Those are
+exactly the rhizosphere partners a plant recruits and signals to with
+**flavonoids and phenylpropanoids** — the very pathways the host **root**
+transcriptome up-regulates in spaceflight (section 4). So the two independent
+datasets point the same way: *flight reshapes the root microbiome toward PGPR
+partners, and the host root turns on the chemistry that engages them.*""")
+
 md(r"""## 4. Connecting the two layers
 
 The biology points to a clear hypothesis. The flight root microbiome is enriched
