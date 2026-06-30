@@ -76,8 +76,8 @@ experiment** ([OSD-120](https://osdr.nasa.gov/bio/repo/data/studies/OSD-120),
 | GitHub Pages enabled | ✅ **confirmed** | Source: GitHub Actions; CI deploys on push to `main`. |
 | Zenodo DOI | 📋 pending | Archive the repo on Zenodo, then add the DOI to `CITATION.cff` + README. |
 | Quantitative tomato microbiome | ⚠️ recipe + FAIR write-up | OSD-766 is **raw 16S/ITS only**; the [pipeline notebook](chapters/OSDR_tomato_microbiome_pipeline.ipynb) produces real genus abundances in a DADA2/QIIME2 env, and the [tomato chapter](chapters/OSDR_tomato_microbiome.ipynb) §5 FAIR check quantifies the reuse gap. |
-| Submitter "improve your FAIRness" reports | 📋 planned | Per-dataset actionable gap reports. |
-| Scheduled full-repo FAIR scoring over time | 📋 planned | FAIR notebook samples (`MAX_DATASETS`); plant view scores the full plant subset. |
+| Submitter "improve your FAIRness" reports | ✅ **done** | [`OSDR_fairness_report.ipynb`](chapters/OSDR_fairness_report.ipynb) — per-dataset report card + prioritised, actionable fixes. |
+| Scheduled full-repo FAIR scoring over time | ✅ **done** | [`OSDR_fair_over_time.ipynb`](chapters/OSDR_fair_over_time.ipynb) + [`_fair_snapshot.py`](chapters/_fair_snapshot.py) + a monthly cron workflow. First snapshot: 640 datasets, FAIR overall **91.0** (Reusable 69.3 = the gap). |
 
 ---
 
