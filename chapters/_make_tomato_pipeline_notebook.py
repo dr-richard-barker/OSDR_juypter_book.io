@@ -133,9 +133,11 @@ print(mic_samples.groupby(["organ", "condition"]).size().rename("samples").reset
 
 md(r"""## 4. Join to the host transcriptome
 
-Here is the live host side plus the integration function. Once
-`tomato_genus_by_sample.csv` exists (from section 2), the final cell computes the
-real **genus ↔ host-gene** relationships across the shared groups.""")
+Here is the live host side plus the integration functions. Once
+`tomato_genus_by_sample.csv` exists (from section 2), the final cell computes **(a)** a
+group-level **genus ↔ host-gene correlation** and **(b)** a per-sample **random-forest
+ranking** (`rf_host_association`, the regression sibling of section 5's `rf_responders`)
+of which microbes best track the host's **spaceflight gene-module**.""")
 
 code('''# Host (OSD-767) expression, summarised per group  -- runs live
 counts = pd.read_csv(f"{GEODE}/OSD-767/download?source=datamanager"
@@ -152,7 +154,26 @@ def correlate_microbe_host(genus_by_group, host_by_group, genes):
     """genus_by_group & host_by_group indexed by (organ, condition).
     Returns genera x genes Pearson r across the shared groups."""
     j = genus_by_group.join(host_by_group[genes], how="inner")
-    return j[genus_by_group.columns].apply(lambda t: j[genes].corrwith(t)).T''')
+    return j[genus_by_group.columns].apply(lambda t: j[genes].corrwith(t)).T
+
+# A host "spaceflight module": the top flight-vs-ground root genes, scored per group
+_organs = host_group_mean.index.get_level_values("organ")
+_root = host_group_mean.xs("Root", level="organ") if "Root" in _organs else host_group_mean
+if {"Flight", "Ground"}.issubset(set(_root.index)):
+    _lfc = (_root.loc["Flight"] - _root.loc["Ground"]).abs().sort_values(ascending=False)
+    module_genes = list(_lfc.head(50).index)
+else:
+    module_genes = list(host_group_mean.columns[:50])
+host_module = host_group_mean[module_genes].mean(axis=1).rename("host_spaceflight_module")
+
+def rf_host_association(genus_by_sample, module_per_sample, n_estimators=400, seed=0):
+    """RF regression: which genera best predict a host gene-module score.
+    The regression sibling of rf_responders() (section 5) — point it at the per-sample
+    genus table and the host module each sample's group is expected to show."""
+    from sklearn.ensemble import RandomForestRegressor
+    rf = RandomForestRegressor(n_estimators=n_estimators, random_state=seed, oob_score=True)
+    rf.fit(genus_by_sample.values, module_per_sample.values)
+    return rf, pd.Series(rf.feature_importances_, index=genus_by_sample.columns).sort_values(ascending=False)''')
 
 code('''# Final step — runs for real ONCE the genus table from section 2 is present
 import os
@@ -161,14 +182,28 @@ if os.path.exists("tomato_genus_by_sample.csv"):
     g = genus.T
     g["organ"] = [next((o for o in ("root","leaf","fruit","soil","wick","swab") if o in s.lower()), "other") for s in g.index]
     g["condition"] = ["Flight" if "-F-" in s else "Ground" for s in g.index]
-    genus_by_group = g.groupby(["organ", "condition"]).mean(numeric_only=True)
-    pgpr = [c for c in genus_by_group.columns
+    # group keyed by Title-case organ so it aligns with the host index ("Root"/"Leaf")
+    genus_by_group = g.groupby([g["organ"].str.title(), "condition"]).mean(numeric_only=True)
+
+    # (a) group-level correlation of the PGPR genera with the most variable host root genes
+    pgpr = [c for c in genus.index
             if c in ("Rhizobium","Azospirillum","Burkholderia","Dyadobacter","Sphingomonas")]
     top_genes = host_group_mean.loc[("Root",)].std().sort_values(ascending=False).head(30).index
+    print("(a) Group-level PGPR x host-gene correlation:")
     print(correlate_microbe_host(genus_by_group[pgpr], host_group_mean, list(top_genes)).round(2))
+
+    # (b) per-sample random forest: which microbes track the host spaceflight module?
+    g["host_module"] = [host_module.get((o.title(), c)) for o, c in zip(g["organ"], g["condition"])]
+    sub = g[g["organ"].isin(["root", "leaf"])].dropna(subset=["host_module"])
+    rf, imp = rf_host_association(sub[list(genus.index)], sub["host_module"])
+    print(f"\\n(b) rf_host_association (OOB R2 = {rf.oob_score_:.2f}) — "
+          f"microbes most predictive of the host spaceflight module:")
+    print(imp.head(10).round(3))
 else:
-    print("Run section 2 to create tomato_genus_by_sample.csv, then re-run this cell")
-    print("for the real PGPR-genus x host-gene correlation across groups.")''')
+    print("Run section 2 to create tomato_genus_by_sample.csv, then re-run this cell for:")
+    print("  (a) group-level PGPR x host-gene correlation, and")
+    print("  (b) rf_host_association() — RF ranking of microbes by association with the")
+    print("      host spaceflight gene-module (the regression sibling of section 5's rf_responders).")''')
 
 md(r"""## 5. Which microbes respond to spaceflight — and which engage the host?
 
