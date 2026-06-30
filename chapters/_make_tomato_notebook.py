@@ -368,32 +368,75 @@ generating the missing genus table from the raw reads; once it exists, the same
 quantitative comparison we ran on the host transcriptome applies to the microbiome,
 and `link_microbe_to_host()` (section 4) turns it into per-taxon × per-gene results.""")
 
-md(r"""## 6. The story so far
+md(r"""## 6. Results and discussion
 
-- The tomato **host transcriptome responds strongly to spaceflight**, and the
-  response is **organ-specific** — roots ≠ leaves (section 2). Roots, the
-  rhizosphere interface, are the natural place to look for microbial influence.
-- The paired microbiome study shows spaceflight plants carry **more microbes**,
-  enriched in **nitrogen-fixing / growth-promoting** genera (section 3) — a
-  community well-placed to interact with host root metabolism.
-- **Functional enrichment of the host root response** (section 4) shows *which*
-  processes shift in spaceflight — the biological bridge to a PGPR-rich rhizosphere,
-  making the host↔microbe link plausible from the host side before the abundances arrive.
-- Putting them together quantitatively is the frontier: the **integration scaffold**
-  (section 4) will compute host↔microbe coupling as soon as processed abundances are
-  available. Until then, this chapter pairs a *quantitative* host analysis (expression
-  **and** function) with a *documented* microbiome shift and a concrete plan to join them.
+### Key results
 
-- A **FAIR check** (section 5) locates the bottleneck precisely: the microbiome's
-  **Reusability** — raw reads, no processed taxonomy — is the one thing standing
-  between us and a direct per-taxon correlation. The processing recipe resolves it.
+- **A strong, organ-specific host response.** Across **21,024 expressed tomato
+  genes** (36 samples), spaceflight reshaped the transcriptome, and the change was
+  **organ-specific**: the root and leaf spaceflight responses were only **weakly
+  correlated** (section 2). Roots — the rhizosphere interface — carried the most
+  distinct signal.
+- **The host root turns on microbe-facing chemistry.** Enrichment of the top
+  spaceflight-responsive root genes (section 4) was dominated by **phenylpropanoid
+  biosynthesis** (KEGG, *p* ≈ 3×10⁻⁵), **flavonoid biosynthesis** (*p* ≈ 1×10⁻³),
+  **secondary-metabolite biosynthesis**, and **reactive-oxygen-species / H₂O₂
+  metabolism** — the classic chemistry of plant defence and plant–microbe signalling.
+- **Independent confirmation from the published gene lists.** The authors' own
+  flight-vs-ground gene sets (**105 root, 45 leaf**; section 2) span defence, hormone
+  signalling, cell-wall/phenylpropanoid and transport, and the leaf set is
+  significantly enriched for **ethylene signalling** (*p* < 0.05) — converging with
+  our independent OSDR re-analysis.
+- **A microbiome shifted toward plant-growth-promoters.** The paired microbiome
+  study reported **21 genera differentially abundant** flight vs ground, **20 of them
+  higher in flight** (only *Herbaspirillum* lower), with the nitrogen-fixing
+  ***Rhizobium*- and *Burkholderia*-clades >8-fold higher in flight** (section 3).
+- **FAIR pinpoints the integration bottleneck.** Both datasets score 100 on
+  Findable/Accessible/Interoperable; the microbiome scores **66.7 on Reusable**
+  because only raw reads are served (section 5).
 
-This is what OSDR's paired multi-omic studies make possible — and exactly the kind
-of cross-dataset story this book is built to tell.
+### Discussion
+
+The two independent datasets tell a **coherent story**. Spaceflight enriched the
+root microbiome for **nitrogen-fixing / plant-growth-promoting (PGPR)** bacteria,
+and the host **root simultaneously up-regulated the flavonoid and phenylpropanoid
+pathways** — the very molecules plants secrete to recruit and signal to rhizosphere
+partners, alongside the ROS/defence chemistry that tunes the relationship. The
+signal's **organ specificity** (strongest in roots) is exactly what a microbe-mediated
+effect predicts: the rhizosphere is where host and microbe meet. That **three
+independent analyses** — our OSDR re-analysis, the transcriptome paper, and the
+microbiome paper — point the same way gives real confidence in the pattern.
+
+Biologically, this hints at a **plant–microbe feedback in space**: a flight-altered
+rhizosphere rich in N-fixers could help support the crop's nutrition, while the host's
+flavonoid/phenylpropanoid output shapes which microbes thrive. For space crop
+production, a PGPR-leaning microbiome is encouraging — though whether it is
+beneficial, neutral, or a stress response remains open.
+
+### Limitations
+
+- **Association, not causation.** Host and microbiome were measured on **different
+  sample sets**, so the link is at the **biological / group level**, not a per-sample
+  correlation — we cannot yet attribute host changes to specific microbes.
+- **Figure-level microbiome data.** The differential abundance is transcribed from the
+  paper's reported results (per-sample matrices aren't deposited), so taxa beyond
+  those named aren't analysed here.
+- **One experiment.** VEG-05 is a single mission; cross-flight reproducibility (as we
+  demonstrated for the *Arabidopsis* transcriptome) remains to be tested for tomato.
+
+### Conclusion & next step
+
+VEG-05 shows a tomato crop **re-tuning its root chemistry toward plant–microbe
+engagement** while its **rhizosphere shifts toward growth-promoting bacteria** in
+spaceflight. The direct, per-taxon × per-gene test is one step away: processing
+OSD-766's raw amplicon (the [pipeline notebook](OSDR_tomato_microbiome_pipeline.ipynb))
+produces the genus table that `link_microbe_to_host()` (section 4) turns into
+quantitative host↔microbe correlations.
 
 ---
 
 **Sources:** [VEG-05 Microbiome — NASA NTRS 20240016407](https://ntrs.nasa.gov/citations/20240016407) ·
+[VEG-05 transcriptome — BMC Plant Biology 2025](https://doi.org/10.1186/s12870-025-07621-4) ·
 [OSD-767 (host RNA-seq)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-767) ·
 [OSD-766 (microbiome)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-766)""")
 

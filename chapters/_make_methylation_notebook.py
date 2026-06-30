@@ -186,26 +186,51 @@ code('''if len(enr):
 else:
     print("No significant enrichment for this hit set.")''')
 
-md(r"""## 6. Reading the story
+md(r"""## 6. Results and discussion
 
-- Spaceflight **redistributes DNA methylation** in *Arabidopsis* roots across all
-  three contexts (section 1) — an epigenetic response, not just a transcriptional one.
-- Genome-wide, the expression and methylation changes are only **weakly correlated**
-  (section 3) — consistent with plant biology, where gene-body methylation and
-  expression are not simply proportional. The interesting signal is in **specific genes**,
-  not the global trend.
-- The **multi-omic hits** (section 4) are the candidates worth following: genes the
-  plant both re-expresses *and* re-marks in space.
-- **Functionally** (section 5), those hits aren't random — GO/KEGG enrichment shows
-  which processes the plant coordinates across the epigenome and transcriptome in space.
+### Key results
 
-```{admonition} What just happened
-:class: tip
-This is a genuine **multi-omic integration** — DNA methylation (WGBS) and gene
-expression (RNA-seq) from the *same* spaceflight experiment (OSD-217), pulled live
-from OSDR and joined per gene. Swap `ACC`, change the context, or add the CHG/CHH
-scatter to take the analysis further.
-```""")
+- **Spaceflight redistributes DNA methylation.** Across **26,344 genes**,
+  flight-vs-ground methylation changed in all three plant contexts — **CG, CHG and
+  CHH** (section 1) — an epigenetic response, not only a transcriptional one.
+- **Methylation and expression are decoupled genome-wide.** Joined over **21,790
+  genes**, the correlation between per-gene methylation change and expression change
+  was **essentially zero** (CG *r* = 0.01, CHG = −0.02, CHH = −0.01; section 3) — as
+  expected in plants, where gene-body methylation and expression are not simply
+  proportional.
+- **The signal is in specific genes.** The genes that change in *both* layers
+  (section 4) are enriched (g:Profiler, *p* < 0.05) for **photosynthesis and
+  light-harvesting** (photosystem light reactions) and **light/desiccation stress**
+  (section 5).
+
+### Discussion
+
+Two messages stand out. First, the **near-zero global coupling** is itself a result:
+spaceflight doesn't simply methylate genes down and de-methylate genes up, so the
+interesting biology is **not** in the genome-wide trend but in the **specific genes**
+coordinated across both layers. Second, those coordinated genes are strikingly
+enriched for **photosynthesis and light-harvesting** — in *roots*, which are normally
+non-photosynthetic. That points to spaceflight perturbing the plant's **light/energy
+programme** (echoing the disorganised root–light responses seen in other spaceflight
+studies), now visible as a *joint* epigenetic-and-transcriptional event. These
+multi-omic hits are concrete candidates for how a plant might **stabilise a
+spaceflight response with an epigenetic mark**.
+
+### Limitations
+
+- **One experiment, gene-body averages.** OSD-217 is a single study, and
+  `AvgDiffMeth` is averaged over each gene, hiding position-specific methylation.
+- **Correlation, not mechanism** — co-occurrence in both layers doesn't establish
+  that methylation *drives* expression (or vice versa).
+- **Context** — results are for *Arabidopsis* roots; other tissues may differ.
+
+### Conclusion
+
+Spaceflight leaves an **epigenetic fingerprint** on *Arabidopsis* roots that is
+decoupled from expression genome-wide but converges on **specific light/energy
+genes**. This is a genuine multi-omic integration on the *same* experiment — the
+template for joining any OSDR study's layers. Swap `ACC`, change the context, or
+extend the CHG/CHH analysis to go further.""")
 
 nb["cells"] = cells
 nb["metadata"]["kernelspec"] = {"name": "python3", "display_name": "Python 3", "language": "python"}

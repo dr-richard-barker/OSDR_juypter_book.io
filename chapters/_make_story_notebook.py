@@ -183,18 +183,49 @@ methylation-vs-expression analysis is the natural **frontier** this story points
 to — the data is there in OSDR, waiting.
 ```
 
-## 6. The story so far
+## 6. Results and discussion
 
-- The *Arabidopsis* spaceflight transcriptome is **not a one-study fluke** — independent
-  experiments **positively correlate**, and a **reproducible core** of genes responds
-  in a consistent direction.
-- Differences between studies (ecotype, organ, light, mission) add scatter — which is
-  itself a story about *context-dependence*.
-- Spaceflight reaches **beyond expression into the epigenome**; OSDR's methylation
-  studies (especially the multi-omic **OSD-217**) are the next layer to mine.
+### Key results
 
-Every figure here was built live from the OSDR API — change `PANEL`, swap in other
-organisms, or join the methylation data to write the next chapter.""")
+- **Reproducible across independent studies.** Seven *Arabidopsis* spaceflight
+  RNA-seq experiments (OSD-120, 37, 38, 321, 281, 427, 217) were compared over
+  **21,527 shared genes**. Their genome-wide spaceflight log₂ fold-changes were
+  **positively correlated**, the best-correlated pair reaching **Pearson r = 0.50** —
+  substantial agreement for independent missions, teams and ecotypes.
+- **A reproducible core.** Twenty-five genes responded in a **consistent direction
+  across ≥80 % of the studies** — the robust backbone of the *Arabidopsis*
+  spaceflight transcriptome.
+- **Context adds scatter.** Pairwise agreement varied; the spread tracks differences
+  in ecotype, organ, light recipe and mission.
+- **A second molecular layer.** One panel member (**OSD-217**) carries matched
+  DNA-methylation data, opening the epigenetic dimension explored in the next chapter.
+
+### Discussion
+
+The positive cross-study correlation and the reproducible core show the *Arabidopsis*
+spaceflight transcriptome is **not a one-study artefact** — there is a real, repeatable
+signal that independent experiments recover. Yet the agreement is far from perfect
+(best pair r = 0.50), and that spread is informative: it reflects genuine
+**context-dependence** — the same plant responds differently with ecotype, tissue,
+light and hardware. The practical message for experiment design is that a "spaceflight
+gene set" should be defined **across** studies, not from any single one.
+
+### Limitations
+
+- **Heterogeneous designs** (tissue, ecotype, platform) compared with one simple
+  metric (mean flight/ground log₂FC), which smooths over within-study factors.
+- **Effect size, not significance** — the comparison ranks magnitude, not per-study
+  statistical significance.
+- **Plant-specific** — reproducibility shown here is for *Arabidopsis*; other
+  organisms may differ.
+
+### Conclusion
+
+A consistent, reproducible *Arabidopsis* spaceflight transcriptome exists and is
+recoverable across OSDR's independent studies; the next frontier is **multi-omic** —
+pairing it with the epigenome (next chapter) and, for crops, the microbiome (tomato
+chapter). Every figure here was built live from the OSDR API — change `PANEL`, swap
+organisms, or join other layers to extend the analysis.""")
 
 nb["cells"] = cells
 nb["metadata"]["kernelspec"] = {"name": "python3", "display_name": "Python 3", "language": "python"}
