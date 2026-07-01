@@ -1,0 +1,30 @@
+{
+  "title": "OSDR Astrobotany — Interactive FAIR & Multi-omics Notebook",
+  "description": "An interactive Jupyter Book providing a standardised FAIR assessment of NASA's Open Science Data Repository (OSDR), plus interactive visualisation, data storytelling, and multi-omic integration (transcriptome, epigenome, microbiome) built live on the OSDR biodata API, with an astrobotany focus. Includes: a live full-repository FAIR scorecard and per-dataset 'improve your FAIRness' report; a scheduled FAIR-over-time tracker; interactive API and dataset explorers; a cross-study Arabidopsis spaceflight-transcriptome reproducibility analysis; an epigenome x transcriptome integration (OSD-217); and a tomato (VEG-05) host-transcriptome x microbiome integration.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "CC0-1.0",
+  "creators": [
+    { "name": "Barker, Richard" },
+    { "name": "OSDR team" }
+  ],
+  "keywords": [
+    "OSDR",
+    "GeneLab",
+    "astrobotany",
+    "FAIR",
+    "spaceflight",
+    "Arabidopsis",
+    "tomato",
+    "multi-omics",
+    "microbiome",
+    "Jupyter Book"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "scheme": "url",
+      "identifier": "https://github.com/dr-richard-barker/OSDR_juypter_book.io"
+    }
+  ]
+}
