@@ -205,26 +205,23 @@ else:
     print("  (b) rf_host_association() — RF ranking of microbes by association with the")
     print("      host spaceflight gene-module (the regression sibling of section 5's rf_responders).")''')
 
-md(r"""## 5. Which microbes respond to spaceflight — and which engage the host?
+md(r"""## 5. Results
 
-A community table lets you ask two questions that go beyond differential abundance:
-**(1)** which microbes most cleanly *separate flight from ground?* and **(2)** which
-microbes *track the host's* spaceflight response? Both are natural **machine-learning**
-problems. Below we (a) show the real answer the paper already gives, (b) build the ML
-framework that runs on the genus table from section 2, (c) demonstrate it on simulated
-data, and (d) discuss honestly what it can — and can't — say about **causation**.""")
-
-md(r"""### 5a. The reported responders (real, from the paper)
-
-The VEG-05 paper's DESeq2 analysis already names the strongest spaceflight responders.
-We encode its reported direction/magnitude (only the two clades were quantified, at
->8-fold; the rest are reported as up/down) and rank them.""")
+We present the chapter's data graphically. The **reported responders** (bar) and the
+**host response** (box) are *real*; the integration views (RF importance bar, scatter)
+are demonstrated on a **simulated** community — clearly marked — because the processed
+genus table isn't public yet; the **interaction Sankey** is a curated map of documented
+plant–microbe biology.""")
 
 code('''import numpy as np
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly.io as pio
-pio.renderers.default = "notebook_connected"   # keep charts interactive in the static book
+pio.renderers.default = "notebook_connected"   # keep charts interactive in the static book''')
 
+md("### Bar — which microbes respond most to spaceflight (real, from the paper)")
+
+code('''# The VEG-05 DESeq2 result, encoded (only the two clades were quantified, at >8-fold)
 responders = pd.DataFrame([
     ("Allorhizobium-Rhizobium clade", 3.0), ("Burkholderia clade", 3.0),
     ("Azospirillum", 1.0), ("Sphingomonas", 1.0), ("Dyadobacter", 1.0),
@@ -240,40 +237,42 @@ fig.update_layout(height=400, coloraxis_showscale=False)
 fig.update_xaxes(title="ordinal: +3 = >8-fold up, +1 = up, -1 = down")
 fig.show()''')
 
-md(r"""### 5b. A machine-learning framework (runs on the genus table)
+md(r"""### Box — the host spaceflight gene-module (real, OSD-767)
 
-With the per-sample `tomato_genus_by_sample.csv` from section 2 you can go further: a
-**random forest** trained to classify flight vs ground reads off, via **feature
-importance**, *which genera carry the spaceflight signal* — accounting for the whole
-community at once, not one taxon at a time. The same trick (microbe → host gene-module
-regressor) ranks microbes that track the host response.""")
+The host module (top flight-vs-ground root genes, section 4) scored per sample — the
+response the microbiome would engage.""")
 
-code('''def rf_responders(genus_by_sample, labels, n_estimators=400, seed=0):
-    """Random-forest importance: which genera best separate the two conditions.
-    genus_by_sample: samples x genera; labels: array of 'Flight'/'Ground'."""
-    from sklearn.ensemble import RandomForestClassifier
-    rf = RandomForestClassifier(n_estimators=n_estimators, random_state=seed, oob_score=True)
-    rf.fit(genus_by_sample.values, np.asarray(labels))
-    imp = pd.Series(rf.feature_importances_, index=genus_by_sample.columns)
-    return rf, imp.sort_values(ascending=False)
+code('''mps = cpm.loc[cpm.index.intersection(module_genes)].mean(axis=0)
+box_df = pd.DataFrame({"host module score": mps.values}, index=mps.index)
+box_df["condition"] = ["Flight" if "Flt" in s else "Ground" for s in box_df.index]
+box_df["organ"] = ["Root" if "Root" in s else "Leaf" for s in box_df.index]
+fig = px.box(box_df, x="organ", y="host module score", color="condition", points="all",
+             title="Host spaceflight gene-module by organ and condition (real, OSD-767)")
+fig.update_layout(height=400)
+fig.show()''')
 
-print("rf_responders() ready — feed it the section-2 genus table + flight/ground labels.")''')
-
-md(r"""### 5c. Demonstration on simulated data
+md(r"""### Random forest + scatter — the integration, demonstrated
 
 ```{admonition} Simulated — method check, not a result
 :class: warning
-The processed genus table isn't public yet, so here we **simulate** a community in
-which a handful of genera carry a planted spaceflight signal, and confirm the random
-forest recovers them. **These bars are illustrative** — the real importances come from
-running `rf_responders()` on the DADA2 output of section 2.
+The processed genus table isn't public yet, so the next two panels run on a **simulated**
+community with a planted spaceflight signal, to show the method works. The real numbers
+come from running `rf_responders()` / `rf_host_association()` (section 4) on the DADA2
+output of section 2.
 ```""")
 
-code('''rng = np.random.default_rng(0)
+code('''def rf_responders(genus_by_sample, labels, n_estimators=400, seed=0):
+    """RF importance: which genera best separate flight vs ground."""
+    from sklearn.ensemble import RandomForestClassifier
+    rf = RandomForestClassifier(n_estimators=n_estimators, random_state=seed, oob_score=True)
+    rf.fit(genus_by_sample.values, np.asarray(labels))
+    return rf, pd.Series(rf.feature_importances_, index=genus_by_sample.columns).sort_values(ascending=False)
+
+rng = np.random.default_rng(0)
 n_samples, n_genera = 48, 30
 labels = np.array(["Flight", "Ground"] * (n_samples // 2))
-X = rng.lognormal(mean=2.0, sigma=1.0, size=(n_samples, n_genera))
-planted = [3, 7, 12, 20, 25]                       # these genera are enriched in flight
+X = rng.lognormal(2.0, 1.0, size=(n_samples, n_genera))
+planted = [3, 7, 12, 20, 25]
 for j in planted:
     X[labels == "Flight", j] *= 4.0
 sim = pd.DataFrame(X, columns=[f"Genus_{i:02d}" for i in range(n_genera)])
@@ -281,53 +280,119 @@ sim = pd.DataFrame(X, columns=[f"Genus_{i:02d}" for i in range(n_genera)])
 rf, imp = rf_responders(sim, labels)
 print(f"SIMULATED RF out-of-bag accuracy: {rf.oob_score_:.2f}")
 top = imp.head(12).rename_axis("genus").reset_index(name="importance")
-top["planted signal"] = top["genus"].isin([f"Genus_{j:02d}" for j in planted])
+top["planted"] = top["genus"].isin([f"Genus_{j:02d}" for j in planted])
 fig = px.bar(top.sort_values("importance"), x="importance", y="genus", orientation="h",
-             color="planted signal", color_discrete_map={True: "#2e7d32", False: "#90a4ae"},
+             color="planted", color_discrete_map={True: "#2e7d32", False: "#90a4ae"},
              title="SIMULATED: RF importance recovers the planted spaceflight responders")
 fig.update_layout(height=420)
 fig.show()''')
 
-md(r"""### 5d. Can this be *causal*?
+code('''# Scatter: a planted flight-associated microbe vs a (simulated) host module, per sample
+sim_module = np.where(labels == "Flight", 1.0, 0.0) + rng.normal(0, 0.15, n_samples)
+scat = pd.DataFrame({"planted PGPR abundance": sim["Genus_03"],
+                     "host module (simulated)": sim_module, "condition": labels})
+fig = px.scatter(scat, x="planted PGPR abundance", y="host module (simulated)", color="condition",
+                 title="SIMULATED: a flight-associated microbe vs the host module (per sample)")
+fig.update_layout(height=400)
+fig.show()''')
 
-Short answer: **random-forest importance is associational, not causal.** It ranks which
-microbes *co-vary* with spaceflight (or with a host gene), which is a strong way to
-generate hypotheses — but it cannot, on its own, say a microbe *induced* the plant's
-response, or vice versa. Three honest obstacles here:
+md(r"""### Sankey — how the flight-shifted microbes connect to the host response (curated)
 
-- **Different sample sets.** OSD-766 (microbes) and OSD-767 (host) aren't the same
-  plants, so even a perfect model links them only at the **group level**.
-- **Feedback / direction.** Plants secrete flavonoids that *recruit* PGPR **and**
-  microbes signal back to the plant — cause and effect run both ways, which plain ML
-  can't disentangle.
-- **Confounding.** Spaceflight changes water films, temperature and the host at once;
-  a microbe's "importance" may reflect a shared driver, not a microbe→host effect.
+A knowledge-based map: flight-shifted **microbes** → their **functional traits** → the
+**host pathways** enriched in spaceflight (section 4). The flows converge on the
+flavonoid/phenylpropanoid and ROS/defence axes.""")
 
-**What would move toward causation:** matched **per-sample** host+microbe profiling,
-then **mediation analysis** (does microbe *M* mediate the spaceflight → host-gene
-effect?), ideally with **time-course** sampling or **inoculation experiments** (add/omit
-a genus and watch the host). The framework above produces the ranked candidates;
-those designs would test them. The honest role of this chapter is to get you to the
-**right shortlist**, fast.""")
+code('''micro = ["Rhizobium clade", "Azospirillum", "Burkholderia clade", "Sphingomonas",
+         "Methylobacterium", "Dyadobacter", "Massilia"]
+traits = ["N-fixation", "Flavonoid response", "ROS interaction", "Stress tolerance"]
+hostp = ["Flavonoid / phenylpropanoid", "ROS / defence", "Stress"]
+nodes = micro + traits + hostp
+idx = {n: i for i, n in enumerate(nodes)}
+links = [
+    ("Rhizobium clade", "N-fixation"), ("Rhizobium clade", "Flavonoid response"),
+    ("Azospirillum", "N-fixation"), ("Azospirillum", "Stress tolerance"),
+    ("Burkholderia clade", "N-fixation"), ("Burkholderia clade", "ROS interaction"),
+    ("Sphingomonas", "ROS interaction"), ("Sphingomonas", "Stress tolerance"),
+    ("Methylobacterium", "Stress tolerance"), ("Dyadobacter", "ROS interaction"),
+    ("Massilia", "ROS interaction"),
+    ("N-fixation", "Flavonoid / phenylpropanoid"), ("Flavonoid response", "Flavonoid / phenylpropanoid"),
+    ("ROS interaction", "ROS / defence"), ("Stress tolerance", "Stress"),
+]
+fig = go.Figure(go.Sankey(
+    node=dict(label=nodes, pad=15, thickness=16,
+              color=["#66bb6a"] * len(micro) + ["#90caf9"] * len(traits) + ["#ffb74d"] * len(hostp)),
+    link=dict(source=[idx[a] for a, b in links], target=[idx[b] for a, b in links],
+              value=[1] * len(links))))
+fig.update_layout(height=470,
+                  title="Flight-shifted microbes -> traits -> host spaceflight-enriched pathways")
+fig.show()''')
 
-md(r"""## 6. Reading the result
+md(r"""## 6. Discussion
 
-When the genus table is in place, this produces a **genera × host-genes
-correlation** across the experimental groups — directly testing whether the
-spaceflight-enriched PGPR genera (*Rhizobium*, *Azospirillum*, *Burkholderia*,
-*Dyadobacter*, *Sphingomonas*) track with specific host root genes.
+Spaceflight reshaped the VEG-05 tomato rhizosphere toward **nitrogen-fixing and
+plant-growth-promoting (PGPR) bacteria** — the *Rhizobium*- and *Burkholderia*-clades and
+*Azospirillum* rose most (>8-fold for the two clades), while the endophytic diazotroph
+*Herbaspirillum* fell (VEG-05 microbiome study; differential abundance via DESeq2, Love
+*et al.*, 2014). A tilt toward beneficial, pathogen-free communities echoes earlier ISS
+crop work: lettuce grown in the same Veggie hardware carried no plant pathogens and a
+largely benign microbiota (Khodadad *et al.*, 2020).
 
-Interpret it with the caveats above: the host and microbiome are different sample
-sets, so this is a **group-level, hypothesis-generating** comparison — a strong
-lead to follow, not a final answer. The moment OSDR (or you) publishes the
-processed taxonomy, the [dataset explorer](OSDR_dataset_explorer.ipynb) and
-[data story](OSDR_data_story.ipynb) workflows apply to it directly.
+Strikingly, the host met this shift with matching chemistry. The tomato **root**
+transcriptome up-regulated the **flavonoid and phenylpropanoid** pathways (this book's
+re-analysis of OSD-767, and the VEG-05 transcriptome paper) — the canonical molecules
+plants exude to **recruit and signal to rhizosphere bacteria** (Hassan & Mathesius, 2012).
+Flavonoids activate the colonisation and nodulation programmes of exactly the N-fixing
+partners the flight community is enriched for, making the **flavonoid ↔ rhizobia axis**
+(the Sankey's busiest hub) the clearest point of contact between the two datasets.
+*Azospirillum*, also enriched, promotes growth through phytohormones, nitrogen fixation
+and root proliferation rather than nodulation (Bashan & de-Bashan, 2010), consistent with
+the light- and root-dependent responses across VEG-05.
+
+The response was **organ-specific**: roots — the rhizosphere interface — carried the
+strongest, most distinct signal (the box plot), as expected if microbes are involved, and
+as seen for the *Arabidopsis* spaceflight transcriptome, which is likewise remodelled
+organ-by-organ (Paul *et al.*, 2013). A second meeting point, **reactive-oxygen-species /
+defence** chemistry, is the toolkit plants use to *tune* which microbes colonise the root
+surface.
+
+**How firmly can we call this causal?** Not yet. Host and microbiome were profiled on
+**different plants**, so the link is group-level; spaceflight simultaneously alters water
+films, temperature and the plant, any of which could drive a microbe's apparent
+importance; and plant→microbe and microbe→plant signalling run both ways. The random-forest
+framework here ranks candidate responders and host-tracking microbes (the simulated panels
+show it recovers a planted signal) — but converting association to causation needs
+**matched per-sample multi-omics** with **mediation analysis**, and ultimately
+**inoculation experiments** that add or omit a genus and watch the host. The value of this
+chapter is to reach that shortlist quickly and transparently.
+
+### References
+
+- Bashan, Y. & de-Bashan, L. E. (2010) How the plant growth-promoting bacterium
+  *Azospirillum* promotes plant growth — a critical assessment. *Advances in Agronomy*
+  **108**, 77–136.
+- Hassan, S. & Mathesius, U. (2012) The role of flavonoids in root–rhizosphere signalling:
+  opportunities and challenges for improving plant–microbe interactions. *Journal of
+  Experimental Botany* **63**(9), 3429–3444.
+  <https://doi.org/10.1093/jxb/err430>
+- Khodadad, C. L. M. *et al.* (2020) Microbiological and nutritional analysis of lettuce
+  crops grown on the International Space Station. *Frontiers in Plant Science* **11**, 199.
+  <https://doi.org/10.3389/fpls.2020.00199>
+- Love, M. I., Huber, W. & Anders, S. (2014) Moderated estimation of fold change and
+  dispersion for RNA-seq data with DESeq2. *Genome Biology* **15**, 550.
+  <https://doi.org/10.1186/s13059-014-0550-8>
+- Paul, A.-L., Zupanska, A. K., Schultz, E. R. & Ferl, R. J. (2013) Organ-specific
+  remodeling of the *Arabidopsis* transcriptome in response to spaceflight. *BMC Plant
+  Biology* **13**, 112. <https://doi.org/10.1186/1471-2229-13-112>
+- VEG-05 microbiome: *The microbiome of a tomato crop grown under different lighting
+  regimes on the ISS.* NASA NTRS 20240016407.
+- VEG-05 transcriptome: *Stress and light spectral quality influence the transcriptome of a
+  tomato crop on the ISS.* *BMC Plant Biology* (2025).
+  <https://doi.org/10.1186/s12870-025-07621-4>
 
 ---
 
-**Sources:** [OSD-766 (microbiome)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-766) ·
-[OSD-767 (host RNA-seq)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-767) ·
-[VEG-05 Microbiome — NASA NTRS](https://ntrs.nasa.gov/citations/20240016407)""")
+**Data:** [OSD-766 (microbiome)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-766) ·
+[OSD-767 (host RNA-seq)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-767)""")
 
 nb["cells"] = cells
 nb["metadata"]["kernelspec"] = {"name": "python3", "display_name": "Python 3", "language": "python"}
