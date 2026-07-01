@@ -14,6 +14,17 @@ execute:
 bibtex_bibfiles:
   - references.bib
 
+# Extra notebooks/files kept in the repo but NOT part of the book (avoids orphan
+# pages and stray links). The curated book is defined entirely by _toc.yml.
+exclude_patterns:
+  - CARA-phenotypes_DRB.ipynb
+  - "IGV for OSDR development.ipynb"
+  - "Methods DRB_V1.ipynb"
+  - OSDR_metadata_notebok_for_ISSOP_figures.ipynb
+  - notebook_v1.ipynb
+  - Introduction.md
+  - README.md
+
 # Where the book lives on the web (powers the edit / issue / repo buttons)
 repository:
   url: https://github.com/dr-richard-barker/OSDR_juypter_book.io
@@ -44,3 +55,7 @@ parse:
 sphinx:
   config:
     nb_execution_allow_errors: true
+    # The GitBook-exported reference chapters jump heading levels (H1 -> H3);
+    # they render fine, so silence that cosmetic warning class.
+    suppress_warnings:
+      - myst.header

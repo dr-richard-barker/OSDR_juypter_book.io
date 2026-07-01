@@ -18,16 +18,16 @@ parts:
       - file: radlab-overview.md
       - file: open-science-abbreviations.md
 
-  - caption: Demo notebooks — accessing & analysing OSDR data
+  - caption: Demo notebooks — the CARA Arabidopsis analysis arc
     chapters:
-      - file: Methods_Lesson_01.ipynb
-      - file: rr9-phenotypes_Lesson_01.ipynb
-      - file: Methods.ipynb
+      - file: Tabular_Data.ipynb
+      - file: Clustering.ipynb
       - file: Regression.ipynb
       - file: Classification.ipynb
-      - file: Clustering.ipynb
-      - file: Tabular_Data.ipynb
+      - file: rr9-phenotypes_Lesson_01.ipynb
       - file: Image_Data.ipynb
+      - file: Methods_Lesson_01.ipynb
+      - file: Methods.ipynb
       - file: PubMed_scraping_notenook_for_ISSOP_figures.ipynb
       - file: Knowledge-graph-notebook_for_ISSOP_figures.ipynb
 
