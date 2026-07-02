@@ -1,0 +1,1596 @@
+{
+ "order": [
+  "OSD-44",
+  "OSD-121",
+  "OSD-147",
+  "OSD-205",
+  "OSD-213",
+  "OSD-469"
+ ],
+ "summary": {
+  "OSD-44": {
+   "contrast": "(Wild Type & Ground Control)v(Wild Type & Space Flight)",
+   "n_tested": 21267,
+   "n_sig": 711,
+   "n_up": 619,
+   "n_down": 92
+  },
+  "OSD-121": {
+   "contrast": "(Ground Control)v(Space Flight)",
+   "n_tested": 21267,
+   "n_sig": 1140,
+   "n_up": 376,
+   "n_down": 764
+  },
+  "OSD-147": {
+   "contrast": "(Wild Type & Ground Control)v(Wild Type & Space Flight)",
+   "n_tested": 21267,
+   "n_sig": 2,
+   "n_up": 1,
+   "n_down": 1
+  },
+  "OSD-205": {
+   "contrast": "(Wild Type & Ground Control)v(Wild Type & Space Flight)",
+   "n_tested": 21267,
+   "n_sig": 2,
+   "n_up": 1,
+   "n_down": 1
+  },
+  "OSD-213": {
+   "contrast": "(Ground Control & 1G on Earth)v(Space Flight & uG)",
+   "n_tested": 21267,
+   "n_sig": 1000,
+   "n_up": 523,
+   "n_down": 477
+  },
+  "OSD-469": {
+   "contrast": "(Ground Control & Wild Type & 16:8 light:dark hour)v(Space Flight & Wild Type & 16:8 light:dark hour)",
+   "n_tested": 21267,
+   "n_sig": 2410,
+   "n_up": 895,
+   "n_down": 1515
+  }
+ },
+ "recurrence": [
+  {
+   "gene_id": "ATCG00050",
+   "symbol": "RPS16",
+   "n_studies": 4,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.656
+  },
+  {
+   "gene_id": "AT5G43580",
+   "symbol": "UPI",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 4.304
+  },
+  {
+   "gene_id": "AT1G80160",
+   "symbol": "GLYI7",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.576
+  },
+  {
+   "gene_id": "AT2G39530",
+   "symbol": "CASPL4D1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.062
+  },
+  {
+   "gene_id": "AT5G39520",
+   "symbol": "CSAP",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 2.954
+  },
+  {
+   "gene_id": "AT5G09220",
+   "symbol": "AAP2",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.736
+  },
+  {
+   "gene_id": "AT2G31945",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 2.721
+  },
+  {
+   "gene_id": "AT1G02360",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 2.567
+  },
+  {
+   "gene_id": "AT2G39200",
+   "symbol": "ATMLO12",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 2.533
+  },
+  {
+   "gene_id": "AT4G16370",
+   "symbol": "ATOPT3",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.307
+  },
+  {
+   "gene_id": "AT3G16530",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.277
+  },
+  {
+   "gene_id": "AT2G42610",
+   "symbol": "LSH10",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 2.263
+  },
+  {
+   "gene_id": "AT5G05250",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.254
+  },
+  {
+   "gene_id": "AT1G70370",
+   "symbol": "PG2",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.243
+  },
+  {
+   "gene_id": "ATMG00070",
+   "symbol": "NAD9",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.236
+  },
+  {
+   "gene_id": "AT4G34760",
+   "symbol": "SAUR50",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.135
+  },
+  {
+   "gene_id": "AT1G51890",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 2.11
+  },
+  {
+   "gene_id": "AT5G02550",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.103
+  },
+  {
+   "gene_id": "AT1G08920",
+   "symbol": "ESL1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 2.09
+  },
+  {
+   "gene_id": "AT5G13630",
+   "symbol": "ABAR",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 2.079
+  },
+  {
+   "gene_id": "ATMG00180",
+   "symbol": "CCB452",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.056
+  },
+  {
+   "gene_id": "ATMG00980|AT2G07675|ATMG00990|AT2G07751",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 2.025
+  },
+  {
+   "gene_id": "AT4G23690",
+   "symbol": "AtDIR6",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.998
+  },
+  {
+   "gene_id": "ATCG00490",
+   "symbol": "RBCL",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.993
+  },
+  {
+   "gene_id": "ATMG00590|AT2G07718",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.976
+  },
+  {
+   "gene_id": "AT1G75280",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.959
+  },
+  {
+   "gene_id": "AT3G14310",
+   "symbol": "ATPME3",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.958
+  },
+  {
+   "gene_id": "AT4G03280",
+   "symbol": "PETC",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.952
+  },
+  {
+   "gene_id": "AT1G20340",
+   "symbol": "DRT112",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.927
+  },
+  {
+   "gene_id": "ATMG00513",
+   "symbol": "NAD5",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.924
+  },
+  {
+   "gene_id": "ATCG01110|ATCG01100",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.92
+  },
+  {
+   "gene_id": "AT1G75500",
+   "symbol": "UMAMIT5",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.898
+  },
+  {
+   "gene_id": "AT2G07629|ATMG00090|ATMG00080",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.881
+  },
+  {
+   "gene_id": "AT4G04640",
+   "symbol": "ATPC1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.879
+  },
+  {
+   "gene_id": "ATCG00590|ATCG00600",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.878
+  },
+  {
+   "gene_id": "AT3G53150",
+   "symbol": "UGT73D1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 1.872
+  },
+  {
+   "gene_id": "AT5G58660",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.831
+  },
+  {
+   "gene_id": "ATMG00060",
+   "symbol": "NAD5",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.752
+  },
+  {
+   "gene_id": "AT1G30820",
+   "symbol": "CTPS1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.748
+  },
+  {
+   "gene_id": "AT5G03610",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.741
+  },
+  {
+   "gene_id": "AT2G02950",
+   "symbol": "PKS1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.705
+  },
+  {
+   "gene_id": "AT1G48600",
+   "symbol": "AtPMEAMT",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.686
+  },
+  {
+   "gene_id": "AT1G19020",
+   "symbol": "SDA1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 1.685
+  },
+  {
+   "gene_id": "AT3G17790",
+   "symbol": "ATACP5",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.682
+  },
+  {
+   "gene_id": "ATMG00660",
+   "symbol": "ORF149",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.667
+  },
+  {
+   "gene_id": "AT2G07705|AT1G65346",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.657
+  },
+  {
+   "gene_id": "AT2G30570",
+   "symbol": "PSBW",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.657
+  },
+  {
+   "gene_id": "AT1G45145",
+   "symbol": "ATH5",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 1.614
+  },
+  {
+   "gene_id": "AT1G48750",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.597
+  },
+  {
+   "gene_id": "AT4G34980",
+   "symbol": "SLP2",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.584
+  },
+  {
+   "gene_id": "AT5G47050",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 1.55
+  },
+  {
+   "gene_id": "ATMG00590|ATMG00580|AT2G07718",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.547
+  },
+  {
+   "gene_id": "AT3G06035",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.465
+  },
+  {
+   "gene_id": "ATMG00940",
+   "symbol": "ORF164",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.458
+  },
+  {
+   "gene_id": "AT3G26740",
+   "symbol": "CCL",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.438
+  },
+  {
+   "gene_id": "AT5G59780",
+   "symbol": "ATMYB59",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.431
+  },
+  {
+   "gene_id": "AT1G26770",
+   "symbol": "AT-EXP10",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.416
+  },
+  {
+   "gene_id": "AT1G74360",
+   "symbol": "GRACE",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 1.403
+  },
+  {
+   "gene_id": "AT4G32260",
+   "symbol": "PDE334",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 1.397
+  },
+  {
+   "gene_id": "ATMG01350|ATMG09960",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.389
+  },
+  {
+   "gene_id": "AT5G24800",
+   "symbol": "ATBZIP9",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.345
+  },
+  {
+   "gene_id": "AT2G07715|ATMG00560",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.276
+  },
+  {
+   "gene_id": "AT4G18640",
+   "symbol": "MDIS2",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.263
+  },
+  {
+   "gene_id": "AT3G01290",
+   "symbol": "AtHIR2",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 1.231
+  },
+  {
+   "gene_id": "AT1G47530",
+   "symbol": "DTX33",
+   "n_studies": 3,
+   "studies": [
+    "OSD-121",
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.212
+  },
+  {
+   "gene_id": "AT1G67110",
+   "symbol": "CYP735A2",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.194
+  },
+  {
+   "gene_id": "AT1G20630",
+   "symbol": "CAT1",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 1.179
+  },
+  {
+   "gene_id": "AT1G76680|AT1G76690",
+   "symbol": "",
+   "n_studies": 3,
+   "studies": [
+    "OSD-44",
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 1.16
+  },
+  {
+   "gene_id": "AT3G02480",
+   "symbol": "ABR",
+   "n_studies": 2,
+   "studies": [
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 4.827
+  },
+  {
+   "gene_id": "AT5G52310",
+   "symbol": "COR78",
+   "n_studies": 2,
+   "studies": [
+    "OSD-121",
+    "OSD-213"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 4.193
+  },
+  {
+   "gene_id": "AT1G03850",
+   "symbol": "ATGRXS13",
+   "n_studies": 2,
+   "studies": [
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 4.191
+  },
+  {
+   "gene_id": "AT3G48360",
+   "symbol": "ATBT2",
+   "n_studies": 2,
+   "studies": [
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "mixed",
+   "mean_abs_lfc": 4.04
+  },
+  {
+   "gene_id": "AT2G26150",
+   "symbol": "ATHSFA2",
+   "n_studies": 2,
+   "studies": [
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.998
+  },
+  {
+   "gene_id": "AT3G12580",
+   "symbol": "ATHSP70",
+   "n_studies": 2,
+   "studies": [
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.798
+  },
+  {
+   "gene_id": "AT2G20560",
+   "symbol": "DNAJ",
+   "n_studies": 2,
+   "studies": [
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.753
+  },
+  {
+   "gene_id": "AT3G18250",
+   "symbol": "",
+   "n_studies": 2,
+   "studies": [
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.654
+  },
+  {
+   "gene_id": "AT2G19190",
+   "symbol": "FRK1",
+   "n_studies": 2,
+   "studies": [
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.62
+  },
+  {
+   "gene_id": "AT1G52400",
+   "symbol": "ATBG1",
+   "n_studies": 2,
+   "studies": [
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "down",
+   "mean_abs_lfc": 3.606
+  },
+  {
+   "gene_id": "AT3G24500",
+   "symbol": "ATMBF1C",
+   "n_studies": 2,
+   "studies": [
+    "OSD-121",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.543
+  },
+  {
+   "gene_id": "AT5G12340",
+   "symbol": "",
+   "n_studies": 2,
+   "studies": [
+    "OSD-213",
+    "OSD-469"
+   ],
+   "direction": "up",
+   "mean_abs_lfc": 3.488
+  }
+ ],
+ "heatmap": {
+  "genes": [
+   "ATCG00050",
+   "AT5G43580",
+   "AT1G80160",
+   "AT2G39530",
+   "AT5G39520",
+   "AT5G09220",
+   "AT2G31945",
+   "AT1G02360",
+   "AT2G39200",
+   "AT4G16370",
+   "AT3G16530",
+   "AT2G42610",
+   "AT5G05250",
+   "AT1G70370",
+   "ATMG00070",
+   "AT4G34760",
+   "AT1G51890",
+   "AT5G02550",
+   "AT1G08920",
+   "AT5G13630",
+   "ATMG00180",
+   "ATMG00980|AT2G07675|ATMG00990|AT2G07751",
+   "AT4G23690",
+   "ATCG00490",
+   "ATMG00590|AT2G07718",
+   "AT1G75280",
+   "AT3G14310",
+   "AT4G03280",
+   "AT1G20340",
+   "ATMG00513"
+  ],
+  "labels": [
+   "RPS16",
+   "UPI",
+   "GLYI7",
+   "CASPL4D1",
+   "CSAP",
+   "AAP2",
+   "AT2G31945",
+   "AT1G02360",
+   "ATMLO12",
+   "ATOPT3",
+   "AT3G16530",
+   "LSH10",
+   "AT5G05250",
+   "PG2",
+   "NAD9",
+   "SAUR50",
+   "AT1G51890",
+   "AT5G02550",
+   "ESL1",
+   "ABAR",
+   "CCB452",
+   "ATMG00980",
+   "AtDIR6",
+   "RBCL",
+   "ATMG00590",
+   "AT1G75280",
+   "ATPME3",
+   "PETC",
+   "DRT112",
+   "NAD5"
+  ],
+  "studies": [
+   "OSD-44",
+   "OSD-121",
+   "OSD-147",
+   "OSD-205",
+   "OSD-213",
+   "OSD-469"
+  ],
+  "matrix": [
+   [
+    -1.964,
+    -1.211,
+    null,
+    null,
+    -2.151,
+    -1.299
+   ],
+   [
+    null,
+    2.19,
+    null,
+    null,
+    4.515,
+    6.207
+   ],
+   [
+    null,
+    2.352,
+    null,
+    null,
+    3.453,
+    4.923
+   ],
+   [
+    2.555,
+    null,
+    null,
+    null,
+    3.318,
+    3.312
+   ],
+   [
+    null,
+    1.55,
+    null,
+    null,
+    2.645,
+    4.668
+   ],
+   [
+    2.936,
+    -2.456,
+    null,
+    null,
+    null,
+    -2.815
+   ],
+   [
+    null,
+    2.633,
+    null,
+    null,
+    2.449,
+    3.082
+   ],
+   [
+    1.766,
+    null,
+    null,
+    null,
+    2.644,
+    3.292
+   ],
+   [
+    1.224,
+    null,
+    null,
+    null,
+    2.605,
+    3.77
+   ],
+   [
+    null,
+    -1.862,
+    null,
+    null,
+    1.832,
+    -3.228
+   ],
+   [
+    null,
+    -2.597,
+    null,
+    null,
+    1.428,
+    -2.805
+   ],
+   [
+    -1.142,
+    -2.704,
+    null,
+    null,
+    -2.942,
+    null
+   ],
+   [
+    1.676,
+    null,
+    null,
+    null,
+    1.385,
+    -3.7
+   ],
+   [
+    1.154,
+    -2.352,
+    null,
+    null,
+    null,
+    -3.222
+   ],
+   [
+    2.805,
+    1.271,
+    null,
+    null,
+    -2.632,
+    null
+   ],
+   [
+    -1.027,
+    -3.245,
+    null,
+    null,
+    2.132,
+    null
+   ],
+   [
+    1.462,
+    null,
+    null,
+    null,
+    2.663,
+    2.206
+   ],
+   [
+    2.205,
+    -1.758,
+    null,
+    null,
+    2.347,
+    null
+   ],
+   [
+    1.116,
+    null,
+    null,
+    null,
+    1.562,
+    3.592
+   ],
+   [
+    null,
+    -1.18,
+    null,
+    null,
+    -1.525,
+    -3.533
+   ],
+   [
+    2.261,
+    1.175,
+    null,
+    null,
+    -2.731,
+    null
+   ],
+   [
+    2.014,
+    1.636,
+    null,
+    null,
+    -2.425,
+    null
+   ],
+   [
+    1.748,
+    -2.063,
+    null,
+    null,
+    2.182,
+    null
+   ],
+   [
+    -1.558,
+    null,
+    null,
+    null,
+    -2.266,
+    -2.156
+   ],
+   [
+    2.75,
+    1.26,
+    null,
+    null,
+    -1.919,
+    null
+   ],
+   [
+    2.126,
+    -2.207,
+    null,
+    null,
+    null,
+    -1.545
+   ],
+   [
+    null,
+    -2.325,
+    null,
+    null,
+    -1.003,
+    -2.545
+   ],
+   [
+    null,
+    -1.3,
+    null,
+    null,
+    -2.671,
+    -1.885
+   ],
+   [
+    null,
+    -1.474,
+    null,
+    null,
+    -1.699,
+    -2.607
+   ],
+   [
+    2.552,
+    1.119,
+    null,
+    null,
+    -2.102,
+    null
+   ]
+  ]
+ },
+ "top_per_study": {
+  "OSD-44": [
+   {
+    "g": "AT3G62680",
+    "s": "ATPRP3|PRP3",
+    "lfc": 4.848
+   },
+   {
+    "g": "AT1G05250|AT1G05240",
+    "s": "",
+    "lfc": 4.756
+   },
+   {
+    "g": "AT5G46890|AT5G46900",
+    "s": "",
+    "lfc": 4.074
+   },
+   {
+    "g": "AT4G25820",
+    "s": "ATXTH14|XTH14|XTR9",
+    "lfc": 3.945
+   },
+   {
+    "g": "AT4G26010",
+    "s": "",
+    "lfc": 3.916
+   },
+   {
+    "g": "AT5G67400",
+    "s": "RHS19",
+    "lfc": 3.855
+   },
+   {
+    "g": "AT4G02270",
+    "s": "RHS13|SRPP",
+    "lfc": 3.794
+   },
+   {
+    "g": "AT1G34510",
+    "s": "",
+    "lfc": 3.762
+   },
+   {
+    "g": "AT5G05500",
+    "s": "AtPRPL1|MOP10|PRPL1",
+    "lfc": 3.752
+   },
+   {
+    "g": "ATCG00680",
+    "s": "PSBB",
+    "lfc": -3.693
+   },
+   {
+    "g": "AT4G40090",
+    "s": "AGP3",
+    "lfc": 3.52
+   },
+   {
+    "g": "AT5G56540",
+    "s": "AGP14|ATAGP14",
+    "lfc": 3.409
+   }
+  ],
+  "OSD-121": [
+   {
+    "g": "AT1G52690",
+    "s": "LEA7",
+    "lfc": 7.047
+   },
+   {
+    "g": "AT5G52310",
+    "s": "COR78|LTI140|LTI78|RD29A",
+    "lfc": 6.969
+   },
+   {
+    "g": "AT1G32560",
+    "s": "AtLEA4-1|LEA4-1",
+    "lfc": 5.826
+   },
+   {
+    "g": "AT5G52300",
+    "s": "LTI65|RD29B",
+    "lfc": 5.5
+   },
+   {
+    "g": "AT3G02480",
+    "s": "ABR",
+    "lfc": 4.986
+   },
+   {
+    "g": "AT5G23020",
+    "s": "IMS2|MAM-L|MAM3",
+    "lfc": -4.695
+   },
+   {
+    "g": "AT3G50970",
+    "s": "LTI30|XERO2",
+    "lfc": 4.666
+   },
+   {
+    "g": "AT3G45160",
+    "s": "",
+    "lfc": -4.626
+   },
+   {
+    "g": "AT5G03210",
+    "s": "AtDIP2|DIP2",
+    "lfc": 4.618
+   },
+   {
+    "g": "AT5G06760",
+    "s": "AtLEA4-5|LEA4-5",
+    "lfc": 4.614
+   },
+   {
+    "g": "AT1G28290",
+    "s": "AGP31",
+    "lfc": -4.523
+   },
+   {
+    "g": "AT2G47770",
+    "s": "ATTSPO|TSPO",
+    "lfc": 4.503
+   }
+  ],
+  "OSD-147": [
+   {
+    "g": "AT5G16010",
+    "s": "",
+    "lfc": 1.415
+   },
+   {
+    "g": "AT1G78850|AT1G78860",
+    "s": "",
+    "lfc": -1.177
+   }
+  ],
+  "OSD-205": [
+   {
+    "g": "AT2G41230",
+    "s": "ARL2|OSR1",
+    "lfc": 1.277
+   },
+   {
+    "g": "AT1G78850|AT1G78860",
+    "s": "",
+    "lfc": -1.189
+   }
+  ],
+  "OSD-213": [
+   {
+    "g": "AT1G03850",
+    "s": "ATGRXS13|GRXS13|ROXY18",
+    "lfc": 5.01
+   },
+   {
+    "g": "AT3G02480",
+    "s": "ABR",
+    "lfc": 4.669
+   },
+   {
+    "g": "AT5G43580",
+    "s": "UPI",
+    "lfc": 4.515
+   },
+   {
+    "g": "AT1G30700",
+    "s": "AtBBE8",
+    "lfc": 4.442
+   },
+   {
+    "g": "AT3G47340",
+    "s": "ASN1|AT-ASN1|DIN6",
+    "lfc": 4.344
+   },
+   {
+    "g": "AT5G14470",
+    "s": "AtGALK2|GALK2",
+    "lfc": 4.259
+   },
+   {
+    "g": "AT3G60140",
+    "s": "BGLU30|DIN2|SRG2",
+    "lfc": 4.192
+   },
+   {
+    "g": "AT4G35770",
+    "s": "ATSEN1|DIN1|SAG1|SEN1",
+    "lfc": 4.125
+   },
+   {
+    "g": "AT3G01420",
+    "s": "ALPHA-DOX1|DIOX1|DOX1|PADOX-1",
+    "lfc": 4.063
+   },
+   {
+    "g": "AT2G32150",
+    "s": "",
+    "lfc": 4.048
+   },
+   {
+    "g": "AT5G20790",
+    "s": "",
+    "lfc": -4.022
+   },
+   {
+    "g": "AT1G08630",
+    "s": "THA1",
+    "lfc": 3.947
+   }
+  ],
+  "OSD-469": [
+   {
+    "g": "AT3G02380",
+    "s": "ATCOL2|BBX3|COL2",
+    "lfc": -6.375
+   },
+   {
+    "g": "AT2G21330",
+    "s": "AtFBA1|FBA1",
+    "lfc": -6.296
+   },
+   {
+    "g": "AT5G43580",
+    "s": "UPI",
+    "lfc": 6.207
+   },
+   {
+    "g": "AT5G23060",
+    "s": "CaS",
+    "lfc": -5.707
+   },
+   {
+    "g": "AT1G60740|AT1G65970",
+    "s": "",
+    "lfc": 5.686
+   },
+   {
+    "g": "AT3G12580",
+    "s": "ATHSP70|HSC70-4|HSP70",
+    "lfc": 5.646
+   },
+   {
+    "g": "AT5G37260",
+    "s": "CIR1|RVE2",
+    "lfc": -5.612
+   },
+   {
+    "g": "AT3G24500",
+    "s": "ATMBF1C|MBF1C",
+    "lfc": 5.605
+   },
+   {
+    "g": "AT1G42970",
+    "s": "GAPB",
+    "lfc": -5.421
+   },
+   {
+    "g": "AT4G33010",
+    "s": "AtGLDP1|GLDP1",
+    "lfc": -5.396
+   },
+   {
+    "g": "AT1G52400",
+    "s": "ATBG1|BGL1|BGLU18",
+    "lfc": -5.211
+   },
+   {
+    "g": "AT3G18250",
+    "s": "",
+    "lfc": 5.204
+   }
+  ]
+ },
+ "n_recurrent_total": 695
+}
