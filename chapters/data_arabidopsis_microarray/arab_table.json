@@ -1,0 +1,442 @@
+{
+ "OSD-7": {
+  "title": "The Arabidopsis spaceflight transcriptome: a comparison of whole plants to discrete root, hypocotyl and shoot responses to the orbital environment",
+  "year": 2013,
+  "platform": "Affymetrix",
+  "factors": [
+   "Spaceflight",
+   "Organism Part"
+  ],
+  "tissue": "",
+  "ecotype": "Wasselewskija | Wasselewskija and Col-0",
+  "genotype": "Wild Type",
+  "age": "12 day old seedling hypocotyl | 12 day old seedling roots",
+  "hardware": "Advanced Biological Research System (ABRS)",
+  "light": "{Not Available}",
+  "temp": "",
+  "media": "solid 0.5x Murashige and Skoog media plates"
+ },
+ "OSD-8": {
+  "title": "Gravitational and magnetic field variations synergize to cause subtle variations in the global transcriptional state of Arabidopsis in vitro callus cultures",
+  "year": null,
+  "platform": "Agilent",
+  "factors": [
+   "Altered Gravity",
+   "Magnetic Field"
+  ],
+  "tissue": "cell culture",
+  "ecotype": "",
+  "genotype": "Wild Type",
+  "age": "",
+  "hardware": "Large Diameter Centrifuge | MAG (magnetic)",
+  "light": "24 dark {hour}",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-17": {
+  "title": "Transcription profiling by array of the response of Arabidopsis cultivar Columbia etiolated seedlings and undifferentiated tissue culture cells to the spaceflight environment",
+  "year": 2012,
+  "platform": "Affymetrix",
+  "factors": [
+   "Spaceflight",
+   "Organism Part"
+  ],
+  "tissue": "",
+  "ecotype": "Col-0",
+  "genotype": "Wild Type",
+  "age": "7 {day}",
+  "hardware": "",
+  "light": "",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-22": {
+  "title": "Root transcriptome remodeling of Arabidopsis in response to high levels of magnesium sulfate",
+  "year": 2017,
+  "platform": "Agilent",
+  "factors": [
+   "soil environment exposure",
+   "Time",
+   "Genotype"
+  ],
+  "tissue": "Plant Roots",
+  "ecotype": "",
+  "genotype": "",
+  "age": "",
+  "hardware": "growth room",
+  "light": "",
+  "temp": "",
+  "media": "2.2 g/L Murashige and Skoog salts (Sigma-Aldrich) and 0.5 g/L MES buffer (Sigma-Aldrich)"
+ },
+ "OSD-44": {
+  "title": "Transcriptomics analysis of etiolated Arabidopsis thaliana seedlings in response to microgravity",
+  "year": 2015,
+  "platform": "Affymetrix",
+  "factors": [
+   "Genotype",
+   "Spaceflight"
+  ],
+  "tissue": "Whole Organism",
+  "ecotype": "",
+  "genotype": "",
+  "age": "",
+  "hardware": "",
+  "light": "complete darkness",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-45": {
+  "title": "Action of microgravity on root development",
+  "year": null,
+  "platform": "",
+  "factors": [
+   "Microgravity Simulation",
+   "Time"
+  ],
+  "tissue": "Plant Roots",
+  "ecotype": "Columbia",
+  "genotype": "",
+  "age": "12 {day} | 4 {day}",
+  "hardware": "",
+  "light": "",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-46": {
+  "title": "Gamma radiation and HZE treatment of seedlings in Arabidopsis",
+  "year": 2014,
+  "platform": "Affymetrix",
+  "factors": [
+   "Ionizing Radiation",
+   "Exposure Duration",
+   "Time of Sample Collection After Treatment",
+   "Genotype",
+   "Age",
+   "Absorbed Radiation Dose"
+  ],
+  "tissue": "Seedlings",
+  "ecotype": "",
+  "genotype": "",
+  "age": "5 days old | 6 days old",
+  "hardware": "",
+  "light": "",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-121": {
+  "title": "Biological Research in Canisters-16 (BRIC-16): Transcriptomics, Glycomics, and Morphometric photography.",
+  "year": 2017,
+  "platform": [
+   "Affymetrix",
+   "photography",
+   "Thermo Fisher Scientific"
+  ],
+  "factors": [
+   "Spaceflight"
+  ],
+  "tissue": "Plant Shoots",
+  "ecotype": "Landsberg ecotype",
+  "genotype": "",
+  "age": "",
+  "hardware": "BRIC-PDFU | Orbital Environmental Simulator (OES)",
+  "light": "24 dark {hour}",
+  "temp": "",
+  "media": "1.2% (w/v) agar containing 1 mM MES buffer, 1% (w/v) sucrose, 1/2 strength Murashige and Skoog basal salts"
+ },
+ "OSD-134": {
+  "title": "Dissecting Low Atmospheric Pressure Stress: Transcriptome Responses to the Components of Hypobaria in Arabidopsis [Experiment 1]",
+  "year": 2017,
+  "platform": "Affymetrix",
+  "factors": [
+   "Atmospheric Pressure",
+   "Organism Part"
+  ],
+  "tissue": "",
+  "ecotype": "Wassilewskija ecotype",
+  "genotype": "",
+  "age": "",
+  "hardware": "Low Pressure Growth Chambers (LPGC)",
+  "light": "24 light {hour}",
+  "temp": "",
+  "media": "0.5x Murashige and Skoog media, 0.45% Phytagel and 2.5 ppm benomyl"
+ },
+ "OSD-136": {
+  "title": "Dissecting Low Atmospheric Pressure Stress: Transcriptome Responses to the Components of Hypobaria in Arabidopsis [Experiment 2]",
+  "year": 2017,
+  "platform": "Affymetrix",
+  "factors": [
+   "Atmospheric Pressure"
+  ],
+  "tissue": "Plant Roots",
+  "ecotype": "Wassilewskija ecotype",
+  "genotype": "",
+  "age": "5 {day}",
+  "hardware": "",
+  "light": "24 light hour",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-144": {
+  "title": "Gravitational signature of synchronized cell cultures in particular cell cycle stages",
+  "year": 2014,
+  "platform": "Nimblegen",
+  "factors": [
+   "Cell cycle phase",
+   "Microgravity Simulation"
+  ],
+  "tissue": "Cells",
+  "ecotype": "",
+  "genotype": "",
+  "age": "24 {hour}",
+  "hardware": "",
+  "light": "",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-147": {
+  "title": "Arg1 functions in the physiological adaptation of undifferentiated plant cells to spaceflight",
+  "year": 2017,
+  "platform": "Affymetrix",
+  "factors": [
+   "Spaceflight",
+   "Genotype"
+  ],
+  "tissue": "hypocotyl cell culture",
+  "ecotype": "",
+  "genotype": "",
+  "age": "14 {day}",
+  "hardware": "BRIC",
+  "light": "continuous dark",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-205": {
+  "title": "HSFA2 functions in the physiological adaptation of undifferentiated plant cells to spaceflight microgravity environment",
+  "year": 2018,
+  "platform": "Affymetrix",
+  "factors": [
+   "Spaceflight",
+   "Genotype"
+  ],
+  "tissue": "hypocotyl cell culture",
+  "ecotype": "Col-0",
+  "genotype": "",
+  "age": "14 {day}",
+  "hardware": "BRIC-LED (Biological Research In a Canister - Light Emitting Diode)",
+  "light": "24 dark {hour}",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-208": {
+  "title": "Comparing RNA-Seq and microarray gene expression data in two zones of the Arabidopsis root apex relevant to spaceflight.",
+  "year": 2018,
+  "platform": [
+   "Illumina",
+   "Affymetrix"
+  ],
+  "factors": [
+   "Tissue"
+  ],
+  "tissue": "root",
+  "ecotype": "",
+  "genotype": "Wild Type",
+  "age": "",
+  "hardware": "growth chamber",
+  "light": "24 light {hour}",
+  "temp": "",
+  "media": "2.2g Murashige and Skoog (MS) salts, 0.5 g of MES hydrate, 5.0 g of sucrose, and 1.0 mL of Gamborg vitamins, 0.5% (w/v) Phytagel (Sigma Aldrich)"
+ },
+ "OSD-213": {
+  "title": "A whole-genome microarray study of Arabidopsis thaliana cell cultures exposed to microgravity for 5 days on board of Shenzhou 8",
+  "year": 2015,
+  "platform": "Affymetrix",
+  "factors": [
+   "Spaceflight",
+   "Altered Gravity"
+  ],
+  "tissue": "plant callus",
+  "ecotype": "",
+  "genotype": "Wild Type",
+  "age": "",
+  "hardware": "Simbox",
+  "light": "",
+  "temp": "",
+  "media": "agar containing medium"
+ },
+ "OSD-282": {
+  "title": "The Heat-Inducible Transcription Factor HsfA2 Enhances Anoxia Tolerance in Arabidopsis",
+  "year": 2010,
+  "platform": "Affymetrix",
+  "factors": [
+   "Treatment"
+  ],
+  "tissue": "Seedlings",
+  "ecotype": "Col-0",
+  "genotype": "",
+  "age": "",
+  "hardware": "six-well plates",
+  "light": "24 dark {hour}",
+  "temp": "",
+  "media": "liquid growing media (Murashige and Skoog half-strength solution in six-well plates) containing 30 mM sucrose"
+ },
+ "OSD-296": {
+  "title": "Transcription profiling of Arabidopsis seedings exposed to UV-B irradiation",
+  "year": 2009,
+  "platform": "Affymetrix",
+  "factors": [
+   "Genotype",
+   "Treatment",
+   "Light",
+   "Time"
+  ],
+  "tissue": "Whole Organism",
+  "ecotype": "Col-0",
+  "genotype": "",
+  "age": "4 {day}",
+  "hardware": "MLR-350 growth chamber",
+  "light": "",
+  "temp": "",
+  "media": "Murashige and Skoog medium (Sigma) 1% sucrose and 0.8% agar"
+ },
+ "OSD-320": {
+  "title": "Gamma radiation and HZE treatment of seedlings in Arabidopsis",
+  "year": 2014,
+  "platform": "Affymetrix",
+  "factors": [
+   "Genotype",
+   "Time of sample collection after treatment",
+   "Ionizing Radiation"
+  ],
+  "tissue": "Seedlings",
+  "ecotype": "",
+  "genotype": "",
+  "age": "",
+  "hardware": "",
+  "light": "",
+  "temp": "",
+  "media": ""
+ },
+ "OSD-329": {
+  "title": "Transcription profiling of atm mutant, adm mutant and wild type whole plants and roots of Arabidopsis after gamma ray irradiation in a time series",
+  "year": 2006,
+  "platform": "",
+  "factors": [
+   "Genotype",
+   "Organism Part",
+   "Ionizing Radiation",
+   "Time of Sample Collection After Treatment"
+  ],
+  "tissue": "",
+  "ecotype": "Col-0",
+  "genotype": "",
+  "age": "",
+  "hardware": "",
+  "light": "14:10 light:dark {hour}",
+  "temp": "",
+  "media": "1percent glucose (Prolabo Normapur) pH5.5 solidified by 4 g/L of phytagel (Sigma)"
+ },
+ "OSD-428": {
+  "title": "Profiling the response of Arabidopsis thaliana to altered gravity environments: Exposure of the 14-3-3k:GFP overexpression line on the F-104 Starfighter, second flight",
+  "year": 2021,
+  "platform": "Affymetrix",
+  "factors": [
+   "Altered Gravity",
+   "Time"
+  ],
+  "tissue": "root",
+  "ecotype": "",
+  "genotype": "pCaMV35S:14-3-3\u00ce\u00ba:GFP",
+  "age": "10 {day}",
+  "hardware": "",
+  "light": "24 light {hour}",
+  "temp": "",
+  "media": "0.5% Phytagel-based growth medium supplemented with: 0.5x Murashige-Skoog salts, 0.5% (w/v) sucrose, and 1x Gamborg's Vitamin Mixture"
+ },
+ "OSD-434": {
+  "title": "Arabidopsis thaliana in altered gravity: the 14-3-3k:GFP overexpression line on the F-104 Starfighter, first flight",
+  "year": 2021,
+  "platform": "Affymetrix",
+  "factors": [
+   "Altered Gravity",
+   "Time"
+  ],
+  "tissue": "Plant Roots",
+  "ecotype": "",
+  "genotype": "pCaMV35S:14-3-3k:GFP",
+  "age": "",
+  "hardware": "UF growth room",
+  "light": "24 light {hour}",
+  "temp": "",
+  "media": "0.5% Phytagel-based growth medium supplemented with: 0.5x Murashige-Skoog salts, 0.5% (w/v) sucrose, and 1x Gamborg's Vitamin Mixture"
+ },
+ "OSD-436": {
+  "title": "Arabidopsis thaliana in altered gravity: WS in C-9 parabolic flight, 2015",
+  "year": 2021,
+  "platform": "Affymetrix",
+  "factors": [
+   "Altered Gravity",
+   "Time"
+  ],
+  "tissue": "Plant Roots",
+  "ecotype": "",
+  "genotype": "Wild Type",
+  "age": "12 {day}",
+  "hardware": "",
+  "light": "24 light {hour}",
+  "temp": "",
+  "media": "0.5% Phytagel-based growth medium"
+ },
+ "OSD-450": {
+  "title": "Arabidopsis thaliana in altered gravity: the 14-3-3\u03ba:GFP overexpression line in C-9 parabolic flight, 2013",
+  "year": 2021,
+  "platform": "Affymetrix",
+  "factors": [
+   "Altered Gravity",
+   "Time"
+  ],
+  "tissue": "Plant Roots",
+  "ecotype": "",
+  "genotype": "pCaMV35S:14-3-3k:GFP",
+  "age": "",
+  "hardware": "UF growth room",
+  "light": "24 light {hour}",
+  "temp": "",
+  "media": "0.5% Phytagel-based growth medium supplemented with: 0.5x Murashige-Skoog salts, 0.5% (w/v) sucrose, and 1x Gamborg's Vitamin Mixture"
+ },
+ "OSD-469": {
+  "title": "Transcriptomic analysis of the interaction between FLOWERING LOCUS T induction and photoperiodic signaling in response to spaceflight",
+  "year": 2022,
+  "platform": "Affymetrix",
+  "factors": [
+   "Spaceflight",
+   "Genotype",
+   "Light Cycle"
+  ],
+  "tissue": "Plant Leaves",
+  "ecotype": "",
+  "genotype": "",
+  "age": "",
+  "hardware": "plant growth units (PGUs)",
+  "light": "120 {umol m-2 s-1}",
+  "temp": "",
+  "media": "vermiculite immersed by a medium containing MS macronutrients"
+ },
+ "OSD-531": {
+  "title": "Identification of gravitropic response indicator genes in Arabidopsis inflorescence stems",
+  "year": 2014,
+  "platform": "Agilent",
+  "factors": [
+   "Treatment",
+   "Time",
+   "Tissue segment"
+  ],
+  "tissue": "Inflorescence stems",
+  "ecotype": "Columbia ecotype",
+  "genotype": "Wild Type",
+  "age": "",
+  "hardware": "",
+  "light": "24 light {hour}",
+  "temp": "",
+  "media": "Murashige and Skoog (MS) then soil"
+ }
+}
