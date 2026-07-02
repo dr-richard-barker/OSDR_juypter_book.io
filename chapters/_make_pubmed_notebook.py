@@ -140,6 +140,7 @@ cells.append(code(
     "import plotly.io as pio",
     "pio.renderers.default = 'notebook_connected'",
     "SPACE = '#1f3b73'",
+    "PLANT_GREEN = '#2ca02c'",
 ))
 
 # ── Section 2: growth ──────────────────────────────────────────────────────
@@ -334,9 +335,146 @@ cells.append(code(
     "df.nlargest(5, 'n_authors')[['Year', 'n_authors', 'Journal Title', 'Title']]",
 ))
 
+# ── Section 7: plant / astrobotany drill-down ──────────────────────────────
+cells.append(md(
+    "## 7. Zooming in: the plant (astrobotany) narrative",
+    "",
+    "The organism chart in Section 5 showed that plants are a substantial but",
+    "not-dominant slice of the field. Because plants are the focus of this book — and",
+    "the engine of any future bioregenerative life-support system — it is worth",
+    "drilling into that slice: **how big is it, which species and questions drive it,",
+    "and how does it map onto the OSDR plant datasets analysed elsewhere in this book?**",
+))
+
+cells.append(code(
+    "# Flag the plant / astrobotany sub-corpus",
+    "PLANT_PAT = (r'\\bplant|seedling|arabidopsis|tomato|soybean|lettuce|wheat|rice|maize|"
+    "moss|physcomitr|brassica|\\broot\\b|hypocotyl|gravitropism|phototropism|chloroplast|photosynthe')",
+    "df['is_plant'] = text.str.contains(PLANT_PAT, regex=True)",
+    "plant_df = df[df['is_plant']].copy()",
+    "print(f'{len(plant_df)} plant / astrobotany papers ',",
+    "      f'({100 * len(plant_df) / len(df):.0f}% of the space-biology omics corpus)')",
+))
+
+cells.append(md(
+    "### Plant share of the field over time",
+    "",
+    "Plotting the plant sub-corpus against the whole field shows whether astrobotany is",
+    "keeping pace, gaining or losing ground as space biology scales up.",
+))
+
+cells.append(code(
+    "ally = df[df['Year'].between(2000, latest)].groupby('Year').size()",
+    "ply = plant_df[plant_df['Year'].between(2000, latest)].groupby('Year').size()",
+    "idx = range(int(ally.index.min()), latest + 1)",
+    "ally = ally.reindex(idx, fill_value=0)",
+    "ply = ply.reindex(idx, fill_value=0)",
+    "share = (100 * ply / ally.replace(0, np.nan)).fillna(0)",
+    "",
+    "fig_plant_share = make_subplots(specs=[[{'secondary_y': True}]])",
+    "fig_plant_share.add_bar(x=list(idx), y=ply.values, name='Plant papers / year',",
+    "                        marker_color=PLANT_GREEN, opacity=0.85)",
+    "fig_plant_share.add_trace(go.Scatter(x=list(idx), y=share.values, name='Plant share of field (%)',",
+    "                                     mode='lines+markers', line=dict(color='#8c564b', width=3)),",
+    "                          secondary_y=True)",
+    "fig_plant_share.update_layout(height=430, template='simple_white',",
+    "                              title='Plant / astrobotany papers and their share of space-biology omics',",
+    "                              legend=dict(orientation='h', y=1.12))",
+    "fig_plant_share.update_yaxes(title_text='Plant papers / year', secondary_y=False)",
+    "fig_plant_share.update_yaxes(title_text='Share of field (%)', secondary_y=True, range=[0, 40])",
+    "fig_plant_share.show()",
+))
+
+cells.append(md(
+    "### Which plants fly? Model vs crop",
+    "",
+    "*Arabidopsis thaliana* is the reference organism of plant biology, so it dominates",
+    "the flight literature just as it dominates OSDR. But a **crop tail** — rice,",
+    "tomato, lettuce, wheat, soybean — reflects the field's pivot toward *food",
+    "production* for long-duration missions (the Veggie and Advanced Plant Habitat era).",
+))
+
+cells.append(code(
+    "SPECIES = {",
+    "    'Arabidopsis': r'arabidopsis', 'Rice': r'\\brice\\b|oryza',",
+    "    'Tomato': r'tomato|solanum lycopersic', 'Lettuce': r'lettuce|lactuca',",
+    "    'Wheat': r'\\bwheat|triticum', 'Pea': r'\\bpea\\b|pisum',",
+    "    'Soybean': r'soybean|glycine max', 'Maize': r'maize|\\bcorn\\b|zea mays',",
+    "    'Brassica': r'brassica|rapeseed|canola', 'Mustard': r'mustard',",
+    "    'Moss': r'physcomitr|\\bmoss\\b',",
+    "}",
+    "ptext = (plant_df['Title'].fillna('') + ' ' + plant_df.get('Abstract', pd.Series('', index=plant_df.index)).fillna('')).str.lower()",
+    "sp = pd.Series({s: int(ptext.str.contains(p, regex=True).sum()) for s, p in SPECIES.items()})",
+    "sp = sp[sp > 0].sort_values(ascending=False)",
+    "is_model = ['Model' if s == 'Arabidopsis' else 'Crop / other' for s in sp.index]",
+    "fig_species = px.bar(",
+    "    x=sp.index, y=sp.values, color=is_model,",
+    "    color_discrete_map={'Model': PLANT_GREEN, 'Crop / other': '#ff7f0e'},",
+    "    labels={'x': '', 'y': 'Papers mentioning species', 'color': ''},",
+    "    title='Plant species in the spaceflight omics literature — model vs crop',",
+    "    template='simple_white',",
+    ")",
+    "fig_species.update_layout(height=420, xaxis_tickangle=-30, legend=dict(orientation='h', y=1.12))",
+    "fig_species.show()",
+))
+
+cells.append(md(
+    "### What do the plant papers ask?",
+    "",
+    "Text-mining the plant sub-corpus for biological themes reveals what spaceflight",
+    "plant biology is actually *about*. Strikingly, the top themes — **defence /",
+    "immunity**, **oxidative stress**, **cell wall** and **root / gravitropism** —",
+    "are the very same processes that surfaced as the reproducible core loci in the",
+    "[Arabidopsis microarray chapter](OSDR_arabidopsis_microarray.ipynb): the",
+    "literature and the primary data tell one coherent story.",
+))
+
+cells.append(code(
+    "PLANT_TOPICS = {",
+    "    'Gene expression': r'transcriptom|gene expression|rna-seq|microarray',",
+    "    'Defence / immunity': r'defen|immun|pathogen|stress response|wound',",
+    "    'Seed / germination': r'\\bseed|germinat',",
+    "    'Root / gravitropism': r'gravitropism|root growth|\\broot\\b|graviperception',",
+    "    'Oxidative stress': r'oxidative|reactive oxygen|\\bros\\b|antioxidant|redox',",
+    "    'Photosynthesis': r'photosynthe|chloroplast|chlorophyll',",
+    "    'Cell wall': r'cell wall|lignin|cellulose|pectin',",
+    "    'Hormones': r'auxin|cytokinin|ethylene|abscisic|gibberellin|\\bhormone',",
+    "    'Cell cycle / meristem': r'cell cycle|cell division|meristem',",
+    "    'Light signalling': r'phototropism|photoreceptor|phytochrome|light signal',",
+    "}",
+    "tp = pd.Series({t: int(ptext.str.contains(p, regex=True).sum()) for t, p in PLANT_TOPICS.items()})",
+    "tp = tp.sort_values(ascending=True)",
+    "",
+    "POM = {'Genomics': r'genom', 'Transcriptomics': r'transcriptom', 'Proteomics': r'proteom',",
+    "       'Metabolomics': r'metabolom', 'Epigenomics': r'epigenom|methylation'}",
+    "pom = pd.Series({o: int(ptext.str.contains(p, regex=True).sum()) for o, p in POM.items()}).sort_values(ascending=True)",
+    "",
+    "fig_pt = make_subplots(rows=1, cols=2, horizontal_spacing=0.28,",
+    "                       subplot_titles=('Plant biology themes', 'Plant omics modalities'))",
+    "fig_pt.add_bar(x=tp.values, y=tp.index, orientation='h', marker_color=PLANT_GREEN, row=1, col=1)",
+    "fig_pt.add_bar(x=pom.values, y=pom.index, orientation='h', marker_color='#1f77b4', row=1, col=2)",
+    "fig_pt.update_layout(height=440, showlegend=False, template='simple_white',",
+    "                     title_text='What the spaceflight plant literature studies')",
+    "fig_pt.update_xaxes(title_text='Papers', row=1, col=1)",
+    "fig_pt.update_xaxes(title_text='Papers', row=1, col=2)",
+    "fig_pt.show()",
+))
+
+cells.append(md(
+    "### From literature to data",
+    "",
+    "The plant literature and the OSDR plant archive are two views of the same",
+    "community. *Arabidopsis* leads both; the dominant experimental themes",
+    "(gravitropism, oxidative and defence stress, cell-wall remodelling) are exactly",
+    "the axes along which the archived transcriptomes vary. The crop tail in the",
+    "literature — tomato (VEG-05), lettuce, wheat — is precisely where OSDR is now",
+    "growing, as the field turns from *understanding* the spaceflight response toward",
+    "*engineering* reliable food production off Earth.",
+))
+
 # ── Discussion ─────────────────────────────────────────────────────────────
 cells.append(md(
-    "## 7. What the numbers say",
+    "## 8. What the numbers say",
     "",
     "- **The field is growing fast.** Space-biology omics publications have risen",
     "  steeply since the mid-2000s, tracking the maturation of the ISS as a research",
@@ -351,6 +489,11 @@ cells.append(md(
     "  DLR, JAXA, CNES, ASI) that reflects the field's multi-agency character.",
     "- **Team science has scaled**: the typical author count per paper has climbed",
     "  markedly, driven by consortium analyses that pool many missions and labs.",
+    "- **Plant biology holds a steady ~1-in-6 share** (Section 7), led by *Arabidopsis*",
+    "  but with a growing crop tail (rice, tomato, lettuce, wheat) as the field pivots",
+    "  toward food production. Its dominant themes — defence, oxidative stress,",
+    "  gravitropism, cell wall — match the reproducible core loci recovered from the",
+    "  OSDR Arabidopsis microarray datasets, so literature and data agree.",
     "",
     "Together these trends frame why a FAIR, cross-study resource like OSDR — and a",
     "book like this one that reads its datasets *together* — matters: the literature",
